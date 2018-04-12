@@ -2,6 +2,7 @@ import copy
 import json
 import logging
 import re
+import urllib.parse
 
 import yaml
 
@@ -16,18 +17,30 @@ def main():
                 content = yaml.load(infofile)
                 items = content['content']
                 data = {}
+                itemsdict = {}
                 regex = re.compile(
-                    r'(.*?)/(.*?/){2}([A-Za-z ]*)(\s([0-9\-]*))*/.*')
+                    r'(.*?)/(\d*)/.*?/([A-Za-z ]*)(\s([0-9\-]*))*/.*')
                 for itemid, itemdata in items.items():
                     match = regex.match(itemdata)
                     if match.group(4):
                         catid = int(match.group(5))
+                        name = match.group(1)
+                        itemsdict[itemid] = {
+                            'price': int(match.group(2)),
+                            'displayname': name,
+                            'cat': catid
+                        }
+                        name = name.replace(' ', '_').replace('.','').lower()
+                        name = urllib.parse.quote(name)
+                        itemsdict[itemid]['name'] = name
                         data[catid] = data.get(catid, {})
                         data[catid]['name'] = match.group(3)
                         data[catid]['items'] = data[catid].get('items', [])
                         data[catid]['items'].append(int(itemid))
+                with open('Items.json', 'w') as outfile:
+                    json.dump(itemsdict, outfile, sort_keys=True, indent=4)
             except yaml.YAMLError as exc:
-                print(exc)
+                logger.fatal(exc)
         logger.info("Read gift data from file")
 
         with open('NPCGiftTastes.yaml', 'r') as infofile:
@@ -93,7 +106,6 @@ def main():
                    for catid in categories for itemid in data[catid]['items']},
                 **taste['items']}
             itemtastes[person] = items
-            print("{}: {}".format(person, len(items)))
         for person in itemtastes:
             itemtastes[person] = {
                 k: v for k, v in itemtastes[person].items() if v < 2 or v == 4}
