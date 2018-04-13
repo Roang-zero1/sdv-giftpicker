@@ -9,7 +9,7 @@ class App extends Component {
       <main className="App">
         <Jumbotron className="App-header">
           <div className="container">
-            <h1 className="display-3">SDV Gift Calculator</h1>
+            <h1 className="display-3">SDV Gift Picker</h1>
             <p>
               Use this site to check which gifts you have available for the
               characters of{' '}
@@ -42,12 +42,17 @@ class App extends Component {
         {/* TODO: Add an about referencing the used tools*/}
         <div className="container" id="about">
           <h2>About</h2>
-          SDV Gift Calculator by{' '}
-          <a href="https://www.reddit.com/user/Roang_zero1/">Roang_Zero1</a>
-          This app was inspired by <strong>Stardew Checkup</strong> availalbe at{' '}
-          <a href="https://mouseypounds.github.io/stardew-checkup/">
-            https://mouseypounds.github.io/stardew-checkup/
-          </a>
+          <p>
+            SDV Gift Calculator by{' '}
+            <a href="https://www.reddit.com/user/Roang_zero1/">Roang_Zero1</a>.
+          </p>
+          <p>
+            This app was inspired by <strong>Stardew Checkup</strong> availalbe
+            at{' '}
+            <a href="https://mouseypounds.github.io/stardew-checkup/">
+              https://mouseypounds.github.io/stardew-checkup/
+            </a>
+          </p>
         </div>
       </main>
     );
