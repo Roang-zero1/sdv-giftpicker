@@ -1,2432 +1,1724 @@
 {
-    "16": {
-        "cat": -81,
-        "displayname": "Wild Horseradish",
-        "name": "wild_horseradish",
-        "price": 50
-    },
-    "18": {
-        "cat": -81,
-        "displayname": "Daffodil",
-        "name": "daffodil",
-        "price": 30
-    },
-    "20": {
-        "cat": -81,
-        "displayname": "Leek",
-        "name": "leek",
-        "price": 60
-    },
-    "22": {
-        "cat": -81,
-        "displayname": "Dandelion",
-        "name": "dandelion",
-        "price": 40
-    },
-    "24": {
-        "cat": -75,
-        "displayname": "Parsnip",
-        "name": "parsnip",
-        "price": 35
-    },
-    "60": {
-        "cat": -2,
-        "displayname": "Emerald",
-        "name": "emerald",
-        "price": 250
-    },
-    "62": {
-        "cat": -2,
-        "displayname": "Aquamarine",
-        "name": "aquamarine",
-        "price": 180
-    },
-    "64": {
-        "cat": -2,
-        "displayname": "Ruby",
-        "name": "ruby",
-        "price": 250
-    },
-    "66": {
-        "cat": -2,
-        "displayname": "Amethyst",
-        "name": "amethyst",
-        "price": 100
-    },
-    "68": {
-        "cat": -2,
-        "displayname": "Topaz",
-        "name": "topaz",
-        "price": 80
-    },
-    "70": {
-        "cat": -2,
-        "displayname": "Jade",
-        "name": "jade",
-        "price": 200
-    },
-    "72": {
-        "cat": -2,
-        "displayname": "Diamond",
-        "name": "diamond",
-        "price": 750
-    },
-    "74": {
-        "cat": -2,
-        "displayname": "Prismatic Shard",
-        "name": "prismatic_shard",
-        "price": 2000
-    },
-    "78": {
-        "cat": -81,
-        "displayname": "Cave Carrot",
-        "name": "cave_carrot",
-        "price": 25
-    },
-    "80": {
-        "cat": -2,
-        "displayname": "Quartz",
-        "name": "quartz",
-        "price": 25
-    },
-    "82": {
-        "cat": -2,
-        "displayname": "Fire Quartz",
-        "name": "fire_quartz",
-        "price": 100
-    },
-    "84": {
-        "cat": -2,
-        "displayname": "Frozen Tear",
-        "name": "frozen_tear",
-        "price": 75
-    },
-    "86": {
-        "cat": -2,
-        "displayname": "Earth Crystal",
-        "name": "earth_crystal",
-        "price": 50
-    },
-    "88": {
-        "cat": -79,
-        "displayname": "Coconut",
-        "name": "coconut",
-        "price": 100
-    },
-    "90": {
-        "cat": -79,
-        "displayname": "Cactus Fruit",
-        "name": "cactus_fruit",
-        "price": 75
-    },
-    "92": {
-        "cat": -81,
-        "displayname": "Sap",
-        "name": "sap",
-        "price": 2
-    },
-    "128": {
-        "cat": -4,
-        "displayname": "Pufferfish",
-        "name": "pufferfish",
-        "price": 200
-    },
-    "129": {
-        "cat": -4,
-        "displayname": "Anchovy",
-        "name": "anchovy",
-        "price": 30
-    },
-    "130": {
-        "cat": -4,
-        "displayname": "Tuna",
-        "name": "tuna",
-        "price": 100
-    },
-    "131": {
-        "cat": -4,
-        "displayname": "Sardine",
-        "name": "sardine",
-        "price": 40
-    },
-    "132": {
-        "cat": -4,
-        "displayname": "Bream",
-        "name": "bream",
-        "price": 45
-    },
-    "136": {
-        "cat": -4,
-        "displayname": "Largemouth Bass",
-        "name": "largemouth_bass",
-        "price": 100
-    },
-    "137": {
-        "cat": -4,
-        "displayname": "Smallmouth Bass",
-        "name": "smallmouth_bass",
-        "price": 50
-    },
-    "138": {
-        "cat": -4,
-        "displayname": "Rainbow Trout",
-        "name": "rainbow_trout",
-        "price": 65
-    },
-    "139": {
-        "cat": -4,
-        "displayname": "Salmon",
-        "name": "salmon",
-        "price": 75
-    },
-    "140": {
-        "cat": -4,
-        "displayname": "Walleye",
-        "name": "walleye",
-        "price": 105
-    },
-    "141": {
-        "cat": -4,
-        "displayname": "Perch",
-        "name": "perch",
-        "price": 55
-    },
-    "142": {
-        "cat": -4,
-        "displayname": "Carp",
-        "name": "carp",
-        "price": 30
-    },
-    "143": {
-        "cat": -4,
-        "displayname": "Catfish",
-        "name": "catfish",
-        "price": 200
-    },
-    "144": {
-        "cat": -4,
-        "displayname": "Pike",
-        "name": "pike",
-        "price": 100
-    },
-    "145": {
-        "cat": -4,
-        "displayname": "Sunfish",
-        "name": "sunfish",
-        "price": 30
-    },
-    "146": {
-        "cat": -4,
-        "displayname": "Red Mullet",
-        "name": "red_mullet",
-        "price": 75
-    },
-    "147": {
-        "cat": -4,
-        "displayname": "Herring",
-        "name": "herring",
-        "price": 30
-    },
-    "148": {
-        "cat": -4,
-        "displayname": "Eel",
-        "name": "eel",
-        "price": 85
-    },
-    "149": {
-        "cat": -4,
-        "displayname": "Octopus",
-        "name": "octopus",
-        "price": 150
-    },
-    "150": {
-        "cat": -4,
-        "displayname": "Red Snapper",
-        "name": "red_snapper",
-        "price": 50
-    },
-    "151": {
-        "cat": -4,
-        "displayname": "Squid",
-        "name": "squid",
-        "price": 80
-    },
-    "154": {
-        "cat": -4,
-        "displayname": "Sea Cucumber",
-        "name": "sea_cucumber",
-        "price": 75
-    },
-    "155": {
-        "cat": -4,
-        "displayname": "Super Cucumber",
-        "name": "super_cucumber",
-        "price": 250
-    },
-    "156": {
-        "cat": -4,
-        "displayname": "Ghostfish",
-        "name": "ghostfish",
-        "price": 45
-    },
-    "158": {
-        "cat": -4,
-        "displayname": "Stonefish",
-        "name": "stonefish",
-        "price": 300
-    },
-    "159": {
-        "cat": -4,
-        "displayname": "Crimsonfish",
-        "name": "crimsonfish",
-        "price": 1500
-    },
-    "160": {
-        "cat": -4,
-        "displayname": "Angler",
-        "name": "angler",
-        "price": 900
-    },
-    "161": {
-        "cat": -4,
-        "displayname": "Ice Pip",
-        "name": "ice_pip",
-        "price": 500
-    },
-    "162": {
-        "cat": -4,
-        "displayname": "Lava Eel",
-        "name": "lava_eel",
-        "price": 700
-    },
-    "163": {
-        "cat": -4,
-        "displayname": "Legend",
-        "name": "legend",
-        "price": 5000
-    },
-    "164": {
-        "cat": -4,
-        "displayname": "Sandfish",
-        "name": "sandfish",
-        "price": 75
-    },
-    "165": {
-        "cat": -4,
-        "displayname": "Scorpion Carp",
-        "name": "scorpion_carp",
-        "price": 150
-    },
-    "167": {
-        "cat": -20,
-        "displayname": "Joja Cola",
-        "name": "joja_cola",
-        "price": 25
-    },
-    "168": {
-        "cat": -20,
-        "displayname": "Trash",
-        "name": "trash",
-        "price": 0
-    },
-    "169": {
-        "cat": -20,
-        "displayname": "Driftwood",
-        "name": "driftwood",
-        "price": 0
-    },
-    "170": {
-        "cat": -20,
-        "displayname": "Broken Glasses",
-        "name": "broken_glasses",
-        "price": 0
-    },
-    "171": {
-        "cat": -20,
-        "displayname": "Broken CD",
-        "name": "broken_cd",
-        "price": 0
-    },
-    "172": {
-        "cat": -20,
-        "displayname": "Soggy Newspaper",
-        "name": "soggy_newspaper",
-        "price": 0
-    },
-    "174": {
-        "cat": -5,
-        "displayname": "Large Egg",
-        "name": "large_egg",
-        "price": 95
-    },
-    "176": {
-        "cat": -5,
-        "displayname": "Egg",
-        "name": "egg",
-        "price": 50
-    },
-    "180": {
-        "cat": -5,
-        "displayname": "Egg",
-        "name": "egg",
-        "price": 50
-    },
-    "182": {
-        "cat": -5,
-        "displayname": "Large Egg",
-        "name": "large_egg",
-        "price": 95
-    },
-    "184": {
-        "cat": -6,
-        "displayname": "Milk",
-        "name": "milk",
-        "price": 125
-    },
-    "186": {
-        "cat": -6,
-        "displayname": "Large Milk",
-        "name": "large_milk",
-        "price": 190
-    },
-    "188": {
-        "cat": -75,
-        "displayname": "Green Bean",
-        "name": "green_bean",
-        "price": 40
-    },
-    "190": {
-        "cat": -75,
-        "displayname": "Cauliflower",
-        "name": "cauliflower",
-        "price": 175
-    },
-    "192": {
-        "cat": -75,
-        "displayname": "Potato",
-        "name": "potato",
-        "price": 80
-    },
-    "194": {
-        "cat": -7,
-        "displayname": "Fried Egg",
-        "name": "fried_egg",
-        "price": 35
-    },
-    "195": {
-        "cat": -7,
-        "displayname": "Omelet",
-        "name": "omelet",
-        "price": 125
-    },
-    "196": {
-        "cat": -7,
-        "displayname": "Salad",
-        "name": "salad",
-        "price": 110
-    },
-    "197": {
-        "cat": -7,
-        "displayname": "Cheese Cauliflower",
-        "name": "cheese_cauliflower",
-        "price": 300
-    },
-    "198": {
-        "cat": -7,
-        "displayname": "Baked Fish",
-        "name": "baked_fish",
-        "price": 100
-    },
-    "199": {
-        "cat": -7,
-        "displayname": "Parsnip Soup",
-        "name": "parsnip_soup",
-        "price": 120
-    },
-    "200": {
-        "cat": -7,
-        "displayname": "Vegetable Medley",
-        "name": "vegetable_medley",
-        "price": 120
-    },
-    "201": {
-        "cat": -7,
-        "displayname": "Complete Breakfast",
-        "name": "complete_breakfast",
-        "price": 350
-    },
-    "202": {
-        "cat": -7,
-        "displayname": "Fried Calamari",
-        "name": "fried_calamari",
-        "price": 150
-    },
-    "203": {
-        "cat": -7,
-        "displayname": "Strange Bun",
-        "name": "strange_bun",
-        "price": 225
-    },
-    "204": {
-        "cat": -7,
-        "displayname": "Lucky Lunch",
-        "name": "lucky_lunch",
-        "price": 250
-    },
-    "205": {
-        "cat": -7,
-        "displayname": "Fried Mushroom",
-        "name": "fried_mushroom",
-        "price": 200
-    },
-    "206": {
-        "cat": -7,
-        "displayname": "Pizza",
-        "name": "pizza",
-        "price": 300
-    },
-    "207": {
-        "cat": -7,
-        "displayname": "Bean Hotpot",
-        "name": "bean_hotpot",
-        "price": 100
-    },
-    "208": {
-        "cat": -7,
-        "displayname": "Glazed Yams",
-        "name": "glazed_yams",
-        "price": 200
-    },
-    "209": {
-        "cat": -7,
-        "displayname": "Carp Surprise",
-        "name": "carp_surprise",
-        "price": 150
-    },
-    "210": {
-        "cat": -7,
-        "displayname": "Hashbrowns",
-        "name": "hashbrowns",
-        "price": 120
-    },
-    "211": {
-        "cat": -7,
-        "displayname": "Pancakes",
-        "name": "pancakes",
-        "price": 80
-    },
-    "212": {
-        "cat": -7,
-        "displayname": "Salmon Dinner",
-        "name": "salmon_dinner",
-        "price": 300
-    },
-    "213": {
-        "cat": -7,
-        "displayname": "Fish Taco",
-        "name": "fish_taco",
-        "price": 500
-    },
-    "214": {
-        "cat": -7,
-        "displayname": "Crispy Bass",
-        "name": "crispy_bass",
-        "price": 150
-    },
-    "215": {
-        "cat": -7,
-        "displayname": "Pepper Poppers",
-        "name": "pepper_poppers",
-        "price": 200
-    },
-    "216": {
-        "cat": -7,
-        "displayname": "Bread",
-        "name": "bread",
-        "price": 60
-    },
-    "218": {
-        "cat": -7,
-        "displayname": "Tom Kha Soup",
-        "name": "tom_kha_soup",
-        "price": 250
-    },
-    "219": {
-        "cat": -7,
-        "displayname": "Trout Soup",
-        "name": "trout_soup",
-        "price": 100
-    },
-    "220": {
-        "cat": -7,
-        "displayname": "Chocolate Cake",
-        "name": "chocolate_cake",
-        "price": 200
-    },
-    "221": {
-        "cat": -7,
-        "displayname": "Pink Cake",
-        "name": "pink_cake",
-        "price": 480
-    },
-    "222": {
-        "cat": -7,
-        "displayname": "Rhubarb Pie",
-        "name": "rhubarb_pie",
-        "price": 400
-    },
-    "223": {
-        "cat": -7,
-        "displayname": "Cookie",
-        "name": "cookie",
-        "price": 140
-    },
-    "224": {
-        "cat": -7,
-        "displayname": "Spaghetti",
-        "name": "spaghetti",
-        "price": 120
-    },
-    "225": {
-        "cat": -7,
-        "displayname": "Fried Eel",
-        "name": "fried_eel",
-        "price": 120
-    },
-    "226": {
-        "cat": -7,
-        "displayname": "Spicy Eel",
-        "name": "spicy_eel",
-        "price": 175
-    },
-    "227": {
-        "cat": -7,
-        "displayname": "Sashimi",
-        "name": "sashimi",
-        "price": 75
-    },
-    "228": {
-        "cat": -7,
-        "displayname": "Maki Roll",
-        "name": "maki_roll",
-        "price": 220
-    },
-    "229": {
-        "cat": -7,
-        "displayname": "Tortilla",
-        "name": "tortilla",
-        "price": 50
-    },
-    "230": {
-        "cat": -7,
-        "displayname": "Red Plate",
-        "name": "red_plate",
-        "price": 400
-    },
-    "231": {
-        "cat": -7,
-        "displayname": "Eggplant Parmesan",
-        "name": "eggplant_parmesan",
-        "price": 200
-    },
-    "232": {
-        "cat": -7,
-        "displayname": "Rice Pudding",
-        "name": "rice_pudding",
-        "price": 260
-    },
-    "233": {
-        "cat": -7,
-        "displayname": "Ice Cream",
-        "name": "ice_cream",
-        "price": 120
-    },
-    "234": {
-        "cat": -7,
-        "displayname": "Blueberry Tart",
-        "name": "blueberry_tart",
-        "price": 150
-    },
-    "235": {
-        "cat": -7,
-        "displayname": "Autumn's Bounty",
-        "name": "autumn%27s_bounty",
-        "price": 350
-    },
-    "236": {
-        "cat": -7,
-        "displayname": "Pumpkin Soup",
-        "name": "pumpkin_soup",
-        "price": 300
-    },
-    "237": {
-        "cat": -7,
-        "displayname": "Super Meal",
-        "name": "super_meal",
-        "price": 220
-    },
-    "238": {
-        "cat": -7,
-        "displayname": "Cranberry Sauce",
-        "name": "cranberry_sauce",
-        "price": 120
-    },
-    "239": {
-        "cat": -7,
-        "displayname": "Stuffing",
-        "name": "stuffing",
-        "price": 165
-    },
-    "240": {
-        "cat": -7,
-        "displayname": "Farmer's Lunch",
-        "name": "farmer%27s_lunch",
-        "price": 150
-    },
-    "241": {
-        "cat": -7,
-        "displayname": "Survival Burger",
-        "name": "survival_burger",
-        "price": 180
-    },
-    "242": {
-        "cat": -7,
-        "displayname": "Dish O' The Sea",
-        "name": "dish_o%27_the_sea",
-        "price": 220
-    },
-    "243": {
-        "cat": -7,
-        "displayname": "Miner's Treat",
-        "name": "miner%27s_treat",
-        "price": 200
-    },
-    "244": {
-        "cat": -7,
-        "displayname": "Roots Platter",
-        "name": "roots_platter",
-        "price": 100
-    },
-    "248": {
-        "cat": -75,
-        "displayname": "Garlic",
-        "name": "garlic",
-        "price": 60
-    },
-    "250": {
-        "cat": -75,
-        "displayname": "Kale",
-        "name": "kale",
-        "price": 110
-    },
-    "252": {
-        "cat": -79,
-        "displayname": "Rhubarb",
-        "name": "rhubarb",
-        "price": 220
-    },
-    "254": {
-        "cat": -79,
-        "displayname": "Melon",
-        "name": "melon",
-        "price": 250
-    },
-    "256": {
-        "cat": -75,
-        "displayname": "Tomato",
-        "name": "tomato",
-        "price": 60
-    },
-    "257": {
-        "cat": -81,
-        "displayname": "Morel",
-        "name": "morel",
-        "price": 150
-    },
-    "258": {
-        "cat": -79,
-        "displayname": "Blueberry",
-        "name": "blueberry",
-        "price": 50
-    },
-    "259": {
-        "cat": -75,
-        "displayname": "Fiddlehead Fern",
-        "name": "fiddlehead_fern",
-        "price": 90
-    },
-    "260": {
-        "cat": -79,
-        "displayname": "Hot Pepper",
-        "name": "hot_pepper",
-        "price": 40
-    },
-    "262": {
-        "cat": -75,
-        "displayname": "Wheat",
-        "name": "wheat",
-        "price": 25
-    },
-    "264": {
-        "cat": -75,
-        "displayname": "Radish",
-        "name": "radish",
-        "price": 90
-    },
-    "266": {
-        "cat": -75,
-        "displayname": "Red Cabbage",
-        "name": "red_cabbage",
-        "price": 260
-    },
-    "268": {
-        "cat": -79,
-        "displayname": "Starfruit",
-        "name": "starfruit",
-        "price": 750
-    },
-    "270": {
-        "cat": -75,
-        "displayname": "Corn",
-        "name": "corn",
-        "price": 50
-    },
-    "272": {
-        "cat": -75,
-        "displayname": "Eggplant",
-        "name": "eggplant",
-        "price": 60
-    },
-    "274": {
-        "cat": -75,
-        "displayname": "Artichoke",
-        "name": "artichoke",
-        "price": 160
-    },
-    "276": {
-        "cat": -75,
-        "displayname": "Pumpkin",
-        "name": "pumpkin",
-        "price": 320
-    },
-    "278": {
-        "cat": -75,
-        "displayname": "Bok Choy",
-        "name": "bok_choy",
-        "price": 80
-    },
-    "280": {
-        "cat": -75,
-        "displayname": "Yam",
-        "name": "yam",
-        "price": 160
-    },
-    "281": {
-        "cat": -81,
-        "displayname": "Chanterelle",
-        "name": "chanterelle",
-        "price": 160
-    },
-    "282": {
-        "cat": -79,
-        "displayname": "Cranberries",
-        "name": "cranberries",
-        "price": 75
-    },
-    "283": {
-        "cat": -81,
-        "displayname": "Holly",
-        "name": "holly",
-        "price": 80
-    },
-    "284": {
-        "cat": -75,
-        "displayname": "Beet",
-        "name": "beet",
-        "price": 100
-    },
-    "286": {
-        "cat": -8,
-        "displayname": "Cherry Bomb",
-        "name": "cherry_bomb",
-        "price": 50
-    },
-    "287": {
-        "cat": -8,
-        "displayname": "Bomb",
-        "name": "bomb",
-        "price": 50
-    },
-    "288": {
-        "cat": -8,
-        "displayname": "Mega Bomb",
-        "name": "mega_bomb",
-        "price": 50
-    },
-    "296": {
-        "cat": -79,
-        "displayname": "Salmonberry",
-        "name": "salmonberry",
-        "price": 5
-    },
-    "298": {
-        "cat": -8,
-        "displayname": "Hardwood Fence",
-        "name": "hardwood_fence",
-        "price": 10
-    },
-    "299": {
-        "cat": -74,
-        "displayname": "Amaranth Seeds",
-        "name": "amaranth_seeds",
-        "price": 35
-    },
-    "300": {
-        "cat": -75,
-        "displayname": "Amaranth",
-        "name": "amaranth",
-        "price": 150
-    },
-    "301": {
-        "cat": -74,
-        "displayname": "Grape Starter",
-        "name": "grape_starter",
-        "price": 30
-    },
-    "302": {
-        "cat": -74,
-        "displayname": "Hops Starter",
-        "name": "hops_starter",
-        "price": 30
-    },
-    "303": {
-        "cat": -26,
-        "displayname": "Pale Ale",
-        "name": "pale_ale",
-        "price": 300
-    },
-    "304": {
-        "cat": -75,
-        "displayname": "Hops",
-        "name": "hops",
-        "price": 25
-    },
-    "305": {
-        "cat": -5,
-        "displayname": "Void Egg",
-        "name": "void_egg",
-        "price": 65
-    },
-    "306": {
-        "cat": -26,
-        "displayname": "Mayonnaise",
-        "name": "mayonnaise",
-        "price": 190
-    },
-    "307": {
-        "cat": -26,
-        "displayname": "Duck Mayonnaise",
-        "name": "duck_mayonnaise",
-        "price": 375
-    },
-    "308": {
-        "cat": -26,
-        "displayname": "Void Mayonnaise",
-        "name": "void_mayonnaise",
-        "price": 275
-    },
-    "309": {
-        "cat": -74,
-        "displayname": "Acorn",
-        "name": "acorn",
-        "price": 20
-    },
-    "310": {
-        "cat": -74,
-        "displayname": "Maple Seed",
-        "name": "maple_seed",
-        "price": 5
-    },
-    "311": {
-        "cat": -74,
-        "displayname": "Pine Cone",
-        "name": "pine_cone",
-        "price": 5
-    },
-    "322": {
-        "cat": -8,
-        "displayname": "Wood Fence",
-        "name": "wood_fence",
-        "price": 1
-    },
-    "323": {
-        "cat": -8,
-        "displayname": "Stone Fence",
-        "name": "stone_fence",
-        "price": 2
-    },
-    "324": {
-        "cat": -8,
-        "displayname": "Iron Fence",
-        "name": "iron_fence",
-        "price": 6
-    },
-    "325": {
-        "cat": -8,
-        "displayname": "Gate",
-        "name": "gate",
-        "price": 4
-    },
-    "326": {
-        "cat": -8,
-        "displayname": "Dwarvish Translation Guide",
-        "name": "dwarvish_translation_guide",
-        "price": 50
-    },
-    "328": {
-        "cat": -24,
-        "displayname": "Wood Floor",
-        "name": "wood_floor",
-        "price": 1
-    },
-    "329": {
-        "cat": -24,
-        "displayname": "Stone Floor",
-        "name": "stone_floor",
-        "price": 1
-    },
-    "330": {
-        "cat": -16,
-        "displayname": "Clay",
-        "name": "clay",
-        "price": 20
-    },
-    "331": {
-        "cat": -24,
-        "displayname": "Weathered Floor",
-        "name": "weathered_floor",
-        "price": 1
-    },
-    "333": {
-        "cat": -24,
-        "displayname": "Crystal Floor",
-        "name": "crystal_floor",
-        "price": 1
-    },
-    "334": {
-        "cat": -15,
-        "displayname": "Copper Bar",
-        "name": "copper_bar",
-        "price": 60
-    },
-    "335": {
-        "cat": -15,
-        "displayname": "Iron Bar",
-        "name": "iron_bar",
-        "price": 120
-    },
-    "336": {
-        "cat": -15,
-        "displayname": "Gold Bar",
-        "name": "gold_bar",
-        "price": 250
-    },
-    "337": {
-        "cat": -15,
-        "displayname": "Iridium Bar",
-        "name": "iridium_bar",
-        "price": 1000
-    },
-    "338": {
-        "cat": -15,
-        "displayname": "Refined Quartz",
-        "name": "refined_quartz",
-        "price": 50
-    },
-    "340": {
-        "cat": -26,
-        "displayname": "Honey",
-        "name": "honey",
-        "price": 100
-    },
-    "341": {
-        "cat": -24,
-        "displayname": "Tea Set",
-        "name": "tea_set",
-        "price": 200
-    },
-    "342": {
-        "cat": -26,
-        "displayname": "Pickles",
-        "name": "pickles",
-        "price": 100
-    },
-    "344": {
-        "cat": -26,
-        "displayname": "Jelly",
-        "name": "jelly",
-        "price": 160
-    },
-    "346": {
-        "cat": -26,
-        "displayname": "Beer",
-        "name": "beer",
-        "price": 200
-    },
-    "347": {
-        "cat": -74,
-        "displayname": "Rare Seed",
-        "name": "rare_seed",
-        "price": 200
-    },
-    "348": {
-        "cat": -26,
-        "displayname": "Wine",
-        "name": "wine",
-        "price": 400
-    },
-    "350": {
-        "cat": -26,
-        "displayname": "Juice",
-        "name": "juice",
-        "price": 150
-    },
-    "368": {
-        "cat": -19,
-        "displayname": "Basic Fertilizer",
-        "name": "basic_fertilizer",
-        "price": 2
-    },
-    "369": {
-        "cat": -19,
-        "displayname": "Quality Fertilizer",
-        "name": "quality_fertilizer",
-        "price": 10
-    },
-    "370": {
-        "cat": -19,
-        "displayname": "Basic Retaining Soil",
-        "name": "basic_retaining_soil",
-        "price": 4
-    },
-    "371": {
-        "cat": -19,
-        "displayname": "Quality Retaining Soil",
-        "name": "quality_retaining_soil",
-        "price": 5
-    },
-    "372": {
-        "cat": -23,
-        "displayname": "Clam",
-        "name": "clam",
-        "price": 50
-    },
-    "376": {
-        "cat": -80,
-        "displayname": "Poppy",
-        "name": "poppy",
-        "price": 140
-    },
-    "378": {
-        "cat": -15,
-        "displayname": "Copper Ore",
-        "name": "copper_ore",
-        "price": 5
-    },
-    "380": {
-        "cat": -15,
-        "displayname": "Iron Ore",
-        "name": "iron_ore",
-        "price": 10
-    },
-    "382": {
-        "cat": -15,
-        "displayname": "Coal",
-        "name": "coal",
-        "price": 15
-    },
-    "384": {
-        "cat": -15,
-        "displayname": "Gold Ore",
-        "name": "gold_ore",
-        "price": 25
-    },
-    "386": {
-        "cat": -15,
-        "displayname": "Iridium Ore",
-        "name": "iridium_ore",
-        "price": 100
-    },
-    "388": {
-        "cat": -16,
-        "displayname": "Wood",
-        "name": "wood",
-        "price": 2
-    },
-    "390": {
-        "cat": -16,
-        "displayname": "Stone",
-        "name": "stone",
-        "price": 2
-    },
-    "392": {
-        "cat": -23,
-        "displayname": "Nautilus Shell",
-        "name": "nautilus_shell",
-        "price": 120
-    },
-    "393": {
-        "cat": -23,
-        "displayname": "Coral",
-        "name": "coral",
-        "price": 80
-    },
-    "394": {
-        "cat": -23,
-        "displayname": "Rainbow Shell",
-        "name": "rainbow_shell",
-        "price": 300
-    },
-    "396": {
-        "cat": -79,
-        "displayname": "Spice Berry",
-        "name": "spice_berry",
-        "price": 80
-    },
-    "397": {
-        "cat": -23,
-        "displayname": "Sea Urchin",
-        "name": "sea_urchin",
-        "price": 160
-    },
-    "398": {
-        "cat": -79,
-        "displayname": "Grape",
-        "name": "grape",
-        "price": 80
-    },
-    "399": {
-        "cat": -81,
-        "displayname": "Spring Onion",
-        "name": "spring_onion",
-        "price": 8
-    },
-    "400": {
-        "cat": -79,
-        "displayname": "Strawberry",
-        "name": "strawberry",
-        "price": 120
-    },
-    "401": {
-        "cat": -24,
-        "displayname": "Straw Floor",
-        "name": "straw_floor",
-        "price": 1
-    },
-    "402": {
-        "cat": -80,
-        "displayname": "Sweet Pea",
-        "name": "sweet_pea",
-        "price": 50
-    },
-    "404": {
-        "cat": -81,
-        "displayname": "Common Mushroom",
-        "name": "common_mushroom",
-        "price": 40
-    },
-    "405": {
-        "cat": -24,
-        "displayname": "Wood Path",
-        "name": "wood_path",
-        "price": 1
-    },
-    "406": {
-        "cat": -79,
-        "displayname": "Wild Plum",
-        "name": "wild_plum",
-        "price": 80
-    },
-    "407": {
-        "cat": -24,
-        "displayname": "Gravel Path",
-        "name": "gravel_path",
-        "price": 1
-    },
-    "408": {
-        "cat": -81,
-        "displayname": "Hazelnut",
-        "name": "hazelnut",
-        "price": 90
-    },
-    "409": {
-        "cat": -24,
-        "displayname": "Crystal Path",
-        "name": "crystal_path",
-        "price": 1
-    },
-    "410": {
-        "cat": -79,
-        "displayname": "Blackberry",
-        "name": "blackberry",
-        "price": 20
-    },
-    "411": {
-        "cat": -24,
-        "displayname": "Cobblestone Path",
-        "name": "cobblestone_path",
-        "price": 1
-    },
-    "412": {
-        "cat": -81,
-        "displayname": "Winter Root",
-        "name": "winter_root",
-        "price": 70
-    },
-    "414": {
-        "cat": -79,
-        "displayname": "Crystal Fruit",
-        "name": "crystal_fruit",
-        "price": 150
-    },
-    "415": {
-        "cat": -24,
-        "displayname": "Stepping Stone Path",
-        "name": "stepping_stone_path",
-        "price": 1
-    },
-    "416": {
-        "cat": -81,
-        "displayname": "Snow Yam",
-        "name": "snow_yam",
-        "price": 100
-    },
-    "417": {
-        "cat": -17,
-        "displayname": "Sweet Gem Berry",
-        "name": "sweet_gem_berry",
-        "price": 3000
-    },
-    "418": {
-        "cat": -80,
-        "displayname": "Crocus",
-        "name": "crocus",
-        "price": 60
-    },
-    "420": {
-        "cat": -81,
-        "displayname": "Red Mushroom",
-        "name": "red_mushroom",
-        "price": 75
-    },
-    "421": {
-        "cat": -80,
-        "displayname": "Sunflower",
-        "name": "sunflower",
-        "price": 80
-    },
-    "422": {
-        "cat": -81,
-        "displayname": "Purple Mushroom",
-        "name": "purple_mushroom",
-        "price": 250
-    },
-    "424": {
-        "cat": -26,
-        "displayname": "Cheese",
-        "name": "cheese",
-        "price": 200
-    },
-    "425": {
-        "cat": -74,
-        "displayname": "Fairy Seeds",
-        "name": "fairy_seeds",
-        "price": 100
-    },
-    "426": {
-        "cat": -26,
-        "displayname": "Goat Cheese",
-        "name": "goat_cheese",
-        "price": 375
-    },
-    "427": {
-        "cat": -74,
-        "displayname": "Tulip Bulb",
-        "name": "tulip_bulb",
-        "price": 10
-    },
-    "428": {
-        "cat": -26,
-        "displayname": "Cloth",
-        "name": "cloth",
-        "price": 470
-    },
-    "429": {
-        "cat": -74,
-        "displayname": "Jazz Seeds",
-        "name": "jazz_seeds",
-        "price": 15
-    },
-    "430": {
-        "cat": -17,
-        "displayname": "Truffle",
-        "name": "truffle",
-        "price": 625
-    },
-    "431": {
-        "cat": -74,
-        "displayname": "Sunflower Seeds",
-        "name": "sunflower_seeds",
-        "price": 20
-    },
-    "432": {
-        "cat": -26,
-        "displayname": "Truffle Oil",
-        "name": "truffle_oil",
-        "price": 1065
-    },
-    "433": {
-        "cat": -74,
-        "displayname": "Coffee Bean",
-        "name": "coffee_bean",
-        "price": 15
-    },
-    "436": {
-        "cat": -6,
-        "displayname": "Goat Milk",
-        "name": "goat_milk",
-        "price": 225
-    },
-    "438": {
-        "cat": -6,
-        "displayname": "L. Goat Milk",
-        "name": "l_goat_milk",
-        "price": 345
-    },
-    "440": {
-        "cat": -18,
-        "displayname": "Wool",
-        "name": "wool",
-        "price": 340
-    },
-    "442": {
-        "cat": -5,
-        "displayname": "Duck Egg",
-        "name": "duck_egg",
-        "price": 95
-    },
-    "444": {
-        "cat": -18,
-        "displayname": "Duck Feather",
-        "name": "duck_feather",
-        "price": 125
-    },
-    "446": {
-        "cat": -18,
-        "displayname": "Rabbit's Foot",
-        "name": "rabbit%27s_foot",
-        "price": 565
-    },
-    "453": {
-        "cat": -74,
-        "displayname": "Poppy Seeds",
-        "name": "poppy_seeds",
-        "price": 50
-    },
-    "454": {
-        "cat": -79,
-        "displayname": "Ancient Fruit",
-        "name": "ancient_fruit",
-        "price": 550
-    },
-    "455": {
-        "cat": -74,
-        "displayname": "Spangle Seeds",
-        "name": "spangle_seeds",
-        "price": 25
-    },
-    "456": {
-        "cat": -7,
-        "displayname": "Algae Soup",
-        "name": "algae_soup",
-        "price": 100
-    },
-    "457": {
-        "cat": -7,
-        "displayname": "Pale Broth",
-        "name": "pale_broth",
-        "price": 150
-    },
-    "459": {
-        "cat": -26,
-        "displayname": "Mead",
-        "name": "mead",
-        "price": 200
-    },
-    "465": {
-        "cat": -19,
-        "displayname": "Speed-Gro",
-        "name": "speed-gro",
-        "price": 20
-    },
-    "466": {
-        "cat": -19,
-        "displayname": "Deluxe Speed-Gro",
-        "name": "deluxe_speed-gro",
-        "price": 40
-    },
-    "472": {
-        "cat": -74,
-        "displayname": "Parsnip Seeds",
-        "name": "parsnip_seeds",
-        "price": 10
-    },
-    "473": {
-        "cat": -74,
-        "displayname": "Bean Starter",
-        "name": "bean_starter",
-        "price": 30
-    },
-    "474": {
-        "cat": -74,
-        "displayname": "Cauliflower Seeds",
-        "name": "cauliflower_seeds",
-        "price": 40
-    },
-    "475": {
-        "cat": -74,
-        "displayname": "Potato Seeds",
-        "name": "potato_seeds",
-        "price": 25
-    },
-    "476": {
-        "cat": -74,
-        "displayname": "Garlic Seeds",
-        "name": "garlic_seeds",
-        "price": 20
-    },
-    "477": {
-        "cat": -74,
-        "displayname": "Kale Seeds",
-        "name": "kale_seeds",
-        "price": 35
-    },
-    "478": {
-        "cat": -74,
-        "displayname": "Rhubarb Seeds",
-        "name": "rhubarb_seeds",
-        "price": 50
-    },
-    "479": {
-        "cat": -74,
-        "displayname": "Melon Seeds",
-        "name": "melon_seeds",
-        "price": 40
-    },
-    "480": {
-        "cat": -74,
-        "displayname": "Tomato Seeds",
-        "name": "tomato_seeds",
-        "price": 25
-    },
-    "481": {
-        "cat": -74,
-        "displayname": "Blueberry Seeds",
-        "name": "blueberry_seeds",
-        "price": 40
-    },
-    "482": {
-        "cat": -74,
-        "displayname": "Pepper Seeds",
-        "name": "pepper_seeds",
-        "price": 20
-    },
-    "483": {
-        "cat": -74,
-        "displayname": "Wheat Seeds",
-        "name": "wheat_seeds",
-        "price": 5
-    },
-    "484": {
-        "cat": -74,
-        "displayname": "Radish Seeds",
-        "name": "radish_seeds",
-        "price": 20
-    },
-    "485": {
-        "cat": -74,
-        "displayname": "Red Cabbage Seeds",
-        "name": "red_cabbage_seeds",
-        "price": 50
-    },
-    "486": {
-        "cat": -74,
-        "displayname": "Starfruit Seeds",
-        "name": "starfruit_seeds",
-        "price": 200
-    },
-    "487": {
-        "cat": -74,
-        "displayname": "Corn Seeds",
-        "name": "corn_seeds",
-        "price": 75
-    },
-    "488": {
-        "cat": -74,
-        "displayname": "Eggplant Seeds",
-        "name": "eggplant_seeds",
-        "price": 10
-    },
-    "489": {
-        "cat": -74,
-        "displayname": "Artichoke Seeds",
-        "name": "artichoke_seeds",
-        "price": 15
-    },
-    "490": {
-        "cat": -74,
-        "displayname": "Pumpkin Seeds",
-        "name": "pumpkin_seeds",
-        "price": 50
-    },
-    "491": {
-        "cat": -74,
-        "displayname": "Bok Choy Seeds",
-        "name": "bok_choy_seeds",
-        "price": 25
-    },
-    "492": {
-        "cat": -74,
-        "displayname": "Yam Seeds",
-        "name": "yam_seeds",
-        "price": 30
-    },
-    "493": {
-        "cat": -74,
-        "displayname": "Cranberry Seeds",
-        "name": "cranberry_seeds",
-        "price": 120
-    },
-    "494": {
-        "cat": -74,
-        "displayname": "Beet Seeds",
-        "name": "beet_seeds",
-        "price": 10
-    },
-    "495": {
-        "cat": -74,
-        "displayname": "Spring Seeds",
-        "name": "spring_seeds",
-        "price": 35
-    },
-    "496": {
-        "cat": -74,
-        "displayname": "Summer Seeds",
-        "name": "summer_seeds",
-        "price": 55
-    },
-    "497": {
-        "cat": -74,
-        "displayname": "Fall Seeds",
-        "name": "fall_seeds",
-        "price": 45
-    },
-    "498": {
-        "cat": -74,
-        "displayname": "Winter Seeds",
-        "name": "winter_seeds",
-        "price": 30
-    },
-    "499": {
-        "cat": -74,
-        "displayname": "Ancient Seeds",
-        "name": "ancient_seeds",
-        "price": 30
-    },
-    "538": {
-        "cat": -12,
-        "displayname": "Alamite",
-        "name": "alamite",
-        "price": 150
-    },
-    "539": {
-        "cat": -12,
-        "displayname": "Bixite",
-        "name": "bixite",
-        "price": 300
-    },
-    "540": {
-        "cat": -12,
-        "displayname": "Baryte",
-        "name": "baryte",
-        "price": 50
-    },
-    "541": {
-        "cat": -12,
-        "displayname": "Aerinite",
-        "name": "aerinite",
-        "price": 125
-    },
-    "542": {
-        "cat": -12,
-        "displayname": "Calcite",
-        "name": "calcite",
-        "price": 75
-    },
-    "543": {
-        "cat": -12,
-        "displayname": "Dolomite",
-        "name": "dolomite",
-        "price": 300
-    },
-    "544": {
-        "cat": -12,
-        "displayname": "Esperite",
-        "name": "esperite",
-        "price": 100
-    },
-    "545": {
-        "cat": -12,
-        "displayname": "Fluorapatite",
-        "name": "fluorapatite",
-        "price": 200
-    },
-    "546": {
-        "cat": -12,
-        "displayname": "Geminite",
-        "name": "geminite",
-        "price": 150
-    },
-    "547": {
-        "cat": -12,
-        "displayname": "Helvite",
-        "name": "helvite",
-        "price": 450
-    },
-    "548": {
-        "cat": -12,
-        "displayname": "Jamborite",
-        "name": "jamborite",
-        "price": 150
-    },
-    "549": {
-        "cat": -12,
-        "displayname": "Jagoite",
-        "name": "jagoite",
-        "price": 115
-    },
-    "550": {
-        "cat": -12,
-        "displayname": "Kyanite",
-        "name": "kyanite",
-        "price": 250
-    },
-    "551": {
-        "cat": -12,
-        "displayname": "Lunarite",
-        "name": "lunarite",
-        "price": 200
-    },
-    "552": {
-        "cat": -12,
-        "displayname": "Malachite",
-        "name": "malachite",
-        "price": 100
-    },
-    "553": {
-        "cat": -12,
-        "displayname": "Neptunite",
-        "name": "neptunite",
-        "price": 400
-    },
-    "554": {
-        "cat": -12,
-        "displayname": "Lemon Stone",
-        "name": "lemon_stone",
-        "price": 200
-    },
-    "555": {
-        "cat": -12,
-        "displayname": "Nekoite",
-        "name": "nekoite",
-        "price": 80
-    },
-    "556": {
-        "cat": -12,
-        "displayname": "Orpiment",
-        "name": "orpiment",
-        "price": 80
-    },
-    "557": {
-        "cat": -12,
-        "displayname": "Petrified Slime",
-        "name": "petrified_slime",
-        "price": 120
-    },
-    "558": {
-        "cat": -12,
-        "displayname": "Thunder Egg",
-        "name": "thunder_egg",
-        "price": 100
-    },
-    "559": {
-        "cat": -12,
-        "displayname": "Pyrite",
-        "name": "pyrite",
-        "price": 120
-    },
-    "560": {
-        "cat": -12,
-        "displayname": "Ocean Stone",
-        "name": "ocean_stone",
-        "price": 220
-    },
-    "561": {
-        "cat": -12,
-        "displayname": "Ghost Crystal",
-        "name": "ghost_crystal",
-        "price": 200
-    },
-    "562": {
-        "cat": -12,
-        "displayname": "Tigerseye",
-        "name": "tigerseye",
-        "price": 275
-    },
-    "563": {
-        "cat": -12,
-        "displayname": "Jasper",
-        "name": "jasper",
-        "price": 150
-    },
-    "564": {
-        "cat": -12,
-        "displayname": "Opal",
-        "name": "opal",
-        "price": 150
-    },
-    "565": {
-        "cat": -12,
-        "displayname": "Fire Opal",
-        "name": "fire_opal",
-        "price": 350
-    },
-    "566": {
-        "cat": -12,
-        "displayname": "Celestine",
-        "name": "celestine",
-        "price": 125
-    },
-    "567": {
-        "cat": -12,
-        "displayname": "Marble",
-        "name": "marble",
-        "price": 110
-    },
-    "568": {
-        "cat": -12,
-        "displayname": "Sandstone",
-        "name": "sandstone",
-        "price": 60
-    },
-    "569": {
-        "cat": -12,
-        "displayname": "Granite",
-        "name": "granite",
-        "price": 75
-    },
-    "570": {
-        "cat": -12,
-        "displayname": "Basalt",
-        "name": "basalt",
-        "price": 175
-    },
-    "571": {
-        "cat": -12,
-        "displayname": "Limestone",
-        "name": "limestone",
-        "price": 15
-    },
-    "572": {
-        "cat": -12,
-        "displayname": "Soapstone",
-        "name": "soapstone",
-        "price": 120
-    },
-    "573": {
-        "cat": -12,
-        "displayname": "Hematite",
-        "name": "hematite",
-        "price": 150
-    },
-    "574": {
-        "cat": -12,
-        "displayname": "Mudstone",
-        "name": "mudstone",
-        "price": 25
-    },
-    "575": {
-        "cat": -12,
-        "displayname": "Obsidian",
-        "name": "obsidian",
-        "price": 200
-    },
-    "576": {
-        "cat": -12,
-        "displayname": "Slate",
-        "name": "slate",
-        "price": 85
-    },
-    "577": {
-        "cat": -12,
-        "displayname": "Fairy Stone",
-        "name": "fairy_stone",
-        "price": 250
-    },
-    "578": {
-        "cat": -12,
-        "displayname": "Star Shards",
-        "name": "star_shards",
-        "price": 500
-    },
-    "591": {
-        "cat": -80,
-        "displayname": "Tulip",
-        "name": "tulip",
-        "price": 30
-    },
-    "593": {
-        "cat": -80,
-        "displayname": "Summer Spangle",
-        "name": "summer_spangle",
-        "price": 90
-    },
-    "595": {
-        "cat": -80,
-        "displayname": "Fairy Rose",
-        "name": "fairy_rose",
-        "price": 290
-    },
-    "597": {
-        "cat": -80,
-        "displayname": "Blue Jazz",
-        "name": "blue_jazz",
-        "price": 50
-    },
-    "599": {
-        "cat": -8,
-        "displayname": "Sprinkler",
-        "name": "sprinkler",
-        "price": 100
-    },
-    "604": {
-        "cat": -7,
-        "displayname": "Plum Pudding",
-        "name": "plum_pudding",
-        "price": 260
-    },
-    "605": {
-        "cat": -7,
-        "displayname": "Artichoke Dip",
-        "name": "artichoke_dip",
-        "price": 210
-    },
-    "606": {
-        "cat": -7,
-        "displayname": "Stir Fry",
-        "name": "stir_fry",
-        "price": 335
-    },
-    "607": {
-        "cat": -7,
-        "displayname": "Roasted Hazelnuts",
-        "name": "roasted_hazelnuts",
-        "price": 270
-    },
-    "608": {
-        "cat": -7,
-        "displayname": "Pumpkin Pie",
-        "name": "pumpkin_pie",
-        "price": 385
-    },
-    "609": {
-        "cat": -7,
-        "displayname": "Radish Salad",
-        "name": "radish_salad",
-        "price": 300
-    },
-    "610": {
-        "cat": -7,
-        "displayname": "Fruit Salad",
-        "name": "fruit_salad",
-        "price": 450
-    },
-    "611": {
-        "cat": -7,
-        "displayname": "Blackberry Cobbler",
-        "name": "blackberry_cobbler",
-        "price": 260
-    },
-    "612": {
-        "cat": -7,
-        "displayname": "Cranberry Candy",
-        "name": "cranberry_candy",
-        "price": 175
-    },
-    "613": {
-        "cat": -79,
-        "displayname": "Apple",
-        "name": "apple",
-        "price": 100
-    },
-    "618": {
-        "cat": -7,
-        "displayname": "Bruschetta",
-        "name": "bruschetta",
-        "price": 210
-    },
-    "621": {
-        "cat": -8,
-        "displayname": "Quality Sprinkler",
-        "name": "quality_sprinkler",
-        "price": 450
-    },
-    "628": {
-        "cat": -74,
-        "displayname": "Cherry Sapling",
-        "name": "cherry_sapling",
-        "price": 850
-    },
-    "629": {
-        "cat": -74,
-        "displayname": "Apricot Sapling",
-        "name": "apricot_sapling",
-        "price": 500
-    },
-    "630": {
-        "cat": -74,
-        "displayname": "Orange Sapling",
-        "name": "orange_sapling",
-        "price": 1000
-    },
-    "631": {
-        "cat": -74,
-        "displayname": "Peach Sapling",
-        "name": "peach_sapling",
-        "price": 1500
-    },
-    "632": {
-        "cat": -74,
-        "displayname": "Pomegranate Sapling",
-        "name": "pomegranate_sapling",
-        "price": 1500
-    },
-    "633": {
-        "cat": -74,
-        "displayname": "Apple Sapling",
-        "name": "apple_sapling",
-        "price": 1000
-    },
-    "634": {
-        "cat": -79,
-        "displayname": "Apricot",
-        "name": "apricot",
-        "price": 50
-    },
-    "635": {
-        "cat": -79,
-        "displayname": "Orange",
-        "name": "orange",
-        "price": 100
-    },
-    "636": {
-        "cat": -79,
-        "displayname": "Peach",
-        "name": "peach",
-        "price": 140
-    },
-    "637": {
-        "cat": -79,
-        "displayname": "Pomegranate",
-        "name": "pomegranate",
-        "price": 140
-    },
-    "638": {
-        "cat": -79,
-        "displayname": "Cherry",
-        "name": "cherry",
-        "price": 80
-    },
-    "645": {
-        "cat": -8,
-        "displayname": "Iridium Sprinkler",
-        "name": "iridium_sprinkler",
-        "price": 1000
-    },
-    "648": {
-        "cat": -7,
-        "displayname": "Coleslaw",
-        "name": "coleslaw",
-        "price": 345
-    },
-    "649": {
-        "cat": -7,
-        "displayname": "Fiddlehead Risotto",
-        "name": "fiddlehead_risotto",
-        "price": 350
-    },
-    "651": {
-        "cat": -7,
-        "displayname": "Poppyseed Muffin",
-        "name": "poppyseed_muffin",
-        "price": 250
-    },
-    "682": {
-        "cat": -4,
-        "displayname": "Mutant Carp",
-        "name": "mutant_carp",
-        "price": 1000
-    },
-    "684": {
-        "cat": -28,
-        "displayname": "Bug Meat",
-        "name": "bug_meat",
-        "price": 8
-    },
-    "685": {
-        "cat": -21,
-        "displayname": "Bait",
-        "name": "bait",
-        "price": 1
-    },
-    "686": {
-        "cat": -22,
-        "displayname": "Spinner",
-        "name": "spinner",
-        "price": 250
-    },
-    "687": {
-        "cat": -22,
-        "displayname": "Dressed Spinner",
-        "name": "dressed_spinner",
-        "price": 500
-    },
-    "691": {
-        "cat": -22,
-        "displayname": "Barbed Hook",
-        "name": "barbed_hook",
-        "price": 500
-    },
-    "692": {
-        "cat": -22,
-        "displayname": "Lead Bobber",
-        "name": "lead_bobber",
-        "price": 150
-    },
-    "693": {
-        "cat": -22,
-        "displayname": "Treasure Hunter",
-        "name": "treasure_hunter",
-        "price": 250
-    },
-    "694": {
-        "cat": -22,
-        "displayname": "Trap Bobber",
-        "name": "trap_bobber",
-        "price": 200
-    },
-    "695": {
-        "cat": -22,
-        "displayname": "Cork Bobber",
-        "name": "cork_bobber",
-        "price": 250
-    },
-    "698": {
-        "cat": -4,
-        "displayname": "Sturgeon",
-        "name": "sturgeon",
-        "price": 200
-    },
-    "699": {
-        "cat": -4,
-        "displayname": "Tiger Trout",
-        "name": "tiger_trout",
-        "price": 150
-    },
-    "700": {
-        "cat": -4,
-        "displayname": "Bullhead",
-        "name": "bullhead",
-        "price": 75
-    },
-    "701": {
-        "cat": -4,
-        "displayname": "Tilapia",
-        "name": "tilapia",
-        "price": 75
-    },
-    "702": {
-        "cat": -4,
-        "displayname": "Chub",
-        "name": "chub",
-        "price": 50
-    },
-    "703": {
-        "cat": -21,
-        "displayname": "Magnet",
-        "name": "magnet",
-        "price": 15
-    },
-    "704": {
-        "cat": -4,
-        "displayname": "Dorado",
-        "name": "dorado",
-        "price": 100
-    },
-    "705": {
-        "cat": -4,
-        "displayname": "Albacore",
-        "name": "albacore",
-        "price": 75
-    },
-    "706": {
-        "cat": -4,
-        "displayname": "Shad",
-        "name": "shad",
-        "price": 60
-    },
-    "707": {
-        "cat": -4,
-        "displayname": "Lingcod",
-        "name": "lingcod",
-        "price": 120
-    },
-    "708": {
-        "cat": -4,
-        "displayname": "Halibut",
-        "name": "halibut",
-        "price": 80
-    },
-    "709": {
-        "cat": -16,
-        "displayname": "Hardwood",
-        "name": "hardwood",
-        "price": 15
-    },
-    "715": {
-        "cat": -4,
-        "displayname": "Lobster",
-        "name": "lobster",
-        "price": 120
-    },
-    "716": {
-        "cat": -4,
-        "displayname": "Crayfish",
-        "name": "crayfish",
-        "price": 75
-    },
-    "717": {
-        "cat": -4,
-        "displayname": "Crab",
-        "name": "crab",
-        "price": 100
-    },
-    "718": {
-        "cat": -4,
-        "displayname": "Cockle",
-        "name": "cockle",
-        "price": 50
-    },
-    "719": {
-        "cat": -4,
-        "displayname": "Mussel",
-        "name": "mussel",
-        "price": 30
-    },
-    "720": {
-        "cat": -4,
-        "displayname": "Shrimp",
-        "name": "shrimp",
-        "price": 60
-    },
-    "721": {
-        "cat": -4,
-        "displayname": "Snail",
-        "name": "snail",
-        "price": 65
-    },
-    "722": {
-        "cat": -4,
-        "displayname": "Periwinkle",
-        "name": "periwinkle",
-        "price": 20
-    },
-    "723": {
-        "cat": -4,
-        "displayname": "Oyster",
-        "name": "oyster",
-        "price": 40
-    },
-    "724": {
-        "cat": -27,
-        "displayname": "Maple Syrup",
-        "name": "maple_syrup",
-        "price": 200
-    },
-    "725": {
-        "cat": -27,
-        "displayname": "Oak Resin",
-        "name": "oak_resin",
-        "price": 150
-    },
-    "726": {
-        "cat": -27,
-        "displayname": "Pine Tar",
-        "name": "pine_tar",
-        "price": 100
-    },
-    "727": {
-        "cat": -7,
-        "displayname": "Chowder",
-        "name": "chowder",
-        "price": 135
-    },
-    "728": {
-        "cat": -7,
-        "displayname": "Fish Stew",
-        "name": "fish_stew",
-        "price": 175
-    },
-    "729": {
-        "cat": -7,
-        "displayname": "Escargot",
-        "name": "escargot",
-        "price": 125
-    },
-    "730": {
-        "cat": -7,
-        "displayname": "Lobster Bisque",
-        "name": "lobster_bisque",
-        "price": 205
-    },
-    "731": {
-        "cat": -7,
-        "displayname": "Maple Bar",
-        "name": "maple_bar",
-        "price": 300
-    },
-    "732": {
-        "cat": -7,
-        "displayname": "Crab Cakes",
-        "name": "crab_cakes",
-        "price": 275
-    },
-    "734": {
-        "cat": -4,
-        "displayname": "Woodskip",
-        "name": "woodskip",
-        "price": 75
-    },
-    "745": {
-        "cat": -74,
-        "displayname": "Strawberry Seeds",
-        "name": "strawberry_seeds",
-        "price": 0
-    },
-    "746": {
-        "cat": -8,
-        "displayname": "Jack-O-Lantern",
-        "name": "jack-o-lantern",
-        "price": 0
-    },
-    "747": {
-        "cat": -20,
-        "displayname": "Rotten Plant",
-        "name": "rotten_plant",
-        "price": 0
-    },
-    "748": {
-        "cat": -20,
-        "displayname": "Rotten Plant",
-        "name": "rotten_plant",
-        "price": 0
-    },
-    "766": {
-        "cat": -28,
-        "displayname": "Slime",
-        "name": "slime",
-        "price": 5
-    },
-    "767": {
-        "cat": -28,
-        "displayname": "Bat Wing",
-        "name": "bat_wing",
-        "price": 15
-    },
-    "768": {
-        "cat": -28,
-        "displayname": "Solar Essence",
-        "name": "solar_essence",
-        "price": 40
-    },
-    "769": {
-        "cat": -28,
-        "displayname": "Void Essence",
-        "name": "void_essence",
-        "price": 50
-    },
-    "770": {
-        "cat": -74,
-        "displayname": "Mixed Seeds",
-        "name": "mixed_seeds",
-        "price": 0
-    },
-    "771": {
-        "cat": -16,
-        "displayname": "Fiber",
-        "name": "fiber",
-        "price": 1
-    },
-    "772": {
-        "cat": -7,
-        "displayname": "Oil of Garlic",
-        "name": "oil_of_garlic",
-        "price": 1000
-    },
-    "773": {
-        "cat": -7,
-        "displayname": "Life Elixir",
-        "name": "life_elixir",
-        "price": 500
-    },
-    "774": {
-        "cat": -21,
-        "displayname": "Wild Bait",
-        "name": "wild_bait",
-        "price": 15
-    },
-    "775": {
-        "cat": -4,
-        "displayname": "Glacierfish",
-        "name": "glacierfish",
-        "price": 1000
-    },
-    "787": {
-        "cat": -16,
-        "displayname": "Battery Pack",
-        "name": "battery_pack",
-        "price": 500
-    },
-    "795": {
-        "cat": -4,
-        "displayname": "Void Salmon",
-        "name": "void_salmon",
-        "price": 150
-    },
-    "796": {
-        "cat": -4,
-        "displayname": "Slimejack",
-        "name": "slimejack",
-        "price": 100
-    }
+  "16": {
+    "cat": -81,
+    "displayname": "Wild Horseradish",
+    "name": "Wild_Horseradish",
+    "price": 50
+  },
+  "18": {
+    "cat": -81,
+    "displayname": "Daffodil",
+    "name": "Daffodil",
+    "price": 30
+  },
+  "20": {
+    "cat": -81,
+    "displayname": "Leek",
+    "name": "Leek",
+    "price": 60
+  },
+  "22": {
+    "cat": -81,
+    "displayname": "Dandelion",
+    "name": "Dandelion",
+    "price": 40
+  },
+  "24": {
+    "cat": -75,
+    "displayname": "Parsnip",
+    "name": "Parsnip",
+    "price": 35
+  },
+  "60": {
+    "cat": -2,
+    "displayname": "Emerald",
+    "name": "Emerald",
+    "price": 250
+  },
+  "62": {
+    "cat": -2,
+    "displayname": "Aquamarine",
+    "name": "Aquamarine",
+    "price": 180
+  },
+  "64": {
+    "cat": -2,
+    "displayname": "Ruby",
+    "name": "Ruby",
+    "price": 250
+  },
+  "66": {
+    "cat": -2,
+    "displayname": "Amethyst",
+    "name": "Amethyst",
+    "price": 100
+  },
+  "68": {
+    "cat": -2,
+    "displayname": "Topaz",
+    "name": "Topaz",
+    "price": 80
+  },
+  "70": {
+    "cat": -2,
+    "displayname": "Jade",
+    "name": "Jade",
+    "price": 200
+  },
+  "72": {
+    "cat": -2,
+    "displayname": "Diamond",
+    "name": "Diamond",
+    "price": 750
+  },
+  "74": {
+    "cat": -2,
+    "displayname": "Prismatic Shard",
+    "name": "Prismatic_Shard",
+    "price": 2000
+  },
+  "80": {
+    "cat": -2,
+    "displayname": "Quartz",
+    "name": "Quartz",
+    "price": 25
+  },
+  "82": {
+    "cat": -2,
+    "displayname": "Fire Quartz",
+    "name": "Fire_Quartz",
+    "price": 100
+  },
+  "84": {
+    "cat": -2,
+    "displayname": "Frozen Tear",
+    "name": "Frozen_Tear",
+    "price": 75
+  },
+  "86": {
+    "cat": -2,
+    "displayname": "Earth Crystal",
+    "name": "Earth_Crystal",
+    "price": 50
+  },
+  "88": {
+    "cat": -79,
+    "displayname": "Coconut",
+    "name": "Coconut",
+    "price": 100
+  },
+  "90": {
+    "cat": -79,
+    "displayname": "Cactus Fruit",
+    "name": "Cactus_Fruit",
+    "price": 75
+  },
+  "128": {
+    "cat": -4,
+    "displayname": "Pufferfish",
+    "name": "Pufferfish",
+    "price": 200
+  },
+  "129": {
+    "cat": -4,
+    "displayname": "Anchovy",
+    "name": "Anchovy",
+    "price": 30
+  },
+  "130": {
+    "cat": -4,
+    "displayname": "Tuna",
+    "name": "Tuna",
+    "price": 100
+  },
+  "131": {
+    "cat": -4,
+    "displayname": "Sardine",
+    "name": "Sardine",
+    "price": 40
+  },
+  "132": {
+    "cat": -4,
+    "displayname": "Bream",
+    "name": "Bream",
+    "price": 45
+  },
+  "136": {
+    "cat": -4,
+    "displayname": "Largemouth Bass",
+    "name": "Largemouth_Bass",
+    "price": 100
+  },
+  "137": {
+    "cat": -4,
+    "displayname": "Smallmouth Bass",
+    "name": "Smallmouth_Bass",
+    "price": 50
+  },
+  "138": {
+    "cat": -4,
+    "displayname": "Rainbow Trout",
+    "name": "Rainbow_Trout",
+    "price": 65
+  },
+  "139": {
+    "cat": -4,
+    "displayname": "Salmon",
+    "name": "Salmon",
+    "price": 75
+  },
+  "140": {
+    "cat": -4,
+    "displayname": "Walleye",
+    "name": "Walleye",
+    "price": 105
+  },
+  "141": {
+    "cat": -4,
+    "displayname": "Perch",
+    "name": "Perch",
+    "price": 55
+  },
+  "143": {
+    "cat": -4,
+    "displayname": "Catfish",
+    "name": "Catfish",
+    "price": 200
+  },
+  "144": {
+    "cat": -4,
+    "displayname": "Pike",
+    "name": "Pike",
+    "price": 100
+  },
+  "145": {
+    "cat": -4,
+    "displayname": "Sunfish",
+    "name": "Sunfish",
+    "price": 30
+  },
+  "146": {
+    "cat": -4,
+    "displayname": "Red Mullet",
+    "name": "Red_Mullet",
+    "price": 75
+  },
+  "147": {
+    "cat": -4,
+    "displayname": "Herring",
+    "name": "Herring",
+    "price": 30
+  },
+  "148": {
+    "cat": -4,
+    "displayname": "Eel",
+    "name": "Eel",
+    "price": 85
+  },
+  "149": {
+    "cat": -4,
+    "displayname": "Octopus",
+    "name": "Octopus",
+    "price": 150
+  },
+  "150": {
+    "cat": -4,
+    "displayname": "Red Snapper",
+    "name": "Red_Snapper",
+    "price": 50
+  },
+  "151": {
+    "cat": -4,
+    "displayname": "Squid",
+    "name": "Squid",
+    "price": 80
+  },
+  "154": {
+    "cat": -4,
+    "displayname": "Sea Cucumber",
+    "name": "Sea_Cucumber",
+    "price": 75
+  },
+  "155": {
+    "cat": -4,
+    "displayname": "Super Cucumber",
+    "name": "Super_Cucumber",
+    "price": 250
+  },
+  "156": {
+    "cat": -4,
+    "displayname": "Ghostfish",
+    "name": "Ghostfish",
+    "price": 45
+  },
+  "158": {
+    "cat": -4,
+    "displayname": "Stonefish",
+    "name": "Stonefish",
+    "price": 300
+  },
+  "159": {
+    "cat": -4,
+    "displayname": "Crimsonfish",
+    "name": "Crimsonfish",
+    "price": 1500
+  },
+  "160": {
+    "cat": -4,
+    "displayname": "Angler",
+    "name": "Angler",
+    "price": 900
+  },
+  "161": {
+    "cat": -4,
+    "displayname": "Ice Pip",
+    "name": "Ice_Pip",
+    "price": 500
+  },
+  "162": {
+    "cat": -4,
+    "displayname": "Lava Eel",
+    "name": "Lava_Eel",
+    "price": 700
+  },
+  "163": {
+    "cat": -4,
+    "displayname": "Legend",
+    "name": "Legend",
+    "price": 5000
+  },
+  "164": {
+    "cat": -4,
+    "displayname": "Sandfish",
+    "name": "Sandfish",
+    "price": 75
+  },
+  "165": {
+    "cat": -4,
+    "displayname": "Scorpion Carp",
+    "name": "Scorpion_Carp",
+    "price": 150
+  },
+  "167": {
+    "cat": -20,
+    "displayname": "Joja Cola",
+    "name": "Joja_Cola",
+    "price": 25
+  },
+  "169": {
+    "cat": -20,
+    "displayname": "Driftwood",
+    "name": "Driftwood",
+    "price": 0
+  },
+  "174": {
+    "cat": -5,
+    "displayname": "Large Egg",
+    "name": "Large_Egg",
+    "price": 95
+  },
+  "176": {
+    "cat": -5,
+    "displayname": "Egg",
+    "name": "Egg",
+    "price": 50
+  },
+  "180": {
+    "cat": -5,
+    "displayname": "Brown_Egg",
+    "name": "Egg",
+    "price": 50
+  },
+  "182": {
+    "cat": -5,
+    "displayname": "Large_Brown_Egg",
+    "name": "Large_Egg",
+    "price": 95
+  },
+  "184": {
+    "cat": -6,
+    "displayname": "Milk",
+    "name": "Milk",
+    "price": 125
+  },
+  "186": {
+    "cat": -6,
+    "displayname": "Large Milk",
+    "name": "Large_Milk",
+    "price": 190
+  },
+  "188": {
+    "cat": -75,
+    "displayname": "Green Bean",
+    "name": "Green_Bean",
+    "price": 40
+  },
+  "190": {
+    "cat": -75,
+    "displayname": "Cauliflower",
+    "name": "Cauliflower",
+    "price": 175
+  },
+  "192": {
+    "cat": -75,
+    "displayname": "Potato",
+    "name": "Potato",
+    "price": 80
+  },
+  "194": {
+    "cat": -7,
+    "displayname": "Fried Egg",
+    "name": "Fried_Egg",
+    "price": 35
+  },
+  "195": {
+    "cat": -7,
+    "displayname": "Omelet",
+    "name": "Omelet",
+    "price": 125
+  },
+  "196": {
+    "cat": -7,
+    "displayname": "Salad",
+    "name": "Salad",
+    "price": 110
+  },
+  "197": {
+    "cat": -7,
+    "displayname": "Cheese Cauliflower",
+    "name": "Cheese_Cauliflower",
+    "price": 300
+  },
+  "198": {
+    "cat": -7,
+    "displayname": "Baked Fish",
+    "name": "Baked_Fish",
+    "price": 100
+  },
+  "199": {
+    "cat": -7,
+    "displayname": "Parsnip Soup",
+    "name": "Parsnip_Soup",
+    "price": 120
+  },
+  "200": {
+    "cat": -7,
+    "displayname": "Vegetable Medley",
+    "name": "Vegetable_Medley",
+    "price": 120
+  },
+  "201": {
+    "cat": -7,
+    "displayname": "Complete Breakfast",
+    "name": "Complete_Breakfast",
+    "price": 350
+  },
+  "202": {
+    "cat": -7,
+    "displayname": "Fried Calamari",
+    "name": "Fried_Calamari",
+    "price": 150
+  },
+  "204": {
+    "cat": -7,
+    "displayname": "Lucky Lunch",
+    "name": "Lucky_Lunch",
+    "price": 250
+  },
+  "205": {
+    "cat": -7,
+    "displayname": "Fried Mushroom",
+    "name": "Fried_Mushroom",
+    "price": 200
+  },
+  "206": {
+    "cat": -7,
+    "displayname": "Pizza",
+    "name": "Pizza",
+    "price": 300
+  },
+  "207": {
+    "cat": -7,
+    "displayname": "Bean Hotpot",
+    "name": "Bean_Hotpot",
+    "price": 100
+  },
+  "208": {
+    "cat": -7,
+    "displayname": "Glazed Yams",
+    "name": "Glazed_Yams",
+    "price": 200
+  },
+  "209": {
+    "cat": -7,
+    "displayname": "Carp Surprise",
+    "name": "Carp_Surprise",
+    "price": 150
+  },
+  "210": {
+    "cat": -7,
+    "displayname": "Hashbrowns",
+    "name": "Hashbrowns",
+    "price": 120
+  },
+  "211": {
+    "cat": -7,
+    "displayname": "Pancakes",
+    "name": "Pancakes",
+    "price": 80
+  },
+  "212": {
+    "cat": -7,
+    "displayname": "Salmon Dinner",
+    "name": "Salmon_Dinner",
+    "price": 300
+  },
+  "213": {
+    "cat": -7,
+    "displayname": "Fish Taco",
+    "name": "Fish_Taco",
+    "price": 500
+  },
+  "214": {
+    "cat": -7,
+    "displayname": "Crispy Bass",
+    "name": "Crispy_Bass",
+    "price": 150
+  },
+  "215": {
+    "cat": -7,
+    "displayname": "Pepper Poppers",
+    "name": "Pepper_Poppers",
+    "price": 200
+  },
+  "216": {
+    "cat": -7,
+    "displayname": "Bread",
+    "name": "Bread",
+    "price": 60
+  },
+  "218": {
+    "cat": -7,
+    "displayname": "Tom Kha Soup",
+    "name": "Tom_Kha_Soup",
+    "price": 250
+  },
+  "219": {
+    "cat": -7,
+    "displayname": "Trout Soup",
+    "name": "Trout_Soup",
+    "price": 100
+  },
+  "220": {
+    "cat": -7,
+    "displayname": "Chocolate Cake",
+    "name": "Chocolate_Cake",
+    "price": 200
+  },
+  "221": {
+    "cat": -7,
+    "displayname": "Pink Cake",
+    "name": "Pink_Cake",
+    "price": 480
+  },
+  "222": {
+    "cat": -7,
+    "displayname": "Rhubarb Pie",
+    "name": "Rhubarb_Pie",
+    "price": 400
+  },
+  "223": {
+    "cat": -7,
+    "displayname": "Cookie",
+    "name": "Cookie",
+    "price": 140
+  },
+  "224": {
+    "cat": -7,
+    "displayname": "Spaghetti",
+    "name": "Spaghetti",
+    "price": 120
+  },
+  "225": {
+    "cat": -7,
+    "displayname": "Fried Eel",
+    "name": "Fried_Eel",
+    "price": 120
+  },
+  "226": {
+    "cat": -7,
+    "displayname": "Spicy Eel",
+    "name": "Spicy_Eel",
+    "price": 175
+  },
+  "227": {
+    "cat": -7,
+    "displayname": "Sashimi",
+    "name": "Sashimi",
+    "price": 75
+  },
+  "228": {
+    "cat": -7,
+    "displayname": "Maki Roll",
+    "name": "Maki_Roll",
+    "price": 220
+  },
+  "229": {
+    "cat": -7,
+    "displayname": "Tortilla",
+    "name": "Tortilla",
+    "price": 50
+  },
+  "230": {
+    "cat": -7,
+    "displayname": "Red Plate",
+    "name": "Red_Plate",
+    "price": 400
+  },
+  "231": {
+    "cat": -7,
+    "displayname": "Eggplant Parmesan",
+    "name": "Eggplant_Parmesan",
+    "price": 200
+  },
+  "232": {
+    "cat": -7,
+    "displayname": "Rice Pudding",
+    "name": "Rice_Pudding",
+    "price": 260
+  },
+  "233": {
+    "cat": -7,
+    "displayname": "Ice Cream",
+    "name": "Ice_Cream",
+    "price": 120
+  },
+  "234": {
+    "cat": -7,
+    "displayname": "Blueberry Tart",
+    "name": "Blueberry_Tart",
+    "price": 150
+  },
+  "235": {
+    "cat": -7,
+    "displayname": "Autumn's Bounty",
+    "name": "Autumn%27s_Bounty",
+    "price": 350
+  },
+  "236": {
+    "cat": -7,
+    "displayname": "Pumpkin Soup",
+    "name": "Pumpkin_Soup",
+    "price": 300
+  },
+  "237": {
+    "cat": -7,
+    "displayname": "Super Meal",
+    "name": "Super_Meal",
+    "price": 220
+  },
+  "238": {
+    "cat": -7,
+    "displayname": "Cranberry Sauce",
+    "name": "Cranberry_Sauce",
+    "price": 120
+  },
+  "239": {
+    "cat": -7,
+    "displayname": "Stuffing",
+    "name": "Stuffing",
+    "price": 165
+  },
+  "240": {
+    "cat": -7,
+    "displayname": "Farmer's Lunch",
+    "name": "Farmer%27s_Lunch",
+    "price": 150
+  },
+  "241": {
+    "cat": -7,
+    "displayname": "Survival Burger",
+    "name": "Survival_Burger",
+    "price": 180
+  },
+  "242": {
+    "cat": -7,
+    "displayname": "Dish O' The Sea",
+    "name": "Dish_O%27_The_Sea",
+    "price": 220
+  },
+  "243": {
+    "cat": -7,
+    "displayname": "Miner's Treat",
+    "name": "Miner%27s_Treat",
+    "price": 200
+  },
+  "244": {
+    "cat": -7,
+    "displayname": "Roots Platter",
+    "name": "Roots_Platter",
+    "price": 100
+  },
+  "248": {
+    "cat": -75,
+    "displayname": "Garlic",
+    "name": "Garlic",
+    "price": 60
+  },
+  "250": {
+    "cat": -75,
+    "displayname": "Kale",
+    "name": "Kale",
+    "price": 110
+  },
+  "252": {
+    "cat": -79,
+    "displayname": "Rhubarb",
+    "name": "Rhubarb",
+    "price": 220
+  },
+  "254": {
+    "cat": -79,
+    "displayname": "Melon",
+    "name": "Melon",
+    "price": 250
+  },
+  "256": {
+    "cat": -75,
+    "displayname": "Tomato",
+    "name": "Tomato",
+    "price": 60
+  },
+  "257": {
+    "cat": -81,
+    "displayname": "Morel",
+    "name": "Morel",
+    "price": 150
+  },
+  "258": {
+    "cat": -79,
+    "displayname": "Blueberry",
+    "name": "Blueberry",
+    "price": 50
+  },
+  "259": {
+    "cat": -75,
+    "displayname": "Fiddlehead Fern",
+    "name": "Fiddlehead_Fern",
+    "price": 90
+  },
+  "260": {
+    "cat": -79,
+    "displayname": "Hot Pepper",
+    "name": "Hot_Pepper",
+    "price": 40
+  },
+  "262": {
+    "cat": -75,
+    "displayname": "Wheat",
+    "name": "Wheat",
+    "price": 25
+  },
+  "264": {
+    "cat": -75,
+    "displayname": "Radish",
+    "name": "Radish",
+    "price": 90
+  },
+  "266": {
+    "cat": -75,
+    "displayname": "Red Cabbage",
+    "name": "Red_Cabbage",
+    "price": 260
+  },
+  "268": {
+    "cat": -79,
+    "displayname": "Starfruit",
+    "name": "Starfruit",
+    "price": 750
+  },
+  "270": {
+    "cat": -75,
+    "displayname": "Corn",
+    "name": "Corn",
+    "price": 50
+  },
+  "272": {
+    "cat": -75,
+    "displayname": "Eggplant",
+    "name": "Eggplant",
+    "price": 60
+  },
+  "274": {
+    "cat": -75,
+    "displayname": "Artichoke",
+    "name": "Artichoke",
+    "price": 160
+  },
+  "276": {
+    "cat": -75,
+    "displayname": "Pumpkin",
+    "name": "Pumpkin",
+    "price": 320
+  },
+  "278": {
+    "cat": -75,
+    "displayname": "Bok Choy",
+    "name": "Bok_Choy",
+    "price": 80
+  },
+  "280": {
+    "cat": -75,
+    "displayname": "Yam",
+    "name": "Yam",
+    "price": 160
+  },
+  "281": {
+    "cat": -81,
+    "displayname": "Chanterelle",
+    "name": "Chanterelle",
+    "price": 160
+  },
+  "282": {
+    "cat": -79,
+    "displayname": "Cranberries",
+    "name": "Cranberries",
+    "price": 75
+  },
+  "283": {
+    "cat": -81,
+    "displayname": "Holly",
+    "name": "Holly",
+    "price": 80
+  },
+  "284": {
+    "cat": -75,
+    "displayname": "Beet",
+    "name": "Beet",
+    "price": 100
+  },
+  "296": {
+    "cat": -79,
+    "displayname": "Salmonberry",
+    "name": "Salmonberry",
+    "price": 5
+  },
+  "300": {
+    "cat": -75,
+    "displayname": "Amaranth",
+    "name": "Amaranth",
+    "price": 150
+  },
+  "303": {
+    "cat": -26,
+    "displayname": "Pale Ale",
+    "name": "Pale_Ale",
+    "price": 300
+  },
+  "304": {
+    "cat": -75,
+    "displayname": "Hops",
+    "name": "Hops",
+    "price": 25
+  },
+  "305": {
+    "cat": -5,
+    "displayname": "Void Egg",
+    "name": "Void_Egg",
+    "price": 65
+  },
+  "306": {
+    "cat": -26,
+    "displayname": "Mayonnaise",
+    "name": "Mayonnaise",
+    "price": 190
+  },
+  "307": {
+    "cat": -26,
+    "displayname": "Duck Mayonnaise",
+    "name": "Duck_Mayonnaise",
+    "price": 375
+  },
+  "308": {
+    "cat": -26,
+    "displayname": "Void Mayonnaise",
+    "name": "Void_Mayonnaise",
+    "price": 275
+  },
+  "334": {
+    "cat": -15,
+    "displayname": "Copper Bar",
+    "name": "Copper_Bar",
+    "price": 60
+  },
+  "335": {
+    "cat": -15,
+    "displayname": "Iron Bar",
+    "name": "Iron_Bar",
+    "price": 120
+  },
+  "336": {
+    "cat": -15,
+    "displayname": "Gold Bar",
+    "name": "Gold_Bar",
+    "price": 250
+  },
+  "337": {
+    "cat": -15,
+    "displayname": "Iridium Bar",
+    "name": "Iridium_Bar",
+    "price": 1000
+  },
+  "338": {
+    "cat": -15,
+    "displayname": "Refined Quartz",
+    "name": "Refined_Quartz",
+    "price": 50
+  },
+  "340": {
+    "cat": -26,
+    "displayname": "Honey",
+    "name": "Honey",
+    "price": 100
+  },
+  "342": {
+    "cat": -26,
+    "displayname": "Pickles",
+    "name": "Pickles",
+    "price": 100
+  },
+  "344": {
+    "cat": -26,
+    "displayname": "Jelly",
+    "name": "Jelly",
+    "price": 160
+  },
+  "346": {
+    "cat": -26,
+    "displayname": "Beer",
+    "name": "Beer",
+    "price": 200
+  },
+  "348": {
+    "cat": -26,
+    "displayname": "Wine",
+    "name": "Wine",
+    "price": 400
+  },
+  "350": {
+    "cat": -26,
+    "displayname": "Juice",
+    "name": "Juice",
+    "price": 150
+  },
+  "376": {
+    "cat": -80,
+    "displayname": "Poppy",
+    "name": "Poppy",
+    "price": 140
+  },
+  "382": {
+    "cat": -15,
+    "displayname": "Coal",
+    "name": "Coal",
+    "price": 15
+  },
+  "384": {
+    "cat": -15,
+    "displayname": "Gold Ore",
+    "name": "Gold_Ore",
+    "price": 25
+  },
+  "386": {
+    "cat": -15,
+    "displayname": "Iridium Ore",
+    "name": "Iridium_Ore",
+    "price": 100
+  },
+  "396": {
+    "cat": -79,
+    "displayname": "Spice Berry",
+    "name": "Spice_Berry",
+    "price": 80
+  },
+  "398": {
+    "cat": -79,
+    "displayname": "Grape",
+    "name": "Grape",
+    "price": 80
+  },
+  "399": {
+    "cat": -81,
+    "displayname": "Spring Onion",
+    "name": "Spring_Onion",
+    "price": 8
+  },
+  "400": {
+    "cat": -79,
+    "displayname": "Strawberry",
+    "name": "Strawberry",
+    "price": 120
+  },
+  "402": {
+    "cat": -80,
+    "displayname": "Sweet Pea",
+    "name": "Sweet_Pea",
+    "price": 50
+  },
+  "404": {
+    "cat": -81,
+    "displayname": "Common Mushroom",
+    "name": "Common_Mushroom",
+    "price": 40
+  },
+  "406": {
+    "cat": -79,
+    "displayname": "Wild Plum",
+    "name": "Wild_Plum",
+    "price": 80
+  },
+  "408": {
+    "cat": -81,
+    "displayname": "Hazelnut",
+    "name": "Hazelnut",
+    "price": 90
+  },
+  "410": {
+    "cat": -79,
+    "displayname": "Blackberry",
+    "name": "Blackberry",
+    "price": 20
+  },
+  "412": {
+    "cat": -81,
+    "displayname": "Winter Root",
+    "name": "Winter_Root",
+    "price": 70
+  },
+  "414": {
+    "cat": -79,
+    "displayname": "Crystal Fruit",
+    "name": "Crystal_Fruit",
+    "price": 150
+  },
+  "416": {
+    "cat": -81,
+    "displayname": "Snow Yam",
+    "name": "Snow_Yam",
+    "price": 100
+  },
+  "418": {
+    "cat": -80,
+    "displayname": "Crocus",
+    "name": "Crocus",
+    "price": 60
+  },
+  "421": {
+    "cat": -80,
+    "displayname": "Sunflower",
+    "name": "Sunflower",
+    "price": 80
+  },
+  "422": {
+    "cat": -81,
+    "displayname": "Purple Mushroom",
+    "name": "Purple_Mushroom",
+    "price": 250
+  },
+  "424": {
+    "cat": -26,
+    "displayname": "Cheese",
+    "name": "Cheese",
+    "price": 200
+  },
+  "426": {
+    "cat": -26,
+    "displayname": "Goat Cheese",
+    "name": "Goat_Cheese",
+    "price": 375
+  },
+  "428": {
+    "cat": -26,
+    "displayname": "Cloth",
+    "name": "Cloth",
+    "price": 470
+  },
+  "430": {
+    "cat": -17,
+    "displayname": "Truffle",
+    "name": "Truffle",
+    "price": 625
+  },
+  "432": {
+    "cat": -26,
+    "displayname": "Truffle Oil",
+    "name": "Truffle_Oil",
+    "price": 1065
+  },
+  "436": {
+    "cat": -6,
+    "displayname": "Goat Milk",
+    "name": "Goat_Milk",
+    "price": 225
+  },
+  "438": {
+    "cat": -6,
+    "displayname": "L. Goat Milk",
+    "name": "L_Goat_Milk",
+    "price": 345
+  },
+  "440": {
+    "cat": -18,
+    "displayname": "Wool",
+    "name": "Wool",
+    "price": 340
+  },
+  "442": {
+    "cat": -5,
+    "displayname": "Duck Egg",
+    "name": "Duck_Egg",
+    "price": 95
+  },
+  "444": {
+    "cat": -18,
+    "displayname": "Duck Feather",
+    "name": "Duck_Feather",
+    "price": 125
+  },
+  "446": {
+    "cat": -18,
+    "displayname": "Rabbit's Foot",
+    "name": "Rabbit%27s_Foot",
+    "price": 565
+  },
+  "454": {
+    "cat": -79,
+    "displayname": "Ancient Fruit",
+    "name": "Ancient_Fruit",
+    "price": 550
+  },
+  "456": {
+    "cat": -7,
+    "displayname": "Algae Soup",
+    "name": "Algae_Soup",
+    "price": 100
+  },
+  "457": {
+    "cat": -7,
+    "displayname": "Pale Broth",
+    "name": "Pale_Broth",
+    "price": 150
+  },
+  "459": {
+    "cat": -26,
+    "displayname": "Mead",
+    "name": "Mead",
+    "price": 200
+  },
+  "538": {
+    "cat": -12,
+    "displayname": "Alamite",
+    "name": "Alamite",
+    "price": 150
+  },
+  "539": {
+    "cat": -12,
+    "displayname": "Bixite",
+    "name": "Bixite",
+    "price": 300
+  },
+  "540": {
+    "cat": -12,
+    "displayname": "Baryte",
+    "name": "Baryte",
+    "price": 50
+  },
+  "541": {
+    "cat": -12,
+    "displayname": "Aerinite",
+    "name": "Aerinite",
+    "price": 125
+  },
+  "542": {
+    "cat": -12,
+    "displayname": "Calcite",
+    "name": "Calcite",
+    "price": 75
+  },
+  "543": {
+    "cat": -12,
+    "displayname": "Dolomite",
+    "name": "Dolomite",
+    "price": 300
+  },
+  "544": {
+    "cat": -12,
+    "displayname": "Esperite",
+    "name": "Esperite",
+    "price": 100
+  },
+  "545": {
+    "cat": -12,
+    "displayname": "Fluorapatite",
+    "name": "Fluorapatite",
+    "price": 200
+  },
+  "546": {
+    "cat": -12,
+    "displayname": "Geminite",
+    "name": "Geminite",
+    "price": 150
+  },
+  "547": {
+    "cat": -12,
+    "displayname": "Helvite",
+    "name": "Helvite",
+    "price": 450
+  },
+  "548": {
+    "cat": -12,
+    "displayname": "Jamborite",
+    "name": "Jamborite",
+    "price": 150
+  },
+  "549": {
+    "cat": -12,
+    "displayname": "Jagoite",
+    "name": "Jagoite",
+    "price": 115
+  },
+  "550": {
+    "cat": -12,
+    "displayname": "Kyanite",
+    "name": "Kyanite",
+    "price": 250
+  },
+  "551": {
+    "cat": -12,
+    "displayname": "Lunarite",
+    "name": "Lunarite",
+    "price": 200
+  },
+  "552": {
+    "cat": -12,
+    "displayname": "Malachite",
+    "name": "Malachite",
+    "price": 100
+  },
+  "553": {
+    "cat": -12,
+    "displayname": "Neptunite",
+    "name": "Neptunite",
+    "price": 400
+  },
+  "554": {
+    "cat": -12,
+    "displayname": "Lemon Stone",
+    "name": "Lemon_Stone",
+    "price": 200
+  },
+  "555": {
+    "cat": -12,
+    "displayname": "Nekoite",
+    "name": "Nekoite",
+    "price": 80
+  },
+  "556": {
+    "cat": -12,
+    "displayname": "Orpiment",
+    "name": "Orpiment",
+    "price": 80
+  },
+  "557": {
+    "cat": -12,
+    "displayname": "Petrified Slime",
+    "name": "Petrified_Slime",
+    "price": 120
+  },
+  "558": {
+    "cat": -12,
+    "displayname": "Thunder Egg",
+    "name": "Thunder_Egg",
+    "price": 100
+  },
+  "559": {
+    "cat": -12,
+    "displayname": "Pyrite",
+    "name": "Pyrite",
+    "price": 120
+  },
+  "560": {
+    "cat": -12,
+    "displayname": "Ocean Stone",
+    "name": "Ocean_Stone",
+    "price": 220
+  },
+  "561": {
+    "cat": -12,
+    "displayname": "Ghost Crystal",
+    "name": "Ghost_Crystal",
+    "price": 200
+  },
+  "562": {
+    "cat": -12,
+    "displayname": "Tigerseye",
+    "name": "Tigerseye",
+    "price": 275
+  },
+  "563": {
+    "cat": -12,
+    "displayname": "Jasper",
+    "name": "Jasper",
+    "price": 150
+  },
+  "564": {
+    "cat": -12,
+    "displayname": "Opal",
+    "name": "Opal",
+    "price": 150
+  },
+  "565": {
+    "cat": -12,
+    "displayname": "Fire Opal",
+    "name": "Fire_Opal",
+    "price": 350
+  },
+  "566": {
+    "cat": -12,
+    "displayname": "Celestine",
+    "name": "Celestine",
+    "price": 125
+  },
+  "567": {
+    "cat": -12,
+    "displayname": "Marble",
+    "name": "Marble",
+    "price": 110
+  },
+  "568": {
+    "cat": -12,
+    "displayname": "Sandstone",
+    "name": "Sandstone",
+    "price": 60
+  },
+  "569": {
+    "cat": -12,
+    "displayname": "Granite",
+    "name": "Granite",
+    "price": 75
+  },
+  "570": {
+    "cat": -12,
+    "displayname": "Basalt",
+    "name": "Basalt",
+    "price": 175
+  },
+  "571": {
+    "cat": -12,
+    "displayname": "Limestone",
+    "name": "Limestone",
+    "price": 15
+  },
+  "572": {
+    "cat": -12,
+    "displayname": "Soapstone",
+    "name": "Soapstone",
+    "price": 120
+  },
+  "573": {
+    "cat": -12,
+    "displayname": "Hematite",
+    "name": "Hematite",
+    "price": 150
+  },
+  "574": {
+    "cat": -12,
+    "displayname": "Mudstone",
+    "name": "Mudstone",
+    "price": 25
+  },
+  "575": {
+    "cat": -12,
+    "displayname": "Obsidian",
+    "name": "Obsidian",
+    "price": 200
+  },
+  "576": {
+    "cat": -12,
+    "displayname": "Slate",
+    "name": "Slate",
+    "price": 85
+  },
+  "577": {
+    "cat": -12,
+    "displayname": "Fairy Stone",
+    "name": "Fairy_Stone",
+    "price": 250
+  },
+  "578": {
+    "cat": -12,
+    "displayname": "Star Shards",
+    "name": "Star_Shards",
+    "price": 500
+  },
+  "591": {
+    "cat": -80,
+    "displayname": "Tulip",
+    "name": "Tulip",
+    "price": 30
+  },
+  "593": {
+    "cat": -80,
+    "displayname": "Summer Spangle",
+    "name": "Summer_Spangle",
+    "price": 90
+  },
+  "595": {
+    "cat": -80,
+    "displayname": "Fairy Rose",
+    "name": "Fairy_Rose",
+    "price": 290
+  },
+  "597": {
+    "cat": -80,
+    "displayname": "Blue Jazz",
+    "name": "Blue_Jazz",
+    "price": 50
+  },
+  "604": {
+    "cat": -7,
+    "displayname": "Plum Pudding",
+    "name": "Plum_Pudding",
+    "price": 260
+  },
+  "605": {
+    "cat": -7,
+    "displayname": "Artichoke Dip",
+    "name": "Artichoke_Dip",
+    "price": 210
+  },
+  "606": {
+    "cat": -7,
+    "displayname": "Stir Fry",
+    "name": "Stir_Fry",
+    "price": 335
+  },
+  "607": {
+    "cat": -7,
+    "displayname": "Roasted Hazelnuts",
+    "name": "Roasted_Hazelnuts",
+    "price": 270
+  },
+  "608": {
+    "cat": -7,
+    "displayname": "Pumpkin Pie",
+    "name": "Pumpkin_Pie",
+    "price": 385
+  },
+  "609": {
+    "cat": -7,
+    "displayname": "Radish Salad",
+    "name": "Radish_Salad",
+    "price": 300
+  },
+  "610": {
+    "cat": -7,
+    "displayname": "Fruit Salad",
+    "name": "Fruit_Salad",
+    "price": 450
+  },
+  "611": {
+    "cat": -7,
+    "displayname": "Blackberry Cobbler",
+    "name": "Blackberry_Cobbler",
+    "price": 260
+  },
+  "612": {
+    "cat": -7,
+    "displayname": "Cranberry Candy",
+    "name": "Cranberry_Candy",
+    "price": 175
+  },
+  "613": {
+    "cat": -79,
+    "displayname": "Apple",
+    "name": "Apple",
+    "price": 100
+  },
+  "618": {
+    "cat": -7,
+    "displayname": "Bruschetta",
+    "name": "Bruschetta",
+    "price": 210
+  },
+  "634": {
+    "cat": -79,
+    "displayname": "Apricot",
+    "name": "Apricot",
+    "price": 50
+  },
+  "635": {
+    "cat": -79,
+    "displayname": "Orange",
+    "name": "Orange",
+    "price": 100
+  },
+  "636": {
+    "cat": -79,
+    "displayname": "Peach",
+    "name": "Peach",
+    "price": 140
+  },
+  "637": {
+    "cat": -79,
+    "displayname": "Pomegranate",
+    "name": "Pomegranate",
+    "price": 140
+  },
+  "638": {
+    "cat": -79,
+    "displayname": "Cherry",
+    "name": "Cherry",
+    "price": 80
+  },
+  "648": {
+    "cat": -7,
+    "displayname": "Coleslaw",
+    "name": "Coleslaw",
+    "price": 345
+  },
+  "649": {
+    "cat": -7,
+    "displayname": "Fiddlehead Risotto",
+    "name": "Fiddlehead_Risotto",
+    "price": 350
+  },
+  "651": {
+    "cat": -7,
+    "displayname": "Poppyseed Muffin",
+    "name": "Poppyseed_Muffin",
+    "price": 250
+  },
+  "682": {
+    "cat": -4,
+    "displayname": "Mutant Carp",
+    "name": "Mutant_Carp",
+    "price": 1000
+  },
+  "698": {
+    "cat": -4,
+    "displayname": "Sturgeon",
+    "name": "Sturgeon",
+    "price": 200
+  },
+  "699": {
+    "cat": -4,
+    "displayname": "Tiger Trout",
+    "name": "Tiger_Trout",
+    "price": 150
+  },
+  "700": {
+    "cat": -4,
+    "displayname": "Bullhead",
+    "name": "Bullhead",
+    "price": 75
+  },
+  "701": {
+    "cat": -4,
+    "displayname": "Tilapia",
+    "name": "Tilapia",
+    "price": 75
+  },
+  "702": {
+    "cat": -4,
+    "displayname": "Chub",
+    "name": "Chub",
+    "price": 50
+  },
+  "704": {
+    "cat": -4,
+    "displayname": "Dorado",
+    "name": "Dorado",
+    "price": 100
+  },
+  "705": {
+    "cat": -4,
+    "displayname": "Albacore",
+    "name": "Albacore",
+    "price": 75
+  },
+  "706": {
+    "cat": -4,
+    "displayname": "Shad",
+    "name": "Shad",
+    "price": 60
+  },
+  "707": {
+    "cat": -4,
+    "displayname": "Lingcod",
+    "name": "Lingcod",
+    "price": 120
+  },
+  "708": {
+    "cat": -4,
+    "displayname": "Halibut",
+    "name": "Halibut",
+    "price": 80
+  },
+  "709": {
+    "cat": -16,
+    "displayname": "Hardwood",
+    "name": "Hardwood",
+    "price": 15
+  },
+  "715": {
+    "cat": -4,
+    "displayname": "Lobster",
+    "name": "Lobster",
+    "price": 120
+  },
+  "716": {
+    "cat": -4,
+    "displayname": "Crayfish",
+    "name": "Crayfish",
+    "price": 75
+  },
+  "717": {
+    "cat": -4,
+    "displayname": "Crab",
+    "name": "Crab",
+    "price": 100
+  },
+  "718": {
+    "cat": -4,
+    "displayname": "Cockle",
+    "name": "Cockle",
+    "price": 50
+  },
+  "719": {
+    "cat": -4,
+    "displayname": "Mussel",
+    "name": "Mussel",
+    "price": 30
+  },
+  "720": {
+    "cat": -4,
+    "displayname": "Shrimp",
+    "name": "Shrimp",
+    "price": 60
+  },
+  "722": {
+    "cat": -4,
+    "displayname": "Periwinkle",
+    "name": "Periwinkle",
+    "price": 20
+  },
+  "723": {
+    "cat": -4,
+    "displayname": "Oyster",
+    "name": "Oyster",
+    "price": 40
+  },
+  "724": {
+    "cat": -27,
+    "displayname": "Maple Syrup",
+    "name": "Maple_Syrup",
+    "price": 200
+  },
+  "725": {
+    "cat": -27,
+    "displayname": "Oak Resin",
+    "name": "Oak_Resin",
+    "price": 150
+  },
+  "726": {
+    "cat": -27,
+    "displayname": "Pine Tar",
+    "name": "Pine_Tar",
+    "price": 100
+  },
+  "727": {
+    "cat": -7,
+    "displayname": "Chowder",
+    "name": "Chowder",
+    "price": 135
+  },
+  "728": {
+    "cat": -7,
+    "displayname": "Fish Stew",
+    "name": "Fish_Stew",
+    "price": 175
+  },
+  "729": {
+    "cat": -7,
+    "displayname": "Escargot",
+    "name": "Escargot",
+    "price": 125
+  },
+  "730": {
+    "cat": -7,
+    "displayname": "Lobster Bisque",
+    "name": "Lobster_Bisque",
+    "price": 205
+  },
+  "731": {
+    "cat": -7,
+    "displayname": "Maple Bar",
+    "name": "Maple_Bar",
+    "price": 300
+  },
+  "732": {
+    "cat": -7,
+    "displayname": "Crab Cakes",
+    "name": "Crab_Cakes",
+    "price": 275
+  },
+  "734": {
+    "cat": -4,
+    "displayname": "Woodskip",
+    "name": "Woodskip",
+    "price": 75
+  },
+  "768": {
+    "cat": -28,
+    "displayname": "Solar Essence",
+    "name": "Solar_Essence",
+    "price": 40
+  },
+  "769": {
+    "cat": -28,
+    "displayname": "Void Essence",
+    "name": "Void_Essence",
+    "price": 50
+  },
+  "773": {
+    "cat": -7,
+    "displayname": "Life Elixir",
+    "name": "Life_Elixir",
+    "price": 500
+  },
+  "775": {
+    "cat": -4,
+    "displayname": "Glacierfish",
+    "name": "Glacierfish",
+    "price": 1000
+  },
+  "787": {
+    "cat": -16,
+    "displayname": "Battery Pack",
+    "name": "Battery_Pack",
+    "price": 500
+  },
+  "795": {
+    "cat": -4,
+    "displayname": "Void Salmon",
+    "name": "Void_Salmon",
+    "price": 150
+  },
+  "796": {
+    "cat": -4,
+    "displayname": "Slimejack",
+    "name": "Slimejack",
+    "price": 100
+  }
 }
