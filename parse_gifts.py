@@ -39,6 +39,17 @@ def main():
                 data[catid]['name'] = match.group(3)
                 data[catid]['items'] = data[catid].get('items', [])
                 data[catid]['items'].append(int(itemid))
+            elif match.group(3) == "Arch":
+                catid = 0
+                name = match.group(1)
+                itemsdict[itemid] = {
+                    'price': int(match.group(2)),
+                    'displayname': name,
+                    'cat': catid
+                }
+                name = name.replace(' ', '_').replace('.', '')
+                name = urllib.parse.quote(name)
+                itemsdict[itemid]['name'] = name
         itemsdict[180]['displayname'] = 'Brown_Egg'
         itemsdict[182]['displayname'] = 'Large_Brown_Egg'
         logger.info("Read gift data from file")

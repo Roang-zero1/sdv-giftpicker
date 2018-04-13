@@ -113,6 +113,42 @@
     "name": "Cactus_Fruit",
     "price": 75
   },
+  "96": {
+    "cat": 0,
+    "displayname": "Dwarf Scroll I",
+    "name": "Dwarf_Scroll_I",
+    "price": 1
+  },
+  "97": {
+    "cat": 0,
+    "displayname": "Dwarf Scroll II",
+    "name": "Dwarf_Scroll_II",
+    "price": 1
+  },
+  "98": {
+    "cat": 0,
+    "displayname": "Dwarf Scroll III",
+    "name": "Dwarf_Scroll_III",
+    "price": 1
+  },
+  "99": {
+    "cat": 0,
+    "displayname": "Dwarf Scroll IV",
+    "name": "Dwarf_Scroll_IV",
+    "price": 1
+  },
+  "121": {
+    "cat": 0,
+    "displayname": "Dwarvish Helm",
+    "name": "Dwarvish_Helm",
+    "price": 100
+  },
+  "122": {
+    "cat": 0,
+    "displayname": "Dwarf Gadget",
+    "name": "Dwarf_Gadget",
+    "price": 200
+  },
   "128": {
     "cat": -4,
     "displayname": "Pufferfish",
