@@ -1,0 +1,13 @@
+{
+  "python.linting.pylintUseMinimalCheckers": false,
+
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "spellright.language": "en",
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext"
+  ]
+}
