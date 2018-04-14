@@ -1,6 +1,7 @@
 import copy
 import json
 import logging
+import os
 import re
 import urllib.parse
 
@@ -110,6 +111,7 @@ def main():
         logger.info("Begin data association")
         del tastes['universal']
         itemtastes = {}
+        itemtastes_bylevel = {}
         gifts = []
         for person, taste in tastes.items():
             categories = set(data.keys()).intersection(taste['cats'].keys())
@@ -122,14 +124,23 @@ def main():
             itemtastes[person] = {
                 k: v for k, v in itemtastes[person].items() if v < 2 or v == 4}
             gifts += itemtastes[person].keys()
+            for itemid in itemtastes[person]:
+                level = itemtastes[person][itemid]
+                if person not in itemtastes_bylevel:
+                    itemtastes_bylevel[person] = {}
+                if level not in itemtastes_bylevel[person]:
+                    itemtastes_bylevel[person][level] = []
+                itemtastes_bylevel[person][level].append(itemid)
+
         gifts = sorted(set(gifts))
+        print(itemtastes_bylevel)
 
         itemsdict = {k: v for k, v in itemsdict.items() if k in gifts}
-        with open('Items.json', 'w') as outfile:
-            json.dump(itemsdict, outfile, indent=2, sort_keys=True)
+        with open(os.path.join('public', 'GiftsData.json'), 'w') as outfile:
+            json.dump(itemsdict, outfile, sort_keys=True)
             outfile.write('\n')
-        with open('NPCGiftTastes.json', 'w') as outfile:
-            json.dump(itemtastes, outfile, indent=2, sort_keys=True)
+        with open(os.path.join('public', 'GiftTastes.json'), 'w') as outfile:
+            json.dump(itemtastes_bylevel, outfile, sort_keys=True)
             outfile.write('\n')
 
     except FileNotFoundError as exc:
