@@ -4,9 +4,9 @@ import $ from 'jquery';
 import './Upload.css';
 
 class Upload extends Component {
-  constructor(props){
-    super(props)
-    this.handleUpdload = this.handleUpdload.bind(this)
+  constructor(props) {
+    super(props);
+    this.handleUpdload = this.handleUpdload.bind(this);
   }
   render(props) {
     return (
@@ -36,24 +36,28 @@ class Upload extends Component {
     var file = event.target.files[0];
     var reader = new FileReader();
 
-    const updateProgress = this.props.onProgressChange
-
-    console.log('Reading file');
+    const updateProgress = this.props.onProgressChange;
 
     reader.onloadstart = function(e) {
-      updateProgress(20, "Loading file")
+      updateProgress(20, 'Loading file');
     };
 
     reader.onprogress = function(e) {
       if (e.lengthComputable) {
         var p = 20 + e.loaded / e.total * 60;
-        updateProgress(20, "Loading file")
+        updateProgress(p, 'Loading file');
       }
     };
 
     reader.onload = function(e) {
-      updateProgress(100, "Loading file")
-      console.log('file loaded' + e.target.result);
+      updateProgress(100, 'Loading file');
+      try {
+        var xmlDoc = $.parseXML(e.target.result);
+      } catch (err) {
+        // TODO: Show an error message to the user
+        console.log('Failed to parse file');
+      }
+      console.log("XML doc parsed " + xmlDoc.root)
     };
 
     reader.readAsText(file);

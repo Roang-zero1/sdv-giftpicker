@@ -76,7 +76,6 @@ class App extends Component {
   }
 
   updateProgress(value, label = '', active = true) {
-    console.log(label);
     this.setState({ progress: { label: label, active: active, value: value } });
   }
 }
