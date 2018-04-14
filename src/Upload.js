@@ -4,6 +4,10 @@ import $ from 'jquery';
 import './Upload.css';
 
 class Upload extends Component {
+  constructor(props){
+    super(props)
+    this.handleUpdload = this.handleUpdload.bind(this)
+  }
   render(props) {
     return (
       <div>
@@ -32,20 +36,23 @@ class Upload extends Component {
     var file = event.target.files[0];
     var reader = new FileReader();
 
+    const updateProgress = this.props.onProgressChange
+
     console.log('Reading file');
 
     reader.onloadstart = function(e) {
-      console.log(20);
+      updateProgress(20, "Loading file")
     };
 
     reader.onprogress = function(e) {
       if (e.lengthComputable) {
         var p = 20 + e.loaded / e.total * 60;
-        console.log(p);
+        updateProgress(20, "Loading file")
       }
     };
 
     reader.onload = function(e) {
+      updateProgress(100, "Loading file")
       console.log('file loaded' + e.target.result);
     };
 
