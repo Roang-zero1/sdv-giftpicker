@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron, Progress } from 'reactstrap';
 import Upload from './Upload';
+import $ from 'jquery';
 //import classNames from 'classnames';
 import './App.css';
 
@@ -8,7 +9,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.updateProgress = this.updateProgress.bind(this);
-    this.state = { progress: { label: '', active: true, value: 25 } };
+    this.state = {
+      progress: { label: '', active: false, value: 0 },
+      gifttastes: null,
+      giftsdata: null
+    };
+
+    {
+      /* TODO: Add notification on data loading until it is finished*/
+    }
+    $.getJSON('./GiftTastes.json', data => {
+      data = $.parseJSON(JSON.stringify(data));
+      this.setState({ gifttastes: data });
+    });
+
+    $.getJSON('./GiftsData.json', data => {
+      data = $.parseJSON(JSON.stringify(data));
+      this.setState({ giftsdata: data });
+    });
   }
   render() {
     const progress = this.state.progress.active ? (
@@ -52,7 +70,10 @@ class App extends Component {
               <a href="http://stardewvalley.net/">Stardew Valley</a>. The save
               is no uploaded and processed locally.
             </p>
-            <Upload onProgressChange={this.updateProgress} />
+            <Upload
+              onProgressChange={this.updateProgress}
+              disabled={!(this.state.giftsdata && this.state.gifttastes)}
+            />
           </div>
         </Jumbotron>
         {progress}

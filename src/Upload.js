@@ -21,11 +21,13 @@ class Upload extends Component {
         />
         <Button
           color="primary"
-          className="btn-lg"
+          size="lg"
           onClick={() => {
             this.upload.click();
           }}
+          disabled={this.props.disabled}
         >
+          {this.props.dis}
           Upload File
         </Button>
       </div>
@@ -53,11 +55,11 @@ class Upload extends Component {
       updateProgress(100, 'Loading file');
       try {
         var xmlDoc = $.parseXML(e.target.result);
+        console.log('XML doc parsed ' + xmlDoc.documentElement);
       } catch (err) {
         // TODO: Show an error message to the user
         console.log('Failed to parse file');
       }
-      console.log("XML doc parsed " + xmlDoc.root)
     };
 
     reader.readAsText(file);
