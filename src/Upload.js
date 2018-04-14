@@ -10,6 +10,7 @@ class Upload extends Component {
         <input
           type="file"
           id="upload"
+          onChange={this.handleUpdload}
           ref={upload => {
             this.upload = upload;
           }}
@@ -26,5 +27,30 @@ class Upload extends Component {
       </div>
     );
   }
+
+  handleUpdload(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+
+    console.log('Reading file');
+
+    reader.onloadstart = function(e) {
+      console.log(20);
+    };
+
+    reader.onprogress = function(e) {
+      if (e.lengthComputable) {
+        var p = 20 + e.loaded / e.total * 60;
+        console.log(p);
+      }
+    };
+
+    reader.onload = function(e) {
+      console.log('file loaded' + e.target.result);
+    };
+
+    reader.readAsText(file);
+  }
+}
 
 export default Upload;
