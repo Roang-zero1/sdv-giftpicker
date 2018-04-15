@@ -138,6 +138,10 @@ def load_gift_data():
 
 
 def main():
+    """Main Method
+
+    Initiates the data loading and associates the data
+    """
     logger.info("Read category data from file.")
 
     cat_data, items_data = load_item_data()
