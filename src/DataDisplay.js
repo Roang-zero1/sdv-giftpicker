@@ -8,8 +8,8 @@ class DataDisplay extends Component {
       console.log(char)
       characters.push((
         <div>
-          <h3>{char}</h3>
-          <p>Gifts given {this.props.charactersData[char]}</p>
+          <h3>{char} <img className="icon" src={"/images/characters/" + char + ".png"} alt=""/> </h3>
+          <p>Gifts given {this.props.charactersData[char] > 0 ? 'X' : 'O'}{this.props.charactersData[char] > 1 ? 'X' : 'O'}</p>
         </div>
       ))
     }
