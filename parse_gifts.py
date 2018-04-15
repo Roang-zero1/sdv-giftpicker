@@ -60,6 +60,8 @@ def load_item_data():
             catid = int(match.group(5))
         elif match.group(3) == "Arch":
             catid = 0
+        elif match.group(1):
+            catid = 1
 
         if catid != None:
             display_name = match.group(1)
@@ -132,7 +134,10 @@ def load_gift_data():
                     **tastes[person]['items'],
                     **{int(el): level for el in [v for v in taste[level] if int(v) > 0]}
                 }
-
+    # Alex and Sebastian like items that don't not exist, so we remove them
+    tastes['Alex']['items'].pop(662, None)
+    tastes['Alex']['items'].pop(664, None)
+    tastes['Sebastian']['items'].pop(267, None)
     logger.info("Finished parsing gift data.")
     return tastes
 
