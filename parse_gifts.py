@@ -1,58 +1,95 @@
+#!./bin/python
+"""Stardew Valley giftdata parser
+
+Usage:
+    parse_gifts.py [-v]
+    parse_gifts.py (-h | --help)
+
+Options:
+    -h --help       Show this screen.
+    --version       Show this screen.
+    -v --verbose    Enable debug output
+
+"""
 import copy
 import json
 import logging
 import os
 import re
 import urllib.parse
+from collections import defaultdict
 
 import yaml
+from docopt import docopt
 
 logger = logging.getLogger()
 
 
-def main():
-    logger.info("Read category data from file.")
+def parse_yaml_file(filename):
+    """Parse a yaml file and return the content as dict"""
     try:
-        with open('ObjectInformation.yaml', 'r') as infofile:
+        with open(filename, 'r') as infofile:
             try:
                 content = yaml.load(infofile)
             except yaml.YAMLError as exc:
-                logger.fatal(exc)
-        items = content['content']
-        data = {}
-        itemsdict = {}
-        regex = re.compile(
-            r'(.*?)/(\d*)/.*?/([A-Za-z ]*)(\s([0-9\-]*))*/.*')
-        for itemid, itemdata in items.items():
-            match = regex.match(itemdata)
-            if match.group(4):
-                catid = int(match.group(5))
-                name = match.group(1)
-                itemsdict[itemid] = {
-                    'price': int(match.group(2)),
-                    'displayname': name,
-                    'cat': catid
-                }
-                name = name.replace(' ', '_').replace('.', '')
-                name = urllib.parse.quote(name)
-                itemsdict[itemid]['name'] = name
-                data[catid] = data.get(catid, {})
-                data[catid]['name'] = match.group(3)
-                data[catid]['items'] = data[catid].get('items', [])
-                data[catid]['items'].append(int(itemid))
-            elif match.group(3) == "Arch":
-                catid = 0
-                name = match.group(1)
-                itemsdict[itemid] = {
-                    'price': int(match.group(2)),
-                    'displayname': name,
-                    'cat': catid
-                }
-                name = name.replace(' ', '_').replace('.', '')
-                name = urllib.parse.quote(name)
-                itemsdict[itemid]['name'] = name
-        itemsdict[180]['displayname'] = 'Brown_Egg'
-        itemsdict[182]['displayname'] = 'Large_Brown_Egg'
+                logger.fatal(
+                    "Failed to parse %s with exception: %s", filename, exc)
+                exit(1)
+            return content['content']
+    except FileNotFoundError as exc:
+        logger.fatal("Could not find import file %s", filename)
+        exit(1)
+
+
+def load_item_data():
+    """Load the Stardew Valley item data from the exported game file."""
+    logger.info("Reading itemdata from file.")
+    items_data = parse_yaml_file('ObjectInformation.yaml')
+    logger.debug("Itemdata file read")
+
+    categories = defaultdict(lambda: defaultdict(list))
+    items = {}
+
+    regex = re.compile(
+        r'(.*?)/(\d*)/.*?/([A-Za-z ]*)(\s([0-9\-]*))*/.*')
+    for itemid, itemdata in items_data.items():
+        match = regex.match(itemdata)
+
+        catid = None
+        if match.group(4):
+            catid = int(match.group(5))
+        elif match.group(3) == "Arch":
+            catid = 0
+
+        if catid:
+            display_name = match.group(1)
+            name = display_name.replace(' ', '_').replace('.', '')
+            name = urllib.parse.quote(name)
+            items[itemid] = {
+                'price': int(match.group(2)),
+                'displayname': display_name,
+                'name': name,
+                'cat': catid
+            }
+            categories[catid]['name'] = match.group(3)
+            categories[catid]['items'].append(int(itemid))
+    items[180]['displayname'] = 'Brown_Egg'
+    items[182]['displayname'] = 'Large_Brown_Egg'
+
+    logger.debug("Finished parsing item data")
+
+    return (categories, items)
+
+def load_gift_data():
+    pass
+
+
+def main():
+    logger.info("Read category data from file.")
+
+    data, itemsdict = load_item_data()
+    try:
+
         logger.info("Read gift data from file")
 
         with open('NPCGiftTastes.yaml', 'r') as infofile:
@@ -148,5 +185,6 @@ def main():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG)
+    OPTS = docopt(__doc__, version='Stardew Valley giftdata parser 1.0')
+    logging.basicConfig(level=logging.DEBUG if OPTS['--verbose'] else logging.INFO)
     main()
