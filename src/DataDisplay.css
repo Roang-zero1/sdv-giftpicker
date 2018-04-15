@@ -1,4 +1,9 @@
 .icon {
 max-width: 24px;
 height: auto;
+
+}
+
+.missing .icon {
+    filter: grayscale(100%);
 }
