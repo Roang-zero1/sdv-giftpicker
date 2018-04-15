@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron, Progress } from 'reactstrap';
 import Upload from './Upload';
+import DataDisplay from './DataDisplay'
 import $ from 'jquery';
 //import classNames from 'classnames';
 import './App.css';
@@ -80,7 +81,13 @@ class App extends Component {
             />
           </div>
         </Jumbotron>
-        {progress}
+        {this.state.charactersData ?
+        <DataDisplay
+          giftTastes={this.state.giftTastes}
+          giftsData={this.state.giftsData}
+          charactersData={this.state.charactersData}
+        /> :
+         progress}
         {/* TODO: Add an about referencing the used tools*/}
         <div className="container" id="about">
           <h2>About</h2>
