@@ -61,7 +61,7 @@ def load_item_data():
         elif match.group(3) == "Arch":
             catid = 0
 
-        if catid:
+        if catid != None:
             display_name = match.group(1)
             name = display_name.replace(' ', '_').replace('.', '')
             name = urllib.parse.quote(name)
@@ -145,8 +145,7 @@ def main():
 
     logger.info("Begin data association")
     del tastes['universal']
-    itemtastes = {}
-    itemtastes_bylevel = {}
+    itemtastes = defaultdict(lambda: defaultdict(list))
     gifts = []
     for person, taste in tastes.items():
         categories = set(cat_data.keys()).intersection(taste['cats'].keys())
@@ -156,25 +155,18 @@ def main():
             **taste['items']}
         items = {k: v for k, v in items.items() if v < 2 or v == 4}
         gifts += items.keys()
-        itemtastes[person] = items
-    for person in itemtastes:
-        for itemid in itemtastes[person]:
-            level = itemtastes[person][itemid]
-            if person not in itemtastes_bylevel:
-                itemtastes_bylevel[person] = {}
-            if level not in itemtastes_bylevel[person]:
-                itemtastes_bylevel[person][level] = []
-            itemtastes_bylevel[person][level].append(itemid)
+
+        for itemid, level in items.items():
+            itemtastes[person][level].append(itemid)
 
     gifts = sorted(set(gifts))
-    print(itemtastes_bylevel)
 
-    items_data = {k: v for k, v in itemsdict.items() if k in gifts}
+    items_data = {k: v for k, v in items_data.items() if k in gifts}
     with open(os.path.join('public', 'GiftsData.json'), 'w') as outfile:
         json.dump(items_data, outfile, sort_keys=True)
         outfile.write('\n')
     with open(os.path.join('public', 'GiftTastes.json'), 'w') as outfile:
-        json.dump(itemtastes_bylevel, outfile, sort_keys=True)
+        json.dump(itemtastes, outfile, sort_keys=True)
         outfile.write('\n')
 
 
