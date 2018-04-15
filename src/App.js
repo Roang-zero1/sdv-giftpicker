@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Progress } from 'reactstrap';
+import { Jumbotron, Progress, Container } from 'reactstrap';
 import Upload from './Upload';
 import DataDisplay from './DataDisplay'
 import $ from 'jquery';
@@ -33,15 +33,15 @@ class App extends Component {
   }
   render() {
     const progress = this.state.progress.active ? (
-      <div className="container" id="progress">
+      <Container id="progress">
         <h2>Progress</h2>
         {this.state.progress.label ? (
           <label>{this.state.progress.label}</label>
         ) : null}
         <Progress value={this.state.progress.value} />
-      </div>
+      </Container>
     ) : (
-      <div className="container" id="help">
+      <Container id="help">
         <h2>Help</h2>
         <p>
           Please use the full save file named with your farmer's name and a
@@ -60,12 +60,12 @@ class App extends Component {
             </li>
           </ul>
         </div>
-      </div>
+      </Container>
     );
     return (
       <main className="App">
         <Jumbotron className="App-header">
-          <div className="container">
+          <Container>
             <h1 className="display-3">SDV Gift Picker</h1>
             <p>
               Use this site to check which gifts you have available for the
@@ -79,7 +79,7 @@ class App extends Component {
               giftsData={this.state.giftsData}
               onFileLoaded={this.updateFileState}
             />
-          </div>
+          </Container>
         </Jumbotron>
         {this.state.charactersData ?
         <DataDisplay
@@ -89,7 +89,7 @@ class App extends Component {
         /> :
          progress}
         {/* TODO: Add an about referencing the used tools*/}
-        <div className="container" id="about">
+        <Container id="about">
           <h2>About</h2>
           <p>
             SDV Gift Calculator by{' '}
@@ -102,7 +102,7 @@ class App extends Component {
               https://mouseypounds.github.io/stardew-checkup/
             </a>
           </p>
-        </div>
+        </Container>
       </main>
     );
   }
