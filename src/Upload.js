@@ -77,7 +77,7 @@ class Upload extends Component {
 
     const updateProgress = this.props.onProgressChange;
     const onFileLoaded = this.props.onFileLoaded;
-    const props = this.props;
+    var items = this.props.giftsData;
 
     reader.onloadstart = function(e) {
       updateProgress(20, 'Loading file');
@@ -94,7 +94,10 @@ class Upload extends Component {
       updateProgress(100, 'Loading file');
       try {
         var xmlDoc = $.parseXML(e.target.result);
-        var items = gatherItems(xmlDoc, props.giftsData);
+        for (var item in items) {
+          delete items[item].count;
+        }
+        items = gatherItems(xmlDoc, items);
         console.log('XML doc parsed ' + xmlDoc.documentElement);
         onFileLoaded(items);
       } catch (err) {
