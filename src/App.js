@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       progress: { label: '', active: false, value: 0 },
       giftTastes: null,
-      giftsData: null
+      giftsData: null,
+      charactersData: null
     };
 
     {
@@ -103,8 +104,8 @@ class App extends Component {
     this.setState({ progress: { label: label, active: active, value: value } });
   }
 
-  updateFileState(giftsData) {
-    this.setState({ giftsData: giftsData });
+  updateFileState(giftsData, charactersData) {
+    this.setState({ giftsData: giftsData, charactersData: charactersData });
   }
 }
 

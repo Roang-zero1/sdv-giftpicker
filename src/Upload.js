@@ -40,10 +40,31 @@ function gatherItems(xmlDoc, items) {
   return items;
 }
 
+function findGiftCount(xmlDoc) {
+  var charactersData = {};
+  $(xmlDoc)
+    .find('player > friendships > item')
+    .each(function() {
+      var who = $(this)
+        .find('key > string')
+        .html();
+      var num = parseInt(
+        $(this)
+          .find('value > ArrayOfInt > int')
+          .first()
+          .next()
+          .text(),
+        10
+      );
+      charactersData[who] = num;
+    });
+  return charactersData;
+}
+
 class Upload extends Component {
   constructor(props) {
     super(props);
-    this.handleUpdload = this.handleUpdload.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
   }
   render(props) {
     return (
@@ -51,7 +72,7 @@ class Upload extends Component {
         <input
           type="file"
           id="upload"
-          onChange={this.handleUpdload}
+          onChange={this.handleUpload}
           ref={upload => {
             this.upload = upload;
           }}
@@ -71,7 +92,7 @@ class Upload extends Component {
     );
   }
 
-  handleUpdload(event) {
+  handleUpload(event) {
     var file = event.target.files[0];
     var reader = new FileReader();
 
@@ -80,26 +101,29 @@ class Upload extends Component {
     var items = this.props.giftsData;
 
     reader.onloadstart = function(e) {
-      updateProgress(20, 'Loading file');
+      updateProgress(10, 'Loading file');
     };
 
     reader.onprogress = function(e) {
       if (e.lengthComputable) {
-        var p = 20 + e.loaded / e.total * 60;
+        var p = 10 + e.loaded / e.total * 40;
         updateProgress(p, 'Loading file');
       }
     };
 
     reader.onload = function(e) {
-      updateProgress(100, 'Loading file');
+      updateProgress(55, 'Parsing data');
       try {
         var xmlDoc = $.parseXML(e.target.result);
         for (var item in items) {
           delete items[item].count;
         }
         items = gatherItems(xmlDoc, items);
+        updateProgress(90, 'Parsing data');
+        var charactersData = findGiftCount(xmlDoc);
+        updateProgress(100, 'Finished loading');
         console.log('XML doc parsed ' + xmlDoc.documentElement);
-        onFileLoaded(items);
+        onFileLoaded(items, charactersData);
       } catch (err) {
         // TODO: Show an error message to the user
         console.log('Failed to parse file');
