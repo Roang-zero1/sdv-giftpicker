@@ -28,9 +28,10 @@ logger = logging.getLogger()
 def parse_yaml_file(filename):
     """Parse a yaml file and return the content as dict"""
     try:
-        with open(filename, 'r') as infofile:
+        with open(filename, 'r') as input_file:
             try:
-                content = yaml.load(infofile)
+                content = yaml.load(input_file)
+                logger.debug("%s read", filename)
             except yaml.YAMLError as exc:
                 logger.fatal(
                     "Failed to parse %s with exception: %s", filename, exc)
@@ -43,9 +44,8 @@ def parse_yaml_file(filename):
 
 def load_item_data():
     """Load the Stardew Valley item data from the exported game file."""
-    logger.info("Reading itemdata from file.")
+    logger.info("Reading item data from file.")
     items_data = parse_yaml_file('ObjectInformation.yaml')
-    logger.debug("Itemdata file read")
 
     categories = defaultdict(lambda: defaultdict(list))
     items = {}
@@ -80,111 +80,107 @@ def load_item_data():
 
     return (categories, items)
 
+
 def load_gift_data():
-    pass
+    """Load the Stardew Valley gift taste data from the exported game file."""
+    logger.info("Reading gift data from file.")
+    gift_data = parse_yaml_file('NPCGiftTastes.yaml')
+
+    levels = [
+        ('Love', 0),
+        ('Like', 1),
+        ('Dislike', 2),
+        ('Hate', 3),
+        ('Neutral', 4)
+    ]
+
+    tastes = {
+        "universal": {
+
+            "cats": {},
+            "items": {}
+        }
+    }
+
+    logger.debug("Calculating universal likes")
+
+    for cat, level in levels:
+        values = gift_data.pop(
+            "Universal_{}".format(cat), None).split()
+        tastes['universal']['cats'] = {
+            **tastes['universal']['cats'],
+            **{int(el): level for el in [v for v in values if int(v) < 0]}
+        }
+        tastes['universal']['items'] = {
+            **tastes['universal']['items'],
+            **{int(el): level for el in [v for v in values if int(v) > 0]}
+        }
+    regex = re.compile(r'.+?/(.*?)/')
+
+    for person, taste in gift_data.items():
+        logger.debug("Calculating likes for %s", person)
+        tastes[person] = copy.deepcopy(tastes['universal'])
+        taste = regex.findall(taste)
+        taste = [v.split() for v in taste]
+        for _, level in levels:
+            if taste[level]:
+                tastes[person]['cats'] = {
+                    **tastes[person]['cats'],
+                    **{int(el): level for el in [v for v in taste[level] if int(v) < 0]}
+                }
+                tastes[person]['items'] = {
+                    **tastes[person]['items'],
+                    **{int(el): level for el in [v for v in taste[level] if int(v) > 0]}
+                }
+
+    logger.info("Finished parsing gift data.")
+    return tastes
 
 
 def main():
     logger.info("Read category data from file.")
 
-    data, itemsdict = load_item_data()
-    try:
+    cat_data, items_data = load_item_data()
+    tastes = load_gift_data()
 
-        logger.info("Read gift data from file")
+    logger.info("Begin data association")
+    del tastes['universal']
+    itemtastes = {}
+    itemtastes_bylevel = {}
+    gifts = []
+    for person, taste in tastes.items():
+        categories = set(cat_data.keys()).intersection(taste['cats'].keys())
+        items = {
+            **{itemid: taste['cats'][catid]
+               for catid in categories for itemid in cat_data[catid]['items']},
+            **taste['items']}
+        items = {k: v for k, v in items.items() if v < 2 or v == 4}
+        gifts += items.keys()
+        itemtastes[person] = items
+    for person in itemtastes:
+        for itemid in itemtastes[person]:
+            level = itemtastes[person][itemid]
+            if person not in itemtastes_bylevel:
+                itemtastes_bylevel[person] = {}
+            if level not in itemtastes_bylevel[person]:
+                itemtastes_bylevel[person][level] = []
+            itemtastes_bylevel[person][level].append(itemid)
 
-        with open('NPCGiftTastes.yaml', 'r') as infofile:
-            try:
-                content = yaml.load(infofile)
-            except yaml.YAMLError as exc:
-                logger.fatal(exc)
-        rawdata = content['content']
+    gifts = sorted(set(gifts))
+    print(itemtastes_bylevel)
 
-        levels = [
-            ('Love', 0),
-            ('Like', 1),
-            ('Dislike', 2),
-            ('Hate', 3),
-            ('Neutral', 4)
-        ]
+    items_data = {k: v for k, v in itemsdict.items() if k in gifts}
+    with open(os.path.join('public', 'GiftsData.json'), 'w') as outfile:
+        json.dump(items_data, outfile, sort_keys=True)
+        outfile.write('\n')
+    with open(os.path.join('public', 'GiftTastes.json'), 'w') as outfile:
+        json.dump(itemtastes_bylevel, outfile, sort_keys=True)
+        outfile.write('\n')
 
-        tastes = {
-            "universal": {
-                "cats": {},
-                "items": {}
-            }
-        }
-        logger.info("Calculating universal likes")
-        for cat, level in levels:
-
-            values = rawdata.pop(
-                "Universal_{}".format(cat), None).split()
-            tastes['universal']['cats'] = {
-                **tastes['universal']['cats'],
-                **{int(el): level for el in [v for v in values if int(v) < 0]}
-            }
-            tastes['universal']['items'] = {
-                **tastes['universal']['items'],
-                **{int(el): level for el in [v for v in values if int(v) > 0]}
-            }
-
-        regex = re.compile(r'.+?/(.*?)/')
-        for person, taste in rawdata.items():
-            logger.info("Calculating likes for %s", person)
-            tastes[person] = copy.deepcopy(tastes['universal'])
-            taste = regex.findall(taste)
-            taste = [v.split() for v in taste]
-            for _, level in levels:
-                if taste[level]:
-                    tastes[person]['cats'] = {
-                        **tastes[person]['cats'],
-                        **{int(el): level for el in [v for v in taste[level] if int(v) < 0]}
-                    }
-                    tastes[person]['items'] = {
-                        **tastes[person]['items'],
-                        **{int(el): level for el in [v for v in taste[level] if int(v) > 0]}
-                    }
-        logger.info("Writing likes to file")
-
-        logger.info("Begin data association")
-        del tastes['universal']
-        itemtastes = {}
-        itemtastes_bylevel = {}
-        gifts = []
-        for person, taste in tastes.items():
-            categories = set(data.keys()).intersection(taste['cats'].keys())
-            items = {
-                **{itemid: taste['cats'][catid]
-                   for catid in categories for itemid in data[catid]['items']},
-                **taste['items']}
-            itemtastes[person] = items
-        for person in itemtastes:
-            itemtastes[person] = {
-                k: v for k, v in itemtastes[person].items() if v < 2 or v == 4}
-            gifts += itemtastes[person].keys()
-            for itemid in itemtastes[person]:
-                level = itemtastes[person][itemid]
-                if person not in itemtastes_bylevel:
-                    itemtastes_bylevel[person] = {}
-                if level not in itemtastes_bylevel[person]:
-                    itemtastes_bylevel[person][level] = []
-                itemtastes_bylevel[person][level].append(itemid)
-
-        gifts = sorted(set(gifts))
-        print(itemtastes_bylevel)
-
-        itemsdict = {k: v for k, v in itemsdict.items() if k in gifts}
-        with open(os.path.join('public', 'GiftsData.json'), 'w') as outfile:
-            json.dump(itemsdict, outfile, sort_keys=True)
-            outfile.write('\n')
-        with open(os.path.join('public', 'GiftTastes.json'), 'w') as outfile:
-            json.dump(itemtastes_bylevel, outfile, sort_keys=True)
-            outfile.write('\n')
-
-    except FileNotFoundError as exc:
-        logger.fatal(exc)
 
 
 if __name__ == "__main__":
     OPTS = docopt(__doc__, version='Stardew Valley giftdata parser 1.0')
-    logging.basicConfig(level=logging.DEBUG if OPTS['--verbose'] else logging.INFO)
+    logging.basicConfig(
+        level=logging.DEBUG if OPTS['--verbose'] else logging.INFO)
     main()
