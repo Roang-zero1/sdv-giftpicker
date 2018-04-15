@@ -9,10 +9,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.updateProgress = this.updateProgress.bind(this);
+    this.updateFileState = this.updateFileState.bind(this);
     this.state = {
       progress: { label: '', active: false, value: 0 },
-      gifttastes: null,
-      giftsdata: null
+      giftTastes: null,
+      giftsData: null
     };
 
     {
@@ -20,12 +21,12 @@ class App extends Component {
     }
     $.getJSON('./GiftTastes.json', data => {
       data = $.parseJSON(JSON.stringify(data));
-      this.setState({ gifttastes: data });
+      this.setState({ giftTastes: data });
     });
 
     $.getJSON('./GiftsData.json', data => {
       data = $.parseJSON(JSON.stringify(data));
-      this.setState({ giftsdata: data });
+      this.setState({ giftsData: data });
     });
   }
   render() {
@@ -72,7 +73,9 @@ class App extends Component {
             </p>
             <Upload
               onProgressChange={this.updateProgress}
-              disabled={!(this.state.giftsdata && this.state.gifttastes)}
+              disabled={!(this.state.giftsData && this.state.giftTastes)}
+              giftsData={this.state.giftsData}
+              onFileLoaded={this.updateFileState}
             />
           </div>
         </Jumbotron>
@@ -98,6 +101,10 @@ class App extends Component {
 
   updateProgress(value, label = '', active = true) {
     this.setState({ progress: { label: label, active: active, value: value } });
+  }
+
+  updateFileState(giftsData) {
+    this.setState({ giftsData: giftsData });
   }
 }
 
