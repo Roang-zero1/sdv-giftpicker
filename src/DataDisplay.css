@@ -4,6 +4,20 @@ height: auto;
 
 }
 
+.missing {
+    order: 1;
+}
 .missing .icon {
     filter: grayscale(100%);
+}
+
+
+.item .row {
+    width: 100%;
+}
+.item .col-auto {
+    flex: 1 0 auto;
+}
+.item .count {
+    text-align: right;
 }

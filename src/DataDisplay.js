@@ -57,22 +57,28 @@ class DataDisplay extends Component {
     var tastes = this.props.giftTastes[char][category];
     var gifts = [];
     for (var gift in tastes) {
-      const itemid = tastes[gift];
+      const itemID = tastes[gift];
       gifts.push(
         <Col
-          xs="3"
+          xs="12"
+          sm="6"
+          lg="4"
+          xl="3"
           className={classNames({
-            missing: !this.props.giftsData[itemid].count
+            item: true,
+            missing: !this.props.giftsData[itemID].count
           })}
-          key={itemid}
+          key={itemID}
         >
-          <img
+          <Row>
+          <Col xs="1"><img
             className="icon"
-            src={'/images/items/' + this.props.giftsData[itemid].name + '.png'}
+            src={'/images/items/' + this.props.giftsData[itemID].name + '.png'}
             alt=""
-          />
-          {this.props.giftsData[itemid].displayname}
-          {this.props.giftsData[itemid].count}
+          /></Col>
+          <Col xs="auto">{this.props.giftsData[itemID].displayname}</Col>
+          <Col xs="3" align-self="end" className="count">{this.props.giftsData[itemID].count}</Col>
+          </Row>
         </Col>
       );
     }
