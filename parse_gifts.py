@@ -65,18 +65,18 @@ def load_item_data():
 
         if catid != None:
             display_name = match.group(1)
-            name = display_name.replace(' ', '_').replace('.', '')
+            name = display_name.replace(' ', '_').replace('.', '').replace("'", '')
             name = urllib.parse.quote(name)
             items[itemid] = {
                 'price': int(match.group(2)),
-                'displayname': display_name,
+                'displayName': display_name,
                 'name': name,
                 'cat': catid
             }
             categories[catid]['name'] = match.group(3)
             categories[catid]['items'].append(int(itemid))
-    items[180]['displayname'] = 'Brown_Egg'
-    items[182]['displayname'] = 'Large_Brown_Egg'
+    items[180]['displayName'] = 'Brown_Egg'
+    items[182]['displayName'] = 'Large_Brown_Egg'
 
     logger.debug("Finished parsing item data")
 

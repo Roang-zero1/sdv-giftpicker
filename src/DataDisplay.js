@@ -21,7 +21,7 @@ class DataDisplay extends Component {
               {char}{' '}
               <img
                 className="icon"
-                src={'/images/characters/' + char + '.png'}
+                src={require('./images/characters/' + char + '.png')}
                 alt=""
               />{' '}
             </h3>
@@ -73,10 +73,10 @@ class DataDisplay extends Component {
           <Row>
           <Col xs="1"><img
             className="icon"
-            src={'/images/items/' + this.props.giftsData[itemID].name + '.png'}
+            src={require('./images/items/' + this.props.giftsData[itemID].name + '.png')}
             alt=""
           /></Col>
-          <Col xs="auto">{this.props.giftsData[itemID].displayname}</Col>
+          <Col xs="auto">{this.props.giftsData[itemID].displayName}</Col>
           <Col xs="3" align-self="end" className="count">{this.props.giftsData[itemID].count}</Col>
           </Row>
         </Col>
