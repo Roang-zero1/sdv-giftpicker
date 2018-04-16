@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import classNames from 'classnames';
 import './DataDisplay.css';
+import tastes from './GiftTastes.js'
 
 class DataDisplay extends Component {
   render(props) {
@@ -54,10 +55,10 @@ class DataDisplay extends Component {
   }
 
   renderGiftCategories(char, category) {
-    var tastes = this.props.giftTastes[char][category];
+    var characterTastes = tastes[char][category];
     var gifts = [];
-    for (var gift in tastes) {
-      const itemID = tastes[gift];
+    for (var gift in characterTastes) {
+      const itemID = characterTastes[gift];
       gifts.push(
         <Col
           xs="12"

@@ -174,8 +174,10 @@ def main():
     with open(os.path.join('public', 'GiftsData.json'), 'w') as outfile:
         json.dump(items_data, outfile, sort_keys=True)
         outfile.write('\n')
-    with open(os.path.join('public', 'GiftTastes.json'), 'w') as outfile:
+    with open(os.path.join('src', 'GiftTastes.js'), 'w') as outfile:
+        outfile.write("export default ")
         json.dump(itemtastes, outfile, sort_keys=True)
+        outfile.write(";")
         outfile.write('\n')
 
 

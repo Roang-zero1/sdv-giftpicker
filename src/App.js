@@ -13,7 +13,6 @@ class App extends Component {
     this.updateFileState = this.updateFileState.bind(this);
     this.state = {
       progress: { label: '', active: false, value: 0 },
-      giftTastes: null,
       giftsData: null,
       charactersData: null
     };
@@ -21,11 +20,6 @@ class App extends Component {
     {
       /* TODO: Add notification on data loading until it is finished*/
     }
-    $.getJSON('./GiftTastes.json', data => {
-      data = $.parseJSON(JSON.stringify(data));
-      this.setState({ giftTastes: data });
-    });
-
     $.getJSON('./GiftsData.json', data => {
       data = $.parseJSON(JSON.stringify(data));
       this.setState({ giftsData: data });
@@ -75,7 +69,7 @@ class App extends Component {
             </p>
             <Upload
               onProgressChange={this.updateProgress}
-              disabled={!(this.state.giftsData && this.state.giftTastes)}
+              disabled={!(this.state.giftsData)}
               giftsData={this.state.giftsData}
               onFileLoaded={this.updateFileState}
             />
@@ -83,7 +77,6 @@ class App extends Component {
         </Jumbotron>
         {this.state.charactersData ? (
           <DataDisplay
-            giftTastes={this.state.giftTastes}
             giftsData={this.state.giftsData}
             charactersData={this.state.charactersData}
           />
