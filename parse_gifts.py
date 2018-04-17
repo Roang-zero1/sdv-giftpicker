@@ -177,6 +177,10 @@ def main():
         outfile.write("export default ")
         json.dump(itemtastes, outfile, sort_keys=True)
         outfile.write(";\n")
+    with open(os.path.join('src', 'data', 'Gifts.js'), 'w') as outfile:
+        outfile.write("export default ")
+        json.dump(gifts, outfile, sort_keys=True)
+        outfile.write(";\n")
 
 
 if __name__ == "__main__":
