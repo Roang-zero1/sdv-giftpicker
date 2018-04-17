@@ -4,6 +4,10 @@
   "[javascript]": {
     "editor.formatOnSave": true
   },
+
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
   "spellright.language": "en",
   "spellright.documentTypes": [
     "markdown",
