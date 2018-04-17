@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import $ from 'jquery';
 import './Upload.css';
+import giftIDs from './data/Gifts.js';
 
 function parseItems(xmlDoc, items, searchString) {
   $(xmlDoc)
@@ -14,14 +15,14 @@ function parseItems(xmlDoc, items, searchString) {
             .text(),
           10
         );
-        if (id in items) {
+        if (id in giftIDs) {
           var count = parseInt(
             $(this)
               .find('Stack')
               .text(),
             10
           );
-          items[id].count = (items[id].count || 0) + count;
+          items[id] = (items[id] || 0) + count;
         }
       } catch (err) {
         console.log('Failed to get item count for ' + id);
@@ -106,7 +107,6 @@ class Upload extends Component {
 
     const updateProgress = this.props.onProgressChange;
     const onFileLoaded = this.props.onFileLoaded;
-    var items = this.props.giftsData;
 
     reader.onloadstart = function(e) {
       updateProgress(10, 'Loading file');
@@ -123,9 +123,7 @@ class Upload extends Component {
       updateProgress(55, 'Parsing data');
       try {
         var xmlDoc = $.parseXML(e.target.result);
-        for (var item in items) {
-          delete items[item].count;
-        }
+        var items = {};
         items = gatherItems(xmlDoc, items);
         updateProgress(90, 'Parsing data');
         var charactersData = findGiftCount(xmlDoc);

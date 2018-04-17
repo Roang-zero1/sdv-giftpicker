@@ -61,7 +61,7 @@ class DataDisplay extends Component {
             xl="3"
             className={classNames({
               item: true,
-              missing: !this.props.giftsData[itemID].count
+              missing: !(itemID in this.props.giftsData)
             })}
             key={itemID}
           >
@@ -70,21 +70,25 @@ class DataDisplay extends Component {
                 <img
                   className="icon"
                   src={require('./images/items/' +
-                    this.props.giftsData[itemID].name +
+                    this.props.giftsMetaData[itemID].name +
                     '.png')}
                   alt=""
                 />
               </Col>
-              <Col xs="auto">{this.props.giftsData[itemID].displayName}</Col>
+              <Col xs="auto">
+                {this.props.giftsMetaData[itemID].displayName}
+              </Col>
               <Col xs="3" align-self="end" className="count">
-                {this.props.giftsData[itemID].count}
+                {itemID in this.props.giftsData
+                  ? this.props.giftsData[itemID]
+                  : null}
               </Col>
             </Row>
           </Col>
         );
       }
       return (
-        <Container>
+        <Container key={category}>
           <h4>{categories_map[category]}</h4>
           <Row>{gifts}</Row>
         </Container>

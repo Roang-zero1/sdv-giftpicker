@@ -5,7 +5,6 @@ import DataDisplay from './DataDisplay';
 import $ from 'jquery';
 //import classNames from 'classnames';
 import './App.css';
-import giftsData_import from './data/GiftsData.js';
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class App extends Component {
     this.updateFileState = this.updateFileState.bind(this);
     this.state = {
       progress: { label: '', active: false, value: 0 },
-      giftsData: giftsData_import,
+      giftsData: null,
       charactersData: null
     };
   }
@@ -62,8 +61,6 @@ class App extends Component {
             </p>
             <Upload
               onProgressChange={this.updateProgress}
-              disabled={!this.state.giftsData}
-              giftsData={this.state.giftsData}
               onFileLoaded={this.updateFileState}
             />
           </Container>
@@ -71,6 +68,7 @@ class App extends Component {
         {this.state.charactersData ? (
           <DataDisplay
             giftsData={this.state.giftsData}
+            giftsMetaData={require('./data/GiftsData.js').default}
             charactersData={this.state.charactersData}
           />
         ) : (
