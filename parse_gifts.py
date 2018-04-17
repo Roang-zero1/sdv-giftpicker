@@ -134,10 +134,6 @@ def load_gift_data():
                     **tastes[person]['items'],
                     **{int(el): level for el in [v for v in taste[level] if int(v) > 0]}
                 }
-    # Alex and Sebastian like items that don't not exist, so we remove them
-    tastes['Alex']['items'].pop(662, None)
-    tastes['Alex']['items'].pop(664, None)
-    tastes['Sebastian']['items'].pop(267, None)
     logger.info("Finished parsing gift data.")
     return tastes
 
@@ -162,7 +158,7 @@ def main():
             **{itemid: taste['cats'][catid]
                for catid in categories for itemid in cat_data[catid]['items']},
             **taste['items']}
-        items = {k: v for k, v in items.items() if v < 2 or v == 4}
+        items = {k: v for k, v in items.items() if (v < 2 or v == 4) and k in items_data.keys() }
         gifts += items.keys()
 
         for itemid, level in items.items():
