@@ -7,20 +7,24 @@ function parseItems(xmlDoc, items, searchString) {
   $(xmlDoc)
     .find(searchString)
     .each(function() {
-      var id = parseInt(
-        $(this)
-          .find('parentSheetIndex')
-          .text(),
-        10
-      );
-      if (id in items) {
-        var count = parseInt(
+      try {
+        var id = parseInt(
           $(this)
-            .find('Stack')
+            .find('parentSheetIndex')
             .text(),
           10
         );
-        items[id].count = (items[id].count || 0) + count;
+        if (id in items) {
+          var count = parseInt(
+            $(this)
+              .find('Stack')
+              .text(),
+            10
+          );
+          items[id].count = (items[id].count || 0) + count;
+        }
+      } catch (err) {
+        console.log('Failed to get item count for ' + id);
       }
     });
 }
@@ -45,18 +49,22 @@ function findGiftCount(xmlDoc) {
   $(xmlDoc)
     .find('player > friendships > item')
     .each(function() {
-      var who = $(this)
-        .find('key > string')
-        .html();
-      var num = parseInt(
-        $(this)
-          .find('value > ArrayOfInt > int')
-          .first()
-          .next()
-          .text(),
-        10
-      );
-      charactersData[who] = num;
+      try {
+        var who = $(this)
+          .find('key > string')
+          .html();
+        var num = parseInt(
+          $(this)
+            .find('value > ArrayOfInt > int')
+            .first()
+            .next()
+            .text(),
+          10
+        );
+        charactersData[who] = num;
+      } catch (err) {
+        console.log('Failed to update data for ' + who + '\n' + err);
+      }
     });
   return charactersData;
 }
