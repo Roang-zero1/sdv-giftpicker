@@ -5,6 +5,7 @@ import DataDisplay from './DataDisplay';
 import $ from 'jquery';
 //import classNames from 'classnames';
 import './App.css';
+import giftsData_import from './data/GiftsData.js';
 
 class App extends Component {
   constructor(props) {
@@ -13,17 +14,9 @@ class App extends Component {
     this.updateFileState = this.updateFileState.bind(this);
     this.state = {
       progress: { label: '', active: false, value: 0 },
-      giftsData: null,
+      giftsData: giftsData_import,
       charactersData: null
     };
-
-    {
-      /* TODO: Add notification on data loading until it is finished*/
-    }
-    $.getJSON('./GiftsData.json', data => {
-      data = $.parseJSON(JSON.stringify(data));
-      this.setState({ giftsData: data });
-    });
   }
   render() {
     const progress = this.state.progress.active ? (
@@ -69,7 +62,7 @@ class App extends Component {
             </p>
             <Upload
               onProgressChange={this.updateProgress}
-              disabled={!(this.state.giftsData)}
+              disabled={!this.state.giftsData}
               giftsData={this.state.giftsData}
               onFileLoaded={this.updateFileState}
             />

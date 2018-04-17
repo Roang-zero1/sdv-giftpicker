@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import classNames from 'classnames';
 import './DataDisplay.css';
-import tastes from './GiftTastes.js';
+import tastes from './data/GiftTastes.js';
 
 const categories_map = {
   0: 'Love',

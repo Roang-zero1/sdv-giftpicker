@@ -65,7 +65,8 @@ def load_item_data():
 
         if catid != None:
             display_name = match.group(1)
-            name = display_name.replace(' ', '_').replace('.', '').replace("'", '')
+            name = display_name.replace(' ', '_').replace(
+                '.', '').replace("'", '')
             name = urllib.parse.quote(name)
             items[itemid] = {
                 'price': int(match.group(2)),
@@ -158,7 +159,8 @@ def main():
             **{itemid: taste['cats'][catid]
                for catid in categories for itemid in cat_data[catid]['items']},
             **taste['items']}
-        items = {k: v for k, v in items.items() if (v < 2 or v == 4) and k in items_data.keys() }
+        items = {k: v for k, v in items.items() if (
+            v < 2 or v == 4) and k in items_data.keys()}
         gifts += items.keys()
 
         for itemid, level in items.items():
@@ -167,15 +169,14 @@ def main():
     gifts = sorted(set(gifts))
 
     items_data = {k: v for k, v in items_data.items() if k in gifts}
-    with open(os.path.join('public', 'GiftsData.json'), 'w') as outfile:
+    with open(os.path.join('src', 'data', 'GiftsData.js'), 'w') as outfile:
+        outfile.write("export default ")
         json.dump(items_data, outfile, sort_keys=True)
-        outfile.write('\n')
-    with open(os.path.join('src', 'GiftTastes.js'), 'w') as outfile:
+        outfile.write(";\n")
+    with open(os.path.join('src', 'data', 'GiftTastes.js'), 'w') as outfile:
         outfile.write("export default ")
         json.dump(itemtastes, outfile, sort_keys=True)
-        outfile.write(";")
-        outfile.write('\n')
-
+        outfile.write(";\n")
 
 
 if __name__ == "__main__":
