@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Jumbotron, Progress, Container } from 'reactstrap';
+import Loader from './Loader';
 import Upload from './Upload';
 import DataDisplay from './DataDisplay';
 import $ from 'jquery';
@@ -15,15 +16,7 @@ class App extends Component {
         <DataDisplay giftsMetaData={require('./data/GiftsData.js').default} />
       );
     } else if (this.props.status.progress.active) {
-      content = (
-        <Container id="progress">
-          <h2>Progress {this.props.status.loaded}</h2>
-          {this.props.status.progress.label ? (
-            <label>{this.props.status.progress.label}</label>
-          ) : null}
-          <Progress value={this.props.status.progress.value} />
-        </Container>
-      );
+      content = <Loader />;
     } else {
       content = (
         <Container id="help">
