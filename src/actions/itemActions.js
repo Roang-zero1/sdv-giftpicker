@@ -8,10 +8,6 @@ export function incrementItemCount(item_ID, increment) {
   };
 }
 
-export function resetItemCount(item_ID) {
-  return { type: types.RESET_ITEM_COUNT, id: item_ID };
-}
-
-export function resetItemCounts() {
-  return { type: types.RESET_ITEM_COUNT };
+export function updateItems(items) {
+  return { type: types.UPDATE_ITEMS, items: items };
 }

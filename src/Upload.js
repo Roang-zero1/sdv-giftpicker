@@ -65,7 +65,7 @@ class Upload extends Component {
   }
 
   parseItems(xmlDoc, searchString) {
-    const incrementItemCount = this.props.itemsActions.incrementItemCount;
+    const items = this.items;
     $(xmlDoc)
       .find(searchString)
       .each(function() {
@@ -83,7 +83,7 @@ class Upload extends Component {
                 .text(),
               10
             );
-            incrementItemCount(id, count);
+            items[id] = (items[id] || 0) + count;
           }
         } catch (err) {
           console.log('Failed to get item count for ' + id);
@@ -92,6 +92,7 @@ class Upload extends Component {
   }
 
   gatherItems(xmlDoc) {
+    this.items = {};
     this.parseItems(xmlDoc, 'player > items > Item[xsi\\:type="Object"]');
     this.parseItems(
       xmlDoc,
@@ -101,6 +102,8 @@ class Upload extends Component {
       xmlDoc,
       'Object[xsi\\:type="Chest"] > items > Item[xsi\\:type="Object"]'
     );
+    this.props.itemsActions.updateItems(this.items);
+    delete this.items;
   }
 
   handleUpload(event) {
@@ -126,7 +129,6 @@ class Upload extends Component {
       updateProgress(55, 'Parsing data');
       try {
         var xmlDoc = $.parseXML(e.target.result);
-        instance.props.itemsActions.resetItemCounts();
         instance.gatherItems.call(instance, xmlDoc);
         updateProgress(90, 'Parsing data');
         var charactersData = findGiftCount(xmlDoc);

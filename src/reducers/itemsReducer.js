@@ -1,25 +1,19 @@
 import initialState from './initialState';
-import {
-  INCREMENT_ITEM_COUNT,
-  RESET_ITEM_COUNT,
-  RESET_ITEM_COUNTS
-} from '../actions/actionTypes';
+import update from 'immutability-helper';
+import { INCREMENT_ITEM_COUNT, UPDATE_ITEMS } from '../actions/actionTypes';
 
 export default function stuff(state = initialState.items, action) {
-  let newState;
   switch (action.type) {
     case INCREMENT_ITEM_COUNT:
       console.log('INCREMENT_ITEM_COUNT Action');
-      state[action.id] = (state[action.id] || 0) + action.increment;
-      return state;
-    case RESET_ITEM_COUNT:
-      delete state[action.id];
-      newState = state;
-      console.log('RESET_ITEM_COUNT Action');
-      return newState;
-    case RESET_ITEM_COUNTS:
-      console.log('RESET_ITEM_COUNTS Action');
-      return initialState.items;
+      return update(state, {
+        [action.id]: {
+          $set: (state[action.id] || 0) + action.increment
+        }
+      });
+    case UPDATE_ITEMS:
+      console.log('UPDATE_ITEMS Action');
+      return action.items;
     default:
       return state;
   }
