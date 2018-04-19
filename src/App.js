@@ -97,8 +97,8 @@ class App extends Component {
     this.setState({ progress: { label: label, active: active, value: value } });
   }
 
-  updateFileState(giftsData, charactersData) {
-    this.setState({ giftsData: giftsData, charactersData: charactersData });
+  updateFileState(charactersData) {
+    this.setState({ charactersData: charactersData });
   }
 }
 
