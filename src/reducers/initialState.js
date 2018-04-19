@@ -1,3 +1,6 @@
 export default {
-  items: {}
+  items: {},
+  status: {
+    loaded: false
+  }
 };

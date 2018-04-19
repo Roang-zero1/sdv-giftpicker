@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Jumbotron, Progress, Container } from 'reactstrap';
 import Upload from './Upload';
 import DataDisplay from './DataDisplay';
@@ -20,7 +21,7 @@ class App extends Component {
   render() {
     const progress = this.state.progress.active ? (
       <Container id="progress">
-        <h2>Progress</h2>
+        <h2>Progress {this.props.status.loaded}</h2>
         {this.state.progress.label ? (
           <label>{this.state.progress.label}</label>
         ) : null}
@@ -65,7 +66,7 @@ class App extends Component {
             />
           </Container>
         </Jumbotron>
-        {this.state.charactersData ? (
+        {this.props.status.loaded ? (
           <DataDisplay
             giftsData={this.state.giftsData}
             giftsMetaData={require('./data/GiftsData.js').default}
@@ -102,4 +103,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    status: state.status
+  };
+}
+
+export default connect(mapStateToProps)(App);

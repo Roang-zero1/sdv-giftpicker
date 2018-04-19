@@ -3,6 +3,7 @@ import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as itemsActions from './actions/itemActions';
+import * as statusActions from './actions/statusActions';
 import $ from 'jquery';
 import './Upload.css';
 import giftIDs from './data/Gifts.js';
@@ -132,6 +133,7 @@ class Upload extends Component {
         updateProgress(100, 'Finished loading');
         console.log('XML doc parsed ' + xmlDoc.documentElement);
         onFileLoaded(charactersData);
+        instance.props.statusActions.setLoaded();
       } catch (err) {
         // TODO: Show an error message to the user
         console.log('Failed to parse file');
@@ -151,7 +153,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    itemsActions: bindActionCreators(itemsActions, dispatch)
+    itemsActions: bindActionCreators(itemsActions, dispatch),
+    statusActions: bindActionCreators(statusActions, dispatch)
   };
 }
 
