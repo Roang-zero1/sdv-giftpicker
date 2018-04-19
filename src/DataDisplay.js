@@ -15,7 +15,10 @@ class DataDisplay extends Component {
   render(props) {
     var characters = [];
     for (var char in tastes) {
-      if (this.props.characters[char].gifts < 2) {
+      if (
+        char in this.props.characters &&
+        this.props.characters[char].gifts < 2
+      ) {
         var categories_output = [];
         for (var cat in categories_map) {
           categories_output.push(this.renderGiftCategories(char, cat));
