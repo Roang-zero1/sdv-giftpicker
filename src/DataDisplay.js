@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import classNames from 'classnames';
 import './DataDisplay.css';
@@ -61,7 +62,7 @@ class DataDisplay extends Component {
             xl="3"
             className={classNames({
               item: true,
-              missing: !(itemID in this.props.giftsData)
+              missing: !(itemID in this.props.items)
             })}
             key={itemID}
           >
@@ -79,9 +80,7 @@ class DataDisplay extends Component {
                 {this.props.giftsMetaData[itemID].displayName}
               </Col>
               <Col xs="3" align-self="end" className="count">
-                {itemID in this.props.giftsData
-                  ? this.props.giftsData[itemID]
-                  : null}
+                {itemID in this.props.items ? this.props.items[itemID] : null}
               </Col>
             </Row>
           </Col>
@@ -97,4 +96,10 @@ class DataDisplay extends Component {
   }
 }
 
-export default DataDisplay;
+function mapStateToProps(state) {
+  return {
+    items: state.items
+  };
+}
+
+export default connect(mapStateToProps)(DataDisplay);
