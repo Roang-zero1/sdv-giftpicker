@@ -3,5 +3,6 @@ export default {
   status: {
     loaded: false,
     progress: { label: '', active: false, value: 0 }
-  }
+  },
+  characters: {}
 };

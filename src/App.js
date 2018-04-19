@@ -8,21 +8,11 @@ import $ from 'jquery';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.updateFileState = this.updateFileState.bind(this);
-    this.state = {
-      charactersData: null
-    };
-  }
   render() {
     var content;
     if (this.props.status.loaded) {
       content = (
-        <DataDisplay
-          giftsMetaData={require('./data/GiftsData.js').default}
-          charactersData={this.state.charactersData}
-        />
+        <DataDisplay giftsMetaData={require('./data/GiftsData.js').default} />
       );
     } else if (this.props.status.progress.active) {
       content = (
@@ -70,10 +60,7 @@ class App extends Component {
               <a href="http://stardewvalley.net/">Stardew Valley</a>. The save
               is no uploaded and processed locally.
             </p>
-            <Upload
-              onProgressChange={this.updateProgress}
-              onFileLoaded={this.updateFileState}
-            />
+            <Upload />
           </Container>
         </Jumbotron>
         {content}
@@ -94,10 +81,6 @@ class App extends Component {
         </Container>
       </main>
     );
-  }
-
-  updateFileState(charactersData) {
-    this.setState({ charactersData: charactersData });
   }
 }
 

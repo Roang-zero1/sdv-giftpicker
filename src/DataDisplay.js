@@ -15,7 +15,7 @@ class DataDisplay extends Component {
   render(props) {
     var characters = [];
     for (var char in tastes) {
-      if (this.props.charactersData[char] < 2) {
+      if (this.props.characters[char].gifts < 2) {
         var categories_output = [];
         for (var cat in categories_map) {
           categories_output.push(this.renderGiftCategories(char, cat));
@@ -32,8 +32,8 @@ class DataDisplay extends Component {
               />{' '}
             </h3>
             <p>
-              Gifts given {this.props.charactersData[char] > 0 ? 'X' : 'O'}
-              {this.props.charactersData[char] > 1 ? 'X' : 'O'}
+              Gifts given {this.props.characters[char].gifts > 0 ? 'X' : 'O'}
+              {this.props.characters[char].gifts > 1 ? 'X' : 'O'}
             </p>
             {categories_output}
           </div>
@@ -98,7 +98,8 @@ class DataDisplay extends Component {
 
 function mapStateToProps(state) {
   return {
-    items: state.items
+    items: state.items,
+    characters: state.characters
   };
 }
 

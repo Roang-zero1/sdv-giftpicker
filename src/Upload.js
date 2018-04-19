@@ -4,34 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as itemsActions from './actions/itemActions';
 import * as statusActions from './actions/statusActions';
+import * as charactersActions from './actions/charactersActions';
 import $ from 'jquery';
 import './Upload.css';
 import giftIDs from './data/Gifts.js';
-
-function findGiftCount(xmlDoc) {
-  var charactersData = {};
-  $(xmlDoc)
-    .find('player > friendships > item')
-    .each(function() {
-      try {
-        var who = $(this)
-          .find('key > string')
-          .html();
-        var num = parseInt(
-          $(this)
-            .find('value > ArrayOfInt > int')
-            .first()
-            .next()
-            .text(),
-          10
-        );
-        charactersData[who] = num;
-      } catch (err) {
-        console.log('Failed to update data for ' + who + '\n' + err);
-      }
-    });
-  return charactersData;
-}
 
 class Upload extends Component {
   constructor(props) {
@@ -106,11 +82,34 @@ class Upload extends Component {
     delete this.items;
   }
 
+  findGiftCount(xmlDoc) {
+    const setGiftCount = this.props.charactersActions.setGiftCount;
+    $(xmlDoc)
+      .find('player > friendships > item')
+      .each(function() {
+        try {
+          var who = $(this)
+            .find('key > string')
+            .html();
+          var num = parseInt(
+            $(this)
+              .find('value > ArrayOfInt > int')
+              .first()
+              .next()
+              .text(),
+            10
+          );
+          setGiftCount(who, num);
+        } catch (err) {
+          console.log('Failed to update data for ' + who + '\n' + err);
+        }
+      });
+  }
+
   handleUpload(event) {
     var file = event.target.files[0];
     var reader = new FileReader();
 
-    const onFileLoaded = this.props.onFileLoaded;
     const instance = this;
 
     reader.onloadstart = function(e) {
@@ -130,15 +129,13 @@ class Upload extends Component {
         var xmlDoc = $.parseXML(e.target.result);
         instance.gatherItems.call(instance, xmlDoc);
         instance.props.statusActions.setProgress(90, 'Parsing data');
-        var charactersData = findGiftCount(xmlDoc);
+        instance.findGiftCount.call(instance, xmlDoc);
         instance.props.statusActions.setProgress(100, 'Finished loading');
         console.log('XML doc parsed ' + xmlDoc.documentElement);
-        onFileLoaded(charactersData);
         instance.props.statusActions.setLoaded();
       } catch (err) {
         // TODO: Show an error message to the user
         console.log('Failed to parse file');
-        console.log(err);
       }
     };
 
@@ -147,15 +144,14 @@ class Upload extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    items: state.items
-  };
+  return {};
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     itemsActions: bindActionCreators(itemsActions, dispatch),
-    statusActions: bindActionCreators(statusActions, dispatch)
+    statusActions: bindActionCreators(statusActions, dispatch),
+    charactersActions: bindActionCreators(charactersActions, dispatch)
   };
 }
 
