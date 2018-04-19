@@ -4,8 +4,6 @@ import { Jumbotron, Progress, Container } from 'reactstrap';
 import Loader from './Loader';
 import Upload from './Upload';
 import DataDisplay from './DataDisplay';
-import $ from 'jquery';
-//import classNames from 'classnames';
 import './App.css';
 
 class App extends Component {
