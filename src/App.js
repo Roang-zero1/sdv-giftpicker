@@ -1,53 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Jumbotron, Progress, Container } from 'reactstrap';
+import Loader from './Loader';
 import Upload from './Upload';
 import DataDisplay from './DataDisplay';
-import $ from 'jquery';
-//import classNames from 'classnames';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.updateProgress = this.updateProgress.bind(this);
-    this.updateFileState = this.updateFileState.bind(this);
-    this.state = {
-      progress: { label: '', active: false, value: 0 },
-      giftsData: null,
-      charactersData: null
-    };
-  }
   render() {
-    const progress = this.state.progress.active ? (
-      <Container id="progress">
-        <h2>Progress</h2>
-        {this.state.progress.label ? (
-          <label>{this.state.progress.label}</label>
-        ) : null}
-        <Progress value={this.state.progress.value} />
-      </Container>
-    ) : (
-      <Container id="help">
-        <h2>Help</h2>
-        <p>
-          Please use the full save file named with your farmer's name and a
-          9-digit ID number (e.g.
-          <code>Fred_148093307</code>); do not use the <code>SaveGameInfo</code>{' '}
-          file as it does not contain all the necessary information.
-        </p>
-        <p>Default save file locations are:</p>
-        <div>
-          <ul>
-            <li>
-              Windows: <code>%AppData%\StardewValley\Saves\</code>
-            </li>
-            <li>
-              Mac OSX &amp; Linux: <code>~/.config/StardewValley/Saves/</code>
-            </li>
-          </ul>
-        </div>
-      </Container>
-    );
+    var content;
+    if (this.props.status.loaded) {
+      content = (
+        <DataDisplay giftsMetaData={require('./data/GiftsData.js').default} />
+      );
+    } else if (this.props.status.progress.active) {
+      content = <Loader />;
+    } else {
+      content = (
+        <Container id="help">
+          <h2>Help</h2>
+          <p>
+            Please use the full save file named with your farmer's name and a
+            9-digit ID number (e.g.
+            <code>Fred_148093307</code>); do not use the{' '}
+            <code>SaveGameInfo</code> file as it does not contain all the
+            necessary information.
+          </p>
+          <p>Default save file locations are:</p>
+          <div>
+            <ul>
+              <li>
+                Windows: <code>%AppData%\StardewValley\Saves\</code>
+              </li>
+              <li>
+                Mac OSX &amp; Linux: <code>~/.config/StardewValley/Saves/</code>
+              </li>
+            </ul>
+          </div>
+        </Container>
+      );
+    }
     return (
       <main className="App">
         <Jumbotron className="App-header">
@@ -59,21 +51,10 @@ class App extends Component {
               <a href="http://stardewvalley.net/">Stardew Valley</a>. The save
               is no uploaded and processed locally.
             </p>
-            <Upload
-              onProgressChange={this.updateProgress}
-              onFileLoaded={this.updateFileState}
-            />
+            <Upload />
           </Container>
         </Jumbotron>
-        {this.state.charactersData ? (
-          <DataDisplay
-            giftsData={this.state.giftsData}
-            giftsMetaData={require('./data/GiftsData.js').default}
-            charactersData={this.state.charactersData}
-          />
-        ) : (
-          progress
-        )}
+        {content}
         {/* TODO: Add an about referencing the used tools*/}
         <Container id="about">
           <h2>About</h2>
@@ -92,14 +73,12 @@ class App extends Component {
       </main>
     );
   }
-
-  updateProgress(value, label = '', active = true) {
-    this.setState({ progress: { label: label, active: active, value: value } });
-  }
-
-  updateFileState(giftsData, charactersData) {
-    this.setState({ giftsData: giftsData, charactersData: charactersData });
-  }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    status: state.status
+  };
+}
+
+export default connect(mapStateToProps)(App);

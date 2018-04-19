@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import classNames from 'classnames';
 import './DataDisplay.css';
@@ -14,7 +15,10 @@ class DataDisplay extends Component {
   render(props) {
     var characters = [];
     for (var char in tastes) {
-      if (this.props.charactersData[char] < 2) {
+      if (
+        char in this.props.characters &&
+        this.props.characters[char].gifts < 2
+      ) {
         var categories_output = [];
         for (var cat in categories_map) {
           categories_output.push(this.renderGiftCategories(char, cat));
@@ -31,8 +35,8 @@ class DataDisplay extends Component {
               />{' '}
             </h3>
             <p>
-              Gifts given {this.props.charactersData[char] > 0 ? 'X' : 'O'}
-              {this.props.charactersData[char] > 1 ? 'X' : 'O'}
+              Gifts given {this.props.characters[char].gifts > 0 ? 'X' : 'O'}
+              {this.props.characters[char].gifts > 1 ? 'X' : 'O'}
             </p>
             {categories_output}
           </div>
@@ -61,7 +65,7 @@ class DataDisplay extends Component {
             xl="3"
             className={classNames({
               item: true,
-              missing: !(itemID in this.props.giftsData)
+              missing: !(itemID in this.props.items)
             })}
             key={itemID}
           >
@@ -79,9 +83,7 @@ class DataDisplay extends Component {
                 {this.props.giftsMetaData[itemID].displayName}
               </Col>
               <Col xs="3" align-self="end" className="count">
-                {itemID in this.props.giftsData
-                  ? this.props.giftsData[itemID]
-                  : null}
+                {itemID in this.props.items ? this.props.items[itemID] : null}
               </Col>
             </Row>
           </Col>
@@ -97,4 +99,11 @@ class DataDisplay extends Component {
   }
 }
 
-export default DataDisplay;
+function mapStateToProps(state) {
+  return {
+    items: state.items,
+    characters: state.characters
+  };
+}
+
+export default connect(mapStateToProps)(DataDisplay);
