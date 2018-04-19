@@ -14,7 +14,6 @@ class App extends Component {
     this.updateFileState = this.updateFileState.bind(this);
     this.state = {
       progress: { label: '', active: false, value: 0 },
-      giftsData: null,
       charactersData: null
     };
   }
@@ -68,7 +67,6 @@ class App extends Component {
         </Jumbotron>
         {this.props.status.loaded ? (
           <DataDisplay
-            giftsData={this.state.giftsData}
             giftsMetaData={require('./data/GiftsData.js').default}
             charactersData={this.state.charactersData}
           />
