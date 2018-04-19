@@ -7,7 +7,7 @@ export default function stuff(state = initialState.status, action) {
     case SET_LOADED:
       console.log('SET_LOADED Action');
       return update(state, {
-        loaded: { $set: true }
+        loaded: { $set: action.loaded }
       });
     case SET_PROGRESS:
       console.log('SET_PROGRESS Action');

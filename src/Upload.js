@@ -112,6 +112,8 @@ class Upload extends Component {
 
     const instance = this;
 
+    this.props.statusActions.setLoaded(false);
+
     reader.onloadstart = function(e) {
       instance.props.statusActions.setProgress(10, 'Loading file');
     };
