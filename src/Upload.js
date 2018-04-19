@@ -110,29 +110,28 @@ class Upload extends Component {
     var file = event.target.files[0];
     var reader = new FileReader();
 
-    const updateProgress = this.props.onProgressChange;
     const onFileLoaded = this.props.onFileLoaded;
     const instance = this;
 
     reader.onloadstart = function(e) {
-      updateProgress(10, 'Loading file');
+      instance.props.statusActions.setProgress(10, 'Loading file');
     };
 
     reader.onprogress = function(e) {
       if (e.lengthComputable) {
         var p = 10 + e.loaded / e.total * 40;
-        updateProgress(p, 'Loading file');
+        instance.props.statusActions.setProgress(p, 'Loading file');
       }
     };
 
     reader.onload = function(e) {
-      updateProgress(55, 'Parsing data');
+      instance.props.statusActions.setProgress(55, 'Parsing data');
       try {
         var xmlDoc = $.parseXML(e.target.result);
         instance.gatherItems.call(instance, xmlDoc);
-        updateProgress(90, 'Parsing data');
+        instance.props.statusActions.setProgress(90, 'Parsing data');
         var charactersData = findGiftCount(xmlDoc);
-        updateProgress(100, 'Finished loading');
+        instance.props.statusActions.setProgress(100, 'Finished loading');
         console.log('XML doc parsed ' + xmlDoc.documentElement);
         onFileLoaded(charactersData);
         instance.props.statusActions.setLoaded();

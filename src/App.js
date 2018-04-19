@@ -10,44 +10,55 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.updateProgress = this.updateProgress.bind(this);
     this.updateFileState = this.updateFileState.bind(this);
     this.state = {
-      progress: { label: '', active: false, value: 0 },
       charactersData: null
     };
   }
   render() {
-    const progress = this.state.progress.active ? (
-      <Container id="progress">
-        <h2>Progress {this.props.status.loaded}</h2>
-        {this.state.progress.label ? (
-          <label>{this.state.progress.label}</label>
-        ) : null}
-        <Progress value={this.state.progress.value} />
-      </Container>
-    ) : (
-      <Container id="help">
-        <h2>Help</h2>
-        <p>
-          Please use the full save file named with your farmer's name and a
-          9-digit ID number (e.g.
-          <code>Fred_148093307</code>); do not use the <code>SaveGameInfo</code>{' '}
-          file as it does not contain all the necessary information.
-        </p>
-        <p>Default save file locations are:</p>
-        <div>
-          <ul>
-            <li>
-              Windows: <code>%AppData%\StardewValley\Saves\</code>
-            </li>
-            <li>
-              Mac OSX &amp; Linux: <code>~/.config/StardewValley/Saves/</code>
-            </li>
-          </ul>
-        </div>
-      </Container>
-    );
+    var content;
+    if (this.props.status.loaded) {
+      content = (
+        <DataDisplay
+          giftsMetaData={require('./data/GiftsData.js').default}
+          charactersData={this.state.charactersData}
+        />
+      );
+    } else if (this.props.status.progress.active) {
+      content = (
+        <Container id="progress">
+          <h2>Progress {this.props.status.loaded}</h2>
+          {this.props.status.progress.label ? (
+            <label>{this.props.status.progress.label}</label>
+          ) : null}
+          <Progress value={this.props.status.progress.value} />
+        </Container>
+      );
+    } else {
+      content = (
+        <Container id="help">
+          <h2>Help</h2>
+          <p>
+            Please use the full save file named with your farmer's name and a
+            9-digit ID number (e.g.
+            <code>Fred_148093307</code>); do not use the{' '}
+            <code>SaveGameInfo</code> file as it does not contain all the
+            necessary information.
+          </p>
+          <p>Default save file locations are:</p>
+          <div>
+            <ul>
+              <li>
+                Windows: <code>%AppData%\StardewValley\Saves\</code>
+              </li>
+              <li>
+                Mac OSX &amp; Linux: <code>~/.config/StardewValley/Saves/</code>
+              </li>
+            </ul>
+          </div>
+        </Container>
+      );
+    }
     return (
       <main className="App">
         <Jumbotron className="App-header">
@@ -65,14 +76,7 @@ class App extends Component {
             />
           </Container>
         </Jumbotron>
-        {this.props.status.loaded ? (
-          <DataDisplay
-            giftsMetaData={require('./data/GiftsData.js').default}
-            charactersData={this.state.charactersData}
-          />
-        ) : (
-          progress
-        )}
+        {content}
         {/* TODO: Add an about referencing the used tools*/}
         <Container id="about">
           <h2>About</h2>
@@ -90,10 +94,6 @@ class App extends Component {
         </Container>
       </main>
     );
-  }
-
-  updateProgress(value, label = '', active = true) {
-    this.setState({ progress: { label: label, active: active, value: value } });
   }
 
   updateFileState(charactersData) {
