@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import classNames from 'classnames';
 import './DataDisplay.css';
 import tastes from './data/GiftTastes.js';
@@ -44,7 +44,7 @@ class DataDisplay extends Component {
       }
     }
     return (
-      <Container>
+      <Container fluid className="m-4">
         <h2>Characters</h2>
         {characters}
       </Container>
@@ -60,16 +60,17 @@ class DataDisplay extends Component {
         gifts.push(
           <Col
             xs="12"
-            sm="6"
-            lg="4"
-            xl="3"
+            md="6"
+            xl="4"
             className={classNames({
               item: true,
-              missing: !(itemID in this.props.items)
+              missing: !(itemID in this.props.items),
+              'no-gutters': true,
+              'mb-1': true
             })}
             key={itemID}
           >
-            <Row>
+            <Button outline className={'row'}>
               <Col xs="1">
                 <img
                   className="icon"
@@ -85,15 +86,15 @@ class DataDisplay extends Component {
               <Col xs="3" align-self="end" className="count">
                 {itemID in this.props.items ? this.props.items[itemID] : null}
               </Col>
-            </Row>
+            </Button>
           </Col>
         );
       }
       return (
-        <Container key={category}>
+        <div key={category}>
           <h4>{categories_map[category]}</h4>
           <Row>{gifts}</Row>
-        </Container>
+        </div>
       );
     }
   }

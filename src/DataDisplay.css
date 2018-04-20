@@ -1,23 +1,29 @@
 .icon {
-max-width: 24px;
-height: auto;
-
+  max-width: 24px;
+  height: auto;
 }
 
 .missing {
-    order: 1;
+  order: 1;
 }
 .missing .icon {
-    filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
+.item .icon {
+  display: inline;
+  left: -12px;
+  position: relative;
+}
 
-.item .row {
-    width: 100%;
+.item .btn {
+  display: flex;
+  text-align: left;
+  width: 100%;
 }
 .item .col-auto {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 .item .count {
-    text-align: right;
+  text-align: right;
 }
