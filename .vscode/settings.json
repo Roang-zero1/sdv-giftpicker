@@ -8,14 +8,10 @@
   "[javascriptreact]": {
     "editor.formatOnSave": true
   },
+  "[css]": {
+    "editor.formatOnSave": true
+  },
   "spellright.language": "en",
-  "spellright.documentTypes": [
-    "markdown",
-    "latex",
-    "plaintext"
-  ],
-  "cSpell.words": [
-    "persistor",
-    "reactstrap"
-  ]
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "cSpell.words": ["persistor", "reactstrap"]
 }
