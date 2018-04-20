@@ -1,13 +1,10 @@
+.character img {
+  padding: 5%;
+}
+
 .icon {
   max-width: 24px;
   height: auto;
-}
-
-.missing {
-  order: 1;
-}
-.missing .icon {
-  filter: grayscale(100%);
 }
 
 .item .icon {
@@ -26,4 +23,11 @@
 }
 .item .count {
   text-align: right;
+}
+
+.missing {
+  order: 1;
+}
+.missing .icon {
+  filter: grayscale(100%);
 }

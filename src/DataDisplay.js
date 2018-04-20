@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Row, Col, Button } from 'reactstrap';
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardText
+} from 'reactstrap';
 import classNames from 'classnames';
 import './DataDisplay.css';
 import tastes from './data/GiftTastes.js';
@@ -26,18 +36,30 @@ class DataDisplay extends Component {
 
         characters.push(
           <div key={char}>
-            <h3>
-              {char}{' '}
-              <img
-                className="icon"
-                src={require('./images/characters/' + char + '.png')}
-                alt=""
-              />{' '}
-            </h3>
-            <p>
-              Gifts given {this.props.characters[char].gifts > 0 ? 'X' : 'O'}
-              {this.props.characters[char].gifts > 1 ? 'X' : 'O'}
-            </p>
+            <Col xs="3">
+              <Card
+                className={classNames({
+                  'bg-light': true,
+                  'text-center': true,
+                  character: true,
+                  shadow: true
+                })}
+              >
+                <CardImg
+                  width="100%"
+                  src={require('./images/characters/' + char + '.png')}
+                  alt=""
+                />
+                <CardBody>
+                  <CardTitle>{char}</CardTitle>
+                  <CardText>
+                    Gifts given{' '}
+                    {this.props.characters[char].gifts > 0 ? 'X' : 'O'}
+                    {this.props.characters[char].gifts > 1 ? 'X' : 'O'}
+                  </CardText>
+                </CardBody>
+              </Card>
+            </Col>
             {categories_output}
           </div>
         );
