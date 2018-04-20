@@ -52,7 +52,7 @@ class Upload extends Component {
               .text(),
             10
           );
-          if (id in giftIDs) {
+          if (giftIDs.includes(id)) {
             var count = parseInt(
               $(this)
                 .find('Stack')
