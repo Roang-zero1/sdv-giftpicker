@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Jumbotron, Progress, Container } from 'reactstrap';
+import { hot } from 'react-hot-loader';
+
+import { Jumbotron, Container } from 'reactstrap';
+
 import Loader from './Loader';
 import Upload from './Upload';
 import DataDisplay from './DataDisplay';
+
 import './App.css';
 
 class App extends Component {
@@ -81,4 +85,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(hot(module)(App));
