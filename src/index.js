@@ -9,10 +9,11 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
+import Loader from './components/Loader';
 
 ReactDOM.render(
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+    <PersistGate loading={<Loader />} persistor={persistor}>
       <App />
     </PersistGate>
   </Provider>,

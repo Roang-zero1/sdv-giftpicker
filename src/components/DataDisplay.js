@@ -13,7 +13,7 @@ import {
 } from 'reactstrap';
 import classNames from 'classnames';
 import './DataDisplay.css';
-import tastes from './data/GiftTastes.js';
+import tastes from '../data/GiftTastes.js';
 
 const categories_map = {
   0: 'Love',
@@ -47,7 +47,7 @@ class DataDisplay extends Component {
               >
                 <CardImg
                   width="100%"
-                  src={require('./images/characters/' + char + '.png')}
+                  src={require('../images/characters/' + char + '.png')}
                   alt=""
                 />
                 <CardBody>
@@ -96,7 +96,7 @@ class DataDisplay extends Component {
               <Col xs="1">
                 <img
                   className="icon"
-                  src={require('./images/items/' +
+                  src={require('../images/items/' +
                     this.props.giftsMetaData[itemID].name +
                     '.png')}
                   alt=""

@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as itemsActions from './actions/itemActions';
-import * as statusActions from './actions/statusActions';
-import * as charactersActions from './actions/charactersActions';
+import * as itemsActions from '../actions/itemActions';
+import * as statusActions from '../actions/statusActions';
+import * as charactersActions from '../actions/charactersActions';
 import $ from 'jquery';
 import './Upload.css';
-import giftIDs from './data/Gifts.js';
+import giftIDs from '../data/Gifts.js';
 
 class Upload extends Component {
   constructor(props) {

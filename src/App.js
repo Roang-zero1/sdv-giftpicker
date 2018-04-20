@@ -4,9 +4,9 @@ import { hot } from 'react-hot-loader';
 
 import { Jumbotron, Container } from 'reactstrap';
 
-import Loader from './Loader';
-import Upload from './Upload';
-import DataDisplay from './DataDisplay';
+import Loader from './components/Loader';
+import Upload from './components/Upload';
+import DataDisplay from './components/DataDisplay';
 
 import './App.css';
 
@@ -45,36 +45,38 @@ class App extends Component {
       );
     }
     return (
-      <main className="App">
-        <Jumbotron className="App-header">
-          <Container>
-            <h1 className="display-3">SDV Gift Picker</h1>
+      <div>
+        <main className="App">
+          <Jumbotron className="App-header">
+            <Container>
+              <h1 className="display-3">SDV Gift Picker</h1>
+              <p>
+                Use this site to check which gifts you have available for the
+                characters of{' '}
+                <a href="http://stardewvalley.net/">Stardew Valley</a>. The save
+                is no uploaded and processed locally.
+              </p>
+              <Upload />
+            </Container>
+          </Jumbotron>
+          {content}
+          {/* TODO: Add an about referencing the used tools*/}
+          <Container id="about">
+            <h2>About</h2>
             <p>
-              Use this site to check which gifts you have available for the
-              characters of{' '}
-              <a href="http://stardewvalley.net/">Stardew Valley</a>. The save
-              is no uploaded and processed locally.
+              SDV Gift Calculator by{' '}
+              <a href="https://www.reddit.com/user/Roang_zero1/">Roang_Zero1</a>.
             </p>
-            <Upload />
+            <p>
+              This app was inspired by <strong>Stardew Checkup</strong>{' '}
+              availalbe at{' '}
+              <a href="https://mouseypounds.github.io/stardew-checkup/">
+                https://mouseypounds.github.io/stardew-checkup/
+              </a>
+            </p>
           </Container>
-        </Jumbotron>
-        {content}
-        {/* TODO: Add an about referencing the used tools*/}
-        <Container id="about">
-          <h2>About</h2>
-          <p>
-            SDV Gift Calculator by{' '}
-            <a href="https://www.reddit.com/user/Roang_zero1/">Roang_Zero1</a>.
-          </p>
-          <p>
-            This app was inspired by <strong>Stardew Checkup</strong> availalbe
-            at{' '}
-            <a href="https://mouseypounds.github.io/stardew-checkup/">
-              https://mouseypounds.github.io/stardew-checkup/
-            </a>
-          </p>
-        </Container>
-      </main>
+        </main>
+      </div>
     );
   }
 }
