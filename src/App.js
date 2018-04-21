@@ -2,48 +2,32 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { hot } from 'react-hot-loader';
 
-import { Jumbotron, Container } from 'reactstrap';
-
-import Loader from './components/Loader';
-import Upload from './components/Upload';
-import DataDisplay from './components/DataDisplay';
 import About from './components/About';
+import DataDisplay from './components/DataDisplay';
+import Loader from './components/Loader';
 import Intro from './Intro';
 
-import './App.css';
+//import './App.css';
 
 class App extends Component {
   render() {
-    var content;
-    if (this.props.status.loaded) {
-      content = (
-        <DataDisplay giftsMetaData={require('./data/GiftsData.js').default} />
+    if (this.props.status.loaded || this.props.status.loading) {
+      return (
+        <div>
+          <main className="App">
+            {this.props.status.loading && <Loader />}
+            {this.props.status.loaded && (
+              <DataDisplay
+                giftsMetaData={require('./data/GiftsData.js').default}
+              />
+            )}
+            <About />
+          </main>
+        </div>
       );
-    } else if (this.props.status.loading) {
-      content = <Loader />;
     } else {
       return <Intro />;
     }
-    return (
-      <div>
-        <main className="App">
-          <Jumbotron className="App-header">
-            <Container>
-              <h1 className="display-3">SDV Gift Picker</h1>
-              <p>
-                Use this site to check which gifts you have available for the
-                characters of{' '}
-                <a href="http://stardewvalley.net/">Stardew Valley</a>. The save
-                is no uploaded and processed locally.
-              </p>
-              <Upload />
-            </Container>
-          </Jumbotron>
-          {content}
-          <About />
-        </main>
-      </div>
-    );
   }
 }
 
