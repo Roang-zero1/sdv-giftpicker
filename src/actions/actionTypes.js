@@ -4,3 +4,4 @@ export const UPDATE_ITEMS = 'UPDATE_ITEMS';
 export const SET_LOADING = 'SET_LOADING';
 export const SET_GIFT_COUNT = 'SET_GIFT_COUNT';
 export const SET_FLUID_LAYOUT = 'SET_FLUID_LAYOUT';
+export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';

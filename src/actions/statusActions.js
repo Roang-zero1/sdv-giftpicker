@@ -14,3 +14,7 @@ export function setLoading(loading = false) {
 export function setFluidLayout(fluid = false) {
   return { type: types.SET_FLUID_LAYOUT, fluid };
 }
+
+export function toggleSidebar() {
+  return { type: types.TOGGLE_SIDEBAR };
+}

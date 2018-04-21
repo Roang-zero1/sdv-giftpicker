@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Navbar, NavbarBrand } from 'reactstrap';
+import { Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
+
+import * as statusActions from '../actions/statusActions';
 
 import Upload from './Upload';
 
@@ -11,6 +14,10 @@ class Navigation extends Component {
   render() {
     return (
       <Navbar>
+        <NavbarToggler
+          onClick={this.props.statusActions.toggleSidebar}
+          className="mr-2"
+        />
         <NavbarBrand>
           <img src={require('../images/Logo.png')} alt="SDV-GP" />
         </NavbarBrand>
@@ -26,4 +33,10 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Navigation);
+function mapDispatchToProps(dispatch) {
+  return {
+    statusActions: bindActionCreators(statusActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

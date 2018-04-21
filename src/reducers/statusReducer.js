@@ -3,7 +3,8 @@ import update from 'immutability-helper';
 import {
   SET_LOADED,
   SET_LOADING,
-  SET_FLUID_LAYOUT
+  SET_FLUID_LAYOUT,
+  TOGGLE_SIDEBAR
 } from '../actions/actionTypes';
 
 export default function stuff(state = initialState.status, action) {
@@ -22,6 +23,11 @@ export default function stuff(state = initialState.status, action) {
       console.log('SET_LOADING Action');
       return update(state, {
         loading: { $set: action.loading }
+      });
+    case TOGGLE_SIDEBAR:
+      console.log('TOGGLE_SIDEBAR Action');
+      return update(state, {
+        sidebar: { $set: !state.sidebar }
       });
     default:
       return state;
