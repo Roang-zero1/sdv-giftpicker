@@ -11,7 +11,9 @@
   "[css]": {
     "editor.formatOnSave": true
   },
-  "spellright.language": "en",
-  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
-  "cSpell.words": ["persistor", "reactstrap"]
+  "cSpell.words": [
+    "Stardew",
+    "persistor",
+    "reactstrap"
+  ]
 }
