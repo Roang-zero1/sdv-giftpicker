@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader';
 import About from './components/About';
 import DataDisplay from './components/DataDisplay';
 import Loader from './components/Loader';
+import Navigation from './components/Navigation';
 import Intro from './Intro';
 
 //import './App.css';
@@ -14,6 +15,7 @@ class App extends Component {
     if (this.props.status.loaded || this.props.status.loading) {
       return (
         <div>
+          <Navigation />
           <main className="App">
             {this.props.status.loading && <Loader />}
             {this.props.status.loaded && (

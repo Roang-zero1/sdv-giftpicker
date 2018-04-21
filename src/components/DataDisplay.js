@@ -44,6 +44,7 @@ class DataDisplay extends Component {
                   character: true,
                   shadow: true
                 })}
+                id={char}
               >
                 <CardImg
                   width="100%"

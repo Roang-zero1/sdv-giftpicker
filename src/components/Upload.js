@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import classNames from 'classnames';
+
+import { Button } from 'reactstrap';
+import $ from 'jquery';
+
+import giftIDs from '../data/Gifts.js';
+
 import * as itemsActions from '../actions/itemActions';
 import * as statusActions from '../actions/statusActions';
 import * as charactersActions from '../actions/charactersActions';
-import $ from 'jquery';
+
 import './Upload.css';
-import giftIDs from '../data/Gifts.js';
 
 class Upload extends Component {
   constructor(props) {
@@ -16,7 +21,7 @@ class Upload extends Component {
   }
   render(props) {
     return (
-      <div>
+      <div className={classNames({ inline: this.props.inline })}>
         <input
           type="file"
           id="upload"
@@ -26,15 +31,16 @@ class Upload extends Component {
           }}
         />
         <Button
+          outline={this.props.inline}
           color="primary"
-          size="lg"
+          size={this.props.inline ? null : 'lg'}
           onClick={() => {
             this.upload.click();
           }}
           disabled={this.props.disabled}
         >
           {this.props.dis}
-          Upload File
+          {this.props.text ? this.props.text : 'Upload File'}
         </Button>
       </div>
     );
