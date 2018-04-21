@@ -7,6 +7,7 @@ import { Jumbotron, Container } from 'reactstrap';
 import Loader from './components/Loader';
 import Upload from './components/Upload';
 import DataDisplay from './components/DataDisplay';
+import About from './components/About';
 
 import './App.css';
 
@@ -60,21 +61,7 @@ class App extends Component {
             </Container>
           </Jumbotron>
           {content}
-          {/* TODO: Add an about referencing the used tools*/}
-          <Container id="about">
-            <h2>About</h2>
-            <p>
-              SDV Gift Calculator by{' '}
-              <a href="https://www.reddit.com/user/Roang_zero1/">Roang_Zero1</a>.
-            </p>
-            <p>
-              This app was inspired by <strong>Stardew Checkup</strong>{' '}
-              availalbe at{' '}
-              <a href="https://mouseypounds.github.io/stardew-checkup/">
-                https://mouseypounds.github.io/stardew-checkup/
-              </a>
-            </p>
-          </Container>
+          <About />
         </main>
       </div>
     );
