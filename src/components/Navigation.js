@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
 
-import * as statusActions from '../actions/statusActions';
+import * as navigationActions from '../actions/navigationActions';
 
 import Upload from './Upload';
 
@@ -15,7 +15,7 @@ class Navigation extends Component {
     return (
       <Navbar sticky="top" dark color="dark">
         <NavbarToggler
-          onClick={this.props.statusActions.toggleSidebar}
+          onClick={this.props.navigationActions.toggleSidebar}
           className="mr-2"
         />
         <NavbarBrand>
@@ -35,7 +35,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    statusActions: bindActionCreators(statusActions, dispatch)
+    navigationActions: bindActionCreators(navigationActions, dispatch)
   };
 }
 

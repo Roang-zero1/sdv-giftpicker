@@ -1,4 +1,9 @@
-.App-header {
-  background-color: #222;
-  color: white;
+#wrapper {
+  overflow: hidden;
+  height: calc(100vh - 58px);
+}
+
+main {
+  overflow-y: auto;
+  height: auto;
 }

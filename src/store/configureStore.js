@@ -6,7 +6,8 @@ import rootReducer from '../reducers/rootReducer';
 
 const persistConfig = {
   key: 'sdv-gp',
-  storage
+  storage,
+  blacklist: ['navigation']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
