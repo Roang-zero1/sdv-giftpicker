@@ -31,9 +31,8 @@ class Upload extends Component {
           }}
         />
         <Button
-          outline={this.props.inline}
           color="primary"
-          size={this.props.inline ? null : 'lg'}
+          size={this.props.inline}
           onClick={() => {
             this.upload.click();
           }}
@@ -126,7 +125,6 @@ class Upload extends Component {
 
     reader.onprogress = function(e) {
       if (e.lengthComputable) {
-        var p = 10 + e.loaded / e.total * 40;
         instance.props.statusActions.setLoading(true);
       }
     };

@@ -13,7 +13,7 @@ import './Navigation.css';
 class Navigation extends Component {
   render() {
     return (
-      <Navbar>
+      <Navbar sticky="top" dark color="dark">
         <NavbarToggler
           onClick={this.props.statusActions.toggleSidebar}
           className="mr-2"
