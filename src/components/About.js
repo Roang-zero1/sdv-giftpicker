@@ -7,7 +7,7 @@ import { Container } from 'reactstrap';
 class About extends Component {
   render() {
     return (
-      <Container className="about">
+      <Container fluid={this.props.status.fluid} className="about">
         <h2>About</h2>
         <p>
           SDV Gift Calculator by{' '}

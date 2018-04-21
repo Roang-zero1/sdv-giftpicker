@@ -18,7 +18,7 @@ class App extends Component {
       content = (
         <DataDisplay giftsMetaData={require('./data/GiftsData.js').default} />
       );
-    } else if (this.props.status.progress.active) {
+    } else if (this.props.status.loading) {
       content = <Loader />;
     } else {
       content = (

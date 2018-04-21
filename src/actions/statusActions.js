@@ -1,13 +1,16 @@
 import * as types from './actionTypes';
 
-export function setLoaded(loaded = true) {
+export function setLoaded(loaded = false) {
   return { type: types.SET_LOADED, loaded: loaded };
 }
 
-/* TODO: Simplify for new loader */
-export function setProgress(value, label = '', active = true) {
+export function setLoading(loading = false) {
   return {
-    type: types.SET_PROGRESS,
-    progress: { value: value, label: label, active: active }
+    type: types.SET_LOADING,
+    loading: loading
   };
+}
+
+export function setFluidLayout(fluid = false) {
+  return { type: types.SET_FLUID_LAYOUT, fluid };
 }

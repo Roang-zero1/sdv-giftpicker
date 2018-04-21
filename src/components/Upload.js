@@ -115,26 +115,27 @@ class Upload extends Component {
     this.props.statusActions.setLoaded(false);
 
     reader.onloadstart = function(e) {
-      instance.props.statusActions.setProgress(10, 'Loading file');
+      instance.props.statusActions.setLoading(true);
     };
 
     reader.onprogress = function(e) {
       if (e.lengthComputable) {
         var p = 10 + e.loaded / e.total * 40;
-        instance.props.statusActions.setProgress(p, 'Loading file');
+        instance.props.statusActions.setLoading(true);
       }
     };
 
     reader.onload = function(e) {
-      instance.props.statusActions.setProgress(55, 'Parsing data');
+      instance.props.statusActions.setLoading(true);
       try {
         var xmlDoc = $.parseXML(e.target.result);
         instance.gatherItems.call(instance, xmlDoc);
-        instance.props.statusActions.setProgress(90, 'Parsing data');
+        instance.props.statusActions.setLoading(true);
         instance.findGiftCount.call(instance, xmlDoc);
-        instance.props.statusActions.setProgress(100, 'Finished loading');
+        instance.props.statusActions.setLoading(true);
         console.log('XML doc parsed ' + xmlDoc.documentElement);
-        instance.props.statusActions.setLoaded();
+        instance.props.statusActions.setLoaded(true);
+        instance.props.statusActions.setLoading(false);
       } catch (err) {
         // TODO: Show an error message to the user
         console.log('Failed to parse file');
