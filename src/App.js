@@ -8,6 +8,7 @@ import Loader from './components/Loader';
 import Upload from './components/Upload';
 import DataDisplay from './components/DataDisplay';
 import About from './components/About';
+import Intro from './Intro';
 
 import './App.css';
 
@@ -21,29 +22,7 @@ class App extends Component {
     } else if (this.props.status.loading) {
       content = <Loader />;
     } else {
-      content = (
-        <Container id="help">
-          <h2>Help</h2>
-          <p>
-            Please use the full save file named with your farmer's name and a
-            9-digit ID number (e.g.
-            <code>Fred_148093307</code>); do not use the{' '}
-            <code>SaveGameInfo</code> file as it does not contain all the
-            necessary information.
-          </p>
-          <p>Default save file locations are:</p>
-          <div>
-            <ul>
-              <li>
-                Windows: <code>%AppData%\StardewValley\Saves\</code>
-              </li>
-              <li>
-                Mac OSX &amp; Linux: <code>~/.config/StardewValley/Saves/</code>
-              </li>
-            </ul>
-          </div>
-        </Container>
-      );
+      return <Intro />;
     }
     return (
       <div>
