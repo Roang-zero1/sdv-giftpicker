@@ -16,7 +16,7 @@ import Loader from './components/Loader';
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={<Loader />} persistor={persistor}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <App />
       </Router>
     </PersistGate>
