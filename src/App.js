@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { hot } from 'react-hot-loader';
 import classNames from 'classnames';
+import { Route, withRouter, Redirect, Switch } from 'react-router-dom';
 
 import { Container, Row } from 'reactstrap';
 
@@ -32,17 +33,31 @@ class App extends Component {
                 <Container>
                   <Row>
                     {this.props.status.loading && <Loader />}
-                    {this.props.status.loaded &&
-                      !this.props.navigation.selection && (
-                        <DataDisplay
-                          giftsMetaData={require('./data/GiftsData.js').default}
-                        />
-                      )}
-                    {this.props.navigation.selection && (
-                      <GiftPicker
-                        giftsMetaData={require('./data/GiftsData.js').default}
+                    <Switch>
+                      <Route
+                        exact
+                        path="/"
+                        render={() => (
+                          <DataDisplay
+                            giftsMetaData={
+                              require('./data/GiftsData.js').default
+                            }
+                          />
+                        )}
                       />
-                    )}
+                      <Route
+                        path="/character/:characterName"
+                        render={match => (
+                          <GiftPicker
+                            giftsMetaData={
+                              require('./data/GiftsData.js').default
+                            }
+                            match={match}
+                          />
+                        )}
+                      />
+                      <Redirect to="/" />
+                    </Switch>
                     <About />
                   </Row>
                 </Container>
@@ -64,4 +79,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(hot(module)(App));
+export default withRouter(connect(mapStateToProps)(hot(module)(App)));

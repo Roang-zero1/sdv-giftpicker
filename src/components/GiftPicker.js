@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 import classNames from 'classnames';
-import $ from 'jquery';
 
-import * as navigationActions from '../actions/navigationActions';
+import { withRouter, Redirect } from 'react-router-dom';
 
 import tastes from '../data/GiftTastes.js';
 
@@ -19,35 +18,37 @@ const categories_map = {
 class DataDisplay extends Component {
   constructor(props) {
     super(props);
-    this.selectCharacter = this.selectCharacter.bind(this);
     this.renderGiftCategories = this.renderGiftCategories.bind(this);
   }
 
   render(props) {
-    return (
-      <Col xs="12">
-        <Row>
-          <Col xs="12">
-            <h2>
-              {this.props.navigation.selection}{' '}
-              <img
-                src={require('../images/characters/' +
-                  this.props.navigation.selection +
-                  '.png')}
-                alt=""
-              />
-            </h2>
-          </Col>
-          {this.renderGiftCategories(0)}
-          {this.renderGiftCategories(1)}
-          {this.renderGiftCategories(4)}
-        </Row>
-      </Col>
-    );
+    let char = this.props.match.params.characterName;
+    if (char in tastes) {
+      return (
+        <Col xs="12">
+          <Row>
+            <Col xs="12">
+              <h2>
+                {char}{' '}
+                <img
+                  src={require('../images/characters/' + char + '.png')}
+                  alt=""
+                />
+              </h2>
+            </Col>
+            {this.renderGiftCategories(0)}
+            {this.renderGiftCategories(1)}
+            {this.renderGiftCategories(4)}
+          </Row>
+        </Col>
+      );
+    } else {
+      return <Redirect to="/" />;
+    }
   }
 
   renderGiftCategories(category) {
-    var char = this.props.navigation.selection;
+    let char = this.props.match.params.characterName;
     var characterTastes = tastes[char][category];
     var gifts = [];
     for (var gift in characterTastes) {
@@ -92,13 +93,6 @@ class DataDisplay extends Component {
       </Col>
     );
   }
-
-  selectCharacter(event) {
-    event.preventDefault();
-    let target = $(event.target);
-    this.props.navigationActions.selectCharacter(target.data('char'));
-    return false;
-  }
 }
 
 function mapStateToProps(state) {
@@ -109,4 +103,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(DataDisplay);
+export default withRouter(connect(mapStateToProps)(DataDisplay));

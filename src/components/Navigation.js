@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
+import { Navbar, NavbarToggler } from 'reactstrap';
 
 import * as navigationActions from '../actions/navigationActions';
 
@@ -18,9 +19,9 @@ class Navigation extends Component {
           onClick={this.props.navigationActions.toggleSidebar}
           className="mr-2"
         />
-        <NavbarBrand>
+        <Link to="/" className="navbar-brand">
           <img src={require('../images/Logo.png')} alt="SDV-GP" />
-        </NavbarBrand>
+        </Link>
         <Upload inline={true} text="Re-Upload" />
       </Navbar>
     );

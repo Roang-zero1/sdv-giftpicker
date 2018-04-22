@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import $ from 'jquery';
 
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem } from 'reactstrap';
 
 import * as navigationActions from '../actions/navigationActions';
 
@@ -13,11 +13,6 @@ import tastes from '../data/GiftTastes.js';
 import './Sidebar.css';
 
 class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.selectCharacter = this.selectCharacter.bind(this);
-  }
-
   render() {
     let characters_links = [];
     for (var char in tastes) {
@@ -32,11 +27,7 @@ class Sidebar extends Component {
               this.props.navigation.selection === char ? 'active' : null
             }
           >
-            <NavLink
-              href={'#' + char}
-              data-char={char}
-              onClick={this.selectCharacter}
-            >
+            <Link className="nav-link" to={`/character/${char}`}>
               <img
                 className="icon"
                 src={require('../images/characters/' + char + '.png')}
@@ -50,7 +41,7 @@ class Sidebar extends Component {
               >
                 {char}
               </span>
-            </NavLink>
+            </Link>
           </NavItem>
         );
       }
@@ -65,10 +56,7 @@ class Sidebar extends Component {
           })}
         >
           <NavItem key="overview">
-            <NavLink
-              href={'#'}
-              onClick={this.props.navigationActions.selectOverview}
-            >
+            <Link className="nav-link" to="/">
               <img
                 className="icon"
                 src={require('../images/th-list.png')}
@@ -82,20 +70,12 @@ class Sidebar extends Component {
               >
                 Overview
               </span>
-            </NavLink>
+            </Link>
           </NavItem>
           {characters_links}
         </Nav>
       </div>
     );
-  }
-
-  selectCharacter(event) {
-    event.preventDefault();
-    let target = $(event.target);
-    let link = target.is('a') ? target : target.parent();
-    this.props.navigationActions.selectCharacter(link.data('char'));
-    return false;
   }
 }
 

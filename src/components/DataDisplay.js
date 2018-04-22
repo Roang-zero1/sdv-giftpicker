@@ -1,32 +1,23 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
   Container,
   Row,
   Col,
-  Button,
   Card,
   CardImg,
   CardBody,
   CardTitle,
   CardText
 } from 'reactstrap';
+import { withRouter, Link } from 'react-router-dom';
 import classNames from 'classnames';
-import $ from 'jquery';
-
-import * as navigationActions from '../actions/navigationActions';
 
 import tastes from '../data/GiftTastes.js';
 
 import './DataDisplay.css';
 
 class DataDisplay extends Component {
-  constructor(props) {
-    super(props);
-    this.selectCharacter = this.selectCharacter.bind(this);
-  }
-
   render(props) {
     var characters = [];
     for (var char in tastes) {
@@ -57,13 +48,12 @@ class DataDisplay extends Component {
                   {this.props.characters[char].gifts > 0 ? 'X' : 'O'}
                   {this.props.characters[char].gifts > 1 ? 'X' : 'O'}
                 </CardText>
-                <Button
-                  color="primary"
-                  data-char={char}
-                  onClick={this.selectCharacter}
+                <Link
+                  className={classNames({ btn: true, 'btn-primary': true })}
+                  to={`character/${char}`}
                 >
                   Select Gifts
-                </Button>
+                </Link>
               </CardBody>
             </Card>
           </Col>
@@ -81,13 +71,6 @@ class DataDisplay extends Component {
       </Container>
     );
   }
-
-  selectCharacter(event) {
-    event.preventDefault();
-    let target = $(event.target);
-    this.props.navigationActions.selectCharacter(target.data('char'));
-    return false;
-  }
 }
 
 function mapStateToProps(state) {
@@ -97,10 +80,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    navigationActions: bindActionCreators(navigationActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DataDisplay);
+export default withRouter(connect(mapStateToProps)(DataDisplay));
