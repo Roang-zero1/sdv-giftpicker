@@ -46,19 +46,23 @@ class DataDisplay extends Component {
                   {this.props.characters[char].gifts > 0 ? (
                     <CheckSquare
                       className={classNames({ icon: true, checked: true })}
+                      aria-label="Gift 1 given"
                     />
                   ) : (
                     <Square
                       className={classNames({ icon: true, unchecked: true })}
+                      aria-label="Gift 1 missing"
                     />
                   )}
                   {this.props.characters[char].gifts > 1 ? (
                     <CheckSquare
                       className={classNames({ icon: true, checked: true })}
+                      aria-label="Gift 1 given"
                     />
                   ) : (
                     <Square
                       className={classNames({ icon: true, unchecked: true })}
+                      aria-label="Gift 2 missing"
                     />
                   )}
                 </CardText>
