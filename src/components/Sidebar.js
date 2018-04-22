@@ -26,7 +26,12 @@ class Sidebar extends Component {
         this.props.characters[char].gifts < 2
       ) {
         characters_links.push(
-          <NavItem key={char}>
+          <NavItem
+            key={char}
+            className={
+              this.props.navigation.selection === char ? 'active' : null
+            }
+          >
             <NavLink
               href={'#' + char}
               data-char={char}
@@ -96,8 +101,8 @@ class Sidebar extends Component {
 
 function mapStateToProps(state) {
   return {
-    status: state.status,
-    characters: state.characters
+    characters: state.characters,
+    navigation: state.navigation
   };
 }
 

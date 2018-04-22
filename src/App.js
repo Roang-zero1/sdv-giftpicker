@@ -7,6 +7,7 @@ import { Container, Row } from 'reactstrap';
 
 import About from './components/About';
 import DataDisplay from './components/DataDisplay';
+import GiftPicker from './components/GiftPicker';
 import Loader from './components/Loader';
 import Navigation from './components/Navigation';
 import Intro from './Intro';
@@ -31,13 +32,19 @@ class App extends Component {
                 <Container>
                   <Row>
                     {this.props.status.loading && <Loader />}
-                    {this.props.status.loaded && (
-                      <DataDisplay
+                    {this.props.status.loaded &&
+                      !this.props.navigation.selection && (
+                        <DataDisplay
+                          giftsMetaData={require('./data/GiftsData.js').default}
+                        />
+                      )}
+                    {this.props.navigation.selection && (
+                      <GiftPicker
                         giftsMetaData={require('./data/GiftsData.js').default}
                       />
                     )}
+                    <About />
                   </Row>
-                  <About />
                 </Container>
               </main>
             </Row>
