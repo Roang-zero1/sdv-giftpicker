@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
   Container,
@@ -12,8 +13,13 @@ import {
   CardText
 } from 'reactstrap';
 import classNames from 'classnames';
-import './DataDisplay.css';
+import $ from 'jquery';
+
+import * as navigationActions from '../actions/navigationActions';
+
 import tastes from '../data/GiftTastes.js';
+
+import './DataDisplay.css';
 
 const categories_map = {
   0: 'Love',
@@ -22,6 +28,11 @@ const categories_map = {
 };
 
 class DataDisplay extends Component {
+  constructor(props) {
+    super(props);
+    this.selectCharacter = this.selectCharacter.bind(this);
+  }
+
   render(props) {
     var characters = [];
     for (var char in tastes) {
@@ -57,6 +68,9 @@ class DataDisplay extends Component {
                   {this.props.characters[char].gifts > 0 ? 'X' : 'O'}
                   {this.props.characters[char].gifts > 1 ? 'X' : 'O'}
                 </CardText>
+                <Button data-char={char} onClick={this.selectCharacter}>
+                  Select Gifts
+                </Button>
               </CardBody>
             </Card>
           </Col>
@@ -124,6 +138,13 @@ class DataDisplay extends Component {
       );
     }
   }
+
+  selectCharacter(event) {
+    event.preventDefault();
+    let target = $(event.target);
+    this.props.navigationActions.selectCharacter(target.data('char'));
+    return false;
+  }
 }
 
 function mapStateToProps(state) {
@@ -133,4 +154,10 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(DataDisplay);
+function mapDispatchToProps(dispatch) {
+  return {
+    navigationActions: bindActionCreators(navigationActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DataDisplay);

@@ -19,6 +19,11 @@ class About extends Component {
             https://mouseypounds.github.io/stardew-checkup/
           </a>
         </p>
+        <p>
+          Using icons by <a href="https://fontawesome.com/l">Font Awesome</a>{' '}
+          licensed under{' '}
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </p>
       </Col>
     );
   }
