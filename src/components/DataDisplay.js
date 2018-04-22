@@ -15,16 +15,15 @@ import classNames from 'classnames';
 
 import tastes from '../data/GiftTastes.js';
 
+import CheckSquare from '../images/CheckSquare';
+import Square from '../images/Square';
 import './DataDisplay.css';
 
 class DataDisplay extends Component {
   render(props) {
     var characters = [];
-    for (var char in tastes) {
-      if (
-        char in this.props.characters &&
-        this.props.characters[char].gifts < 2
-      ) {
+    for (var char in this.props.characters) {
+      if (char in tastes) {
         characters.push(
           <Col xs="6" md="4" lg="3" xl="2" key={char} className="mb-4">
             <Card
@@ -44,9 +43,24 @@ class DataDisplay extends Component {
               <CardBody>
                 <CardTitle>{char}</CardTitle>
                 <CardText>
-                  Gifts given{' '}
-                  {this.props.characters[char].gifts > 0 ? 'X' : 'O'}
-                  {this.props.characters[char].gifts > 1 ? 'X' : 'O'}
+                  {this.props.characters[char].gifts > 0 ? (
+                    <CheckSquare
+                      className={classNames({ icon: true, checked: true })}
+                    />
+                  ) : (
+                    <Square
+                      className={classNames({ icon: true, unchecked: true })}
+                    />
+                  )}
+                  {this.props.characters[char].gifts > 1 ? (
+                    <CheckSquare
+                      className={classNames({ icon: true, checked: true })}
+                    />
+                  ) : (
+                    <Square
+                      className={classNames({ icon: true, unchecked: true })}
+                    />
+                  )}
                 </CardText>
                 <Link
                   className={classNames({ btn: true, 'btn-primary': true })}

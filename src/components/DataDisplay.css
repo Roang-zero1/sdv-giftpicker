@@ -2,32 +2,16 @@
   padding: 5%;
 }
 
-.icon {
+.card .icon {
   max-width: 24px;
   height: auto;
+  margin-left: 0.4em;
 }
 
-.item .icon {
-  display: inline;
-  left: -12px;
-  position: relative;
+.card .icon.checked {
+  fill: green;
 }
 
-.item .btn {
-  display: flex;
-  text-align: left;
-  width: 100%;
-}
-.item .col-auto {
-  flex: 1 0 auto;
-}
-.item .count {
-  text-align: right;
-}
-
-.missing {
-  order: 1;
-}
-.missing .icon {
-  filter: grayscale(100%);
+.card .icon.unchecked {
+  fill: darkred;
 }

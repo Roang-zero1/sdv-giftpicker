@@ -40,5 +40,8 @@
     "eject": "react-app-rewired eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "svgr": "^1.9.1"
   }
 }

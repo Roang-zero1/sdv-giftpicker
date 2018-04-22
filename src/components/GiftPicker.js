@@ -7,7 +7,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 
 import tastes from '../data/GiftTastes.js';
 
-import './DataDisplay.css';
+import './GiftPicker.css';
 
 const categories_map = {
   0: 'Love',
