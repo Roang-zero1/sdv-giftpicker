@@ -38,7 +38,7 @@ class Sidebar extends Component {
       }
     }
     return (
-      <div id="sidebar">
+      <div id="sidebar" className="bg-dark">
         <Nav
           vertical
           className={classNames({
