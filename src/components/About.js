@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container } from 'reactstrap';
+import { Col } from 'reactstrap';
 
 /* TODO: Add an about referencing the used tools*/
 
 class About extends Component {
   render() {
     return (
-      <Container fluid={this.props.status.fluid} className="about">
+      <Col xs="12" className="about">
         <h2>About</h2>
         <p>
           SDV Gift Calculator by{' '}
@@ -19,7 +19,7 @@ class About extends Component {
             https://mouseypounds.github.io/stardew-checkup/
           </a>
         </p>
-      </Container>
+      </Col>
     );
   }
 }

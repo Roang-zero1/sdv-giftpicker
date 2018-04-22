@@ -35,41 +35,40 @@ class DataDisplay extends Component {
         }
 
         characters.push(
-          <div key={char}>
-            <Col xs="3">
-              <Card
-                className={classNames({
-                  'bg-light': true,
-                  'text-center': true,
-                  character: true,
-                  shadow: true
-                })}
-                id={char}
-              >
-                <CardImg
-                  width="100%"
-                  src={require('../images/characters/' + char + '.png')}
-                  alt=""
-                />
-                <CardBody>
-                  <CardTitle>{char}</CardTitle>
-                  <CardText>
-                    Gifts given{' '}
-                    {this.props.characters[char].gifts > 0 ? 'X' : 'O'}
-                    {this.props.characters[char].gifts > 1 ? 'X' : 'O'}
-                  </CardText>
-                </CardBody>
-              </Card>
-            </Col>
-            {categories_output}
-          </div>
+          <Col xs="6" md="4" lg="3" xl="2" key={char} className="mb-4">
+            <Card
+              className={classNames({
+                'bg-light': true,
+                'text-center': true,
+                character: true,
+                shadow: true
+              })}
+              id={char}
+            >
+              <CardImg
+                width="100%"
+                src={require('../images/characters/' + char + '.png')}
+                alt=""
+              />
+              <CardBody>
+                <CardTitle>{char}</CardTitle>
+                <CardText>
+                  Gifts given{' '}
+                  {this.props.characters[char].gifts > 0 ? 'X' : 'O'}
+                  {this.props.characters[char].gifts > 1 ? 'X' : 'O'}
+                </CardText>
+              </CardBody>
+            </Card>
+          </Col>
         );
       }
     }
     return (
       <Container fluid>
         <Row>
-          <h2>Characters</h2>
+          <Col xs="12">
+            <h2>Characters</h2>
+          </Col>
           {characters}
         </Row>
       </Container>

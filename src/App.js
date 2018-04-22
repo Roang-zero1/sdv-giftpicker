@@ -28,13 +28,17 @@ class App extends Component {
                   'p-1': true
                 })}
               >
-                {this.props.status.loading && <Loader />}
-                {this.props.status.loaded && (
-                  <DataDisplay
-                    giftsMetaData={require('./data/GiftsData.js').default}
-                  />
-                )}
-                <About />
+                <Container>
+                  <Row>
+                    {this.props.status.loading && <Loader />}
+                    {this.props.status.loaded && (
+                      <DataDisplay
+                        giftsMetaData={require('./data/GiftsData.js').default}
+                      />
+                    )}
+                  </Row>
+                  <About />
+                </Container>
               </main>
             </Row>
           </Container>

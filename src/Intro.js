@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Jumbotron, Container } from 'reactstrap';
+import { Jumbotron, Container, Col } from 'reactstrap';
 
 import * as statusActions from './actions/statusActions';
 import Upload from './components/Upload';
@@ -27,28 +27,31 @@ class Intro extends Component {
             <Upload />
           </Container>
         </Jumbotron>
-        <Container id="help">
-          <h2>Help</h2>
-          <p>
-            Please use the full save file named with your farmer's name and a
-            9-digit ID number (e.g.
-            <code>Fred_148093307</code>); do not use the{' '}
-            <code>SaveGameInfo</code> file as it does not contain all the
-            necessary information.
-          </p>
-          <p>Default save file locations are:</p>
-          <div>
-            <ul>
-              <li>
-                Windows: <code>%AppData%\StardewValley\Saves\</code>
-              </li>
-              <li>
-                Mac OSX &amp; Linux: <code>~/.config/StardewValley/Saves/</code>
-              </li>
-            </ul>
-          </div>
+        <Container>
+          <Col xs="12">
+            <h2>Help</h2>
+            <p>
+              Please use the full save file named with your farmer's name and a
+              9-digit ID number (e.g.
+              <code>Fred_148093307</code>); do not use the{' '}
+              <code>SaveGameInfo</code> file as it does not contain all the
+              necessary information.
+            </p>
+            <p>Default save file locations are:</p>
+            <div>
+              <ul>
+                <li>
+                  Windows: <code>%AppData%\StardewValley\Saves\</code>
+                </li>
+                <li>
+                  Mac OSX &amp; Linux:{' '}
+                  <code>~/.config/StardewValley/Saves/</code>
+                </li>
+              </ul>
+            </div>
+          </Col>
+          <About />
         </Container>
-        <About />
       </main>
     );
   }

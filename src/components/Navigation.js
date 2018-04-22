@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Navbar, NavbarBrand, NavbarToggler, NavLink } from 'reactstrap';
+import { Navbar, NavbarBrand, NavbarToggler } from 'reactstrap';
 
 import * as navigationActions from '../actions/navigationActions';
 
