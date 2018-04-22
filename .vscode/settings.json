@@ -13,7 +13,27 @@
   },
   "cSpell.words": [
     "Stardew",
+    "onstatechange",
+    "onupdatefound",
     "persistor",
     "reactstrap"
+  ],
+  "todohighlight.exclude": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.vscode/**",
+    "**/.github/**",
+    "**/_output/**",
+    "**/*.min.*",
+    "**/*.map",
+    "**/.next/**",
+    "**/lib/**",
+    "**/.chrome-data/**",
+    "**/include/**",
+    "**/share/**",
+    "**/scripts/**",
+    "**/src/data/**"
   ]
 }
