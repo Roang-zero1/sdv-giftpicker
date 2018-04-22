@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import { Col, Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 
 import tastes from '../data/GiftTastes.js';
 
@@ -38,7 +38,7 @@ class Sidebar extends Component {
       }
     }
     return (
-      <Col md="3" sm="1" xs="2" id="sidebar">
+      <div id="sidebar">
         <Nav
           vertical
           className={classNames({
@@ -48,7 +48,7 @@ class Sidebar extends Component {
         >
           {characters_links}
         </Nav>
-      </Col>
+      </div>
     );
   }
 }

@@ -18,29 +18,27 @@ class App extends Component {
   render() {
     if (this.props.status.loaded || this.props.status.loading) {
       return (
-        <Container id="App" fluid={true} className="p-0">
+        <div>
           <Navigation />
-          <Row id="wrapper" noGutters={true}>
-            {this.props.navigation.sidebar && <Sidebar />}
-            <main
-              className={classNames({
-                App: true,
-                'col-12': !this.props.navigation.sidebar,
-                'col-10': this.props.navigation.sidebar,
-                'col-sm-11': this.props.navigation.sidebar,
-                'col-md-9': this.props.navigation.sidebar
-              })}
-            >
-              {this.props.status.loading && <Loader />}
-              {this.props.status.loaded && (
-                <DataDisplay
-                  giftsMetaData={require('./data/GiftsData.js').default}
-                />
-              )}
-              <About />
-            </main>
-          </Row>
-        </Container>
+          <Container fluid={true}>
+            <Row id="wrapper">
+              {this.props.navigation.sidebar && <Sidebar />}
+              <main
+                className={classNames({
+                  'p-1': true
+                })}
+              >
+                {this.props.status.loading && <Loader />}
+                {this.props.status.loaded && (
+                  <DataDisplay
+                    giftsMetaData={require('./data/GiftsData.js').default}
+                  />
+                )}
+                <About />
+              </main>
+            </Row>
+          </Container>
+        </div>
       );
     } else {
       return <Intro />;

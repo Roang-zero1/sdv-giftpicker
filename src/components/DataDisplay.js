@@ -67,9 +67,11 @@ class DataDisplay extends Component {
       }
     }
     return (
-      <Container fluid className="m-4">
-        <h2>Characters</h2>
-        {characters}
+      <Container fluid>
+        <Row>
+          <h2>Characters</h2>
+          {characters}
+        </Row>
       </Container>
     );
   }
@@ -88,12 +90,14 @@ class DataDisplay extends Component {
             className={classNames({
               item: true,
               missing: !(itemID in this.props.items),
-              'no-gutters': true,
               'mb-1': true
             })}
             key={itemID}
           >
-            <Button outline className={'row'}>
+            <Button
+              outline
+              className={classNames({ row: true, 'ml-2': true, 'mr-2': true })}
+            >
               <Col xs="1">
                 <img
                   className="icon"
@@ -114,10 +118,10 @@ class DataDisplay extends Component {
         );
       }
       return (
-        <div key={category}>
+        <Col xs="12" key={category}>
           <h4>{categories_map[category]}</h4>
           <Row>{gifts}</Row>
-        </div>
+        </Col>
       );
     }
   }

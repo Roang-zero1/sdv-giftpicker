@@ -32,7 +32,7 @@ class Upload extends Component {
         />
         <Button
           color="primary"
-          size={this.props.inline}
+          size={this.props.inline ? null : 'lg'}
           onClick={() => {
             this.upload.click();
           }}
