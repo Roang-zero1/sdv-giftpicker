@@ -17,7 +17,6 @@ export default function stuff(state = initialState.items, action) {
   }
   switch (action.type) {
     case SELECT_GIFT:
-      // TODO: fail on more than two gifts
       if (!('selected' in state[action.char])) {
         newState = update(newState, {
           [action.char]: {
@@ -27,10 +26,17 @@ export default function stuff(state = initialState.items, action) {
           }
         });
       }
-      return update(newState, {
+      newState = update(newState, {
         [action.char]: {
           selected: {
             $push: [action.gift]
+          }
+        }
+      });
+      return update(newState, {
+        [action.char]: {
+          selected: {
+            $set: newState[action.char].selected.slice(-2)
           }
         }
       });
