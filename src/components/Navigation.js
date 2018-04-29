@@ -8,9 +8,11 @@ import { Navbar, NavbarToggler } from 'reactstrap';
 import * as navigationActions from '../actions/navigationActions';
 
 import Upload from './Upload';
+import NoSaveButton from './NoSaveButton';
 
 import './Navigation.css';
 
+/* TODO: Fix buttons on right side for small layouts e.g. dropdown after md */
 class Navigation extends Component {
   render() {
     return (
@@ -22,7 +24,10 @@ class Navigation extends Component {
         <Link to="/" className="navbar-brand">
           <img src={require('../images/Logo.png')} alt="SDV-GP" />
         </Link>
-        <Upload inline={true} text="Re-Upload" />
+        <div className="inline">
+          <Upload inline={true} text="Re-Upload" className="mr-1" />
+          <NoSaveButton inline={true} />
+        </div>
       </Navbar>
     );
   }

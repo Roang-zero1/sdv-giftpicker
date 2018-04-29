@@ -32,14 +32,13 @@ class Upload extends Component {
         />
         <Button
           color="primary"
-          size={this.props.inline ? null : 'lg'}
+          size={this.props.inline ? 'sm' : 'lg'}
           onClick={() => {
             this.upload.click();
           }}
           disabled={this.props.disabled}
           className={this.props.className}
         >
-          {this.props.dis}
           {this.props.text ? this.props.text : 'Upload save-game'}
         </Button>
       </div>
@@ -138,6 +137,7 @@ class Upload extends Component {
         instance.props.statusActions.setLoading(true);
         console.log('XML doc parsed ' + xmlDoc.documentElement);
         instance.props.statusActions.setLoading(false);
+        instance.props.statusActions.setSaveGame(true);
         instance.props.statusActions.setIntroChosen(true);
       } catch (err) {
         // TODO: Show an error message to the user

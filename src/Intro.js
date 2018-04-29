@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Jumbotron, Button, Container, Col } from 'reactstrap';
+import { Jumbotron, Container, Col } from 'reactstrap';
 
 import * as statusActions from './actions/statusActions';
 import Upload from './components/Upload';
+import NoSaveButton from './components/NoSaveButton';
 import About from './components/About';
 
 import './Intro.css';
@@ -25,7 +26,7 @@ class Intro extends Component {
               is no uploaded and processed locally.
             </p>
             <Upload className="mb-2" />
-            <Button color="secondary">Use without save</Button>
+            <NoSaveButton />
           </Container>
         </Jumbotron>
         <Container>
