@@ -22,3 +22,8 @@
 #sidebar .nav-link.active {
   color: #fff;
 }
+
+#sidebar .icon {
+  max-width: 24px;
+  max-height: auto;
+}

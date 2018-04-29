@@ -1,33 +1,39 @@
-.character img {
+#gift-picker .character img {
   padding: 5%;
 }
 
-.icon {
-  max-width: 24px;
-  height: auto;
-}
-
-.item .icon {
-  display: inline;
-  left: -12px;
-  position: relative;
-}
-
-.item .btn {
+#gift-picker .gift {
   display: flex;
   text-align: left;
   width: 100%;
 }
-.item .col-auto {
-  flex: 1 0 auto;
+
+#gift-picker .gift div,
+#gift-picker .gift .icon {
+  pointer-events: none;
 }
-.item .count {
+
+#gift-picker .gift .icon {
+  left: -12px;
+  position: relative;
+  max-width: 24px;
+}
+
+#gift-picker .gift .col-auto {
+  flex: 1 1 auto;
+}
+#gift-picker .gift .count {
   text-align: right;
 }
 
-.missing {
+#gift-picker .gift-text {
+  flex: 1 1 2vw;
+  overflow: hidden;
+}
+
+#gift-picker .missing {
   order: 1;
 }
-.missing .icon {
+#gift-picker .missing .icon {
   filter: grayscale(100%);
 }
