@@ -2,9 +2,14 @@
   padding: 5%;
 }
 
-.icon {
+.gift .icon {
   max-width: 24px;
   height: auto;
+}
+
+.gift div,
+.gift .icon {
+  pointer-events: none;
 }
 
 .item .icon {

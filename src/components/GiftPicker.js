@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Row, Col, Button } from 'reactstrap';
 import classNames from 'classnames';
+import $ from 'jquery';
 
 import { withRouter, Redirect } from 'react-router-dom';
 
 import tastes from '../data/GiftTastes.js';
+
+import * as itemsActions from '../actions/itemActions';
+import * as charactersActions from '../actions/charactersActions';
 
 import './GiftPicker.css';
 
@@ -19,6 +24,7 @@ class DataDisplay extends Component {
   constructor(props) {
     super(props);
     this.renderGiftCategories = this.renderGiftCategories.bind(this);
+    this.selectGift = this.selectGift.bind(this);
   }
 
   render(props) {
@@ -73,8 +79,11 @@ class DataDisplay extends Component {
                 ? 'success'
                 : 'dark'
             }
+            onClick={this.selectGift}
+            {...{ 'data-char': char, 'data-item': itemID }}
             className={classNames({
               row: true,
+              gift: true,
               'ml-2': true,
               'mr-2': true
             })}
@@ -105,6 +114,14 @@ class DataDisplay extends Component {
       </Col>
     );
   }
+
+  /* TODO: Error handling */
+  selectGift(event) {
+    let target = $(event.target);
+    let char = target.data('char');
+    let itemID = target.data('item');
+    this.props.charactersActions.selectGift(char, itemID);
+  }
 }
 
 function mapStateToProps(state) {
@@ -116,4 +133,13 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(DataDisplay));
+function mapDispatchToProps(dispatch) {
+  return {
+    itemsActions: bindActionCreators(itemsActions, dispatch),
+    charactersActions: bindActionCreators(charactersActions, dispatch)
+  };
+}
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(DataDisplay)
+);
