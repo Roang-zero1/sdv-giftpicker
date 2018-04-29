@@ -17,7 +17,7 @@ export default function stuff(state = initialState.items, action) {
   }
   switch (action.type) {
     case SELECT_GIFT:
-      if (!('selected' in state[action.char])) {
+      if (!('selected' in newState[action.char])) {
         newState = update(newState, {
           [action.char]: {
             selected: {
@@ -41,7 +41,7 @@ export default function stuff(state = initialState.items, action) {
         }
       });
     case DESELECT_GIFT:
-      if (!('selected' in state[action.char])) {
+      if (!('selected' in newState[action.char])) {
         newState = update(newState, {
           [action.char]: {
             selected: {
