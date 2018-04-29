@@ -41,8 +41,25 @@ export default function stuff(state = initialState.items, action) {
         }
       });
     case DESELECT_GIFT:
-      // TODO: implement action
-      return state;
+      if (!('selected' in state[action.char])) {
+        newState = update(newState, {
+          [action.char]: {
+            selected: {
+              $set: []
+            }
+          }
+        });
+      }
+      let index = newState[action.char].selected.findIndex(
+        k => k === action.gift
+      );
+      return update(newState, {
+        [action.char]: {
+          selected: {
+            $splice: [[index, 1]]
+          }
+        }
+      });
     case SET_GIFT_COUNT:
       console.log('SET_GIFT_COUNT Action');
       return update(newState, {

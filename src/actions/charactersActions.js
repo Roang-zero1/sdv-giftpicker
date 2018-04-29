@@ -18,7 +18,7 @@ export function selectGift(character, itemID) {
 
 export function deselectGift(character, itemID) {
   return {
-    type: types.SELECT_GIFT,
+    type: types.DESELECT_GIFT,
     char: character,
     gift: itemID
   };
