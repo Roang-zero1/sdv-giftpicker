@@ -112,6 +112,7 @@ class Upload extends Component {
   }
 
   handleUpload(event) {
+    var target = event.target;
     var file = event.target.files[0];
     var reader = new FileReader();
 
@@ -139,6 +140,7 @@ class Upload extends Component {
         instance.props.statusActions.setLoading(false);
         instance.props.statusActions.setSaveGame(true);
         instance.props.statusActions.setIntroChosen(true);
+        target.value = '';
       } catch (err) {
         // TODO: Show an error message to the user
         console.log('Failed to parse file');
