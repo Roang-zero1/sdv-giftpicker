@@ -25,15 +25,54 @@ class DataDisplay extends Component {
     super(props);
     this.renderGiftCategories = this.renderGiftCategories.bind(this);
     this.selectGift = this.selectGift.bind(this);
+    this.deselectGift = this.deselectGift.bind(this);
   }
 
   render(props) {
     let char = this.props.match.params.characterName;
     if (char in tastes) {
+      let gifts = [];
+      for (let gift of this.props.characters[char].selected || []) {
+        gifts.push(
+          <Col xs="12" md="6" className="mb-1" key={gift}>
+            <Button
+              color="success"
+              onClick={this.deselectGift}
+              {...{ 'data-char': char, 'data-item': gift }}
+              className={classNames({
+                gift: true,
+                row: true,
+                'flex-nowrap': true,
+                'ml-2': true,
+                'mr-2': true
+              })}
+            >
+              <Col xs="1">
+                <img
+                  className="icon"
+                  src={require('../images/items/' +
+                    this.props.giftsMetaData[gift].name +
+                    '.png')}
+                  alt=""
+                />
+              </Col>
+              <Col className="gift-text">
+                {this.props.giftsMetaData[gift].displayName}
+              </Col>
+              {this.props.status.save && (
+                <Col xs="3" align-self="end" className="count">
+                  {gift in this.props.items ? this.props.items[gift] : null}
+                </Col>
+              )}
+            </Button>
+          </Col>
+        );
+      }
+
       return (
         <Col xs="12">
           <Row>
-            <Col xs="12">
+            <Col xs="12" lg="4">
               <h2>
                 {char}{' '}
                 <img
@@ -41,6 +80,9 @@ class DataDisplay extends Component {
                   alt=""
                 />
               </h2>
+            </Col>
+            <Col xs="12" lg="8">
+              <Row>{gifts}</Row>
             </Col>
             {this.renderGiftCategories(0)}
             {this.renderGiftCategories(1)}
@@ -121,6 +163,13 @@ class DataDisplay extends Component {
     let char = target.data('char');
     let itemID = target.data('item');
     this.props.charactersActions.selectGift(char, itemID);
+  }
+
+  deselectGift(event) {
+    let target = $(event.target);
+    let char = target.data('char');
+    let itemID = target.data('item');
+    this.props.charactersActions.deselectGift(char, itemID);
   }
 }
 
