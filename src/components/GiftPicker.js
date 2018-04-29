@@ -64,9 +64,8 @@ class DataDisplay extends Component {
           md="6"
           xl="4"
           className={classNames({
-            item: true,
-            missing: !(gift in this.props.items),
-            'mb-1': true
+            'mb-1': true,
+            missing: !(gift in this.props.items)
           })}
           key={gift}
         >
@@ -81,8 +80,9 @@ class DataDisplay extends Component {
             onClick={this.selectGift}
             {...{ 'data-char': char, 'data-item': gift }}
             className={classNames({
-              row: true,
               gift: true,
+              row: true,
+              'flex-nowrap': true,
               'ml-2': true,
               'mr-2': true
             })}
@@ -96,7 +96,9 @@ class DataDisplay extends Component {
                 alt=""
               />
             </Col>
-            <Col xs="auto">{this.props.giftsMetaData[gift].displayName}</Col>
+            <Col className="gift-text">
+              {this.props.giftsMetaData[gift].displayName}
+            </Col>
             {this.props.status.save && (
               <Col xs="3" align-self="end" className="count">
                 {gift in this.props.items ? this.props.items[gift] : null}

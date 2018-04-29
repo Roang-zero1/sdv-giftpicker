@@ -2,9 +2,10 @@
   padding: 5%;
 }
 
-.gift .icon {
-  max-width: 24px;
-  height: auto;
+.gift {
+  display: flex;
+  text-align: left;
+  width: 100%;
 }
 
 .gift div,
@@ -12,22 +13,22 @@
   pointer-events: none;
 }
 
-.item .icon {
-  display: inline;
+.gift .icon {
   left: -12px;
   position: relative;
+  max-width: 24px;
 }
 
-.item .btn {
-  display: flex;
-  text-align: left;
-  width: 100%;
+.gift .col-auto {
+  flex: 1 1 auto;
 }
-.item .col-auto {
-  flex: 1 0 auto;
-}
-.item .count {
+.gift .count {
   text-align: right;
+}
+
+.gift-text {
+  flex: 1 1 2vw;
+  overflow: hidden;
 }
 
 .missing {
