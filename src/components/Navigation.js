@@ -25,8 +25,12 @@ class Navigation extends Component {
           <img src={require('../images/Logo.png')} alt="SDV-GP" />
         </Link>
         <div className="inline">
-          <Upload inline={true} text="Re-Upload" className="mr-1" />
-          <NoSaveButton inline={true} />
+          <Upload
+            inline={true}
+            text={this.props.status.save ? 'Re-Upload' : 'Upload save'}
+            className="mr-1"
+          />
+          {this.props.status.save && <NoSaveButton inline={true} />}
         </div>
       </Navbar>
     );
