@@ -1,17 +1,24 @@
-.character img {
+#data-display .character img {
   padding: 5%;
 }
 
-.card .icon {
+#data-display .card .icon {
   max-width: 24px;
   height: auto;
+}
+
+#data-display .card-text .icon {
   margin-left: 0.4em;
 }
 
-.card .icon.checked {
+#data-display .card .icon.checked {
   fill: green;
 }
 
-.card .icon.unchecked {
+#data-display .card .icon.unchecked {
   fill: darkred;
+}
+
+#data-display .btn .icon {
+  pointer-events: none;
 }
