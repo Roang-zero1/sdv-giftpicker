@@ -70,7 +70,7 @@ class DataDisplay extends Component {
       }
 
       return (
-        <Col xs="12">
+        <Col id="gift-picker" xs="12">
           <Row>
             <Col xs="12" lg="4">
               <h2>

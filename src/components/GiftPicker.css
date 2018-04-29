@@ -1,39 +1,39 @@
-.character img {
+#gift-picker .character img {
   padding: 5%;
 }
 
-.gift {
+#gift-picker .gift {
   display: flex;
   text-align: left;
   width: 100%;
 }
 
-.gift div,
-.gift .icon {
+#gift-picker .gift div,
+#gift-picker .gift .icon {
   pointer-events: none;
 }
 
-.gift .icon {
+#gift-picker .gift .icon {
   left: -12px;
   position: relative;
   max-width: 24px;
 }
 
-.gift .col-auto {
+#gift-picker .gift .col-auto {
   flex: 1 1 auto;
 }
-.gift .count {
+#gift-picker .gift .count {
   text-align: right;
 }
 
-.gift-text {
+#gift-picker .gift-text {
   flex: 1 1 2vw;
   overflow: hidden;
 }
 
-.missing {
+#gift-picker .missing {
   order: 1;
 }
-.missing .icon {
+#gift-picker .missing .icon {
   filter: grayscale(100%);
 }
