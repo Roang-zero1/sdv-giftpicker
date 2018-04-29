@@ -37,9 +37,10 @@ class Upload extends Component {
             this.upload.click();
           }}
           disabled={this.props.disabled}
+          className={this.props.className}
         >
           {this.props.dis}
-          {this.props.text ? this.props.text : 'Upload File'}
+          {this.props.text ? this.props.text : 'Upload save-game'}
         </Button>
       </div>
     );

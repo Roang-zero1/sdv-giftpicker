@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Jumbotron, Container, Col } from 'reactstrap';
+import { Jumbotron, Button, Container, Col } from 'reactstrap';
 
 import * as statusActions from './actions/statusActions';
 import Upload from './components/Upload';
@@ -24,7 +24,8 @@ class Intro extends Component {
               <a href="http://stardewvalley.net/">Stardew Valley</a>. The save
               is no uploaded and processed locally.
             </p>
-            <Upload />
+            <Upload className="mb-2" />
+            <Button color="secondary">Use without save</Button>
           </Container>
         </Jumbotron>
         <Container>
