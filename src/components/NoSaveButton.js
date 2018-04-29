@@ -38,8 +38,8 @@ class NoSaveButton extends Component {
       this.props.charactersActions.setGiftCount(char, 0);
     }
     let items = {};
-    for (let gift in giftIDs) {
-      items[giftIDs[gift]] = 999;
+    for (let gift of giftIDs) {
+      items[gift] = 999;
     }
     this.props.itemsActions.updateItems(items);
 

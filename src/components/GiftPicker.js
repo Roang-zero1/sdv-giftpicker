@@ -57,8 +57,7 @@ class DataDisplay extends Component {
     let char = this.props.match.params.characterName;
     var characterTastes = tastes[char][category];
     var gifts = [];
-    for (var gift in characterTastes) {
-      const itemID = characterTastes[gift];
+    for (var gift of characterTastes) {
       gifts.push(
         <Col
           xs="12"
@@ -66,21 +65,21 @@ class DataDisplay extends Component {
           xl="4"
           className={classNames({
             item: true,
-            missing: !(itemID in this.props.items),
+            missing: !(gift in this.props.items),
             'mb-1': true
           })}
-          key={itemID}
+          key={gift}
         >
           <Button
             outline
             color={
               this.props.characters[char].selected &&
-              this.props.characters[char].selected.includes(itemID)
+              this.props.characters[char].selected.includes(gift)
                 ? 'success'
                 : 'dark'
             }
             onClick={this.selectGift}
-            {...{ 'data-char': char, 'data-item': itemID }}
+            {...{ 'data-char': char, 'data-item': gift }}
             className={classNames({
               row: true,
               gift: true,
@@ -92,15 +91,15 @@ class DataDisplay extends Component {
               <img
                 className="icon"
                 src={require('../images/items/' +
-                  this.props.giftsMetaData[itemID].name +
+                  this.props.giftsMetaData[gift].name +
                   '.png')}
                 alt=""
               />
             </Col>
-            <Col xs="auto">{this.props.giftsMetaData[itemID].displayName}</Col>
+            <Col xs="auto">{this.props.giftsMetaData[gift].displayName}</Col>
             {this.props.status.save && (
               <Col xs="3" align-self="end" className="count">
-                {itemID in this.props.items ? this.props.items[itemID] : null}
+                {gift in this.props.items ? this.props.items[gift] : null}
               </Col>
             )}
           </Button>
@@ -115,7 +114,6 @@ class DataDisplay extends Component {
     );
   }
 
-  /* TODO: Error handling */
   selectGift(event) {
     let target = $(event.target);
     let char = target.data('char');
