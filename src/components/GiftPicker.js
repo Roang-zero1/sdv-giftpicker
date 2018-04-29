@@ -79,9 +79,11 @@ class DataDisplay extends Component {
               />
             </Col>
             <Col xs="auto">{this.props.giftsMetaData[itemID].displayName}</Col>
-            <Col xs="3" align-self="end" className="count">
-              {itemID in this.props.items ? this.props.items[itemID] : null}
-            </Col>
+            {this.props.status.save && (
+              <Col xs="3" align-self="end" className="count">
+                {itemID in this.props.items ? this.props.items[itemID] : null}
+              </Col>
+            )}
           </Button>
         </Col>
       );
@@ -99,7 +101,8 @@ function mapStateToProps(state) {
   return {
     items: state.items,
     characters: state.characters,
-    navigation: state.navigation
+    navigation: state.navigation,
+    status: state.status
   };
 }
 

@@ -6,6 +6,7 @@ import { Jumbotron, Container, Col } from 'reactstrap';
 
 import * as statusActions from './actions/statusActions';
 import Upload from './components/Upload';
+import NoSaveButton from './components/NoSaveButton';
 import About from './components/About';
 
 import './Intro.css';
@@ -24,7 +25,8 @@ class Intro extends Component {
               <a href="http://stardewvalley.net/">Stardew Valley</a>. The save
               is no uploaded and processed locally.
             </p>
-            <Upload />
+            <Upload className="mb-2" />
+            <NoSaveButton />
           </Container>
         </Jumbotron>
         <Container>
