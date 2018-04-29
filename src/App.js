@@ -18,7 +18,7 @@ import './App.css';
 
 class App extends Component {
   render() {
-    if (this.props.status.loaded || this.props.status.loading) {
+    if (this.props.status.intro) {
       return (
         <div>
           <Navigation />
@@ -33,31 +33,33 @@ class App extends Component {
                 <Container>
                   <Row>
                     {this.props.status.loading && <Loader />}
-                    <Switch>
-                      <Route
-                        exact
-                        path="/"
-                        render={() => (
-                          <DataDisplay
-                            giftsMetaData={
-                              require('./data/GiftsData.js').default
-                            }
-                          />
-                        )}
-                      />
-                      <Route
-                        path="/character/:characterName"
-                        render={match => (
-                          <GiftPicker
-                            giftsMetaData={
-                              require('./data/GiftsData.js').default
-                            }
-                            match={match}
-                          />
-                        )}
-                      />
-                      <Redirect to="/" />
-                    </Switch>
+                    {!this.props.status.loading && (
+                      <Switch>
+                        <Route
+                          exact
+                          path="/"
+                          render={() => (
+                            <DataDisplay
+                              giftsMetaData={
+                                require('./data/GiftsData.js').default
+                              }
+                            />
+                          )}
+                        />
+                        <Route
+                          path="/character/:characterName"
+                          render={match => (
+                            <GiftPicker
+                              giftsMetaData={
+                                require('./data/GiftsData.js').default
+                              }
+                              match={match}
+                            />
+                          )}
+                        />
+                        <Redirect to="/" />
+                      </Switch>
+                    )}
                     <About />
                   </Row>
                 </Container>
