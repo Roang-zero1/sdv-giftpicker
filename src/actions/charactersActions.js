@@ -7,3 +7,19 @@ export function setGiftCount(character, count) {
     count: count
   };
 }
+
+export function selectGift(character, itemID) {
+  return {
+    type: types.SELECT_GIFT,
+    char: character,
+    gift: itemID
+  };
+}
+
+export function deselectGift(character, itemID) {
+  return {
+    type: types.SELECT_GIFT,
+    char: character,
+    gift: itemID
+  };
+}

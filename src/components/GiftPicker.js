@@ -67,7 +67,17 @@ class DataDisplay extends Component {
         >
           <Button
             outline
-            className={classNames({ row: true, 'ml-2': true, 'mr-2': true })}
+            color={
+              this.props.characters[char].selected &&
+              this.props.characters[char].selected.includes(itemID)
+                ? 'success'
+                : 'dark'
+            }
+            className={classNames({
+              row: true,
+              'ml-2': true,
+              'mr-2': true
+            })}
           >
             <Col xs="1">
               <img
