@@ -1,7 +1,7 @@
 import * as actions from '../itemActions';
 import * as types from '../actionTypes';
 
-describe('charactersActions', () => {
+describe('itemActions', () => {
   it('should create an action to update the item data', () => {
     const items = { 200: 30, 208: 50 };
     const expectedAction = {

@@ -1,7 +1,7 @@
 import * as actions from '../statusActions';
 import * as types from '../actionTypes';
 
-describe('charactersActions', () => {
+describe('statusActions', () => {
   it('should create an action to set the intro status', () => {
     const expectedAction = {
       type: types.SET_INTRO_CHOSEN,
