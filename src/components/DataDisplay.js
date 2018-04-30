@@ -34,7 +34,7 @@ class DataDisplay extends Component {
     let characters = [];
     for (var char of Object.keys(this.props.characters).sort()) {
       let charData = this.props.characters[char];
-      let order;
+      let order = 0;
       if (charData.selected && charData.selected.length > 0) {
         order = 2 - (charData.selected ? charData.selected.length : 0);
       } else {
