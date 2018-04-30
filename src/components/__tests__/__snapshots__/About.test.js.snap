@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/About --- Snapshot should be the same as the last snapshot 1`] = `
+<div
+  className="about col-12"
+>
+  <h2>
+    About
+  </h2>
+  <p>
+    SDV Gift Calculator by
+     
+    <a
+      href="https://www.reddit.com/user/Roang_zero1/"
+    >
+      Roang_Zero1
+    </a>
+    .
+  </p>
+  <p>
+    This app was inspired by 
+    <strong>
+      Stardew Checkup
+    </strong>
+     available at
+     
+    <a
+      href="https://mouseypounds.github.io/stardew-checkup/"
+    >
+      https://mouseypounds.github.io/stardew-checkup/
+    </a>
+  </p>
+  <p>
+    Using icons by 
+    <a
+      href="https://fontawesome.com/l"
+    >
+      Font Awesome
+    </a>
+     
+    licensed under
+     
+    <a
+      href="https://creativecommons.org/licenses/by/4.0/"
+    >
+      CC BY 4.0
+    </a>
+  </p>
+</div>
+`;
