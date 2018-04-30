@@ -31,6 +31,10 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "coverage"
+  },
   "prettier": {
     "singleQuote": true
   },
