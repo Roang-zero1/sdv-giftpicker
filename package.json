@@ -40,7 +40,8 @@
       "/src/registerServiceWorker.js",
       "/src/data",
       "/src/images"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js"
   },
   "prettier": {
     "singleQuote": true
@@ -54,6 +55,10 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "react-test-renderer": "^16.3.2",
+    "redux-mock-store": "^1.5.1",
     "svgr": "^1.9.1"
   }
 }
