@@ -31,39 +31,55 @@ class DataDisplay extends Component {
   }
 
   render(props) {
-    var characters = [];
-    for (var char in this.props.characters) {
+    let characters = [];
+    for (var char of Object.keys(this.props.characters).sort()) {
+      let charData = this.props.characters[char];
+      let order;
+      if (charData.selected && charData.selected.length > 0) {
+        order = 2 - (charData.selected ? charData.selected.length : 0);
+      } else {
+        order = 10 + charData.gifts;
+      }
+
       let gifts = [];
       let giftCount = 0;
-      for (let gift of this.props.characters[char].selected || []) {
-        gifts.push(
-          <Button
-            outline
-            key={giftCount}
-            color="success"
-            onClick={this.deselectGift}
-            {...{ 'data-char': char, 'data-item': gift }}
-            className={classNames({
-              gift: true,
-              'ml-1': true,
-              'mr-1': true,
-              'mb-3': true
-            })}
-          >
-            <img
-              className="icon"
-              src={require('../images/items/' +
-                this.props.giftsMetaData[gift].name +
-                '.png')}
-              alt=""
-            />
-          </Button>
-        );
-        giftCount++;
-      }
       if (char in tastes) {
+        for (let gift of charData.selected || []) {
+          gifts.push(
+            <Button
+              outline
+              key={giftCount}
+              color="success"
+              onClick={this.deselectGift}
+              {...{ 'data-char': char, 'data-item': gift }}
+              className={classNames({
+                gift: true,
+                'ml-1': true,
+                'mr-1': true,
+                'mb-3': true
+              })}
+            >
+              <img
+                className="icon"
+                src={require('../images/items/' +
+                  this.props.giftsMetaData[gift].name +
+                  '.png')}
+                alt=""
+              />
+            </Button>
+          );
+          giftCount++;
+        }
         characters.push(
-          <Col xs="6" md="4" lg="3" xl="2" key={char} className="mb-4">
+          <Col
+            xs="6"
+            md="4"
+            lg="3"
+            xl="2"
+            key={char}
+            className="mb-4"
+            style={{ order: order }}
+          >
             <Card
               className={classNames({
                 'bg-light': true,
@@ -81,7 +97,7 @@ class DataDisplay extends Component {
               <CardBody>
                 <CardTitle>{char}</CardTitle>
                 <CardText>
-                  {this.props.characters[char].gifts > 0 ? (
+                  {charData.gifts > 0 ? (
                     <CheckSquare
                       className={classNames({ icon: true, checked: true })}
                       aria-label="Gift 1 given"
@@ -92,7 +108,7 @@ class DataDisplay extends Component {
                       aria-label="Gift 1 missing"
                     />
                   )}
-                  {this.props.characters[char].gifts > 1 ? (
+                  {charData.gifts > 1 ? (
                     <CheckSquare
                       className={classNames({ icon: true, checked: true })}
                       aria-label="Gift 1 given"
