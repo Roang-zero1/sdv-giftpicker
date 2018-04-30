@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Col } from 'reactstrap';
 
 /* TODO: Add an about referencing the used tools*/
@@ -29,10 +28,4 @@ class About extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    status: state.status
-  };
-}
-
-export default connect(mapStateToProps)(About);
+export default About;
