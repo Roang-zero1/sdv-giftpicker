@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import { Jumbotron, Container, Col } from 'reactstrap';
 
-import * as statusActions from './actions/statusActions';
 import Upload from './components/Upload';
 import NoSaveButton from './components/NoSaveButton';
 import About from './components/About';
@@ -13,7 +11,6 @@ import './Intro.css';
 
 class Intro extends Component {
   render() {
-    this.props.statusActions.setFluidLayout(false);
     return (
       <main className="App">
         <Jumbotron className="header">
@@ -63,10 +60,4 @@ function mapStateToProps(state) {
   return {};
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    statusActions: bindActionCreators(statusActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Intro);
+export default connect(mapStateToProps)(Intro);
