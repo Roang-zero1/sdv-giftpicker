@@ -14,7 +14,3 @@ export function setLoading(loading = false) {
     loading: loading
   };
 }
-
-export function setFluidLayout(fluid = false) {
-  return { type: types.SET_FLUID_LAYOUT, fluid };
-}
