@@ -6,7 +6,7 @@ import {
   SET_LOADING
 } from '../actions/actionTypes';
 
-export default function stuff(state = initialState.status, action) {
+export default function status(state = initialState.status, action) {
   switch (action.type) {
     case SET_SAVE_GAME:
       console.log('SET_LOADED Action');

@@ -6,7 +6,7 @@ import {
   SET_GIFT_COUNT
 } from '../actions/actionTypes';
 
-export default function stuff(state = initialState.items, action) {
+export default function characters(state = initialState.items, action) {
   var newState = state;
   if (!(action.char in state)) {
     newState = update(state, {

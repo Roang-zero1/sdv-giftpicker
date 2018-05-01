@@ -2,7 +2,7 @@ import initialState from './initialState';
 import update from 'immutability-helper';
 import { INCREMENT_ITEM_COUNT, UPDATE_ITEMS } from '../actions/actionTypes';
 
-export default function stuff(state = initialState.items, action) {
+export default function items(state = initialState.items, action) {
   switch (action.type) {
     case INCREMENT_ITEM_COUNT:
       console.log('INCREMENT_ITEM_COUNT Action');
