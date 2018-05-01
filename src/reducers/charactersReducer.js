@@ -53,13 +53,15 @@ export default function characters(state = initialState.items, action) {
       let index = newState[action.char].selected.findIndex(
         k => k === action.gift
       );
-      return update(newState, {
-        [action.char]: {
-          selected: {
-            $splice: [[index, 1]]
-          }
-        }
-      });
+      return index >= 0
+        ? update(newState, {
+            [action.char]: {
+              selected: {
+                $splice: [[index, 1]]
+              }
+            }
+          })
+        : newState;
     case SET_GIFT_COUNT:
       console.log('SET_GIFT_COUNT Action');
       return update(newState, {
