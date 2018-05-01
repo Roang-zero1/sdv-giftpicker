@@ -35,6 +35,5 @@
     "**/share/**",
     "**/scripts/**",
     "**/src/data/**"
-  ],
-  "jest.showCoverageOnLoad": true
+  ]
 }
