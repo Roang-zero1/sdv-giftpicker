@@ -1,5 +1,7 @@
-import reducer from '../navigationReducer';
 import * as types from '../../actions/actionTypes';
+
+import initialState from '../initialState';
+import reducer from '../navigationReducer';
 
 describe('navigationReducer', () => {
   it('should should toggle the sidebar display', () => {
@@ -9,6 +11,6 @@ describe('navigationReducer', () => {
   });
 
   it('should return the initial state', () => {
-    expect(reducer(undefined, {})).toEqual({});
+    expect(reducer(undefined, {})).toEqual(initialState.navigation);
   });
 });
