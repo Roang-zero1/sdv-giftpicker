@@ -1,16 +1,14 @@
-import navigation from '../navigationReducer';
+import reducer from '../navigationReducer';
 import * as types from '../../actions/actionTypes';
 
 describe('navigationReducer', () => {
   it('should should toggle the sidebar display', () => {
     let state = { sidebar: true };
-    state = navigation(state, { type: types.TOGGLE_SIDEBAR });
+    state = reducer(state, { type: types.TOGGLE_SIDEBAR });
     expect(state).toEqual({ sidebar: false });
   });
 
-  it('should keep the state steady', () => {
-    let state = { sidebar: true };
-    state = navigation(state, { type: 'NONE' });
-    expect(state).toEqual({ sidebar: true });
+  it('should return the initial state', () => {
+    expect(reducer(undefined, {})).toEqual({});
   });
 });

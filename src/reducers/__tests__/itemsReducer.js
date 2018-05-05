@@ -1,17 +1,18 @@
-import items from '../itemsReducer';
+import reducer from '../itemsReducer';
 import * as types from '../../actions/actionTypes';
+import initialState from '../initialState';
 
 describe('itemsReducer', () => {
   it('should update the item data with new value', () => {
     let itemsData = { 200: 15, 208: 30 };
     let state = { 150: 15 };
-    state = items(state, { type: types.UPDATE_ITEMS, items: itemsData });
+    state = reducer(state, { type: types.UPDATE_ITEMS, items: itemsData });
     expect(state).toEqual(itemsData);
   });
 
   it('should increment an item count', () => {
     let state = { 150: 15 };
-    state = items(state, {
+    state = reducer(state, {
       type: types.INCREMENT_ITEM_COUNT,
       id: 150,
       increment: 1
@@ -19,9 +20,7 @@ describe('itemsReducer', () => {
     expect(state).toEqual({ 150: 16 });
   });
 
-  it('should keep the state steady', () => {
-    let state = { 150: 15 };
-    state = items(state, { type: 'NONE' });
-    expect(state).toEqual({ 150: 15 });
+  it('should return the initial state', () => {
+    expect(reducer(undefined, {})).toEqual(initialState.items);
   });
 });
