@@ -63,7 +63,6 @@ export default function characters(state = initialState.items, action) {
           })
         : newState;
     case SET_GIFT_COUNT:
-      console.log('SET_GIFT_COUNT Action');
       return update(newState, {
         [action.char]: {
           gifts: {

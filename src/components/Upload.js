@@ -67,6 +67,7 @@ class Upload extends Component {
             items[id] = (items[id] || 0) + count;
           }
         } catch (err) {
+          // TODO: Add proper error handling
           console.log('Failed to get item count for ' + id);
         }
       });
@@ -106,6 +107,7 @@ class Upload extends Component {
           );
           setGiftCount(who, num);
         } catch (err) {
+          // TODO: Add proper error handling
           console.log('Failed to update data for ' + who + '\n' + err);
         }
       });
@@ -136,13 +138,12 @@ class Upload extends Component {
         instance.props.statusActions.setLoading(true);
         instance.findGiftCount.call(instance, xmlDoc);
         instance.props.statusActions.setLoading(true);
-        console.log('XML doc parsed ' + xmlDoc.documentElement);
         instance.props.statusActions.setLoading(false);
         instance.props.statusActions.setSaveGame(true);
         instance.props.statusActions.setIntroChosen(true);
         target.value = '';
       } catch (err) {
-        // TODO: Show an error message to the user
+        // TODO: Add proper error handling
         console.log('Failed to parse file');
       }
     };

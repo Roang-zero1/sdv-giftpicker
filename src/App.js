@@ -20,7 +20,6 @@ import './App.css';
 class App extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
-      console.log('scroll');
       scroll.scrollToTop({ to: 0, containerId: 'main', duration: 0 });
     }
   }
