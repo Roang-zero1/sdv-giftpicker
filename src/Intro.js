@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import { Jumbotron, Container, Col } from 'reactstrap';
 
@@ -55,9 +54,4 @@ class Intro extends Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {};
-}
-
-export default connect(mapStateToProps)(Intro);
+export default Intro;

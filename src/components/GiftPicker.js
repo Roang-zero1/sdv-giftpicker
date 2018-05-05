@@ -5,8 +5,6 @@ import { Row, Col, Button } from 'reactstrap';
 import classNames from 'classnames';
 import $ from 'jquery';
 
-import { withRouter, Redirect } from 'react-router-dom';
-
 import tastes from '../data/GiftTastes.js';
 
 import * as itemsActions from '../actions/itemActions';
@@ -29,74 +27,70 @@ class DataDisplay extends Component {
   }
 
   render(props) {
-    let char = this.props.match.params.characterName;
-    if (char in tastes) {
-      let gifts = [];
-      for (let gift of this.props.characters[char].selected || []) {
-        gifts.push(
-          <Col xs="12" md="6" className="mb-1" key={gift}>
-            <Button
-              color="success"
-              onClick={this.deselectGift}
-              {...{ 'data-char': char, 'data-item': gift }}
-              className={classNames({
-                gift: true,
-                row: true,
-                'flex-nowrap': true,
-                'ml-2': true,
-                'mr-2': true
-              })}
-            >
-              <Col xs="1">
-                <img
-                  className="icon"
-                  src={require('../images/items/' +
-                    this.props.giftsMetaData[gift].name +
-                    '.png')}
-                  alt=""
-                />
-              </Col>
-              <Col className="gift-text">
-                {this.props.giftsMetaData[gift].displayName}
-              </Col>
-              {this.props.status.save && (
-                <Col xs="3" align-self="end" className="count">
-                  {gift in this.props.items ? this.props.items[gift] : null}
-                </Col>
-              )}
-            </Button>
-          </Col>
-        );
-      }
-
-      return (
-        <Col id="gift-picker" xs="12">
-          <Row>
-            <Col xs="12" lg="4">
-              <h2>
-                {char}{' '}
-                <img
-                  src={require('../images/characters/' + char + '.png')}
-                  alt=""
-                />
-              </h2>
+    let char = this.props.match.match.params.characterName;
+    let gifts = [];
+    for (let gift of this.props.characters[char].selected || []) {
+      gifts.push(
+        <Col xs="12" md="6" className="mb-1" key={gift}>
+          <Button
+            color="success"
+            onClick={this.deselectGift}
+            {...{ 'data-char': char, 'data-item': gift }}
+            className={classNames({
+              gift: true,
+              row: true,
+              'flex-nowrap': true,
+              'ml-2': true,
+              'mr-2': true
+            })}
+          >
+            <Col xs="1">
+              <img
+                className="icon"
+                src={require('../images/items/' +
+                  this.props.giftsMetaData[gift].name +
+                  '.png')}
+                alt=""
+              />
             </Col>
-            <Col xs="12" lg="8">
-              <Row>{gifts}</Row>
+            <Col className="gift-text">
+              {this.props.giftsMetaData[gift].displayName}
             </Col>
-            {this.renderGiftCategories(0)}
-            {this.renderGiftCategories(1)}
-            {this.renderGiftCategories(4)}
-          </Row>
+            {this.props.status.save && (
+              <Col xs="3" align-self="end" className="count">
+                {gift in this.props.items ? this.props.items[gift] : null}
+              </Col>
+            )}
+          </Button>
         </Col>
       );
-    } else {
-      return <Redirect to="/" />;
     }
+
+    return (
+      <Col id="gift-picker" xs="12">
+        <Row>
+          <Col xs="12" lg="4">
+            <h2>
+              {char}{' '}
+              <img
+                src={require('../images/characters/' + char + '.png')}
+                alt=""
+              />
+            </h2>
+          </Col>
+          <Col xs="12" lg="8">
+            <Row>{gifts}</Row>
+          </Col>
+          {this.renderGiftCategories(0)}
+          {this.renderGiftCategories(1)}
+          {this.renderGiftCategories(4)}
+        </Row>
+      </Col>
+    );
   }
 
   renderGiftCategories(category) {
-    let char = this.props.match.params.characterName;
+    let char = this.props.match.match.params.characterName;
     var characterTastes = tastes[char][category];
     var gifts = [];
     for (var gift of characterTastes) {
@@ -189,6 +183,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(DataDisplay)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(DataDisplay);
