@@ -14,11 +14,8 @@ import tastes from '../data/GiftTastes.js';
 class Sidebar extends Component {
   render() {
     let characters_links = [];
-    for (var char in tastes) {
-      if (
-        char in this.props.characters &&
-        this.props.characters[char].gifts < 2
-      ) {
+    for (var char in this.props.characters) {
+      if (char in tastes && this.props.characters[char].gifts < 2) {
         characters_links.push(
           <NavItem
             key={char}
