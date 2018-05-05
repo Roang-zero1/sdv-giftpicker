@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import classNames from 'classnames';
+import './Upload.css';
 
-import { Button } from 'reactstrap';
-import $ from 'jquery';
-
-import giftIDs from '../data/Gifts.js';
-
+import * as charactersActions from '../actions/charactersActions';
 import * as itemsActions from '../actions/itemActions';
 import * as statusActions from '../actions/statusActions';
-import * as charactersActions from '../actions/charactersActions';
 
-import './Upload.css';
+import React, { Component } from 'react';
+
+import $ from 'jquery';
+import { Button } from 'reactstrap';
+import { bindActionCreators } from 'redux';
+import classNames from 'classnames';
+import { connect } from 'react-redux';
+import giftIDs from '../data/Gifts.js';
 
 class Upload extends Component {
   constructor(props) {

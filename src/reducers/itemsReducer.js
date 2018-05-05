@@ -1,6 +1,7 @@
+import { INCREMENT_ITEM_COUNT, UPDATE_ITEMS } from '../actions/actionTypes';
+
 import initialState from './initialState';
 import update from 'immutability-helper';
-import { INCREMENT_ITEM_COUNT, UPDATE_ITEMS } from '../actions/actionTypes';
 
 export default function items(state = initialState.items, action) {
   switch (action.type) {

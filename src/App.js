@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import classNames from 'classnames';
-import { animateScroll as scroll } from 'react-scroll';
+import './App.css';
 
 import { Container, Row } from 'reactstrap';
+import React, { Component } from 'react';
 
 import About from './components/About';
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
-
-import './App.css';
+import classNames from 'classnames';
+import { connect } from 'react-redux';
+import { animateScroll as scroll } from 'react-scroll';
 
 class App extends Component {
   componentDidUpdate(prevProps) {

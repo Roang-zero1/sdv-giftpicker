@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Row, Col, Button } from 'reactstrap';
-import classNames from 'classnames';
-import $ from 'jquery';
-
-import tastes from '../data/GiftTastes.js';
-
-import * as itemsActions from '../actions/itemActions';
-import * as charactersActions from '../actions/charactersActions';
-
 import './GiftPicker.css';
+
+import * as charactersActions from '../actions/charactersActions';
+import * as itemsActions from '../actions/itemActions';
+
+import { Button, Col, Row } from 'reactstrap';
+import React, { Component } from 'react';
+
+import $ from 'jquery';
+import { bindActionCreators } from 'redux';
+import classNames from 'classnames';
+import { connect } from 'react-redux';
+import tastes from '../data/GiftTastes.js';
 
 const categories_map = {
   0: 'Love',

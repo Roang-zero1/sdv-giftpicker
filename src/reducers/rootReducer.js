@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
 import characters from './charactersReducer';
+import { combineReducers } from 'redux';
 import items from './itemsReducer';
-import status from './statusReducer';
 import navigation from './navigationReducer';
+import status from './statusReducer';
 
 const rootReducer = combineReducers({
   characters,

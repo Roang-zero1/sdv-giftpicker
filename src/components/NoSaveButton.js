@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
-import { Button } from 'reactstrap';
-
-import * as itemsActions from '../actions/itemActions';
-import * as statusActions from '../actions/statusActions';
-import * as charactersActions from '../actions/charactersActions';
-
 import './Upload.css';
 
-import giftTastes from '../data/GiftTastes';
+import * as charactersActions from '../actions/charactersActions';
+import * as itemsActions from '../actions/itemActions';
+import * as statusActions from '../actions/statusActions';
+
+import React, { Component } from 'react';
+
+import { Button } from 'reactstrap';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import giftIDs from '../data/Gifts';
+import giftTastes from '../data/GiftTastes';
 
 class NoSaveButton extends Component {
   constructor(props) {

@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import classNames from 'classnames';
-
-import { Nav, NavItem } from 'reactstrap';
+import './Sidebar.css';
 
 import * as navigationActions from '../actions/navigationActions';
 
-import tastes from '../data/GiftTastes.js';
+import { Nav, NavItem } from 'reactstrap';
+import React, { Component } from 'react';
 
-import './Sidebar.css';
+import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import classNames from 'classnames';
+import { connect } from 'react-redux';
+import tastes from '../data/GiftTastes.js';
 
 class Sidebar extends Component {
   render() {

@@ -1,10 +1,11 @@
-import update from 'immutability-helper';
-import initialState from './initialState';
 import {
-  SELECT_GIFT,
   DESELECT_GIFT,
+  SELECT_GIFT,
   SET_GIFT_COUNT
 } from '../actions/actionTypes';
+
+import initialState from './initialState';
+import update from 'immutability-helper';
 
 export default function characters(state = initialState.items, action) {
   var newState = state;

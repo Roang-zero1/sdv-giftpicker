@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import {
-  Button,
-  Container,
-  Row,
-  Col,
-  Card,
-  CardImg,
-  CardBody,
-  CardTitle,
-  CardText
-} from 'reactstrap';
-import { withRouter, Link } from 'react-router-dom';
-import classNames from 'classnames';
-import $ from 'jquery';
-
-import tastes from '../data/GiftTastes.js';
+import './DataDisplay.css';
 
 import * as charactersActions from '../actions/charactersActions';
 
+import {
+  Button,
+  Card,
+  CardBody,
+  CardImg,
+  CardText,
+  CardTitle,
+  Col,
+  Container,
+  Row
+} from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+
+import $ from 'jquery';
 import CheckSquare from '../images/CheckSquare';
 import Square from '../images/Square';
-import './DataDisplay.css';
+import { bindActionCreators } from 'redux';
+import classNames from 'classnames';
+import { connect } from 'react-redux';
+import tastes from '../data/GiftTastes.js';
 
 class DataDisplay extends Component {
   constructor(props) {

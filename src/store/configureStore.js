@@ -1,8 +1,8 @@
-import { createStore } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import { persistReducer, persistStore } from 'redux-persist';
 
+import { createStore } from 'redux';
 import rootReducer from '../reducers/rootReducer';
+import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
   key: 'sdv-gp',

@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import { Container } from 'reactstrap';
 import './Loader.css';
+
+import React, { Component } from 'react';
+
+import { Container } from 'reactstrap';
 
 class Loader extends Component {
   render() {

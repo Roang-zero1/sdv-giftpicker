@@ -1,20 +1,37 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 import { MemoryRouter } from 'react-router-dom';
-import App from '../App';
+import { mount } from 'enzyme';
+import ConnectedApp, { App } from '../App';
+import Intro from '../Intro';
 
-import { store } from '../store/configureStore';
+describe('App --- REACT-REDUX (Shallow + passing the {store} directly)', () => {
+  const initialState = {
+    status: { intro: false },
+    navigation: {}
+  };
+  const mockStore = configureStore();
+  let store, container;
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
-    <MemoryRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </MemoryRouter>,
-    div
-  );
-  ReactDOM.unmountComponentAtNode(div);
+  beforeEach(() => {
+    store = mockStore(initialState);
+    container = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <ConnectedApp />
+        </Provider>
+      </MemoryRouter>
+    );
+  });
+
+  it('should render the into component', () => {
+    expect(container).toHaveLength(1);
+    expect(container.find(Intro)).toHaveLength(1);
+  });
+
+  it('+++ check Prop matches with initialState', () => {
+    expect(container.find(App).prop('status')).toEqual(initialState.status);
+    expect(container.find(App).prop('navigation')).toEqual({});
+  });
 });

@@ -1,10 +1,11 @@
+import {
+  SET_INTRO_CHOSEN,
+  SET_LOADING,
+  SET_SAVE_GAME
+} from '../actions/actionTypes';
+
 import initialState from './initialState';
 import update from 'immutability-helper';
-import {
-  SET_SAVE_GAME,
-  SET_INTRO_CHOSEN,
-  SET_LOADING
-} from '../actions/actionTypes';
 
 export default function status(state = initialState.status, action) {
   switch (action.type) {

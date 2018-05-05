@@ -1,12 +1,11 @@
+import './Intro.css';
+
+import { Col, Container, Jumbotron } from 'reactstrap';
 import React, { Component } from 'react';
 
-import { Jumbotron, Container, Col } from 'reactstrap';
-
-import Upload from './components/Upload';
-import NoSaveButton from './components/NoSaveButton';
 import About from './components/About';
-
-import './Intro.css';
+import NoSaveButton from './components/NoSaveButton';
+import Upload from './components/Upload';
 
 class Intro extends Component {
   render() {

@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-
-import { Navbar, NavbarToggler } from 'reactstrap';
+import './Navigation.css';
 
 import * as navigationActions from '../actions/navigationActions';
 
-import Upload from './Upload';
-import NoSaveButton from './NoSaveButton';
+import { Navbar, NavbarToggler } from 'reactstrap';
+import React, { Component } from 'react';
 
-import './Navigation.css';
+import { Link } from 'react-router-dom';
+import NoSaveButton from './NoSaveButton';
+import Upload from './Upload';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 /* TODO: Fix buttons on right side for small layouts e.g. dropdown after md */
 class Navigation extends Component {
