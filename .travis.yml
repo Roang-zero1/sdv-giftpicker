@@ -9,7 +9,7 @@ script:
   - codecov
 after_script: greenkeeper-lockfile-upload
 after_success:
-  - npm run build
+  - test $TRAVIS_BRANCH = "master" && test $TRAVIS_PULL_REQUEST = "false" && npm run build
 node_js:
   - "8"
 cache:
