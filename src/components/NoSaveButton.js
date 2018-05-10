@@ -47,10 +47,6 @@ export class NoSaveButton extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     itemsActions: bindActionCreators(itemsActions, dispatch),
@@ -59,4 +55,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoSaveButton);
+export default connect(null, mapDispatchToProps)(NoSaveButton);
