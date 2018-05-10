@@ -1,7 +1,13 @@
+import * as actionTypes from '../../actions/actionTypes';
+
+import ConnectedNoSaveButton, { NoSaveButton } from '../NoSaveButton';
 import { mount, shallow } from 'enzyme';
 
-import { NoSaveButton } from '../NoSaveButton';
+import { Provider } from 'react-redux';
 import React from 'react';
+import configureStore from 'redux-mock-store';
+import giftIDs from '../../data/Gifts';
+import initialState from '../../reducers/initialState';
 import renderer from 'react-test-renderer';
 
 describe('components/NoSaveButton --- Shallow render component', () => {
@@ -61,6 +67,55 @@ describe('components/NoSaveButton --- Render component', () => {
         true
       );
     });
+  });
+});
+
+describe('components/NoSaveButton --- Shallow render connected component', () => {
+  const mockStore = configureStore();
+  let component, store;
+
+  beforeEach(() => {
+    store = mockStore(initialState);
+    component = mount(
+      <Provider store={store}>
+        <ConnectedNoSaveButton />
+      </Provider>
+    );
+  });
+
+  it('should render the one component', () => {
+    expect(component).toHaveLength(1);
+  });
+
+  it('should handle the onClick action correctly', () => {
+    expect(store.getState()).toEqual(initialState);
+    component.find('button').simulate('click');
+    let actions = store.getActions();
+    let setLoading = actions.filter(
+      action => action.type === actionTypes.SET_LOADING
+    );
+    expect(setLoading).toHaveLength(2);
+    expect(setLoading[0].loading).toEqual(true);
+    expect(setLoading[1].loading).toEqual(false);
+
+    let setSaveGame = actions.filter(
+      action => action.type === actionTypes.SET_SAVE_GAME
+    );
+    expect(setSaveGame).toHaveLength(1);
+    expect(setSaveGame[0].save).toEqual(false);
+
+    let setIntroChosen = actions.filter(
+      action => action.type === actionTypes.SET_INTRO_CHOSEN
+    );
+    expect(setIntroChosen).toHaveLength(1);
+    expect(setIntroChosen[0].intro).toEqual(true);
+
+    expect(
+      Object.keys(
+        actions.filter(action => action.type === actionTypes.UPDATE_ITEMS)[0]
+          .items
+      )
+    ).toHaveLength(giftIDs.length);
   });
 });
 
