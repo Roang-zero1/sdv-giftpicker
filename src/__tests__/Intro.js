@@ -21,7 +21,7 @@ describe('Intro --- Shallow render component', () => {
   });
 });
 
-describe('Intro --- Render component', () => {
+describe('Intro --- Render connected component', () => {
   const mockStore = configureStore();
   let component, store;
   beforeEach(() => {

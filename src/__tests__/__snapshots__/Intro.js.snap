@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Intro --- Render component should be the same as the last snapshot 1`] = `
+exports[`Intro --- Render connected component should be the same as the last snapshot 1`] = `
 <main
   className="App"
 >
