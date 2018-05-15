@@ -1,15 +1,11 @@
 import './GiftPicker.css';
 
-import * as charactersActions from '../actions/charactersActions';
-import * as itemsActions from '../actions/itemActions';
-
-import { Button, Col, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import React, { Component } from 'react';
 
-import $ from 'jquery';
-import { bindActionCreators } from 'redux';
-import classNames from 'classnames';
+import GiftButton from './GiftButton';
 import { connect } from 'react-redux';
+import giftsData from '../data/GiftsData';
 import tastes from '../data/GiftTastes.js';
 
 const categories_map = {
@@ -18,51 +14,25 @@ const categories_map = {
   4: 'neutral'
 };
 
-class DataDisplay extends Component {
+class GiftPicker extends Component {
   constructor(props) {
     super(props);
     this.renderGiftCategories = this.renderGiftCategories.bind(this);
-    this.selectGift = this.selectGift.bind(this);
-    this.deselectGift = this.deselectGift.bind(this);
   }
 
-  render(props) {
+  render() {
     let char = this.props.match.match.params.characterName;
     let gifts = [];
+    let key = 0;
     for (let gift of this.props.characters[char].selected || []) {
       gifts.push(
-        <Col xs="12" md="6" className="mb-1" key={gift}>
-          <Button
-            color="success"
-            onClick={this.deselectGift}
-            {...{ 'data-char': char, 'data-item': gift }}
-            className={classNames({
-              gift: true,
-              row: true,
-              'flex-nowrap': true,
-              'ml-2': true,
-              'mr-2': true
-            })}
-          >
-            <Col xs="1">
-              <img
-                className="icon"
-                src={require('../images/items/' +
-                  this.props.giftsMetaData[gift].name +
-                  '.png')}
-                alt=""
-              />
-            </Col>
-            <Col className="gift-text">
-              {this.props.giftsMetaData[gift].displayName}
-            </Col>
-            {this.props.status.save && (
-              <Col xs="3" align-self="end" className="count">
-                {gift in this.props.items ? this.props.items[gift] : null}
-              </Col>
-            )}
-          </Button>
-        </Col>
+        <GiftButton
+          gift={gift}
+          char={char}
+          giftsMetaData={giftsData}
+          key={key++}
+          deselect
+        />
       );
     }
 
@@ -91,57 +61,17 @@ class DataDisplay extends Component {
 
   renderGiftCategories(category) {
     let char = this.props.match.match.params.characterName;
-    var characterTastes = tastes[char][category];
-    var gifts = [];
+    let characterTastes = tastes[char][category];
+    let gifts = [];
+    let key = 0;
     for (var gift of characterTastes) {
       gifts.push(
-        <Col
-          xs="12"
-          md="6"
-          xl="4"
-          className={classNames({
-            'mb-1': true,
-            missing: !(gift in this.props.items)
-          })}
-          key={gift}
-        >
-          <Button
-            outline
-            color={
-              this.props.characters[char].selected &&
-              this.props.characters[char].selected.includes(gift)
-                ? 'success'
-                : 'dark'
-            }
-            onClick={this.selectGift}
-            {...{ 'data-char': char, 'data-item': gift }}
-            className={classNames({
-              gift: true,
-              row: true,
-              'flex-nowrap': true,
-              'ml-2': true,
-              'mr-2': true
-            })}
-          >
-            <Col xs="1">
-              <img
-                className="icon"
-                src={require('../images/items/' +
-                  this.props.giftsMetaData[gift].name +
-                  '.png')}
-                alt=""
-              />
-            </Col>
-            <Col className="gift-text">
-              {this.props.giftsMetaData[gift].displayName}
-            </Col>
-            {this.props.status.save && (
-              <Col xs="3" align-self="end" className="count">
-                {gift in this.props.items ? this.props.items[gift] : null}
-              </Col>
-            )}
-          </Button>
-        </Col>
+        <GiftButton
+          gift={gift}
+          char={char}
+          giftsMetaData={giftsData}
+          key={key++}
+        />
       );
     }
     return (
@@ -150,20 +80,6 @@ class DataDisplay extends Component {
         <Row>{gifts}</Row>
       </Col>
     );
-  }
-
-  selectGift(event) {
-    let target = $(event.target);
-    let char = target.data('char');
-    let itemID = target.data('item');
-    this.props.charactersActions.selectGift(char, itemID);
-  }
-
-  deselectGift(event) {
-    let target = $(event.target);
-    let char = target.data('char');
-    let itemID = target.data('item');
-    this.props.charactersActions.deselectGift(char, itemID);
   }
 }
 
@@ -176,11 +92,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    itemsActions: bindActionCreators(itemsActions, dispatch),
-    charactersActions: bindActionCreators(charactersActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DataDisplay);
+export default connect(mapStateToProps)(GiftPicker);
