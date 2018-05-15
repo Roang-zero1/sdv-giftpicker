@@ -1,8 +1,7 @@
+import About from '../About';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-
-import About from '../About';
 
 describe('components/About --- Shallow render component', () => {
   let wrapper;
