@@ -8,15 +8,8 @@ import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import { animateScroll as scroll } from 'react-scroll';
 
 class App extends Component {
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      scroll.scrollToTop({ to: 0, containerId: 'main', duration: 0 });
-    }
-  }
-
   render() {
     return (
       <div>

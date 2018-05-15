@@ -28,7 +28,7 @@ describe('App --- Shallow render component', () => {
   });
 });
 
-describe('App --- Render component', () => {
+describe('App --- Render component without sidebar', () => {
   const mockStore = configureStore();
   let component, store;
   beforeEach(() => {

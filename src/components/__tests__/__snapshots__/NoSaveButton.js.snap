@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/NoSaveButton --- Snapshot should be the same as the last snapshot 1`] = `
+<button
+  className="btn btn-secondary"
+  onClick={[Function]}
+  type="button"
+>
+  Use without save
+</button>
+`;

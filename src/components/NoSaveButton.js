@@ -12,12 +12,12 @@ import { connect } from 'react-redux';
 import giftIDs from '../data/Gifts';
 import giftTastes from '../data/GiftTastes';
 
-class NoSaveButton extends Component {
+export class NoSaveButton extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
-  render(props) {
+  render() {
     return (
       <Button
         color="secondary"
@@ -47,10 +47,6 @@ class NoSaveButton extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     itemsActions: bindActionCreators(itemsActions, dispatch),
@@ -59,4 +55,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoSaveButton);
+export default connect(null, mapDispatchToProps)(NoSaveButton);
