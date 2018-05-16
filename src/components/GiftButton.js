@@ -1,5 +1,3 @@
-import './GiftPicker.css';
-
 import * as charactersActions from '../actions/charactersActions';
 import * as itemsActions from '../actions/itemActions';
 
@@ -10,8 +8,43 @@ import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 
+import styled, { css } from 'styled-components';
+
+import Icon from './Icon';
 
 import giftsMetaData from '../data/GiftsData';
+
+const Gift = styled(Col)`
+  ${props =>
+    !props.owned &&
+    css`
+      order: 1;
+      .icon {
+        filter: grayscale(100%);
+      }
+    `};
+`;
+
+const StyledButton = styled(Button)`
+  display: flex;
+  text-align: left;
+  width: 100%;
+
+  div,
+  img {
+    pointer-events: none;
+  }
+`;
+
+const GiftText = styled(Col)`
+  flex: 1 1 2vw;
+  overflow: hidden;
+`;
+
+const GiftCount = styled(Col)`
+  text-align: right;
+`;
+
 class GiftButton extends Component {
   constructor(props) {
     super(props);
@@ -19,27 +52,15 @@ class GiftButton extends Component {
   }
 
   render() {
-    let props;
-    if (this.props.deselect) {
-      props = {
-        xs: '12',
-        md: '6',
-        className: 'mb-1'
-      };
-    } else {
-      props = {
-        xs: '12',
-        md: '6',
-        xl: '4',
-        className: classNames({
-          'mb-1': true,
-          missing: !(this.props.gift in this.props.items)
-        })
-      };
-    }
     return (
-      <Col {...props}>
-        <Button
+      <Gift
+        className="mb-1"
+        xs="12"
+        md="6"
+        xl={!this.props.deselect && '4'}
+        owned={this.props.gift in this.props.items ? 1 : 0}
+      >
+        <StyledButton
           outline={!this.props.deselect}
           color={
             this.props.deselect ||
@@ -59,7 +80,6 @@ class GiftButton extends Component {
             )
           }
           className={classNames({
-            gift: true,
             row: true,
             'flex-nowrap': true,
             'ml-2': true,
@@ -69,18 +89,16 @@ class GiftButton extends Component {
           <Col xs="1">
             <Icon gift={this.props.gift} />
           </Col>
-          <Col className="gift-text">
-            {giftsMetaData[this.props.gift].displayName}
-          </Col>
+          <GiftText>{giftsMetaData[this.props.gift].displayName}</GiftText>
           {this.props.status.save && (
-            <Col xs="3" align-self="end" className="count">
+            <GiftCount xs="3">
               {this.props.gift in this.props.items
                 ? this.props.items[this.props.gift]
                 : null}
-            </Col>
+            </GiftCount>
           )}
-        </Button>
-      </Col>
+        </StyledButton>
+      </Gift>
     );
   }
 

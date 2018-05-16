@@ -1,4 +1,4 @@
-import './GiftButton.css';
+import './GiftPicker.css';
 
 import { Col, Row } from 'reactstrap';
 import React, { Component } from 'react';
