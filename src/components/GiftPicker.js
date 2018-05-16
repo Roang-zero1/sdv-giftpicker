@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 
 import GiftButton from './GiftButton';
 import { connect } from 'react-redux';
-import giftsData from '../data/GiftsData';
 import tastes from '../data/GiftTastes.js';
 
 const categories_map = {
@@ -25,15 +24,7 @@ class GiftPicker extends Component {
     let gifts = [];
     let key = 0;
     for (let gift of this.props.characters[char].selected || []) {
-      gifts.push(
-        <GiftButton
-          gift={gift}
-          char={char}
-          giftsMetaData={giftsData}
-          key={key++}
-          deselect
-        />
-      );
+      gifts.push(<GiftButton gift={gift} char={char} key={key++} deselect />);
     }
 
     return (
@@ -65,14 +56,7 @@ class GiftPicker extends Component {
     let gifts = [];
     let key = 0;
     for (var gift of characterTastes) {
-      gifts.push(
-        <GiftButton
-          gift={gift}
-          char={char}
-          giftsMetaData={giftsData}
-          key={key++}
-        />
-      );
+      gifts.push(<GiftButton gift={gift} char={char} key={key++} />);
     }
     return (
       <Col xs="12" key={category}>

@@ -10,6 +10,8 @@ import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 
+
+import giftsMetaData from '../data/GiftsData';
 class GiftButton extends Component {
   constructor(props) {
     super(props);
@@ -65,16 +67,10 @@ class GiftButton extends Component {
           })}
         >
           <Col xs="1">
-            <img
-              className="icon"
-              src={require('../images/items/' +
-                this.props.giftsMetaData[this.props.gift].name +
-                '.png')}
-              alt=""
-            />
+            <Icon gift={this.props.gift} />
           </Col>
           <Col className="gift-text">
-            {this.props.giftsMetaData[this.props.gift].displayName}
+            {giftsMetaData[this.props.gift].displayName}
           </Col>
           {this.props.status.save && (
             <Col xs="3" align-self="end" className="count">
