@@ -1,5 +1,4 @@
 import * as charactersActions from '../actions/charactersActions';
-import * as itemsActions from '../actions/itemActions';
 
 import { Button, Col } from 'reactstrap';
 import React, { Component } from 'react';
@@ -13,6 +12,8 @@ import styled, { css } from 'styled-components';
 import Icon from './Icon';
 
 import giftsMetaData from '../data/GiftsData';
+
+import PropTypes from 'prop-types';
 
 const Gift = styled(Col)`
   ${props =>
@@ -52,33 +53,25 @@ class GiftButton extends Component {
   }
 
   render() {
+    const { char, characters, deselect, gift, items, status } = this.props;
     return (
       <Gift
         className="mb-1"
         xs="12"
         md="6"
-        xl={!this.props.deselect && '4'}
-        owned={this.props.gift in this.props.items ? 1 : 0}
+        xl={!deselect && '4'}
+        owned={gift in items ? 1 : 0}
       >
         <StyledButton
-          outline={!this.props.deselect}
+          outline={!deselect}
           color={
-            this.props.deselect ||
-            (this.props.characters[this.props.char].selected &&
-              this.props.characters[this.props.char].selected.includes(
-                this.props.gift
-              ))
+            deselect ||
+            (characters[char].selected &&
+              characters[char].selected.includes(gift))
               ? 'success'
               : 'dark'
           }
-          onClick={e =>
-            this.giftAction(
-              e,
-              this.props.char,
-              this.props.gift,
-              !this.props.deselect
-            )
-          }
+          onClick={e => this.giftAction(e, char, gift, !deselect)}
           className={classNames({
             row: true,
             'flex-nowrap': true,
@@ -87,15 +80,11 @@ class GiftButton extends Component {
           })}
         >
           <Col xs="1">
-            <Icon gift={this.props.gift} />
+            <Icon gift={gift} />
           </Col>
-          <GiftText>{giftsMetaData[this.props.gift].displayName}</GiftText>
-          {this.props.status.save && (
-            <GiftCount xs="3">
-              {this.props.gift in this.props.items
-                ? this.props.items[this.props.gift]
-                : null}
-            </GiftCount>
+          <GiftText>{giftsMetaData[gift].displayName}</GiftText>
+          {status.save && (
+            <GiftCount xs="3">{gift in items ? items[gift] : null}</GiftCount>
           )}
         </StyledButton>
       </Gift>
@@ -112,6 +101,11 @@ class GiftButton extends Component {
 }
 
 GiftButton.defaultProps = { deselect: false };
+GiftButton.propTypes = {
+  char: PropTypes.string.isRequired,
+  deselect: PropTypes.bool,
+  gift: PropTypes.number.isRequired
+};
 
 function mapStateToProps(state) {
   return {
@@ -123,7 +117,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    itemsActions: bindActionCreators(itemsActions, dispatch),
     charactersActions: bindActionCreators(charactersActions, dispatch)
   };
 }
