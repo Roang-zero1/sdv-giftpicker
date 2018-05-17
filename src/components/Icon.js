@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import images from '../data/GiftImages';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Img = styled.img`
   left: -12px;
@@ -10,8 +11,13 @@ const Img = styled.img`
 
 class Icon extends Component {
   render() {
-    return <Img className="icon" src={images[this.props.gift]} alt="" />;
+    const { gift } = this.props;
+    return <Img className="icon" src={images[gift]} alt="" />;
   }
 }
+
+Icon.propTypes = {
+  gift: PropTypes.number.isRequired
+};
 
 export default Icon;
