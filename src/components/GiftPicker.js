@@ -1,17 +1,28 @@
-import './GiftPicker.css';
-
 import { Col, Row } from 'reactstrap';
 import React, { Component } from 'react';
 
 import GiftButton from './GiftButton';
 import { connect } from 'react-redux';
 import tastes from '../data/GiftTastes.js';
+import styled from 'styled-components';
+import classNames from 'classnames';
 
 const categories_map = {
   0: 'Love',
   1: 'Like',
   4: 'neutral'
 };
+
+const CharacterImage = styled.img`
+  padding: 0 0.5em;
+`;
+
+const HeaderRow = styled(Row)`
+  align-items: center;
+  h2 {
+    margin: 0;
+  }
+`;
 
 class GiftPicker extends Component {
   constructor(props) {
@@ -29,11 +40,16 @@ class GiftPicker extends Component {
 
     return (
       <Col id="gift-picker" xs="12">
-        <Row>
+        <HeaderRow
+          className={classNames({
+            'mb-2': true,
+            'border-bottom': true
+          })}
+        >
           <Col xs="12" lg="4">
             <h2>
-              {char}{' '}
-              <img
+              {char}
+              <CharacterImage
                 src={require('../images/characters/' + char + '.png')}
                 alt=""
               />
@@ -42,6 +58,8 @@ class GiftPicker extends Component {
           <Col xs="12" lg="8">
             <Row>{gifts}</Row>
           </Col>
+        </HeaderRow>
+        <Row>
           {this.renderGiftCategories(0)}
           {this.renderGiftCategories(1)}
           {this.renderGiftCategories(4)}
