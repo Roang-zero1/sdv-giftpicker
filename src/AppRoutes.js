@@ -49,7 +49,6 @@ export class AppRoutes extends Component {
                 <Route
                   path="/character/:characterName"
                   render={match => {
-                    console.log(match);
                     if (match.match.params.characterName in tastes) {
                       return (
                         <GiftPicker
