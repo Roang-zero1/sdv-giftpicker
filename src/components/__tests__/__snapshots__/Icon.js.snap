@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/Icon --- Snapshot should be the same as the last snapshot 1`] = `
+<img
+  alt=""
+  className="icon sc-bdVaJa ghYrQy"
+  src="Dandelion.png"
+/>
+`;
