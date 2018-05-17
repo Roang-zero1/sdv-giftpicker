@@ -7,6 +7,8 @@ import tastes from '../data/GiftTastes.js';
 import styled from 'styled-components';
 import classNames from 'classnames';
 
+import PropTypes from 'prop-types';
+
 const categories_map = {
   0: 'Love',
   1: 'Like',
@@ -31,7 +33,7 @@ class GiftPicker extends Component {
   }
 
   render() {
-    let char = this.props.match.match.params.characterName;
+    const { char } = this.props;
     let gifts = [];
     let key = 0;
     for (let gift of this.props.characters[char].selected || []) {
@@ -69,7 +71,7 @@ class GiftPicker extends Component {
   }
 
   renderGiftCategories(category) {
-    let char = this.props.match.match.params.characterName;
+    const { char } = this.props;
     let characterTastes = tastes[char][category];
     let gifts = [];
     let key = 0;
@@ -87,10 +89,7 @@ class GiftPicker extends Component {
 
 function mapStateToProps(state) {
   return {
-    items: state.items,
-    characters: state.characters,
-    navigation: state.navigation,
-    status: state.status
+    characters: state.characters
   };
 }
 
