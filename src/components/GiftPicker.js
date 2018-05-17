@@ -87,6 +87,10 @@ class GiftPicker extends Component {
   }
 }
 
+GiftPicker.propTypes = {
+  char: PropTypes.string.isRequired
+};
+
 function mapStateToProps(state) {
   return {
     characters: state.characters
