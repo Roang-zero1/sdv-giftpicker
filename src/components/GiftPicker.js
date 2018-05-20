@@ -2,12 +2,11 @@ import { Col, Row } from 'reactstrap';
 import React, { Component } from 'react';
 
 import GiftButton from './GiftButton';
-import { connect } from 'react-redux';
-import tastes from '../data/GiftTastes.js';
-import styled from 'styled-components';
-import classNames from 'classnames';
-
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import tastes from '../data/GiftTastes.js';
 
 const categories_map = {
   0: 'Love',
@@ -31,14 +30,16 @@ HeaderRow.displayName = 'HeaderRow';
 export class GiftPicker extends Component {
   constructor(props) {
     super(props);
+    this.character = props.character || { selected: [] };
     this.renderGiftCategories = this.renderGiftCategories.bind(this);
   }
 
   render() {
     const { char } = this.props;
+    const character = this.character;
     let gifts = [];
     let key = 0;
-    for (let gift of this.props.characters[char].selected || []) {
+    for (let gift of character.selected) {
       gifts.push(<GiftButton gift={gift} char={char} key={key++} deselect />);
     }
 
@@ -93,9 +94,10 @@ GiftPicker.propTypes = {
   char: PropTypes.string.isRequired
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
+  const { char } = props;
   return {
-    characters: state.characters
+    character: state.characters[char]
   };
 }
 
