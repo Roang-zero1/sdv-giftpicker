@@ -95,6 +95,21 @@ describe('components/GiftButton --- Render connected component', () => {
     ).toEqual('0');
   });
 
+  it('should render the component with a count of zero if there is a negative count', () => {
+    let count = -2;
+    props = {
+      ...props,
+      items: {
+        20: count
+      }
+    };
+    expect(
+      giftButton()
+        .find('GiftCount')
+        .text()
+    ).toEqual(`0`);
+  });
+
   it('should render the component with the correct count', () => {
     let count = 120;
     props = {

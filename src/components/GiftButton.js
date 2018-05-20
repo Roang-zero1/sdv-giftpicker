@@ -24,7 +24,7 @@ const Gift = styled(Col)`
         filter: grayscale(100%);
       }
     `};
-`;
+`.withComponent(({ owned, ...rest }) => <Col {...rest} />);
 Gift.displayName = 'Gift';
 
 const StyledButton = styled(Button)`
@@ -58,14 +58,9 @@ export class GiftButton extends Component {
 
   render() {
     const { char, characters, deselect, gift, items, status } = this.props;
+    const owned = gift in items && items[gift] > 0;
     return (
-      <Gift
-        className="mb-1"
-        xs="12"
-        md="6"
-        xl={!deselect && '4'}
-        owned={gift in items ? 1 : 0}
-      >
+      <Gift className="mb-1" xs="12" md="6" xl={!deselect && '4'} owned={owned}>
         <StyledButton
           outline={!deselect}
           color={
@@ -88,7 +83,7 @@ export class GiftButton extends Component {
           </Col>
           <GiftText>{giftsMetaData[gift].displayName}</GiftText>
           {status.save && (
-            <GiftCount xs="3">{gift in items ? items[gift] : 0}</GiftCount>
+            <GiftCount xs="3">{owned ? items[gift] : 0}</GiftCount>
           )}
         </StyledButton>
       </Gift>
