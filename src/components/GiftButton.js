@@ -2,26 +2,22 @@ import * as charactersActions from '../actions/charactersActions';
 
 import { Button, Col } from 'reactstrap';
 import React, { Component } from 'react';
-
-import { bindActionCreators } from 'redux';
-import classNames from 'classnames';
-import { connect } from 'react-redux';
-
 import styled, { css } from 'styled-components';
 
 import Icon from './Icon';
-
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import classNames from 'classnames';
+import { connect } from 'react-redux';
 import giftsMetaData from '../data/GiftsData';
 
-import PropTypes from 'prop-types';
-
-const Gift = styled(Col)`
+const Gift = styled(({ owned, ...rest }) => <Col {...rest} />)`
   ${props =>
     !props.owned &&
     css`
       order: 1;
     `};
-`.withComponent(({ owned, ...rest }) => <Col {...rest} />);
+`;
 Gift.displayName = 'Gift';
 
 const StyledButton = styled(Button)`
