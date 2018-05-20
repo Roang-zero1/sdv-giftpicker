@@ -84,7 +84,7 @@ class GiftButton extends Component {
           </Col>
           <GiftText>{giftsMetaData[gift].displayName}</GiftText>
           {status.save && (
-            <GiftCount xs="3">{gift in items ? items[gift] : null}</GiftCount>
+            <GiftCount xs="3">{gift in items ? items[gift] : 0}</GiftCount>
           )}
         </StyledButton>
       </Gift>
