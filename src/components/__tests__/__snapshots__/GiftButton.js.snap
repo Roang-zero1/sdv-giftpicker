@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/GiftButton --- Render connected component should be the same as the last snapshot 1`] = `
+.c2 {
+  left: -12px;
+  position: relative;
+  max-width: 24px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.c0 {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  width: 100%;
+}
+
+.c1 div,
+.c1 img {
+  pointer-events: none;
+}
+
+.c3 {
+  -webkit-flex: 1 1 2vw;
+  -ms-flex: 1 1 2vw;
+  flex: 1 1 2vw;
+  overflow: hidden;
+}
+
+.c4 {
+  text-align: right;
+}
+
+<GiftButton
+  char="Lewis"
+  characters={
+    Object {
+      "Lewis": Object {},
+    }
+  }
+  deselect={false}
+  gift={20}
+  items={Object {}}
+  status={
+    Object {
+      "save": true,
+    }
+  }
+>
+  <Gift
+    className="mb-1"
+    md="6"
+    owned={false}
+    xl="4"
+    xs="12"
+  >
+    <Component
+      className="mb-1 c0"
+      md="6"
+      owned={false}
+      xl="4"
+      xs="12"
+    >
+      <Col
+        className="mb-1 c0"
+        md="6"
+        tag="div"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+        xl="4"
+        xs="12"
+      >
+        <div
+          className="mb-1 c0 col-12 col-md-6 col-xl-4"
+        >
+          <StyledButton
+            className="row flex-nowrap ml-2 mr-2"
+            color="dark"
+            onClick={[Function]}
+            outline={true}
+          >
+            <Button
+              className="row flex-nowrap ml-2 mr-2 c1"
+              color="dark"
+              onClick={[Function]}
+              outline={true}
+              tag="button"
+            >
+              <button
+                className="row flex-nowrap ml-2 mr-2 c1 btn btn-outline-dark"
+                onClick={[Function]}
+                type="button"
+              >
+                <Col
+                  tag="div"
+                  widths={
+                    Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ]
+                  }
+                  xs="1"
+                >
+                  <div
+                    className="col-1"
+                  >
+                    <Icon
+                      gift={20}
+                      grayscale={true}
+                    >
+                      <styled.img
+                        alt=""
+                        grayscale={true}
+                        src="Leek.png"
+                      >
+                        <img
+                          alt=""
+                          className="c2"
+                          src="Leek.png"
+                        />
+                      </styled.img>
+                    </Icon>
+                  </div>
+                </Col>
+                <GiftText>
+                  <Col
+                    className="c3"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      className="c3 col"
+                    >
+                      Leek
+                    </div>
+                  </Col>
+                </GiftText>
+                <GiftCount
+                  xs="3"
+                >
+                  <Col
+                    className="c4"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                    xs="3"
+                  >
+                    <div
+                      className="c4 col-3"
+                    >
+                      0
+                    </div>
+                  </Col>
+                </GiftCount>
+              </button>
+            </Button>
+          </StyledButton>
+        </div>
+      </Col>
+    </Component>
+  </Gift>
+</GiftButton>
+`;
+
+exports[`components/GiftButton --- Shallow render connected component should be the same as the last snapshot 1`] = `
+<Gift
+  className="mb-1"
+  md="6"
+  owned={false}
+  xl="4"
+  xs="12"
+>
+  <StyledButton
+    className="row flex-nowrap ml-2 mr-2"
+    color="dark"
+    onClick={[Function]}
+    outline={true}
+  >
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="1"
+    >
+      <Icon
+        gift={20}
+        grayscale={true}
+      />
+    </Col>
+    <GiftText>
+      Leek
+    </GiftText>
+    <GiftCount
+      xs="3"
+    >
+      0
+    </GiftCount>
+  </StyledButton>
+</Gift>
+`;

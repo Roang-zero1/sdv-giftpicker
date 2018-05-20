@@ -1,9 +1,11 @@
+import 'jest-styled-components';
+
+import { mount, shallow } from 'enzyme';
+
 import { GiftButton } from '../GiftButton';
 import React from 'react';
-import { shallow, mount } from 'enzyme';
 import giftsData from '../../data/GiftsData';
-import renderer from 'react-test-renderer';
-import 'jest-styled-components';
+import toJson from 'enzyme-to-json';
 
 const defaultProps = {
   items: {},
@@ -60,6 +62,10 @@ describe('components/GiftButton --- Shallow render connected component', () => {
         .prop('color')
     ).toEqual('success');
   });
+
+  it('should be the same as the last snapshot', () => {
+    expect(toJson(giftButton())).toMatchSnapshot();
+});
 });
 
 describe('components/GiftButton --- Render connected component', () => {
@@ -124,28 +130,16 @@ describe('components/GiftButton --- Render connected component', () => {
         .text()
     ).toEqual(`${count}`);
   });
-});
-
-describe('components/GiftButton --- Styles', () => {
-  let props;
-  let renderedGiftButton;
-
-  const giftButton = () => {
-    if (!renderedGiftButton) {
-      renderedGiftButton = renderer
-        .create(<GiftButton gift={20} char={'Lewis'} {...props} />)
-        .toJSON();
-    }
-    return renderedGiftButton;
-  };
-
-  beforeEach(() => {
-    renderedGiftButton = undefined;
-    props = defaultProps;
-  });
 
   it('should add an css order if the item is not in the current items', () => {
-    expect(giftButton()).toHaveStyleRule('order', '1');
+    expect(
+      toJson(
+        giftButton()
+          .find('Gift')
+          .children()
+          .first()
+      )
+    ).toHaveStyleRule('order', '1');
   });
 
   it('should add an css order if the item has a count of 0', () => {
@@ -155,6 +149,17 @@ describe('components/GiftButton --- Styles', () => {
         '20': 0
       }
     };
-    expect(giftButton()).toHaveStyleRule('order', '1');
+    expect(
+      toJson(
+        giftButton()
+          .find('Gift')
+          .children()
+          .first()
+      )
+    ).toHaveStyleRule('order', '1');
+  });
+
+  it('should be the same as the last snapshot', () => {
+    expect(toJson(giftButton())).toMatchSnapshot();
   });
 });
