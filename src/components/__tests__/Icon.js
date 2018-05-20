@@ -4,16 +4,17 @@ import { mount, shallow } from 'enzyme';
 
 import Icon from '../Icon';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import toJson from 'enzyme-to-json';
 
 const giftID = 22;
 
 describe('components/Icon --- Shallow render component', () => {
   let wrapper;
+  let props;
 
   beforeEach(() => {
-    wrapper = shallow(<Icon gift={giftID} />);
+    props = {};
+    wrapper = shallow(<Icon gift={giftID} {...props} />);
   });
 
   it('should render the one component', () => {
@@ -21,35 +22,17 @@ describe('components/Icon --- Shallow render component', () => {
   });
 
   it('should be the same as the last snapshot', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });
 
 describe('components/Icon --- Render component', () => {
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = mount(<Icon gift={giftID} />);
-  });
-
-  it('should render the one component', () => {
-    expect(wrapper.length).toEqual(1);
-  });
-
-  it('should be the same as the last snapshot', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
-  });
-});
-
-describe('components/GiftButton --- Styles', () => {
-  let props;
   let renderedIcon;
+  let props;
 
   const icon = () => {
     if (!renderedIcon) {
-      renderedIcon = renderer
-        .create(<Icon gift={giftID} {...props} />)
-        .toJSON();
+      renderedIcon = mount(<Icon gift={giftID} {...props} />);
     }
     return renderedIcon;
   };
@@ -59,8 +42,19 @@ describe('components/GiftButton --- Styles', () => {
     props = {};
   });
 
+  it('should render the one component', () => {
+    expect(icon().length).toEqual(1);
+  });
+
+  it('should be the same as the last snapshot', () => {
+    expect(icon()).toMatchSnapshot();
+  });
+
   it('should gray out icons when grayscale is applied', () => {
     props = { grayscale: true };
-    expect(icon()).toHaveStyleRule('filter', 'grayscale(100%)');
+    expect(toJson(icon().find('img'))).toHaveStyleRule(
+      'filter',
+      'grayscale(100%)'
+    );
   });
 });
