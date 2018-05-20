@@ -6,24 +6,14 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import giftTastes from '../../data/GiftTastes';
 import initialState from '../../reducers/initialState';
-import toJson from 'enzyme-to-json';
 
 const charName = 'Lewis';
-const defaultProps = {
-  characters: {
-    Lewis: {
-      selected: []
-    }
-  }
-};
 
 describe('component/GiftButton --- Shallow rendered component', () => {
   let cut;
-  let props;
 
   beforeEach(() => {
-    props = defaultProps;
-    cut = shallow(<GiftPicker char={charName} {...props} />);
+    cut = shallow(<GiftPicker char={charName} />);
   });
 
   it('should render the component', () => {
