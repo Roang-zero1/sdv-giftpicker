@@ -4,18 +4,18 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 describe('components/About --- Shallow render component', () => {
-  let wrapper;
+  let cut;
 
   beforeEach(() => {
-    wrapper = shallow(<About />);
+    cut = shallow(<About />);
   });
 
   it('should render the one component', () => {
-    expect(wrapper.length).toEqual(1);
+    expect(cut.length).toEqual(1);
   });
 
   it('should be the same as the last snapshot', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(toJson(cut)).toMatchSnapshot();
   });
 });
 

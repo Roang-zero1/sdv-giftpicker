@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/Loader --- Snapshot should be the same as the last snapshot 1`] = `
-<div
-  className="loader-wrapper container"
+exports[`components/Loader --- Shallow render component should be the same as the last snapshot 1`] = `
+<Container
+  className="loader-wrapper"
+  tag="div"
 >
   <h2>
     Loading
@@ -13,5 +14,5 @@ exports[`components/Loader --- Snapshot should be the same as the last snapshot 
   <div
     className="loader"
   />
-</div>
+</Container>
 `;

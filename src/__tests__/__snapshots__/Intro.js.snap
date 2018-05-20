@@ -1,14 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Intro --- Render connected component should be the same as the last snapshot 1`] = `
+exports[`Intro --- Shallow render component should be the same as the last snapshot 1`] = `
 <main
   className="App"
 >
-  <div
-    className="header jumbotron"
+  <Jumbotron
+    className="header"
+    tag="div"
   >
-    <div
-      className="container"
+    <Container
+      tag="div"
     >
       <h1
         className="display-3"
@@ -25,37 +26,27 @@ exports[`Intro --- Render connected component should be the same as the last sna
         </a>
         . The save is no uploaded and processed locally.
       </p>
-      <div
-        className=""
-      >
-        <input
-          id="upload"
-          onChange={[Function]}
-          type="file"
-        />
-        <button
-          className="mb-2 btn btn-primary btn-lg"
-          disabled={undefined}
-          onClick={[Function]}
-          type="button"
-        >
-          Upload save-game
-        </button>
-      </div>
-      <button
-        className="btn btn-secondary"
-        onClick={[Function]}
-        type="button"
-      >
-        Use without save
-      </button>
-    </div>
-  </div>
-  <div
-    className="container"
+      <Connect(Upload)
+        className="mb-2"
+      />
+      <Connect(NoSaveButton) />
+    </Container>
+  </Jumbotron>
+  <Container
+    tag="div"
   >
-    <div
-      className="col-12"
+    <Col
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+      xs="12"
     >
       <h2>
         Help
@@ -92,53 +83,8 @@ exports[`Intro --- Render connected component should be the same as the last sna
           </li>
         </ul>
       </div>
-    </div>
-    <div
-      className="about col-12"
-    >
-      <h2>
-        About
-      </h2>
-      <p>
-        SDV Gift Calculator by
-         
-        <a
-          href="https://www.reddit.com/user/Roang_zero1/"
-        >
-          Roang_Zero1
-        </a>
-        .
-      </p>
-      <p>
-        This app was inspired by 
-        <strong>
-          Stardew Checkup
-        </strong>
-         available at
-         
-        <a
-          href="https://mouseypounds.github.io/stardew-checkup/"
-        >
-          https://mouseypounds.github.io/stardew-checkup/
-        </a>
-      </p>
-      <p>
-        Using icons by 
-        <a
-          href="https://fontawesome.com/l"
-        >
-          Font Awesome
-        </a>
-         
-        licensed under
-         
-        <a
-          href="https://creativecommons.org/licenses/by/4.0/"
-        >
-          CC BY 4.0
-        </a>
-      </p>
-    </div>
-  </div>
+    </Col>
+    <About />
+  </Container>
 </main>
 `;

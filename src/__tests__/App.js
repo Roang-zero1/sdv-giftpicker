@@ -13,27 +13,27 @@ import initialState from '../reducers/initialState';
 
 describe('App --- Shallow render component', () => {
   const mockStore = configureStore();
-  let component, store;
+  let cut, store;
   beforeEach(() => {
     store = mockStore(initialState);
-    component = shallow(<ConnectedApp store={store} />);
+    cut = shallow(<ConnectedApp store={store} />);
   });
 
-  it('should render the component', () => {
-    expect(component).toHaveLength(1);
+  it('should render the cut', () => {
+    expect(cut).toHaveLength(1);
   });
 
   it('should set the props correctly', () => {
-    expect(component.prop('navigation')).toEqual(initialState.navigation);
+    expect(cut.prop('navigation')).toEqual(initialState.navigation);
   });
 });
 
 describe('App --- Render component without sidebar', () => {
   const mockStore = configureStore();
-  let component, store;
+  let cut, store;
   beforeEach(() => {
     store = mockStore(initialState);
-    component = mount(
+    cut = mount(
       <MemoryRouter>
         <Provider store={store}>
           <ConnectedApp />
@@ -43,29 +43,29 @@ describe('App --- Render component without sidebar', () => {
   });
 
   it('should render self and sub-components', () => {
-    expect(component).toHaveLength(1);
-    expect(component.find(Navigation)).toHaveLength(1);
-    expect(component.find(About)).toHaveLength(1);
-    expect(component.find(Sidebar)).toHaveLength(0);
+    expect(cut).toHaveLength(1);
+    expect(cut.find(Navigation)).toHaveLength(1);
+    expect(cut.find(About)).toHaveLength(1);
+    expect(cut.find(Sidebar)).toHaveLength(0);
 
-    expect(component.find(Container)).toHaveLength(2);
-    expect(component.find(Row)).toHaveLength(2);
+    expect(cut.find(Container)).toHaveLength(2);
+    expect(cut.find(Row)).toHaveLength(2);
   });
 
   it('should not show the sidebar', () => {
-    expect(component.find(Sidebar)).toHaveLength(0);
+    expect(cut.find(Sidebar)).toHaveLength(0);
   });
 });
 
 describe('App --- Render component with sidebar', () => {
   const mockStore = configureStore();
-  let component, store;
+  let cut, store;
   beforeEach(() => {
     store = mockStore({
       ...initialState,
       navigation: { sidebar: true }
     });
-    component = mount(
+    cut = mount(
       <MemoryRouter>
         <Provider store={store}>
           <ConnectedApp />
@@ -75,16 +75,16 @@ describe('App --- Render component with sidebar', () => {
   });
 
   it('should render self and sub-components', () => {
-    expect(component).toHaveLength(1);
-    expect(component.find(Navigation)).toHaveLength(1);
-    expect(component.find(About)).toHaveLength(1);
-    expect(component.find(Sidebar)).toHaveLength(1);
+    expect(cut).toHaveLength(1);
+    expect(cut.find(Navigation)).toHaveLength(1);
+    expect(cut.find(About)).toHaveLength(1);
+    expect(cut.find(Sidebar)).toHaveLength(1);
 
-    expect(component.find(Container)).toHaveLength(2);
-    expect(component.find(Row)).toHaveLength(2);
+    expect(cut.find(Container)).toHaveLength(2);
+    expect(cut.find(Row)).toHaveLength(2);
   });
 
   it('should not show the sidebar', () => {
-    expect(component.find(Sidebar)).toHaveLength(1);
+    expect(cut.find(Sidebar)).toHaveLength(1);
   });
 });

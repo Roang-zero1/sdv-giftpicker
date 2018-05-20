@@ -11,33 +11,33 @@ import initialState from '../../reducers/initialState';
 import toJSON from 'enzyme-to-json';
 
 describe('components/NoSaveButton --- Shallow render component', () => {
-  let component;
+  let cut;
 
   beforeEach(() => {
-    component = shallow(<NoSaveButton />);
+    cut = shallow(<NoSaveButton />);
   });
 
   it('should render the one component', () => {
-    expect(component).toHaveLength(1);
+    expect(cut).toHaveLength(1);
   });
 
   it('should be the same as the last snapshot', () => {
-    expect(toJSON(component)).toMatchSnapshot();
+    expect(toJSON(cut)).toMatchSnapshot();
   });
 });
 
 describe('components/NoSaveButton --- Render component', () => {
-  let shallowNoSaveButton;
+  let renderedCut;
   let props;
-  const noSaveButton = () => {
-    if (!shallowNoSaveButton) {
-      shallowNoSaveButton = mount(<NoSaveButton {...props} />);
+  const cut = () => {
+    if (!renderedCut) {
+      renderedCut = mount(<NoSaveButton {...props} />);
     }
-    return shallowNoSaveButton;
+    return renderedCut;
   };
 
   beforeEach(() => {
-    shallowNoSaveButton = undefined;
+    renderedCut = undefined;
     props = {
       text: undefined,
       inline: undefined
@@ -45,42 +45,47 @@ describe('components/NoSaveButton --- Render component', () => {
   });
 
   it('should render the one component', () => {
-    expect(noSaveButton()).toHaveLength(1);
+    expect(cut()).toHaveLength(1);
   });
 
   describe('when `text` is defined ', () => {
     beforeEach(() => {
       props.text = 'Remove Save Game';
-      noSaveButton();
+      cut();
     });
 
     it('should render the passed text', () => {
-      expect(shallowNoSaveButton.prop('text')).toBe(props.text);
-      expect(shallowNoSaveButton.find('Button').text()).toEqual(props.text);
+      expect(cut().prop('text')).toBe(props.text);
+      expect(
+        cut()
+          .find('Button')
+          .text()
+      ).toEqual(props.text);
     });
   });
 
   describe('when `inline` is defined ', () => {
     beforeEach(() => {
       props.inline = true;
-      noSaveButton();
     });
 
     it('should add a css class when inline', () => {
-      expect(shallowNoSaveButton.find('button').hasClass('btn-sm')).toEqual(
-        true
-      );
+      expect(
+        cut()
+          .find('button')
+          .hasClass('btn-sm')
+      ).toEqual(true);
     });
   });
 });
 
 describe('components/NoSaveButton --- Shallow render connected component', () => {
   const mockStore = configureStore();
-  let component, store;
+  let cut, store;
 
   beforeEach(() => {
     store = mockStore(initialState);
-    component = mount(
+    cut = mount(
       <Provider store={store}>
         <ConnectedNoSaveButton />
       </Provider>
@@ -88,12 +93,12 @@ describe('components/NoSaveButton --- Shallow render connected component', () =>
   });
 
   it('should render the one component', () => {
-    expect(component).toHaveLength(1);
+    expect(cut).toHaveLength(1);
   });
 
   it('should handle the onClick action correctly', () => {
     expect(store.getState()).toEqual(initialState);
-    component.find('button').simulate('click');
+    cut.find('button').simulate('click');
     let actions = store.getActions();
     let setLoading = actions.filter(
       action => action.type === actionTypes.SET_LOADING

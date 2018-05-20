@@ -7,17 +7,20 @@ import React from 'react';
 import Upload from '../components/Upload';
 import configureStore from 'redux-mock-store';
 import initialState from '../reducers/initialState';
-import renderer from 'react-test-renderer';
 
 describe('Intro --- Shallow render component', () => {
-  let wrapper;
+  let cut;
 
   beforeEach(() => {
-    wrapper = shallow(<Intro />);
+    cut = shallow(<Intro />);
   });
 
   it('should render the one component', () => {
-    expect(wrapper.length).toEqual(1);
+    expect(cut.length).toEqual(1);
+  });
+
+  it('should be the same as the last snapshot', () => {
+    expect(cut).toMatchSnapshot();
   });
 });
 
@@ -38,11 +41,5 @@ describe('Intro --- Render connected component', () => {
 
     expect(component.find(Upload)).toHaveLength(1);
     expect(component.find(NoSaveButton)).toHaveLength(1);
-  });
-
-  it('should be the same as the last snapshot', () => {
-    const renderValue = renderer.create(component).toJSON();
-
-    expect(renderValue).toMatchSnapshot();
   });
 });
