@@ -1,7 +1,7 @@
 import About from '../About';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 describe('components/About --- Shallow render component', () => {
   let wrapper;
@@ -13,12 +13,10 @@ describe('components/About --- Shallow render component', () => {
   it('should render the one component', () => {
     expect(wrapper.length).toEqual(1);
   });
-});
 
-describe('components/About --- Snapshot', () => {
   it('should be the same as the last snapshot', () => {
-    const renderValue = renderer.create(<About />).toJSON();
-
-    expect(renderValue).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
+
+describe('components/About --- Snapshot', () => {});

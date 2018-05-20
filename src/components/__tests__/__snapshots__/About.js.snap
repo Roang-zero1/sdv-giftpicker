@@ -1,8 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/About --- Snapshot should be the same as the last snapshot 1`] = `
-<div
-  className="about col-12"
+exports[`components/About --- Shallow render component should be the same as the last snapshot 1`] = `
+<Col
+  className="about"
+  tag="div"
+  widths={
+    Array [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+    ]
+  }
+  xs="12"
 >
   <h2>
     About
@@ -46,5 +57,5 @@ exports[`components/About --- Snapshot should be the same as the last snapshot 1
       CC BY 4.0
     </a>
   </p>
-</div>
+</Col>
 `;
