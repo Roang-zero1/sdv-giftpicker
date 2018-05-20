@@ -1,5 +1,3 @@
-import './Upload.css';
-
 import * as charactersActions from '../actions/charactersActions';
 import * as itemsActions from '../actions/itemActions';
 import * as statusActions from '../actions/statusActions';
