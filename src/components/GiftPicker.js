@@ -18,6 +18,7 @@ const categories_map = {
 const CharacterImage = styled.img`
   padding: 0 0.5em;
 `;
+CharacterImage.displayName = 'CharacterImage';
 
 const HeaderRow = styled(Row)`
   align-items: center;
@@ -25,8 +26,9 @@ const HeaderRow = styled(Row)`
     margin: 0;
   }
 `;
+HeaderRow.displayName = 'HeaderRow';
 
-class GiftPicker extends Component {
+export class GiftPicker extends Component {
   constructor(props) {
     super(props);
     this.renderGiftCategories = this.renderGiftCategories.bind(this);
