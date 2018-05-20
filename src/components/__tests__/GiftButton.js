@@ -1,18 +1,23 @@
 import 'jest-styled-components';
 
+import ConnectedGiftButton, { GiftButton } from '../GiftButton';
+import { DESELECT_GIFT, SELECT_GIFT } from '../../actions/actionTypes';
 import { mount, shallow } from 'enzyme';
 
-import { GiftButton } from '../GiftButton';
 import React from 'react';
+import configureStore from 'redux-mock-store';
 import giftsData from '../../data/GiftsData';
+import initialState from '../../reducers/initialState';
 import toJson from 'enzyme-to-json';
+
+const giftID = 20;
+const charName = 'Lewis';
 
 const defaultProps = {
   items: {},
   characters: { Lewis: {} },
   status: { save: true }
 };
-const giftID = 20;
 
 describe('components/GiftButton --- Shallow render connected component', () => {
   let shallowGiftButton;
@@ -20,7 +25,7 @@ describe('components/GiftButton --- Shallow render connected component', () => {
   const giftButton = () => {
     if (!shallowGiftButton) {
       shallowGiftButton = shallow(
-        <GiftButton gift={20} char={'Lewis'} {...props} />
+        <GiftButton gift={20} char={charName} {...props} />
       );
     }
     return shallowGiftButton;
@@ -65,7 +70,7 @@ describe('components/GiftButton --- Shallow render connected component', () => {
 
   it('should be the same as the last snapshot', () => {
     expect(toJson(giftButton())).toMatchSnapshot();
-});
+  });
 });
 
 describe('components/GiftButton --- Render connected component', () => {
@@ -74,7 +79,7 @@ describe('components/GiftButton --- Render connected component', () => {
   const giftButton = () => {
     if (!renderedGiftButton) {
       renderedGiftButton = mount(
-        <GiftButton gift={giftID} char={'Lewis'} {...props} />
+        <GiftButton gift={giftID} char={charName} {...props} />
       );
     }
     return renderedGiftButton;
@@ -161,5 +166,61 @@ describe('components/GiftButton --- Render connected component', () => {
 
   it('should be the same as the last snapshot', () => {
     expect(toJson(giftButton())).toMatchSnapshot();
+  });
+});
+
+describe('components/GiftButton --- Connected component tests', () => {
+  const mockStore = configureStore();
+  let renderedGiftButton;
+  let store;
+  let props;
+  const giftButton = () => {
+    const state = {
+      ...initialState,
+      ...defaultProps
+    };
+    store = mockStore(state);
+    if (!renderedGiftButton) {
+      renderedGiftButton = mount(
+        <ConnectedGiftButton
+          gift={giftID}
+          char={charName}
+          store={store}
+          {...props}
+        />
+      );
+    }
+    return renderedGiftButton;
+  };
+
+  beforeEach(() => {
+    renderedGiftButton = undefined;
+    props = {};
+  });
+
+  it('should add a gift on button press', () => {
+    let button = giftButton().find('Button');
+    button.simulate('click');
+    let actions = store.getActions();
+    expect(actions[0]).toEqual({
+      char: charName,
+      gift: giftID,
+      type: SELECT_GIFT
+    });
+  });
+
+  it('should remove a gift on button press', () => {
+    props = {
+      ...props,
+      deselect: true
+    };
+    let button = giftButton().find('Button');
+    button.simulate('click');
+    let actions = store.getActions();
+    expect(actions[0]).toEqual({
+      char: charName,
+      gift: giftID,
+      type: DESELECT_GIFT
+    });
   });
 });

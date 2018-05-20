@@ -83,7 +83,7 @@ export class GiftButton extends Component {
     );
   }
 
-  giftAction(event, char, gift, select = true) {
+  giftAction(event, char, gift, select) {
     if (select) {
       this.props.charactersActions.selectGift(char, gift);
     } else {
