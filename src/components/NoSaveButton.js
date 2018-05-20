@@ -21,7 +21,7 @@ export class NoSaveButton extends Component {
         color="secondary"
         onClick={this.handleClick}
         className={this.props.className}
-        size={this.props.inline ? 'sm' : null}
+        size={this.props.inline ? 'sm' : undefined}
       >
         {this.props.text ? this.props.text : 'Use without save'}
       </Button>

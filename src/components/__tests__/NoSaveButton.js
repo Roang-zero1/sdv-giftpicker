@@ -8,7 +8,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import giftIDs from '../../data/Gifts';
 import initialState from '../../reducers/initialState';
-import renderer from 'react-test-renderer';
+import toJSON from 'enzyme-to-json';
 
 describe('components/NoSaveButton --- Shallow render component', () => {
   let component;
@@ -19,6 +19,10 @@ describe('components/NoSaveButton --- Shallow render component', () => {
 
   it('should render the one component', () => {
     expect(component).toHaveLength(1);
+  });
+
+  it('should be the same as the last snapshot', () => {
+    expect(toJSON(component)).toMatchSnapshot();
   });
 });
 
@@ -116,17 +120,5 @@ describe('components/NoSaveButton --- Shallow render connected component', () =>
           .items
       )
     ).toHaveLength(giftIDs.length);
-  });
-});
-
-describe('components/NoSaveButton --- Snapshot', () => {
-  let component;
-  beforeEach(() => {
-    component = mount(<NoSaveButton />);
-  });
-  it('should be the same as the last snapshot', () => {
-    const renderValue = renderer.create(component).toJSON();
-
-    expect(renderValue).toMatchSnapshot();
   });
 });
