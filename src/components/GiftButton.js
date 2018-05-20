@@ -25,6 +25,7 @@ const Gift = styled(Col)`
       }
     `};
 `;
+Gift.displayName = 'Gift';
 
 const StyledButton = styled(Button)`
   display: flex;
@@ -36,17 +37,20 @@ const StyledButton = styled(Button)`
     pointer-events: none;
   }
 `;
+StyledButton.displayName = 'StyledButton';
 
 const GiftText = styled(Col)`
   flex: 1 1 2vw;
   overflow: hidden;
 `;
+GiftText.displayName = 'GiftText';
 
 const GiftCount = styled(Col)`
   text-align: right;
 `;
+GiftCount.displayName = 'GiftCount';
 
-class GiftButton extends Component {
+export class GiftButton extends Component {
   constructor(props) {
     super(props);
     this.giftAction = this.giftAction.bind(this);
