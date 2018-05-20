@@ -20,9 +20,6 @@ const Gift = styled(Col)`
     !props.owned &&
     css`
       order: 1;
-      .icon {
-        filter: grayscale(100%);
-      }
     `};
 `.withComponent(({ owned, ...rest }) => <Col {...rest} />);
 Gift.displayName = 'Gift';
@@ -79,7 +76,7 @@ export class GiftButton extends Component {
           })}
         >
           <Col xs="1">
-            <Icon gift={gift} />
+            <Icon gift={gift} grayscale={!owned} />
           </Col>
           <GiftText>{giftsMetaData[gift].displayName}</GiftText>
           {status.save && (

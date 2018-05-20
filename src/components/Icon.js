@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
-import images from '../data/GiftImages';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
 import PropTypes from 'prop-types';
+import images from '../data/GiftImages';
 
 const Img = styled.img`
   left: -12px;
   position: relative;
   max-width: 24px;
+  ${props =>
+    props.grayscale &&
+    css`
+      filter: grayscale(100%);
+    `};
 `;
 
 class Icon extends Component {
   render() {
-    const { gift } = this.props;
-    return <Img className="icon" src={images[gift]} alt="" />;
+    const { gift, grayscale } = this.props;
+    return <Img grayscale={grayscale} src={images[gift]} alt="" />;
   }
 }
 
 Icon.propTypes = {
-  gift: PropTypes.number.isRequired
+  gift: PropTypes.number.isRequired,
+  grayscale: PropTypes.bool
 };
 
 export default Icon;
