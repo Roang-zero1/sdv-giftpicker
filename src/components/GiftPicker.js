@@ -1,15 +1,11 @@
-import './GiftPicker.css';
-
-import * as charactersActions from '../actions/charactersActions';
-import * as itemsActions from '../actions/itemActions';
-
-import { Button, Col, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import React, { Component } from 'react';
 
-import $ from 'jquery';
-import { bindActionCreators } from 'redux';
+import GiftButton from './GiftButton';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import tastes from '../data/GiftTastes.js';
 
 const categories_map = {
@@ -18,61 +14,47 @@ const categories_map = {
   4: 'neutral'
 };
 
-class DataDisplay extends Component {
+const CharacterImage = styled.img`
+  padding: 0 0.5em;
+`;
+CharacterImage.displayName = 'CharacterImage';
+
+const HeaderRow = styled(Row)`
+  align-items: center;
+  h2 {
+    margin: 0;
+  }
+`;
+HeaderRow.displayName = 'HeaderRow';
+
+export class GiftPicker extends Component {
   constructor(props) {
     super(props);
+    this.character = props.character || { selected: [] };
     this.renderGiftCategories = this.renderGiftCategories.bind(this);
-    this.selectGift = this.selectGift.bind(this);
-    this.deselectGift = this.deselectGift.bind(this);
   }
 
-  render(props) {
-    let char = this.props.match.match.params.characterName;
+  render() {
+    const { char } = this.props;
+    const character = this.character;
     let gifts = [];
-    for (let gift of this.props.characters[char].selected || []) {
-      gifts.push(
-        <Col xs="12" md="6" className="mb-1" key={gift}>
-          <Button
-            color="success"
-            onClick={this.deselectGift}
-            {...{ 'data-char': char, 'data-item': gift }}
-            className={classNames({
-              gift: true,
-              row: true,
-              'flex-nowrap': true,
-              'ml-2': true,
-              'mr-2': true
-            })}
-          >
-            <Col xs="1">
-              <img
-                className="icon"
-                src={require('../images/items/' +
-                  this.props.giftsMetaData[gift].name +
-                  '.png')}
-                alt=""
-              />
-            </Col>
-            <Col className="gift-text">
-              {this.props.giftsMetaData[gift].displayName}
-            </Col>
-            {this.props.status.save && (
-              <Col xs="3" align-self="end" className="count">
-                {gift in this.props.items ? this.props.items[gift] : null}
-              </Col>
-            )}
-          </Button>
-        </Col>
-      );
+    let key = 0;
+    for (let gift of character.selected) {
+      gifts.push(<GiftButton gift={gift} char={char} key={key++} deselect />);
     }
 
     return (
       <Col id="gift-picker" xs="12">
-        <Row>
+        <HeaderRow
+          className={classNames({
+            'mb-2': true,
+            'border-bottom': true
+          })}
+        >
           <Col xs="12" lg="4">
             <h2>
-              {char}{' '}
-              <img
+              {char}
+              <CharacterImage
                 src={require('../images/characters/' + char + '.png')}
                 alt=""
               />
@@ -81,6 +63,8 @@ class DataDisplay extends Component {
           <Col xs="12" lg="8">
             <Row>{gifts}</Row>
           </Col>
+        </HeaderRow>
+        <Row>
           {this.renderGiftCategories(0)}
           {this.renderGiftCategories(1)}
           {this.renderGiftCategories(4)}
@@ -90,59 +74,12 @@ class DataDisplay extends Component {
   }
 
   renderGiftCategories(category) {
-    let char = this.props.match.match.params.characterName;
-    var characterTastes = tastes[char][category];
-    var gifts = [];
+    const { char } = this.props;
+    let characterTastes = tastes[char][category];
+    let gifts = [];
+    let key = 0;
     for (var gift of characterTastes) {
-      gifts.push(
-        <Col
-          xs="12"
-          md="6"
-          xl="4"
-          className={classNames({
-            'mb-1': true,
-            missing: !(gift in this.props.items)
-          })}
-          key={gift}
-        >
-          <Button
-            outline
-            color={
-              this.props.characters[char].selected &&
-              this.props.characters[char].selected.includes(gift)
-                ? 'success'
-                : 'dark'
-            }
-            onClick={this.selectGift}
-            {...{ 'data-char': char, 'data-item': gift }}
-            className={classNames({
-              gift: true,
-              row: true,
-              'flex-nowrap': true,
-              'ml-2': true,
-              'mr-2': true
-            })}
-          >
-            <Col xs="1">
-              <img
-                className="icon"
-                src={require('../images/items/' +
-                  this.props.giftsMetaData[gift].name +
-                  '.png')}
-                alt=""
-              />
-            </Col>
-            <Col className="gift-text">
-              {this.props.giftsMetaData[gift].displayName}
-            </Col>
-            {this.props.status.save && (
-              <Col xs="3" align-self="end" className="count">
-                {gift in this.props.items ? this.props.items[gift] : null}
-              </Col>
-            )}
-          </Button>
-        </Col>
-      );
+      gifts.push(<GiftButton gift={gift} char={char} key={key++} />);
     }
     return (
       <Col xs="12" key={category}>
@@ -151,36 +88,17 @@ class DataDisplay extends Component {
       </Col>
     );
   }
-
-  selectGift(event) {
-    let target = $(event.target);
-    let char = target.data('char');
-    let itemID = target.data('item');
-    this.props.charactersActions.selectGift(char, itemID);
-  }
-
-  deselectGift(event) {
-    let target = $(event.target);
-    let char = target.data('char');
-    let itemID = target.data('item');
-    this.props.charactersActions.deselectGift(char, itemID);
-  }
 }
 
-function mapStateToProps(state) {
+GiftPicker.propTypes = {
+  char: PropTypes.string.isRequired
+};
+
+function mapStateToProps(state, props) {
+  const { char } = props;
   return {
-    items: state.items,
-    characters: state.characters,
-    navigation: state.navigation,
-    status: state.status
+    character: state.characters[char]
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    itemsActions: bindActionCreators(itemsActions, dispatch),
-    charactersActions: bindActionCreators(charactersActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DataDisplay);
+export default connect(mapStateToProps)(GiftPicker);

@@ -49,13 +49,9 @@ export class AppRoutes extends Component {
                 <Route
                   path="/character/:characterName"
                   render={match => {
-                    if (match.match.params.characterName in tastes) {
-                      return (
-                        <GiftPicker
-                          giftsMetaData={require('./data/GiftsData.js').default}
-                          match={match}
-                        />
-                      );
+                    const char = match.match.params.characterName;
+                    if (char in tastes) {
+                      return <GiftPicker char={char} />;
                     } else {
                       return <Redirect to="/" />;
                     }

@@ -167,6 +167,7 @@ def main():
             itemtastes[person][level].append(itemid)
 
     gifts = sorted(set(gifts))
+    gifts_images = {key: f'require("../images/items/{items_data[key]["name"]}.png")' for key in gifts}
 
     items_data = {k: v for k, v in items_data.items() if k in gifts}
     with open(os.path.join('src', 'data', 'GiftsData.js'), 'w') as outfile:
@@ -177,6 +178,12 @@ def main():
         outfile.write("export default ")
         json.dump(itemtastes, outfile, sort_keys=True)
         outfile.write(";\n")
+    with open(os.path.join('src', 'data', 'GiftImages.js'), 'w') as outfile:
+        outfile.write("export default ")
+        outfile.write("{")
+        for key, value in gifts_images.items():
+            outfile.write(f'"{key}": {value},')
+        outfile.write("};\n")
     with open(os.path.join('src', 'data', 'Gifts.js'), 'w') as outfile:
         outfile.write("export default ")
         json.dump(gifts, outfile, sort_keys=True)
