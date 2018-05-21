@@ -7,7 +7,7 @@ import {
 import initialState from './initialState';
 import update from 'immutability-helper';
 
-export default function characters(state = initialState.items, action) {
+export default function characters(state = initialState.characters, action) {
   var newState = state;
   if (!(action.char in state)) {
     newState = update(state, {
