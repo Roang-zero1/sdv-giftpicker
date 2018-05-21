@@ -1,5 +1,5 @@
 import * as charactersActions from '../actions/charactersActions';
-import * as itemsActions from '../actions/itemActions';
+import * as itemsActions from '../actions/itemsActions';
 import * as statusActions from '../actions/statusActions';
 
 import React, { Component } from 'react';

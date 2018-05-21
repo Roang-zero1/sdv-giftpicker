@@ -9,6 +9,7 @@ import configureStore from 'redux-mock-store';
 import giftIDs from '../../data/Gifts';
 import initialState from '../../reducers/initialState';
 import toJSON from 'enzyme-to-json';
+import ActionTypes from '../../actions/actionTypesTS';
 
 describe('components/NoSaveButton --- Shallow render component', () => {
   let cut;
@@ -121,8 +122,8 @@ describe('components/NoSaveButton --- Shallow render connected component', () =>
 
     expect(
       Object.keys(
-        actions.filter(action => action.type === actionTypes.UPDATE_ITEMS)[0]
-          .items
+        actions.filter(action => action.type === ActionTypes.UPDATE_ITEMS)[0]
+          .payload
       )
     ).toHaveLength(giftIDs.length);
   });
