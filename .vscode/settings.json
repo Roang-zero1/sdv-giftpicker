@@ -44,5 +44,6 @@
     "**/src/data/**"
   ],
   "jest.pathToJest": "npm test --",
-  "npm.enableScriptExplorer": true
+  "npm.enableScriptExplorer": true,
+  "tslint.autoFixOnSave": true,
 }
