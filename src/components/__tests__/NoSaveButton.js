@@ -103,23 +103,23 @@ describe('components/NoSaveButton --- Shallow render connected component', () =>
     cut.find('button').simulate('click');
     let actions = store.getActions();
     let setLoading = actions.filter(
-      action => action.type === actionTypes.SET_LOADING
+      action => action.type === ActionTypes.SET_LOADING
     );
     expect(setLoading).toHaveLength(2);
-    expect(setLoading[0].loading).toEqual(true);
-    expect(setLoading[1].loading).toEqual(false);
+    expect(setLoading[0].payload).toEqual(true);
+    expect(setLoading[1].payload).toEqual(false);
 
     let setSaveGame = actions.filter(
-      action => action.type === actionTypes.SET_SAVE_GAME
+      action => action.type === ActionTypes.SET_SAVE_GAME
     );
     expect(setSaveGame).toHaveLength(1);
-    expect(setSaveGame[0].save).toEqual(false);
+    expect(setSaveGame[0].payload).toEqual(false);
 
     let setIntroChosen = actions.filter(
-      action => action.type === actionTypes.SET_INTRO_CHOSEN
+      action => action.type === ActionTypes.SET_INTRO_CHOSEN
     );
     expect(setIntroChosen).toHaveLength(1);
-    expect(setIntroChosen[0].intro).toEqual(true);
+    expect(setIntroChosen[0].payload).toEqual(true);
 
     expect(
       Object.keys(
