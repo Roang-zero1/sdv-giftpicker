@@ -149,11 +149,11 @@ class DataDisplay extends Component {
     let target = $(event.target);
     let char = target.data('char');
     let itemID = target.data('item');
-    this.props.charactersActions.setGiftCount(
+    this.props.charactersActions.setGiftCount({
       char,
-      this.props.characters[char].gifts + 1
-    );
-    this.props.charactersActions.deselectGift(char, itemID);
+      count: this.props.characters[char].gifts + 1
+    });
+    this.props.charactersActions.deselectGift({ char, itemID });
   }
 }
 

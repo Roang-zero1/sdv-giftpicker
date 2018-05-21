@@ -1,7 +1,6 @@
 import 'jest-styled-components';
 
 import ConnectedGiftButton, { GiftButton } from '../GiftButton';
-import { DESELECT_GIFT, SELECT_GIFT } from '../../actions/actionTypes';
 import { mount, shallow } from 'enzyme';
 
 import React from 'react';
@@ -9,6 +8,7 @@ import configureStore from 'redux-mock-store';
 import giftsData from '../../data/GiftsData';
 import initialState from '../../reducers/initialState';
 import toJson from 'enzyme-to-json';
+import ActionTypes from '../../actions/actionTypesTS';
 
 const giftID = 20;
 const charName = 'Lewis';
@@ -206,9 +206,11 @@ describe('components/GiftButton --- Connected component tests', () => {
     button.simulate('click');
     let actions = store.getActions();
     expect(actions[0]).toEqual({
-      char: charName,
-      gift: giftID,
-      type: SELECT_GIFT
+      payload: {
+        char: charName,
+        itemID: giftID
+      },
+      type: ActionTypes.SELECT_GIFT
     });
   });
 
@@ -221,9 +223,11 @@ describe('components/GiftButton --- Connected component tests', () => {
     button.simulate('click');
     let actions = store.getActions();
     expect(actions[0]).toEqual({
-      char: charName,
-      gift: giftID,
-      type: DESELECT_GIFT
+      payload: {
+        char: charName,
+        itemID: giftID
+      },
+      type: ActionTypes.DESELECT_GIFT
     });
   });
 });

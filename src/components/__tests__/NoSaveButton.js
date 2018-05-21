@@ -1,5 +1,3 @@
-import * as actionTypes from '../../actions/actionTypes';
-
 import ConnectedNoSaveButton, { NoSaveButton } from '../NoSaveButton';
 import { mount, shallow } from 'enzyme';
 

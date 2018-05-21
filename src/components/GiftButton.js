@@ -83,11 +83,11 @@ export class GiftButton extends Component {
     );
   }
 
-  giftAction(event, char, gift, select) {
+  giftAction(event, char, itemID, select) {
     if (select) {
-      this.props.charactersActions.selectGift(char, gift);
+      this.props.charactersActions.selectGift({ char, itemID });
     } else {
-      this.props.charactersActions.deselectGift(char, gift);
+      this.props.charactersActions.deselectGift({ char, itemID });
     }
   }
 }
