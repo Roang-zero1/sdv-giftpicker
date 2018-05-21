@@ -13,10 +13,10 @@ import tastes from '../data/GiftTastes.js';
 
 class Sidebar extends Component {
   render() {
-    let characters_links = [];
+    let charactersLinks = [];
     for (var char in this.props.characters) {
       if (char in tastes && this.props.characters[char].gifts < 2) {
-        characters_links.push(
+        charactersLinks.push(
           <NavItem
             key={char}
             className={
@@ -31,8 +31,8 @@ class Sidebar extends Component {
               />{' '}
               <span
                 className={classNames({
-                  'd-none': true,
-                  'd-md-inline': true
+                  'd-md-inline': true,
+                  'd-none': true
                 })}
               >
                 {char}
@@ -47,8 +47,8 @@ class Sidebar extends Component {
         <Nav
           vertical
           className={classNames({
-            in: true,
-            'flex-column': true
+            'flex-column': true,
+            in: true
           })}
         >
           <NavItem key="overview">
@@ -60,15 +60,15 @@ class Sidebar extends Component {
               />{' '}
               <span
                 className={classNames({
-                  'd-none': true,
-                  'd-md-inline': true
+                  'd-md-inline': true,
+                  'd-none': true
                 })}
               >
                 Overview
               </span>
             </Link>
           </NavItem>
-          {characters_links}
+          {charactersLinks}
         </Nav>
       </div>
     );

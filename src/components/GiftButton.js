@@ -65,10 +65,10 @@ export class GiftButton extends Component {
           }
           onClick={e => this.giftAction(e, char, gift, !deselect)}
           className={classNames({
-            row: true,
             'flex-nowrap': true,
             'ml-2': true,
-            'mr-2': true
+            'mr-2': true,
+            row: true
           })}
         >
           <Col xs="1">
@@ -101,8 +101,8 @@ GiftButton.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    items: state.items,
     characters: state.characters,
+    items: state.items,
     status: state.status
   };
 }

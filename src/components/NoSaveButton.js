@@ -31,7 +31,7 @@ export class NoSaveButton extends Component {
   handleClick(event) {
     this.props.statusActions.setLoading(true);
     this.props.statusActions.setSaveGame(false);
-    for (let char in giftTastes) {
+    for (let char of Object.keys(giftTastes)) {
       this.props.charactersActions.setGiftCount(char, 0);
     }
     let items = {};
@@ -47,9 +47,9 @@ export class NoSaveButton extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
+    charactersActions: bindActionCreators(charactersActions, dispatch),
     itemsActions: bindActionCreators(itemsActions, dispatch),
-    statusActions: bindActionCreators(statusActions, dispatch),
-    charactersActions: bindActionCreators(charactersActions, dispatch)
+    statusActions: bindActionCreators(statusActions, dispatch)
   };
 }
 

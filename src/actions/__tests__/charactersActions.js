@@ -6,9 +6,9 @@ describe('charactersActions', () => {
     const char = 'Lewis';
     const item = 208;
     const expectedAction = {
-      type: types.SELECT_GIFT,
       char: char,
-      gift: item
+      gift: item,
+      type: types.SELECT_GIFT
     };
     expect(actions.selectGift(char, item)).toEqual(expectedAction);
   });
@@ -17,9 +17,9 @@ describe('charactersActions', () => {
     const char = 'Lewis';
     const item = 208;
     const expectedAction = {
-      type: types.DESELECT_GIFT,
       char: char,
-      gift: item
+      gift: item,
+      type: types.DESELECT_GIFT
     };
     expect(actions.deselectGift(char, item)).toEqual(expectedAction);
   });
@@ -28,9 +28,9 @@ describe('charactersActions', () => {
     const char = 'Lewis';
     const count = 2;
     const expectedAction = {
-      type: types.SET_GIFT_COUNT,
       char: char,
-      count: count
+      count: count,
+      type: types.SET_GIFT_COUNT
     };
     expect(actions.setGiftCount(char, count)).toEqual(expectedAction);
   });

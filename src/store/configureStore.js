@@ -5,9 +5,9 @@ import rootReducer from '../reducers/rootReducer';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
+  blacklist: ['navigation'],
   key: 'sdv-gp',
-  storage,
-  blacklist: ['navigation']
+  storage
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

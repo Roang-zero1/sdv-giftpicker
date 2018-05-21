@@ -90,20 +90,20 @@ exports[`components/GiftButton --- Render connected component should be the same
           className="mb-1 c0 col-12 col-md-6 col-xl-4"
         >
           <StyledButton
-            className="row flex-nowrap ml-2 mr-2"
+            className="flex-nowrap ml-2 mr-2 row"
             color="dark"
             onClick={[Function]}
             outline={true}
           >
             <Button
-              className="row flex-nowrap ml-2 mr-2 c1"
+              className="flex-nowrap ml-2 mr-2 row c1"
               color="dark"
               onClick={[Function]}
               outline={true}
               tag="button"
             >
               <button
-                className="row flex-nowrap ml-2 mr-2 c1 btn btn-outline-dark"
+                className="flex-nowrap ml-2 mr-2 row c1 btn btn-outline-dark"
                 onClick={[Function]}
                 type="button"
               >
@@ -205,7 +205,7 @@ exports[`components/GiftButton --- Shallow render connected component should be 
   xs="12"
 >
   <StyledButton
-    className="row flex-nowrap ml-2 mr-2"
+    className="flex-nowrap ml-2 mr-2 row"
     color="dark"
     onClick={[Function]}
     outline={true}

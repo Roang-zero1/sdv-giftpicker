@@ -18,5 +18,3 @@ describe('components/About --- Shallow render component', () => {
     expect(toJson(cut)).toMatchSnapshot();
   });
 });
-
-describe('components/About --- Snapshot', () => {});

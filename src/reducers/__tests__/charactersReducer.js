@@ -6,9 +6,9 @@ describe('statusReducer', () => {
   it('should should change the save property', () => {
     let state = { Lewis: { gifts: 1 } };
     state = reducer(state, {
-      type: types.SET_GIFT_COUNT,
       char: 'Lewis',
-      count: 2
+      count: 2,
+      type: types.SET_GIFT_COUNT
     });
     expect(state).toEqual({ Lewis: { gifts: 2 } });
   });
@@ -16,9 +16,9 @@ describe('statusReducer', () => {
   it('should add the selected gift to the character', () => {
     let state = { Lewis: {} };
     state = reducer(state, {
-      type: types.SELECT_GIFT,
       char: 'Lewis',
-      gift: 208
+      gift: 208,
+      type: types.SELECT_GIFT
     });
     expect(state.Lewis.selected.length).toEqual(1);
     expect(state).toEqual({ Lewis: { selected: [208] } });
@@ -27,9 +27,9 @@ describe('statusReducer', () => {
   it('should not add more than 2 gits', () => {
     let state = { Lewis: { selected: [208, 200] } };
     state = reducer(state, {
-      type: types.SELECT_GIFT,
       char: 'Lewis',
-      gift: 208
+      gift: 208,
+      type: types.SELECT_GIFT
     });
     expect(state.Lewis.selected.length).toEqual(2);
     expect(state).toEqual({ Lewis: { selected: [200, 208] } });
@@ -38,9 +38,9 @@ describe('statusReducer', () => {
   it('should deselect the chosen gift', () => {
     let state = { Lewis: { selected: [208, 200] } };
     state = reducer(state, {
-      type: types.DESELECT_GIFT,
       char: 'Lewis',
-      gift: 208
+      gift: 208,
+      type: types.DESELECT_GIFT
     });
     expect(state.Lewis.selected.length).toEqual(1);
     expect(state).toEqual({ Lewis: { selected: [200] } });
@@ -49,9 +49,9 @@ describe('statusReducer', () => {
   it('should deselect only chosen gifts', () => {
     let state = { Lewis: { selected: [208, 200] } };
     state = reducer(state, {
-      type: types.DESELECT_GIFT,
       char: 'Lewis',
-      gift: 408
+      gift: 408,
+      type: types.DESELECT_GIFT
     });
     expect(state).toEqual({ Lewis: { selected: [208, 200] } });
     expect(state.Lewis.selected.length).toEqual(2);
@@ -60,9 +60,9 @@ describe('statusReducer', () => {
   it('should not fail to deselect on no chosen gifts', () => {
     let state = {};
     state = reducer(state, {
-      type: types.DESELECT_GIFT,
       char: 'Lewis',
-      gift: 408
+      gift: 408,
+      type: types.DESELECT_GIFT
     });
     expect(state).toEqual({ Lewis: { selected: [] } });
     expect(state.Lewis.selected.length).toEqual(0);
@@ -71,9 +71,9 @@ describe('statusReducer', () => {
   it('should not add more than 2 gits', () => {
     let state = { Lewis: { selected: [208, 200] } };
     state = reducer(state, {
-      type: types.DESELECT_GIFT,
       char: 'Lewis',
-      gift: 208
+      gift: 208,
+      type: types.DESELECT_GIFT
     });
     expect(state.Lewis.selected.length).toEqual(1);
     expect(state).toEqual({ Lewis: { selected: [200] } });

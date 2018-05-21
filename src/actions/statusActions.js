@@ -10,7 +10,7 @@ export function setIntroChosen(intro = false) {
 
 export function setLoading(loading = false) {
   return {
-    type: types.SET_LOADING,
-    loading: loading
+    loading: loading,
+    type: types.SET_LOADING
   };
 }

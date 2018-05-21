@@ -38,7 +38,8 @@ describe('component/GiftButton --- Shallow rendered component', () => {
 describe('component/GiftButton --- Shallow rendered connected component', () => {
   const mockStore = configureStore();
   let renderedCut;
-  let store, state;
+  let store;
+  let state;
   const cut = () => {
     if (!renderedCut) {
       store = mockStore(state);

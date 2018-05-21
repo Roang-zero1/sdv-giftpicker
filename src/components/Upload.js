@@ -157,9 +157,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    charactersActions: bindActionCreators(charactersActions, dispatch),
     itemsActions: bindActionCreators(itemsActions, dispatch),
-    statusActions: bindActionCreators(statusActions, dispatch),
-    charactersActions: bindActionCreators(charactersActions, dispatch)
+    statusActions: bindActionCreators(statusActions, dispatch)
   };
 }
 

@@ -54,9 +54,9 @@ class DataDisplay extends Component {
               {...{ 'data-char': char, 'data-item': gift }}
               className={classNames({
                 gift: true,
+                'mb-3': true,
                 'ml-1': true,
-                'mr-1': true,
-                'mb-3': true
+                'mr-1': true
               })}
             >
               <img
@@ -83,9 +83,9 @@ class DataDisplay extends Component {
             <Card
               className={classNames({
                 'bg-light': true,
-                'text-center': true,
                 character: true,
-                shadow: true
+                shadow: true,
+                'text-center': true
               })}
               id={char}
             >

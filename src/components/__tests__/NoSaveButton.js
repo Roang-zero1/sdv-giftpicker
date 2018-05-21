@@ -40,8 +40,8 @@ describe('components/NoSaveButton --- Render component', () => {
   beforeEach(() => {
     renderedCut = undefined;
     props = {
-      text: undefined,
-      inline: undefined
+      inline: undefined,
+      text: undefined
     };
   });
 
@@ -82,7 +82,8 @@ describe('components/NoSaveButton --- Render component', () => {
 
 describe('components/NoSaveButton --- Shallow render connected component', () => {
   const mockStore = configureStore();
-  let cut, store;
+  let cut;
+  let store;
 
   beforeEach(() => {
     store = mockStore(initialState);

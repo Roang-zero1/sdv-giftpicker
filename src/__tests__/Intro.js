@@ -26,10 +26,11 @@ describe('Intro --- Shallow render component', () => {
 
 describe('Intro --- Render connected component', () => {
   const mockStore = configureStore();
-  let component, store;
+  let cut;
+  let store;
   beforeEach(() => {
     store = mockStore(initialState);
-    component = mount(
+    cut = mount(
       <Provider store={store}>
         <Intro />
       </Provider>
@@ -37,9 +38,9 @@ describe('Intro --- Render connected component', () => {
   });
 
   it('should render self and sub-components', () => {
-    expect(component).toHaveLength(1);
+    expect(cut).toHaveLength(1);
 
-    expect(component.find(Upload)).toHaveLength(1);
-    expect(component.find(NoSaveButton)).toHaveLength(1);
+    expect(cut.find(Upload)).toHaveLength(1);
+    expect(cut.find(NoSaveButton)).toHaveLength(1);
   });
 });

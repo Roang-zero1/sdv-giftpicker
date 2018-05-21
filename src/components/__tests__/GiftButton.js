@@ -14,8 +14,8 @@ const giftID = 20;
 const charName = 'Lewis';
 
 const defaultProps = {
-  items: {},
   characters: { Lewis: {} },
+  items: {},
   status: { save: true }
 };
 
@@ -174,7 +174,8 @@ describe('components/GiftButton --- Render connected component', () => {
 describe('components/GiftButton --- Connected component tests', () => {
   const mockStore = configureStore();
   let renderedGiftButton;
-  let store, props;
+  let store;
+  let props;
 
   const cut = () => {
     const state = {

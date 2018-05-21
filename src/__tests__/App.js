@@ -13,7 +13,8 @@ import initialState from '../reducers/initialState';
 
 describe('App --- Shallow render component', () => {
   const mockStore = configureStore();
-  let cut, store;
+  let cut;
+  let store;
   beforeEach(() => {
     store = mockStore(initialState);
     cut = shallow(<ConnectedApp store={store} />);
@@ -30,7 +31,8 @@ describe('App --- Shallow render component', () => {
 
 describe('App --- Render component without sidebar', () => {
   const mockStore = configureStore();
-  let cut, store;
+  let cut;
+  let store;
   beforeEach(() => {
     store = mockStore(initialState);
     cut = mount(
@@ -59,7 +61,8 @@ describe('App --- Render component without sidebar', () => {
 
 describe('App --- Render component with sidebar', () => {
   const mockStore = configureStore();
-  let cut, store;
+  let cut;
+  let store;
   beforeEach(() => {
     store = mockStore({
       ...initialState,

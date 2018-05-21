@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import tastes from '../data/GiftTastes.js';
 
-const categories_map = {
+const categoriesMap = {
   0: 'Love',
   1: 'Like',
   4: 'neutral'
@@ -47,8 +47,8 @@ export class GiftPicker extends Component {
       <Col id="gift-picker" xs="12">
         <HeaderRow
           className={classNames({
-            'mb-2': true,
-            'border-bottom': true
+            'border-bottom': true,
+            'mb-2': true
           })}
         >
           <Col xs="12" lg="4">
@@ -83,7 +83,7 @@ export class GiftPicker extends Component {
     }
     return (
       <Col xs="12" key={category}>
-        <h4>{categories_map[category]}</h4>
+        <h4>{categoriesMap[category]}</h4>
         <Row>{gifts}</Row>
       </Col>
     );
