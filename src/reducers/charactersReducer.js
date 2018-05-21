@@ -12,10 +12,13 @@ export default function characters(state = initialState.characters, action) {
   if (!(action.char in state)) {
     newState = update(state, {
       [action.char]: {
-        $set: {}
+        $set: {
+          selected: []
+        }
       }
     });
   }
+
   switch (action.type) {
     case SELECT_GIFT:
       if (!('selected' in newState[action.char])) {
