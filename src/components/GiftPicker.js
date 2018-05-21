@@ -96,7 +96,6 @@ GiftPicker.propTypes = {
 
 function mapStateToProps(state, props) {
   const { char } = props;
-  console.log(state.characters[char]);
   return {
     character: state.characters[char]
   };
