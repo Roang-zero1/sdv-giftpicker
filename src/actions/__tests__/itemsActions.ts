@@ -1,10 +1,11 @@
-import { IItems, ItemsActions } from '../../common/types';
+import { ItemsActions } from '../../common/types';
+import { IState } from '../../reducers/itemsReducer';
 import ActionTypes from '../actionTypesTS';
 import * as actions from '../itemsActions';
 
 describe('itemsActions', () => {
   it('should create an action to update the item data', () => {
-    const items: IItems = { 200: 30, 208: 50 };
+    const items: IState = { 200: 30, 208: 50 };
     const expectedAction: ItemsActions = {
       payload: items,
       type: ActionTypes.UPDATE_ITEMS
