@@ -1,5 +1,5 @@
-import characters from './charactersReducer';
 import { combineReducers } from 'redux';
+import characters from './charactersReducer';
 import items from './itemsReducer';
 import navigation from './navigationReducer';
 import status from './statusReducer';
