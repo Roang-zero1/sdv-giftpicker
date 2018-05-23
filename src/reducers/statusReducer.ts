@@ -14,7 +14,10 @@ export const initialState: IState = {
   save: false
 };
 
-export default function status(state = initialState, action: StatusActions) {
+export default (
+  state: IState = initialState,
+  action: StatusActions
+): IState => {
   switch (action.type) {
     case ActionTypes.SET_SAVE_GAME:
       return update(state, {
@@ -31,4 +34,4 @@ export default function status(state = initialState, action: StatusActions) {
     default:
       return state;
   }
-}
+};
