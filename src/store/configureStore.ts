@@ -11,6 +11,7 @@ const persistConfig: PersistConfig = {
   storage
 };
 
+// @ts-ignore Currently bugged for redux 4.0.0
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const devTools: StoreEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION__
