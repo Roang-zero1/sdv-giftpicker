@@ -11,7 +11,7 @@ import { Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import giftIDs from '../data/Gifts.js';
+import giftIDs from '../data/Gifts';
 
 class Upload extends Component {
   constructor(props) {

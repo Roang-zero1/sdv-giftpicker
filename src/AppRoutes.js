@@ -14,7 +14,7 @@ import Loader from './components/Loader';
 import { connect } from 'react-redux';
 import { hot } from 'react-hot-loader';
 import { animateScroll as scroll } from 'react-scroll';
-import tastes from './data/GiftTastes.js';
+import tastes from './data/GiftTastes';
 
 export class AppRoutes extends Component {
   componentDidUpdate(prevProps) {
@@ -42,7 +42,7 @@ export class AppRoutes extends Component {
                   path="/"
                   render={() => (
                     <DataDisplay
-                      giftsMetaData={require('./data/GiftsData.js').default}
+                      giftsMetaData={require('./data/GiftsData').default}
                     />
                   )}
                 />

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import tastes from '../data/GiftTastes.js';
+import tastes from '../data/GiftTastes';
 
 class Sidebar extends Component {
   render() {
