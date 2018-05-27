@@ -1,14 +1,15 @@
 import './Intro.css';
 
+import * as React from 'react';
+import { Component } from 'react';
 import { Col, Container, Jumbotron } from 'reactstrap';
-import React, { Component } from 'react';
 
 import About from './components/About';
 import NoSaveButton from './components/NoSaveButton';
 import Upload from './components/Upload';
 
 class Intro extends Component {
-  render() {
+  public render() {
     return (
       <main className="App">
         <Jumbotron className="header">
