@@ -1,28 +1,29 @@
 import './App.css';
 
+import * as React from 'react';
+import { Component } from 'react';
 import { Container, Row } from 'reactstrap';
-import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+import { NavigationState, RootState } from './common/types';
 import About from './components/About';
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
-import classNames from 'classnames';
-import { connect } from 'react-redux';
 
-class App extends Component {
-  render() {
+interface IStateProps {
+  navigation: NavigationState;
+}
+
+class App extends Component<IStateProps> {
+  public render() {
+    const { sidebar } = this.props.navigation;
     return (
       <div>
         <Navigation />
         <Container fluid={true}>
           <Row id="wrapper">
-            {this.props.navigation.sidebar && <Sidebar />}
-            <main
-              id="main"
-              className={classNames({
-                'p-1': true
-              })}
-            >
+            {sidebar && <Sidebar />}
+            <main id="main" className="p-1">
               <Container>
                 <Row>
                   {this.props.children}
@@ -37,7 +38,7 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: RootState) {
   return {
     navigation: state.navigation
   };
