@@ -29,7 +29,7 @@
     "reactstrap": "^6.0.1",
     "redux": "^4.0.0",
     "redux-persist": "^5.9.1",
-    "styled-components": "^3.2.6",
+    "styled-components": "^3.3.0",
     "typesafe-actions": "^2.0.3"
   },
   "eslintConfig": {
@@ -61,6 +61,8 @@
     "@types/enzyme": "^3.1.10",
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "^22.2.3",
+    "@types/jquery": "^3.3.2",
+    "@types/reactstrap": "^5.0.25",
     "awesome-typescript-loader": "^5.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
