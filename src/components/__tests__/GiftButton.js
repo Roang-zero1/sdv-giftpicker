@@ -8,7 +8,8 @@ import configureStore from 'redux-mock-store';
 import giftsData from '../../data/GiftsData';
 import initialState from '../../reducers/initialState';
 import toJson from 'enzyme-to-json';
-import ActionTypes from '../../actions/actionTypesTS';
+import * as charactersActions from '../../actions/charactersActions';
+import { getType } from 'typesafe-actions';
 
 const giftID = 20;
 const charName = 'Lewis';
@@ -210,7 +211,7 @@ describe('components/GiftButton --- Connected component tests', () => {
         char: charName,
         itemID: giftID
       },
-      type: ActionTypes.SELECT_GIFT
+      type: getType(charactersActions.selectGift)
     });
   });
 
@@ -227,7 +228,7 @@ describe('components/GiftButton --- Connected component tests', () => {
         char: charName,
         itemID: giftID
       },
-      type: ActionTypes.DESELECT_GIFT
+      type: getType(charactersActions.deselectGift)
     });
   });
 });

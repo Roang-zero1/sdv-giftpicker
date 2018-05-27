@@ -7,7 +7,9 @@ import configureStore from 'redux-mock-store';
 import giftIDs from '../../data/Gifts';
 import initialState from '../../reducers/initialState';
 import toJSON from 'enzyme-to-json';
-import ActionTypes from '../../actions/actionTypesTS';
+import * as statusActions from '../../actions/statusActions';
+import * as itemsActions from '../../actions/itemsActions';
+import { isActionOf } from 'typesafe-actions';
 
 describe('components/NoSaveButton --- Shallow render component', () => {
   let cut;
@@ -100,29 +102,24 @@ describe('components/NoSaveButton --- Shallow render connected component', () =>
     expect(store.getState()).toEqual(initialState);
     cut.find('button').simulate('click');
     let actions = store.getActions();
-    let setLoading = actions.filter(
-      action => action.type === ActionTypes.SET_LOADING
-    );
+    let setLoading = actions.filter(isActionOf(statusActions.setLoading));
     expect(setLoading).toHaveLength(2);
     expect(setLoading[0].payload).toEqual(true);
     expect(setLoading[1].payload).toEqual(false);
 
-    let setSaveGame = actions.filter(
-      action => action.type === ActionTypes.SET_SAVE_GAME
-    );
+    let setSaveGame = actions.filter(isActionOf(statusActions.setSaveGame));
     expect(setSaveGame).toHaveLength(1);
     expect(setSaveGame[0].payload).toEqual(false);
 
     let setIntroChosen = actions.filter(
-      action => action.type === ActionTypes.SET_INTRO_CHOSEN
+      isActionOf(statusActions.setIntroChosen)
     );
     expect(setIntroChosen).toHaveLength(1);
     expect(setIntroChosen[0].payload).toEqual(true);
 
     expect(
       Object.keys(
-        actions.filter(action => action.type === ActionTypes.UPDATE_ITEMS)[0]
-          .payload
+        actions.filter(isActionOf(itemsActions.updateItems))[0].payload
       )
     ).toHaveLength(giftIDs.length);
   });

@@ -1,5 +1,6 @@
 import update from 'immutability-helper';
-import ActionTypes from '../actions/actionTypesTS';
+import { getType } from 'typesafe-actions';
+import * as actions from '../actions/statusActions';
 import { StatusActions } from '../common/types';
 
 export interface IState {
@@ -19,15 +20,15 @@ export default (
   action: StatusActions
 ): IState => {
   switch (action.type) {
-    case ActionTypes.SET_SAVE_GAME:
+    case getType(actions.setSaveGame):
       return update(state, {
         save: { $set: action.payload }
       });
-    case ActionTypes.SET_INTRO_CHOSEN:
+    case getType(actions.setIntroChosen):
       return update(state, {
         intro: { $set: action.payload }
       });
-    case ActionTypes.SET_LOADING:
+    case getType(actions.setLoading):
       return update(state, {
         loading: { $set: action.payload }
       });

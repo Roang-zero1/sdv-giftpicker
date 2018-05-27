@@ -1,5 +1,6 @@
 import update from 'immutability-helper';
-import ActionTypes from '../actions/actionTypesTS';
+import { getType } from 'typesafe-actions';
+import * as actions from '../actions/navigationActions';
 import { NavigationActions } from '../common/types';
 
 export interface IState {
@@ -15,7 +16,7 @@ export default (
   action: NavigationActions
 ): IState => {
   switch (action.type) {
-    case ActionTypes.TOGGLE_SIDEBAR:
+    case getType(actions.toggleSidebar):
       return update(state, {
         sidebar: { $set: !state.sidebar }
       });

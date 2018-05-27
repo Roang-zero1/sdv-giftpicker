@@ -1,6 +1,7 @@
 import update from 'immutability-helper';
-import ActionTypes from '../actions/actionTypesTS';
-import { CharacterAction } from '../common/types';
+import { getType } from 'typesafe-actions';
+import * as actions from '../actions/charactersActions';
+import { CharactersActions } from '../common/types';
 
 export interface IState {
   readonly [character: string]: {
@@ -13,14 +14,14 @@ export const initialState: IState = {};
 
 export default function characters(
   state: IState = initialState,
-  action: CharacterAction
+  action: CharactersActions
 ): IState {
   let char: string = '';
   let newState = state;
   switch (action.type) {
-    case ActionTypes.SELECT_GIFT:
-    case ActionTypes.DESELECT_GIFT:
-    case ActionTypes.SET_GIFT_COUNT:
+    case getType(actions.selectGift):
+    case getType(actions.deselectGift):
+    case getType(actions.setGiftCount):
       char = action.payload.char;
 
       if (!(char in state)) {
@@ -37,7 +38,7 @@ export default function characters(
 
   let itemID: number;
   switch (action.type) {
-    case ActionTypes.SELECT_GIFT:
+    case getType(actions.selectGift):
       itemID = action.payload.itemID;
       newState = update(newState, {
         [char]: {
@@ -53,7 +54,7 @@ export default function characters(
           }
         }
       });
-    case ActionTypes.DESELECT_GIFT:
+    case getType(actions.deselectGift):
       itemID = action.payload.itemID;
       const index = newState[char].selected.findIndex(
         (k: number) => k === itemID
@@ -67,7 +68,7 @@ export default function characters(
             }
           })
         : newState;
-    case ActionTypes.SET_GIFT_COUNT:
+    case getType(actions.setGiftCount):
       return update(newState, {
         [char]: {
           gifts: {

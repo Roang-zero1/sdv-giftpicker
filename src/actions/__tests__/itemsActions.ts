@@ -1,14 +1,15 @@
+import { getType } from 'typesafe-actions';
 import { ItemsActions } from '../../common/types';
 import { IState } from '../../reducers/itemsReducer';
-import ActionTypes from '../actionTypesTS';
 import * as actions from '../itemsActions';
 
 describe('itemsActions', () => {
   it('should create an action to update the item data', () => {
     const items: IState = { 200: 30, 208: 50 };
+    const actionType = getType(actions.updateItems);
     const expectedAction: ItemsActions = {
       payload: items,
-      type: ActionTypes.UPDATE_ITEMS
+      type: actionType
     };
     expect(actions.updateItems(items)).toEqual(expectedAction);
   });
@@ -16,12 +17,13 @@ describe('itemsActions', () => {
   it('should create an action to increment an item count', () => {
     const item = 200;
     const increment = 10;
+    const actionType = getType(actions.modifyItemCount);
     const expectedAction: ItemsActions = {
       payload: {
         amount: increment,
         itemID: item
       },
-      type: ActionTypes.MODIFY_COUNT
+      type: actionType
     };
     expect(
       actions.modifyItemCount({ itemID: item, amount: increment })
