@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 
 import { Col } from 'reactstrap';
 
 /* TODO: Add an about referencing the used tools*/
 
 class About extends Component {
-  render() {
+  public render() {
     return (
       <Col xs="12" className="about">
         <h2>About</h2>
