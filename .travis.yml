@@ -5,7 +5,7 @@ before_install:
   - npm install -g codecov
 before_script: greenkeeper-lockfile-update
 script:
-  - npm test
+  - npm test -- --coverage
   - codecov
 after_script: greenkeeper-lockfile-upload
 after_success:
