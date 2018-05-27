@@ -20,14 +20,13 @@ export interface IDispatchProps {
 }
 
 export interface IProps extends IDispatchProps {
-  inline: boolean;
-  other: any;
-  text: string;
+  inline?: boolean;
+  text?: string;
   className: string;
 }
 
 interface IWrapperProps {
-  inline: boolean;
+  inline?: boolean;
 }
 
 const Wrapper = styled<IWrapperProps, 'div'>('div')`
