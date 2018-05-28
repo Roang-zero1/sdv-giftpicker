@@ -32,7 +32,7 @@ export class NoSaveButton extends Component {
     this.props.statusActions.setLoading(true);
     this.props.statusActions.setSaveGame(false);
     for (let char of Object.keys(giftTastes)) {
-      this.props.charactersActions.setGiftCount(char, 0);
+      this.props.charactersActions.setGiftCount({ char, count: 0 });
     }
     let items = {};
     for (let gift of giftIDs) {
