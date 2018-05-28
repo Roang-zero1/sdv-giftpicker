@@ -1,15 +1,14 @@
-import { mount, shallow } from 'enzyme';
-
-import Intro from '../Intro';
-import NoSaveButton from '../components/NoSaveButton';
+import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
+import * as React from 'react';
 import { Provider } from 'react-redux';
-import React from 'react';
-import Upload from '../components/Upload';
 import configureStore from 'redux-mock-store';
+import NoSaveButton from '../components/NoSaveButton';
+import Upload from '../components/Upload';
+import Intro from '../Intro';
 import initialState from '../reducers/initialState';
 
 describe('Intro --- Shallow render component', () => {
-  let cut;
+  let cut: ShallowWrapper;
 
   beforeEach(() => {
     cut = shallow(<Intro />);
@@ -26,7 +25,7 @@ describe('Intro --- Shallow render component', () => {
 
 describe('Intro --- Render connected component', () => {
   const mockStore = configureStore();
-  let cut;
+  let cut: ReactWrapper;
   let store;
   beforeEach(() => {
     store = mockStore(initialState);
