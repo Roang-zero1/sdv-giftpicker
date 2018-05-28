@@ -1,9 +1,7 @@
-import './Intro.css';
-
+import * as classNames from 'classnames';
 import * as React from 'react';
 import { Component } from 'react';
 import { Col, Container, Jumbotron } from 'reactstrap';
-
 import About from './components/About';
 import NoSaveButton from './components/NoSaveButton';
 import Upload from './components/Upload';
@@ -12,7 +10,9 @@ class Intro extends Component {
   public render() {
     return (
       <main className="App">
-        <Jumbotron className="header">
+        <Jumbotron
+          className={classNames({ 'bg-dark': true, 'text-white': true })}
+        >
           <Container>
             <h1 className="display-3">SDV Gift Picker</h1>
             <p>

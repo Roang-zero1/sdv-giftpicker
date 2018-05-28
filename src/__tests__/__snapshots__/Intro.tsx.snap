@@ -5,7 +5,7 @@ exports[`Intro --- Shallow render component should be the same as the last snaps
   className="App"
 >
   <Jumbotron
-    className="header"
+    className="bg-dark text-white"
     tag="div"
   >
     <Container
