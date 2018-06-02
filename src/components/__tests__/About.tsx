@@ -1,10 +1,10 @@
-import About from '../About';
-import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import * as React from 'react';
+import About from '../About';
 
 describe('components/About --- Shallow render component', () => {
-  let cut;
+  let cut: ShallowWrapper;
 
   beforeEach(() => {
     cut = shallow(<About />);
