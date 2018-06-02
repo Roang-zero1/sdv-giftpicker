@@ -5,7 +5,7 @@ import { mount, shallow } from 'enzyme';
 
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import giftsData from '../../data/GiftsData';
+import giftsData from '../../data/GiftsData.json';
 import initialState from '../../reducers/initialState';
 import toJson from 'enzyme-to-json';
 import * as charactersActions from '../../actions/charactersActions';

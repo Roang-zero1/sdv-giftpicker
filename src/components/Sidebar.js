@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import tastes from '../data/GiftTastes';
+import tastes from '../data/GiftTastes.json';
 
 class Sidebar extends Component {
   render() {
@@ -88,4 +88,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sidebar);

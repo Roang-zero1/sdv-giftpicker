@@ -8,7 +8,7 @@ import { Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import giftIDs from '../data/Gifts';
-import giftTastes from '../data/GiftTastes';
+import giftTastes from '../data/GiftTastes.json';
 
 export class NoSaveButton extends Component {
   constructor(props) {
@@ -53,4 +53,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(NoSaveButton);
+export default connect(
+  null,
+  mapDispatchToProps
+)(NoSaveButton);

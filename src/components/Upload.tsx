@@ -11,7 +11,9 @@ import { Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
 import { RootState } from '../common/types';
-import giftIDs from '../data/Gifts';
+
+/* tslint:disable-next-line:no-var-requires */
+const giftIDs: number[] = require('../data/Gifts.json');
 
 export interface IDispatchProps {
   charactersActions: typeof charactersActions;
@@ -201,4 +203,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Upload);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Upload);

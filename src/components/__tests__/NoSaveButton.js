@@ -4,7 +4,7 @@ import { mount, shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import giftIDs from '../../data/Gifts';
+import giftIDs from '../../data/Gifts.json';
 import initialState from '../../reducers/initialState';
 import toJSON from 'enzyme-to-json';
 import * as statusActions from '../../actions/statusActions';

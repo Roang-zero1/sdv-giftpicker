@@ -22,7 +22,7 @@ import Square from '../images/Square';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import tastes from '../data/GiftTastes';
+import tastes from '../data/GiftTastes.json';
 
 class DataDisplay extends Component {
   constructor(props) {
@@ -170,5 +170,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(DataDisplay)
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(DataDisplay)
 );

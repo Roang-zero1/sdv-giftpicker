@@ -16,8 +16,10 @@ import DataDisplay from './components/DataDisplay';
 import GiftPicker from './components/GiftPicker';
 import Loader from './components/Loader';
 import ScrollToTop from './components/ScrollToTop';
-import tastes from './data/GiftTastes';
 import Intro from './Intro';
+
+/* tslint:disable-next-line:no-var-requires */
+const GiftTastes: number[] = require('./data/GiftTastes.json');
 
 export interface IState {
   status: StatusState;
@@ -59,11 +61,11 @@ export class AppRoutes extends Component<IState> {
   }
 
   private renderDataDisplay = () => {
-    return <DataDisplay giftsMetaData={require('./data/GiftsData').default} />;
+    return <DataDisplay giftsMetaData={require('./data/GiftsData.json')} />;
   };
   private renderGiftPicker = (props: RouteComponentProps<any>) => {
     const char = props.match.params.characterName;
-    if (char in tastes) {
+    if (char in GiftTastes) {
       return <GiftPicker char={char} />;
     } else {
       return <Redirect to="/" />;

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import tastes from '../data/GiftTastes';
+import tastes from '../data/GiftTastes.json';
 
 const categoriesMap = {
   0: 'Love',

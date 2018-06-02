@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import giftsMetaData from '../data/GiftsData';
+import giftsMetaData from '../data/GiftsData.json';
 
 const Gift = styled(({ owned, ...rest }) => <Col {...rest} />)`
   ${props =>
@@ -113,4 +113,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GiftButton);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GiftButton);

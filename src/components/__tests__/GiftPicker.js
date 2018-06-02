@@ -3,7 +3,7 @@ import ConnectedGiftPicker, { GiftPicker } from '../GiftPicker';
 import GiftButton from '../GiftButton';
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import giftTastes from '../../data/GiftTastes';
+import giftTastes from '../../data/GiftTastes.json';
 import initialState from '../../reducers/initialState';
 import { shallow } from 'enzyme';
 
