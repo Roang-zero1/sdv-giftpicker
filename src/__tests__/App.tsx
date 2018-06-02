@@ -1,23 +1,23 @@
+import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 import { Container, Row } from 'reactstrap';
-import { mount, shallow } from 'enzyme';
 
-import About from '../components/About';
-import ConnectedApp from '../App';
-import { MemoryRouter } from 'react-router-dom';
-import Navigation from '../components/Navigation';
+import * as React from 'react';
 import { Provider } from 'react-redux';
-import React from 'react';
-import Sidebar from '../components/Sidebar';
+import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
+import ConnectedApp from '../App';
+import About from '../components/About';
+import Navigation from '../components/Navigation';
+import Sidebar from '../components/Sidebar';
 import initialState from '../reducers/initialState';
 
 describe('App --- Shallow render component', () => {
   const mockStore = configureStore();
-  let cut;
+  let cut: ShallowWrapper;
   let store;
   beforeEach(() => {
     store = mockStore(initialState);
-    cut = shallow(<ConnectedApp store={store} />);
+    cut = shallow(<ConnectedApp />, { context: { store } });
   });
 
   it('should render the cut', () => {
@@ -31,7 +31,7 @@ describe('App --- Shallow render component', () => {
 
 describe('App --- Render component without sidebar', () => {
   const mockStore = configureStore();
-  let cut;
+  let cut: ReactWrapper;
   let store;
   beforeEach(() => {
     store = mockStore(initialState);
@@ -61,7 +61,7 @@ describe('App --- Render component without sidebar', () => {
 
 describe('App --- Render component with sidebar', () => {
   const mockStore = configureStore();
-  let cut;
+  let cut: ReactWrapper;
   let store;
   beforeEach(() => {
     store = mockStore({
