@@ -9,7 +9,7 @@ import Upload from './components/Upload';
 class Intro extends Component {
   public render() {
     return (
-      <main className="App">
+      <main id="main">
         <Jumbotron
           className={classNames({ 'bg-dark': true, 'text-white': true })}
         >

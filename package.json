@@ -64,6 +64,7 @@
     "@types/jest": "^22.2.3",
     "@types/jquery": "^3.3.2",
     "@types/react-router-dom": "^4.2.6",
+    "@types/react-scroll": "^1.5.3",
     "@types/reactstrap": "^5.0.25",
     "@types/redux-mock-store": "0.0.12",
     "awesome-typescript-loader": "^5.0.0",

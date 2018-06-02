@@ -1,8 +1,8 @@
-import AppRoute from '../AppRoutes';
-import { MemoryRouter } from 'react-router-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { MemoryRouter } from 'react-router-dom';
+import AppRoute from '../AppRoutes';
 import { store } from '../store/configureStore';
 
 it('renders without crashing', () => {

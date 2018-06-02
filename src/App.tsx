@@ -33,7 +33,7 @@ class App extends Component<IStateProps> {
         <Container fluid={true}>
           <Wrapper>
             {sidebar && <Sidebar />}
-            <Main className="p-1">
+            <Main className="p-1" id="main">
               <Container>
                 <Row>
                   {this.props.children}
