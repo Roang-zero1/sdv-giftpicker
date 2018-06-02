@@ -1,20 +1,20 @@
 import 'jest-styled-components';
 
-import { mount, shallow } from 'enzyme';
+import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 
-import Icon from '../Icon';
-import React from 'react';
 import toJson from 'enzyme-to-json';
+import * as React from 'react';
+import Icon, { IProps } from '../Icon';
 
-const giftID = 22;
+const gift = 22;
 
 describe('components/Icon --- Shallow render component', () => {
-  let cut;
-  let props;
+  let cut: ShallowWrapper;
+  let props: IProps;
 
   beforeEach(() => {
-    props = {};
-    cut = shallow(<Icon gift={giftID} {...props} />);
+    props = { gift };
+    cut = shallow(<Icon {...props} />);
   });
 
   it('should render the one component', () => {
@@ -27,19 +27,19 @@ describe('components/Icon --- Shallow render component', () => {
 });
 
 describe('components/Icon --- Render component', () => {
-  let renderedCut;
-  let props;
+  let renderedCut: ReactWrapper | undefined;
+  let props: IProps;
 
   const cut = () => {
     if (!renderedCut) {
-      renderedCut = mount(<Icon gift={giftID} {...props} />);
+      renderedCut = mount(<Icon {...props} />);
     }
     return renderedCut;
   };
 
   beforeEach(() => {
     renderedCut = undefined;
-    props = {};
+    props = { gift };
   });
 
   it('should render the one component', () => {
@@ -51,7 +51,7 @@ describe('components/Icon --- Render component', () => {
   });
 
   it('should gray out icons when grayscale is applied', () => {
-    props = { grayscale: true };
+    props = { ...props, grayscale: true };
     expect(toJson(cut().find('img'))).toHaveStyleRule(
       'filter',
       'grayscale(100%)'
