@@ -2,7 +2,7 @@
 
 exports[`Intro --- Shallow render component should be the same as the last snapshot 1`] = `
 <main
-  className="App"
+  id="main"
 >
   <Jumbotron
     className="bg-dark text-white"
