@@ -14,8 +14,6 @@ interface IImgProps {
 }
 
 const Img = styled<IImgProps, 'img'>('img')`
-  left: -12px;
-  position: relative;
   max-width: 24px;
   filter: ${props => (props.grayscale ? 'grayscale(100%)' : undefined)};
 `;

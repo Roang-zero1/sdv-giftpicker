@@ -71,7 +71,7 @@ export class GiftButton extends Component {
             row: true
           })}
         >
-          <Col xs="1">
+          <Col xs="1" className="p-0">
             <Icon gift={gift} grayscale={!owned} />
           </Col>
           <GiftText>{giftsMetaData[gift].displayName}</GiftText>
