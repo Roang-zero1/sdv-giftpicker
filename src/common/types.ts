@@ -29,6 +29,12 @@ export interface ICharacterGiftCount {
   count: number;
 }
 
+export interface IGiftTastes {
+  [character: string]: {
+    [category: number]: number[];
+  };
+}
+
 export type CharactersActions = ActionType<typeof charactersActions>;
 export type ItemsActions = ActionType<typeof itemsAction>;
 export type NavigationActions = ActionType<typeof navigationActions>;

@@ -2,6 +2,9 @@ import './DataDisplay.css';
 
 import * as charactersActions from '../actions/charactersActions';
 
+import * as React from 'react';
+import { Component } from 'react';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import {
   Button,
   Card,
@@ -13,27 +16,37 @@ import {
   Container,
   Row
 } from 'reactstrap';
-import { Link, withRouter } from 'react-router-dom';
-import React, { Component } from 'react';
 
-import $ from 'jquery';
+import * as classNames from 'classnames';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
+import { CharacterState, IGiftTastes, RootState } from '../common/types';
 import CheckSquare from '../images/CheckSquare';
 import Square from '../images/Square';
-import { bindActionCreators } from 'redux';
-import classNames from 'classnames';
-import { connect } from 'react-redux';
-import tastes from '../data/GiftTastes.json';
+import Icon from './Icon';
 
-class DataDisplay extends Component {
-  constructor(props) {
-    super(props);
-    this.deselectGift = this.deselectGift.bind(this);
-  }
+/* tslint:disable-next-line:no-var-requires */
+const GiftTastes: IGiftTastes = require('../data/GiftTastes.json');
 
-  render(props) {
-    let characters = [];
-    for (var char of Object.keys(this.props.characters).sort()) {
-      let charData = this.props.characters[char];
+export interface IStateProps {
+  characters: CharacterState;
+}
+
+export interface IDispatchProps {
+  charactersActions: typeof charactersActions;
+}
+
+export interface IProps
+  extends IStateProps,
+    IDispatchProps,
+    RouteComponentProps<any> {}
+
+class DataDisplay extends Component<IProps> {
+  public render() {
+    const { characters } = this.props;
+    const renderedCharacters = [];
+    for (const char of Object.keys(characters).sort()) {
+      const charData = characters[char];
       let order = 0;
       if (charData.selected && charData.selected.length > 0) {
         order = 2 - (charData.selected ? charData.selected.length : 0);
@@ -41,16 +54,16 @@ class DataDisplay extends Component {
         order = 10 + charData.gifts;
       }
 
-      let gifts = [];
+      const gifts = [];
       let giftCount = 0;
-      if (char in tastes) {
-        for (let gift of charData.selected || []) {
+      if (char in GiftTastes) {
+        for (const gift of charData.selected || []) {
           gifts.push(
             <Button
-              outline
+              outline={true}
               key={giftCount}
               color="success"
-              onClick={this.deselectGift}
+              onClick={this.deselectGift.bind(this, char, gift)}
               {...{ 'data-char': char, 'data-item': gift }}
               className={classNames({
                 gift: true,
@@ -59,18 +72,12 @@ class DataDisplay extends Component {
                 'mr-1': true
               })}
             >
-              <img
-                className="icon"
-                src={require('../images/items/' +
-                  this.props.giftsMetaData[gift].name +
-                  '.png')}
-                alt=""
-              />
+              <Icon gift={gift} />
             </Button>
           );
           giftCount++;
         }
-        characters.push(
+        renderedCharacters.push(
           <Col
             xs="6"
             md="4"
@@ -78,7 +85,7 @@ class DataDisplay extends Component {
             xl="2"
             key={char}
             className="mb-4"
-            style={{ order: order }}
+            style={{ order }}
           >
             <Card
               className={classNames({
@@ -134,36 +141,36 @@ class DataDisplay extends Component {
       }
     }
     return (
-      <Container id="data-display" fluid>
+      <Container id="data-display" fluid={true}>
         <Row>
           <Col xs="12">
             <h2>Characters</h2>
           </Col>
-          {characters}
+          {renderedCharacters}
         </Row>
       </Container>
     );
   }
 
-  deselectGift(event) {
-    let target = $(event.target);
-    let char = target.data('char');
-    let itemID = target.data('item');
+  public deselectGift(char: string, itemID: number) {
     this.props.charactersActions.setGiftCount({
       char,
       count: this.props.characters[char].gifts + 1
     });
-    this.props.charactersActions.deselectGift({ char, itemID });
+    this.props.charactersActions.deselectGift({
+      char,
+      itemID
+    });
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: RootState) {
   return {
     characters: state.characters
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch) {
   return {
     charactersActions: bindActionCreators(charactersActions, dispatch)
   };

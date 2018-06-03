@@ -41,11 +41,7 @@ export class AppRoutes extends Component<IState> {
               {this.props.status.loading && <Loader />}
               {!this.props.status.loading && (
                 <Switch>
-                  <Route
-                    exact={true}
-                    path="/"
-                    render={this.renderDataDisplay}
-                  />
+                  <Route exact={true} path="/" component={DataDisplay} />
                   <Route
                     path="/character/:characterName"
                     render={this.renderGiftPicker}
@@ -60,9 +56,6 @@ export class AppRoutes extends Component<IState> {
     );
   }
 
-  private renderDataDisplay = () => {
-    return <DataDisplay giftsMetaData={require('./data/GiftsData.json')} />;
-  };
   private renderGiftPicker = (props: RouteComponentProps<any>) => {
     const char = props.match.params.characterName;
     if (char in GiftTastes) {
