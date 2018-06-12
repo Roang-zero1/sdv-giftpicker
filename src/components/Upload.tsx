@@ -5,12 +5,11 @@ import * as statusActions from '../actions/statusActions';
 import * as React from 'react';
 import { Component, RefObject } from 'react';
 
-import * as $ from 'jquery';
 import { connect, Dispatch } from 'react-redux';
 import { Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
-import { IGiftTastes, RootState } from '../common/types';
+import { IGiftTastes, IItems, RootState } from '../common/types';
 
 /* tslint:disable-next-line:no-var-requires */
 const giftIDs: number[] = require('../data/Gifts.json');
@@ -48,8 +47,6 @@ const HiddenInput = styled.input`
 
 class Upload extends Component<IProps> {
   private inputRef: RefObject<HTMLInputElement>;
-  // TODO: Properly type this
-  private items: any;
   constructor(props: any) {
     super(props);
     this.inputRef = React.createRef();
@@ -76,49 +73,70 @@ class Upload extends Component<IProps> {
     );
   }
 
-  private parseItems(xmlDoc: XMLDocument, searchString: string) {
-    const items = this.items;
-    $(xmlDoc)
-      .find(searchString)
-      .each(function() {
-        let id = 0;
-        try {
-          id = parseInt(
-            $(this)
-              .find('parentSheetIndex')
-              .text(),
-            10
-          );
-          if (giftIDs.indexOf(id) > -1) {
-            const count = parseInt(
-              $(this)
-                .find('Stack')
-                .text(),
-              10
-            );
-            items[id] = (items[id] || 0) + count;
-          }
-        } catch (err) {
-          // TODO: Add proper error handling
-          console.log('Failed to get item count for ' + id);
-        }
-      });
-  }
+  private parseItemsDOM = (
+    oDOM: Document,
+    nsResolver: XPathNSResolver,
+    itemsDOM: IItems,
+    searchString: string
+  ): IItems => {
+    const nodes = oDOM.evaluate(
+      searchString,
+      oDOM,
+      nsResolver,
+      XPathResult.ANY_TYPE,
+      null
+    );
+    let result = nodes.iterateNext();
+    while (result) {
+      const id = oDOM.evaluate(
+        'parentSheetIndex',
+        result,
+        nsResolver,
+        XPathResult.NUMBER_TYPE,
+        null
+      ).numberValue;
+      const count = oDOM.evaluate(
+        'Stack',
+        result,
+        nsResolver,
+        XPathResult.NUMBER_TYPE,
+        null
+      ).numberValue;
+      if (
+        Number.isInteger(id) &&
+        Number.isInteger(count) &&
+        giftIDs.indexOf(id) > -1
+      ) {
+        itemsDOM[id] = (itemsDOM[id] || 0) + count;
+      }
+      result = nodes.iterateNext();
+    }
+    return itemsDOM;
+  };
 
-  private gatherItems(xmlDoc: XMLDocument) {
-    this.items = {};
-    this.parseItems(xmlDoc, 'player > items > Item[xsi\\:type="Object"]');
-    this.parseItems(
-      xmlDoc,
-      'locations > GameLocation[xsi\\:type="FarmHouse"] > fridge > items > Item[xsi\\:type="Object"]'
+  private gatherItemsDOM = (oDOM: Document): void => {
+    let itemsDOM: IItems = {};
+    const nsResolver = oDOM.createNSResolver(oDOM);
+    itemsDOM = this.parseItemsDOM(
+      oDOM,
+      nsResolver,
+      itemsDOM,
+      '//player/items/Item[@xsi:type="Object"]'
     );
-    this.parseItems(
-      xmlDoc,
-      'Object[xsi\\:type="Chest"] > items > Item[xsi\\:type="Object"]'
+    itemsDOM = this.parseItemsDOM(
+      oDOM,
+      nsResolver,
+      itemsDOM,
+      '//locations/GameLocation[@xsi:type="FarmHouse"]/fridge/items/Item[@xsi:type="Object"]'
     );
-    this.props.itemsActions.updateItems(this.items);
-    delete this.items;
-  }
+    itemsDOM = this.parseItemsDOM(
+      oDOM,
+      nsResolver,
+      itemsDOM,
+      '//Object[@xsi:type="Chest"]/items/Item[@xsi:type="Object"]'
+    );
+    this.props.itemsActions.updateItems(itemsDOM);
+  };
 
   private findGiftCount = (oDOM: Document) => {
     const nodes = oDOM.evaluate(
@@ -211,7 +229,6 @@ class Upload extends Component<IProps> {
     this.props.statusActions.setLoading(true);
     try {
       if (ev.target) {
-        const xmlDoc = $.parseXML(ev.target.result);
         const oDOM = this.parseXml(ev.target.result);
 
         console.log(
@@ -220,10 +237,9 @@ class Upload extends Component<IProps> {
             : oDOM.documentElement.nodeName
         );
 
-        this.gatherItems.call(this, xmlDoc);
         this.props.statusActions.setLoading(true);
+        this.gatherItemsDOM(oDOM);
         this.findGiftCount(oDOM);
-        this.props.statusActions.setLoading(true);
         this.props.statusActions.setLoading(false);
         this.props.statusActions.setSaveGame(true);
         this.props.statusActions.setIntroChosen(true);
