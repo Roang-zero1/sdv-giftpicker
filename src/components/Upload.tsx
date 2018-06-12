@@ -15,6 +15,11 @@ import { RootState } from '../common/types';
 /* tslint:disable-next-line:no-var-requires */
 const giftIDs: number[] = require('../data/Gifts.json');
 
+interface IWindow extends Window {
+  DOMParser: DOMParser | undefined;
+  ActiveXObject: any;
+}
+
 export interface IDispatchProps {
   charactersActions: typeof charactersActions;
   itemsActions: typeof itemsActions;
@@ -168,11 +173,40 @@ class Upload extends Component<IProps> {
     }
   };
 
+  private parseXml = (xmlString: string): Document => {
+    let oDOM;
+    const win = window as IWindow;
+    if (typeof win.DOMParser !== 'undefined') {
+      const parser = new DOMParser();
+      return parser.parseFromString(xmlString, 'text/xml');
+    } else if (
+      typeof win.ActiveXObject !== 'undefined' &&
+      new win.ActiveXObject('Microsoft.XMLDOM')
+    ) {
+      oDOM = new win.ActiveXObject('Microsoft.XMLDOM');
+      oDOM.async = false;
+      oDOM.loadXML(xmlString);
+      return oDOM;
+    } else {
+      throw new Error('No XML parser found');
+    }
+
+    return oDOM;
+  };
+
   private onLoad = (ev: FileReaderProgressEvent) => {
     this.props.statusActions.setLoading(true);
     try {
       if (ev.target) {
         const xmlDoc = $.parseXML(ev.target.result);
+        const oDOM = this.parseXml(ev.target.result);
+
+        console.log(
+          oDOM.documentElement.nodeName === 'parsererror'
+            ? 'error while parsing'
+            : oDOM.documentElement.nodeName
+        );
+
         this.gatherItems.call(this, xmlDoc);
         this.props.statusActions.setLoading(true);
         this.findGiftCount.call(this, xmlDoc);
