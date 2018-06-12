@@ -10,10 +10,12 @@ import { connect, Dispatch } from 'react-redux';
 import { Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
-import { RootState } from '../common/types';
+import { IGiftTastes, RootState } from '../common/types';
 
 /* tslint:disable-next-line:no-var-requires */
 const giftIDs: number[] = require('../data/Gifts.json');
+/* tslint:disable-next-line:no-var-requires */
+const giftTastes: IGiftTastes = require('../data/GiftTastes.json');
 
 interface IWindow extends Window {
   DOMParser: DOMParser | undefined;
@@ -118,31 +120,42 @@ class Upload extends Component<IProps> {
     delete this.items;
   }
 
-  private findGiftCount(xmlDoc: XMLDocument) {
-    const setGiftCount = this.props.charactersActions.setGiftCount;
-    $(xmlDoc)
-      .find('player > friendships > item')
-      .each(function() {
-        let char = 'unknown';
-        try {
-          char = $(this)
-            .find('key > string')
-            .html();
-          const count = parseInt(
-            $(this)
-              .find('value > ArrayOfInt > int')
-              .first()
-              .next()
-              .text(),
-            10
-          );
-          setGiftCount({ char, count });
-        } catch (err) {
-          // TODO: Add proper error handling
-          console.log('Failed to update data for ' + char + '\n' + err);
-        }
-      });
-  }
+  private findGiftCount = (oDOM: Document) => {
+    const nodes = oDOM.evaluate(
+      'SaveGame/player/friendships/item',
+      oDOM,
+      null,
+      XPathResult.ANY_TYPE,
+      null
+    );
+    let result = nodes.iterateNext();
+    while (result) {
+      const char = oDOM.evaluate(
+        'key/string',
+        result,
+        null,
+        XPathResult.STRING_TYPE,
+        null
+      ).stringValue;
+
+      const count = oDOM.evaluate(
+        'value/ArrayOfInt/int[2]',
+        result,
+        null,
+        XPathResult.NUMBER_TYPE,
+        null
+      ).numberValue;
+
+      if (char && char in giftTastes && Number.isInteger(count)) {
+        this.props.charactersActions.setGiftCount({
+          char,
+          count
+        });
+      }
+
+      result = nodes.iterateNext();
+    }
+  };
 
   private handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -209,7 +222,7 @@ class Upload extends Component<IProps> {
 
         this.gatherItems.call(this, xmlDoc);
         this.props.statusActions.setLoading(true);
-        this.findGiftCount.call(this, xmlDoc);
+        this.findGiftCount(oDOM);
         this.props.statusActions.setLoading(true);
         this.props.statusActions.setLoading(false);
         this.props.statusActions.setSaveGame(true);
