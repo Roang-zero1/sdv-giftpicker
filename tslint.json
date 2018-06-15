@@ -1,6 +1,15 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-  "rules": { "no-console": [false] },
+  "rules": {
+    "no-console": [false],
+    "variable-name": [
+      true,
+      "allow-leading-underscore",
+      "allow-pascal-case",
+      "ban-keywords",
+      "check-format"
+    ]
+  },
   "jsRules": { "no-console": [false] },
   "linterOptions": {
     "exclude": ["config/**/*.js", "node_modules/**/*.ts"]
