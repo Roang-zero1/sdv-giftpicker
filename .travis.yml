@@ -3,8 +3,6 @@ before_install:
   - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
   - npm install -g greenkeeper-lockfile@1
   - npm install -g codecov
-install:
-  - npm ci || npm install
 before_script: greenkeeper-lockfile-update
 script:
   - npm test
