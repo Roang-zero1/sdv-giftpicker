@@ -8,6 +8,13 @@
   "[javascriptreact]": {
     "editor.formatOnSave": true
   },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
   "[css]": {
     "editor.formatOnSave": true
   },
@@ -37,5 +44,6 @@
     "**/src/data/**"
   ],
   "jest.pathToJest": "npm test --",
-  "npm.enableScriptExplorer": true
+  "npm.enableScriptExplorer": true,
+  "tslint.autoFixOnSave": true,
 }

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/Loader --- Render component should be the same as the last snapshot 1`] = `
+.c0 {
+  height: 14em;
+}
+
+.c1 {
+  direction: ltr;
+  text-indent: -9999em;
+  margin: 3em auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.c1,
+.c1::after,
+.c1::before {
+  background: #222222;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  -webkit-animation-delay: -160ms;
+  animation-delay: -160ms;
+  width: 1em;
+  height: 4em;
+}
+
+.c1::before,
+.c1::after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+
+.c1::before {
+  left: -1.5em;
+  -webkit-animation-delay: -320ms;
+  animation-delay: -320ms;
+}
+
+.c1::after {
+  left: 1.5em;
+  -webkit-animation-delay: 0ms;
+  animation-delay: 0ms;
+}
+
+<Loader>
+  <Styled(Container)>
+    <Container
+      className="c0"
+      tag="div"
+    >
+      <div
+        className="c0 container"
+      >
+        <h2>
+          Loading
+        </h2>
+        <p>
+          Loading Data please wait
+        </p>
+        <styled.div>
+          <div
+            className="c1"
+          />
+        </styled.div>
+      </div>
+    </Container>
+  </Styled(Container)>
+</Loader>
+`;
+
+exports[`components/Loader --- Shallow render component should be the same as the last snapshot 1`] = `
+<Styled(Container)>
+  <h2>
+    Loading
+  </h2>
+  <p>
+    Loading Data please wait
+  </p>
+  <styled.div />
+</Styled(Container)>
+`;

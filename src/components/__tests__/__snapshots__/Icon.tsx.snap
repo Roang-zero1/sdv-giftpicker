@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/Icon --- Render component should be the same as the last snapshot 1`] = `
+.c0 {
+  max-width: 24px;
+}
+
+<Icon
+  gift={22}
+>
+  <styled.img
+    alt=""
+    src="Dandelion.png"
+  >
+    <img
+      alt=""
+      className="c0"
+      src="Dandelion.png"
+    />
+  </styled.img>
+</Icon>
+`;
+
+exports[`components/Icon --- Shallow render component should be the same as the last snapshot 1`] = `
+<styled.img
+  alt=""
+  src="Dandelion.png"
+/>
+`;

@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import tastes from '../data/GiftTastes.js';
+import tastes from '../data/GiftTastes.json';
 
-const categories_map = {
+const categoriesMap = {
   0: 'Love',
   1: 'Like',
   4: 'neutral'
@@ -30,15 +30,15 @@ HeaderRow.displayName = 'HeaderRow';
 export class GiftPicker extends Component {
   constructor(props) {
     super(props);
-    this.character = props.character || { selected: [] };
     this.renderGiftCategories = this.renderGiftCategories.bind(this);
   }
 
   render() {
     const { char } = this.props;
-    const character = this.character;
+    const character = this.props.character || { selected: [] };
     let gifts = [];
     let key = 0;
+
     for (let gift of character.selected) {
       gifts.push(<GiftButton gift={gift} char={char} key={key++} deselect />);
     }
@@ -47,8 +47,8 @@ export class GiftPicker extends Component {
       <Col id="gift-picker" xs="12">
         <HeaderRow
           className={classNames({
-            'mb-2': true,
-            'border-bottom': true
+            'border-bottom': true,
+            'mb-2': true
           })}
         >
           <Col xs="12" lg="4">
@@ -83,7 +83,7 @@ export class GiftPicker extends Component {
     }
     return (
       <Col xs="12" key={category}>
-        <h4>{categories_map[category]}</h4>
+        <h4>{categoriesMap[category]}</h4>
         <Row>{gifts}</Row>
       </Col>
     );

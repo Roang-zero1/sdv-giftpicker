@@ -1,5 +1,5 @@
 import * as charactersActions from '../actions/charactersActions';
-import * as itemsActions from '../actions/itemActions';
+import * as itemsActions from '../actions/itemsActions';
 import * as statusActions from '../actions/statusActions';
 
 import React, { Component } from 'react';
@@ -8,7 +8,7 @@ import { Button } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import giftIDs from '../data/Gifts';
-import giftTastes from '../data/GiftTastes';
+import giftTastes from '../data/GiftTastes.json';
 
 export class NoSaveButton extends Component {
   constructor(props) {
@@ -31,8 +31,8 @@ export class NoSaveButton extends Component {
   handleClick(event) {
     this.props.statusActions.setLoading(true);
     this.props.statusActions.setSaveGame(false);
-    for (let char in giftTastes) {
-      this.props.charactersActions.setGiftCount(char, 0);
+    for (let char of Object.keys(giftTastes)) {
+      this.props.charactersActions.setGiftCount({ char, count: 0 });
     }
     let items = {};
     for (let gift of giftIDs) {
@@ -47,10 +47,13 @@ export class NoSaveButton extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
+    charactersActions: bindActionCreators(charactersActions, dispatch),
     itemsActions: bindActionCreators(itemsActions, dispatch),
-    statusActions: bindActionCreators(statusActions, dispatch),
-    charactersActions: bindActionCreators(charactersActions, dispatch)
+    statusActions: bindActionCreators(statusActions, dispatch)
   };
 }
 
-export default connect(null, mapDispatchToProps)(NoSaveButton);
+export default connect(
+  null,
+  mapDispatchToProps
+)(NoSaveButton);

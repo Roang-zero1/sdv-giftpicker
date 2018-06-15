@@ -1,51 +1,53 @@
 import 'jest-styled-components';
 
 import ConnectedGiftButton, { GiftButton } from '../GiftButton';
-import { DESELECT_GIFT, SELECT_GIFT } from '../../actions/actionTypes';
 import { mount, shallow } from 'enzyme';
 
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import giftsData from '../../data/GiftsData';
+import giftsData from '../../data/GiftsData.json';
 import initialState from '../../reducers/initialState';
 import toJson from 'enzyme-to-json';
+import * as charactersActions from '../../actions/charactersActions';
+import { getType } from 'typesafe-actions';
 
 const giftID = 20;
 const charName = 'Lewis';
 
 const defaultProps = {
-  items: {},
   characters: { Lewis: {} },
+  items: {},
   status: { save: true }
 };
 
 describe('components/GiftButton --- Shallow render connected component', () => {
-  let shallowGiftButton;
+  let renderedCut;
   let props;
-  const giftButton = () => {
-    if (!shallowGiftButton) {
-      shallowGiftButton = shallow(
+
+  const cut = () => {
+    if (!renderedCut) {
+      renderedCut = shallow(
         <GiftButton gift={20} char={charName} {...props} />
       );
     }
-    return shallowGiftButton;
+    return renderedCut;
   };
 
   beforeEach(() => {
-    shallowGiftButton = undefined;
+    renderedCut = undefined;
     props = defaultProps;
   });
 
   it('should render the component', () => {
-    expect(giftButton()).toHaveLength(1);
-    expect(giftButton().find('Gift')).toHaveLength(1);
-    expect(giftButton().find('StyledButton')).toHaveLength(1);
-    expect(giftButton().find('GiftText')).toHaveLength(1);
-    expect(giftButton().find('Icon')).toHaveLength(1);
+    expect(cut()).toHaveLength(1);
+    expect(cut().find('Gift')).toHaveLength(1);
+    expect(cut().find('StyledButton')).toHaveLength(1);
+    expect(cut().find('GiftText')).toHaveLength(1);
+    expect(cut().find('Icon')).toHaveLength(1);
   });
 
   it('should render the component with a count', () => {
-    expect(giftButton().find('GiftCount')).toHaveLength(1);
+    expect(cut().find('GiftCount')).toHaveLength(1);
   });
 
   it('should render the component without a count', () => {
@@ -53,7 +55,7 @@ describe('components/GiftButton --- Shallow render connected component', () => {
       ...props,
       status: { save: false }
     };
-    expect(giftButton().find('GiftCount')).toHaveLength(0);
+    expect(cut().find('GiftCount')).toHaveLength(0);
   });
 
   it('should change the color for selected gifts', () => {
@@ -62,37 +64,38 @@ describe('components/GiftButton --- Shallow render connected component', () => {
       characters: { Lewis: { selected: [20] } }
     };
     expect(
-      giftButton()
+      cut()
         .find('StyledButton')
         .prop('color')
     ).toEqual('success');
   });
 
   it('should be the same as the last snapshot', () => {
-    expect(toJson(giftButton())).toMatchSnapshot();
+    expect(toJson(cut())).toMatchSnapshot();
   });
 });
 
 describe('components/GiftButton --- Render connected component', () => {
-  let renderedGiftButton;
+  let renderedCut;
   let props;
-  const giftButton = () => {
-    if (!renderedGiftButton) {
-      renderedGiftButton = mount(
+
+  const cut = () => {
+    if (!renderedCut) {
+      renderedCut = mount(
         <GiftButton gift={giftID} char={charName} {...props} />
       );
     }
-    return renderedGiftButton;
+    return renderedCut;
   };
 
   beforeEach(() => {
-    renderedGiftButton = undefined;
+    renderedCut = undefined;
     props = defaultProps;
   });
 
   it('should render the gift name', () => {
     expect(
-      giftButton()
+      cut()
         .find('GiftText')
         .text()
     ).toEqual(giftsData[giftID].displayName);
@@ -100,7 +103,7 @@ describe('components/GiftButton --- Render connected component', () => {
 
   it('should render the component with a count of zero', () => {
     expect(
-      giftButton()
+      cut()
         .find('GiftCount')
         .text()
     ).toEqual('0');
@@ -115,7 +118,7 @@ describe('components/GiftButton --- Render connected component', () => {
       }
     };
     expect(
-      giftButton()
+      cut()
         .find('GiftCount')
         .text()
     ).toEqual(`0`);
@@ -130,7 +133,7 @@ describe('components/GiftButton --- Render connected component', () => {
       }
     };
     expect(
-      giftButton()
+      cut()
         .find('GiftCount')
         .text()
     ).toEqual(`${count}`);
@@ -139,7 +142,7 @@ describe('components/GiftButton --- Render connected component', () => {
   it('should add an css order if the item is not in the current items', () => {
     expect(
       toJson(
-        giftButton()
+        cut()
           .find('Gift')
           .children()
           .first()
@@ -156,7 +159,7 @@ describe('components/GiftButton --- Render connected component', () => {
     };
     expect(
       toJson(
-        giftButton()
+        cut()
           .find('Gift')
           .children()
           .first()
@@ -165,7 +168,7 @@ describe('components/GiftButton --- Render connected component', () => {
   });
 
   it('should be the same as the last snapshot', () => {
-    expect(toJson(giftButton())).toMatchSnapshot();
+    expect(toJson(cut())).toMatchSnapshot();
   });
 });
 
@@ -174,7 +177,8 @@ describe('components/GiftButton --- Connected component tests', () => {
   let renderedGiftButton;
   let store;
   let props;
-  const giftButton = () => {
+
+  const cut = () => {
     const state = {
       ...initialState,
       ...defaultProps
@@ -199,13 +203,15 @@ describe('components/GiftButton --- Connected component tests', () => {
   });
 
   it('should add a gift on button press', () => {
-    let button = giftButton().find('Button');
+    let button = cut().find('Button');
     button.simulate('click');
     let actions = store.getActions();
     expect(actions[0]).toEqual({
-      char: charName,
-      gift: giftID,
-      type: SELECT_GIFT
+      payload: {
+        char: charName,
+        itemID: giftID
+      },
+      type: getType(charactersActions.selectGift)
     });
   });
 
@@ -214,13 +220,15 @@ describe('components/GiftButton --- Connected component tests', () => {
       ...props,
       deselect: true
     };
-    let button = giftButton().find('Button');
+    let button = cut().find('Button');
     button.simulate('click');
     let actions = store.getActions();
     expect(actions[0]).toEqual({
-      char: charName,
-      gift: giftID,
-      type: DESELECT_GIFT
+      payload: {
+        char: charName,
+        itemID: giftID
+      },
+      type: getType(charactersActions.deselectGift)
     });
   });
 });

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import giftsMetaData from '../data/GiftsData';
+import giftsMetaData from '../data/GiftsData.json';
 
 const Gift = styled(({ owned, ...rest }) => <Col {...rest} />)`
   ${props =>
@@ -65,13 +65,13 @@ export class GiftButton extends Component {
           }
           onClick={e => this.giftAction(e, char, gift, !deselect)}
           className={classNames({
-            row: true,
             'flex-nowrap': true,
             'ml-2': true,
-            'mr-2': true
+            'mr-2': true,
+            row: true
           })}
         >
-          <Col xs="1">
+          <Col xs="1" className="p-0">
             <Icon gift={gift} grayscale={!owned} />
           </Col>
           <GiftText>{giftsMetaData[gift].displayName}</GiftText>
@@ -83,11 +83,11 @@ export class GiftButton extends Component {
     );
   }
 
-  giftAction(event, char, gift, select) {
+  giftAction(event, char, itemID, select) {
     if (select) {
-      this.props.charactersActions.selectGift(char, gift);
+      this.props.charactersActions.selectGift({ char, itemID });
     } else {
-      this.props.charactersActions.deselectGift(char, gift);
+      this.props.charactersActions.deselectGift({ char, itemID });
     }
   }
 }
@@ -101,8 +101,8 @@ GiftButton.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    items: state.items,
     characters: state.characters,
+    items: state.items,
     status: state.status
   };
 }
@@ -113,4 +113,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GiftButton);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GiftButton);

@@ -1,11 +1,11 @@
 import ConnectedGiftPicker, { GiftPicker } from '../GiftPicker';
-import { mount, shallow } from 'enzyme';
 
 import GiftButton from '../GiftButton';
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import giftTastes from '../../data/GiftTastes';
+import giftTastes from '../../data/GiftTastes.json';
 import initialState from '../../reducers/initialState';
+import { shallow } from 'enzyme';
 
 const charName = 'Lewis';
 
@@ -38,7 +38,8 @@ describe('component/GiftButton --- Shallow rendered component', () => {
 describe('component/GiftButton --- Shallow rendered connected component', () => {
   const mockStore = configureStore();
   let renderedCut;
-  let store, state;
+  let store;
+  let state;
   const cut = () => {
     if (!renderedCut) {
       store = mockStore(state);
