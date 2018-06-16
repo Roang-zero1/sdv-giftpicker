@@ -1,5 +1,3 @@
-import * as navigationActions from '../actions/navigationActions';
-
 import * as React from 'react';
 import { Component } from 'react';
 import { Nav, NavItem } from 'reactstrap';
@@ -7,15 +5,9 @@ import { Nav, NavItem } from 'reactstrap';
 import * as classNames from 'classnames';
 import { connect } from 'react-redux';
 import { NavLink, RouteComponentProps, withRouter } from 'react-router-dom';
-import { bindActionCreators, Dispatch } from 'redux';
 import styled from 'styled-components';
 import { List } from 'styled-icons/fa-solid/List';
-import {
-  CharacterState,
-  IGiftTastes,
-  NavigationState,
-  RootState
-} from '../common/types';
+import { CharacterState, IGiftTastes, RootState } from '../common/types';
 
 import characterIcons from '../data/CharacterIcons';
 
@@ -54,25 +46,18 @@ const Img = styled.img`
   height: auto;
 `;
 
-export interface IDispatchProps {
-  navigationActions: typeof navigationActions;
-}
-
 export interface IStateProps {
   characters: CharacterState;
-  navigation: NavigationState;
 }
 
-export interface IProps
-  extends IDispatchProps,
-    IStateProps,
-    RouteComponentProps<any> {}
+export interface IProps extends IStateProps, RouteComponentProps<any> {}
 
 class Sidebar extends Component<IProps> {
   public render() {
+    const { characters } = this.props;
     const charactersLinks = [];
-    for (const char in this.props.characters) {
-      if (char in GiftTastes && this.props.characters[char].gifts < 2) {
+    for (const char in characters) {
+      if (char in GiftTastes && characters[char].gifts < 2) {
         charactersLinks.push(
           <NavItem key={char}>
             <SidebarLink
@@ -131,20 +116,8 @@ class Sidebar extends Component<IProps> {
 
 function mapStateToProps(state: RootState): IStateProps {
   return {
-    characters: state.characters,
-    navigation: state.navigation
+    characters: state.characters
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch): IDispatchProps {
-  return {
-    navigationActions: bindActionCreators(navigationActions, dispatch)
-  };
-}
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Sidebar)
-);
+export default withRouter(connect(mapStateToProps)(Sidebar));
