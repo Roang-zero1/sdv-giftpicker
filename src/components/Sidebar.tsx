@@ -44,6 +44,7 @@ const SideNav = styled(Nav)`
 `;
 
 const StyledList = List.extend`
+  color: rgba(255, 255, 255, 0.5);
   max-width: 24px;
   height: auto;
 `;
