@@ -33,6 +33,7 @@ const SidebarLink = styled(NavLink)`
 
 const SideNav = styled(Nav)`
   flex-wrap: nowrap;
+  padding-bottom: 2em;
 `;
 
 const StyledList = List.extend`
