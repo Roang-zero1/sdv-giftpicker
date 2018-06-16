@@ -23,6 +23,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { CheckSquare } from 'styled-icons/fa-regular/CheckSquare';
 import { Square } from 'styled-icons/fa-regular/Square';
 import { CharacterState, IGiftTastes, RootState } from '../common/types';
+import characterPortraits from '../data/CharacterPortraits';
 import Icon from './Icon';
 
 /* tslint:disable-next-line:no-var-requires */
@@ -110,11 +111,7 @@ class DataDisplay extends Component<IProps> {
               })}
               id={char}
             >
-              <CardImg
-                width="100%"
-                src={require('../images/characters/' + char + '.png')}
-                alt=""
-              />
+              <CardImg width="100%" src={characterPortraits[char]} alt="" />
               <CardBody>
                 <CardTitle>{char}</CardTitle>
                 <CardText>

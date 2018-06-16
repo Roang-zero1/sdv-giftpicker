@@ -17,6 +17,8 @@ import {
   RootState
 } from '../common/types';
 
+import characterIcons from '../data/CharacterIcons';
+
 /* tslint:disable-next-line:no-var-requires */
 const GiftTastes: IGiftTastes = require('../data/GiftTastes.json');
 
@@ -78,11 +80,7 @@ class Sidebar extends Component<IProps> {
               activeClassName="nav-active"
               to={`/character/${char}`}
             >
-              <Img
-                className="icon"
-                src={require('../images/characters/' + char + '.png')}
-                alt=""
-              />{' '}
+              <Img className="icon" src={characterIcons[char]} alt="" />{' '}
               <span
                 className={classNames({
                   'd-md-inline': true,

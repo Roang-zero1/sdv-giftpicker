@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import tastes from '../data/GiftTastes.json';
 
+import characterIcons from '../data/CharacterIcons';
+
 const categoriesMap = {
   0: 'Love',
   1: 'Like',
@@ -54,10 +56,7 @@ export class GiftPicker extends Component {
           <Col xs="12" lg="4">
             <h2>
               {char}
-              <CharacterImage
-                src={require('../images/characters/' + char + '.png')}
-                alt=""
-              />
+              <CharacterImage src={characterIcons[char]} alt="" />
             </h2>
           </Col>
           <Col xs="12" lg="8">
