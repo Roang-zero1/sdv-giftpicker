@@ -63,9 +63,12 @@
     "precommit": "git-format-staged --formatter 'prettier --stdin' './src/**/*.{js,ts,jsx,tsx,css}' && lint-staged"
   },
   "lint-staged": {
-    "./src/**/*.{js,ts,jsx,tsx,css}": [
+    "./src/**/*.{js,ts,jsx,tsx}": [
       "stylelint",
       "tslint"
+    ],
+    "./src/**/*.css": [
+      "stylelint"
     ]
   },
   "devDependencies": {
