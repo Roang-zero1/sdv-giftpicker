@@ -14,8 +14,9 @@ interface IImgProps {
 }
 
 const Img = styled<IImgProps, 'img'>('img')`
-  max-width: 24px;
   filter: ${props => (props.grayscale ? 'grayscale(100%)' : undefined)};
+  height: auto;
+  max-width: 24px;
 `;
 
 class Icon extends Component<IProps> {

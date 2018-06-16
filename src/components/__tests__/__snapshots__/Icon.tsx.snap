@@ -2,6 +2,7 @@
 
 exports[`components/Icon --- Render component should be the same as the last snapshot 1`] = `
 .c0 {
+  height: auto;
   max-width: 24px;
 }
 
