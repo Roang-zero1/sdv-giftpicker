@@ -2,9 +2,10 @@
 
 exports[`components/GiftButton --- Render connected component should be the same as the last snapshot 1`] = `
 .c2 {
-  max-width: 24px;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
+  height: auto;
+  max-width: 24px;
 }
 
 .c0 {
