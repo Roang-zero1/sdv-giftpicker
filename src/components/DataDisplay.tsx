@@ -20,9 +20,9 @@ import {
 import * as classNames from 'classnames';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
+import { CheckSquare } from 'styled-icons/fa-regular/CheckSquare';
+import { Square } from 'styled-icons/fa-regular/Square';
 import { CharacterState, IGiftTastes, RootState } from '../common/types';
-import CheckSquare from '../images/CheckSquare';
-import Square from '../images/Square';
 import Icon from './Icon';
 
 /* tslint:disable-next-line:no-var-requires */
@@ -40,6 +40,20 @@ export interface IProps
   extends IStateProps,
     IDispatchProps,
     RouteComponentProps<any> {}
+
+const GreenCheckSquare = CheckSquare.extend`
+  color: green;
+  height: auto;
+  margin-left: 0.4em;
+  max-width: 24px;
+`;
+
+const RedSquare = Square.extend`
+  color: darkred;
+  height: auto;
+  margin-left: 0.4em;
+  max-width: 24px;
+`;
 
 class DataDisplay extends Component<IProps> {
   public render() {
@@ -105,24 +119,24 @@ class DataDisplay extends Component<IProps> {
                 <CardTitle>{char}</CardTitle>
                 <CardText>
                   {charData.gifts > 0 ? (
-                    <CheckSquare
-                      className={classNames({ icon: true, checked: true })}
+                    <GreenCheckSquare
+                      className={classNames({ icon: true })}
                       aria-label="Gift 1 given"
                     />
                   ) : (
-                    <Square
-                      className={classNames({ icon: true, unchecked: true })}
+                    <RedSquare
+                      className={classNames({ icon: true })}
                       aria-label="Gift 1 missing"
                     />
                   )}
                   {charData.gifts > 1 ? (
-                    <CheckSquare
-                      className={classNames({ icon: true, checked: true })}
-                      aria-label="Gift 1 given"
+                    <GreenCheckSquare
+                      className={classNames({ icon: true })}
+                      aria-label="Gift 2 given"
                     />
                   ) : (
-                    <Square
-                      className={classNames({ icon: true, unchecked: true })}
+                    <RedSquare
+                      className={classNames({ icon: true })}
                       aria-label="Gift 2 missing"
                     />
                   )}

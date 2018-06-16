@@ -10,6 +10,17 @@ import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import tastes from '../data/GiftTastes.json';
+import { List } from 'styled-icons/fa-solid/List';
+import styled from 'styled-components';
+
+const StyledList = List.extend`
+  max-width: 24px;
+  height: auto;
+`;
+
+const SideNav = styled(Nav)`
+  flex-wrap: nowrap;
+`;
 
 class Sidebar extends Component {
   render() {
@@ -44,7 +55,7 @@ class Sidebar extends Component {
     }
     return (
       <div id="sidebar" className="bg-dark">
-        <Nav
+        <SideNav
           vertical
           className={classNames({
             'flex-column': true,
@@ -53,11 +64,7 @@ class Sidebar extends Component {
         >
           <NavItem key="overview">
             <Link className="nav-link" to="/">
-              <img
-                className="icon"
-                src={require('../images/th-list.png')}
-                alt=""
-              />{' '}
+              <StyledList />{' '}
               <span
                 className={classNames({
                   'd-md-inline': true,
@@ -69,7 +76,7 @@ class Sidebar extends Component {
             </Link>
           </NavItem>
           {charactersLinks}
-        </Nav>
+        </SideNav>
       </div>
     );
   }
