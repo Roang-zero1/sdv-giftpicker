@@ -56,7 +56,7 @@ class Sidebar extends Component<IProps> {
   public render() {
     const { characters } = this.props;
     const charactersLinks = [];
-    for (const char in characters) {
+    for (const char of Object.keys(characters).sort()) {
       if (char in GiftTastes && characters[char].gifts < 2) {
         charactersLinks.push(
           <NavItem key={char}>
