@@ -2,23 +2,6 @@
   padding: 5%;
 }
 
-#data-display .card .icon {
-  max-width: 24px;
-  height: auto;
-}
-
-#data-display .card-text .icon {
-  margin-left: 0.4em;
-}
-
-#data-display .card .icon.checked {
-  fill: green;
-}
-
-#data-display .card .icon.unchecked {
-  fill: darkred;
-}
-
 #data-display .btn .icon {
   pointer-events: none;
 }

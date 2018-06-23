@@ -3,11 +3,12 @@ import { getType } from 'typesafe-actions';
 import * as actions from '../actions/charactersActions';
 import { CharactersActions } from '../common/types';
 
+export interface ICharacter {
+  readonly selected: number[];
+  readonly gifts: number;
+}
 export interface IState {
-  readonly [character: string]: {
-    readonly selected: number[];
-    readonly gifts: number;
-  };
+  readonly [character: string]: ICharacter;
 }
 
 export const initialState: IState = {};

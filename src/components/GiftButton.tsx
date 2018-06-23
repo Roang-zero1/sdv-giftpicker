@@ -1,23 +1,50 @@
 import * as charactersActions from '../actions/charactersActions';
 
-import { Button, Col } from 'reactstrap';
-import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import * as React from 'react';
+import { Component } from 'react';
+import { Button, Col, ColProps } from 'reactstrap';
+import styled from 'styled-components';
 
-import Icon from './Icon';
-import PropTypes from 'prop-types';
+import * as classNames from 'classnames';
+import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import classNames from 'classnames';
-import { connect } from 'react-redux';
-import giftsMetaData from '../data/GiftsData.json';
+import {
+  CharacterState,
+  IGiftData,
+  ItemsState,
+  RootState,
+  StatusState
+} from '../common/types';
+import { ExcludeProps } from '../helpers/styled-component';
+import Icon from './Icon';
 
-const Gift = styled(({ owned, ...rest }) => <Col {...rest} />)`
-  ${props =>
-    !props.owned &&
-    css`
-      order: 1;
-    `};
+/* tslint:disable-next-line:no-var-requires */
+const giftsData: IGiftData = require('../data/GiftsData.json');
+
+export interface IDispatchProps {
+  charactersActions: typeof charactersActions;
+}
+
+export interface IStateProps {
+  characters: CharacterState;
+  items: ItemsState;
+  status: StatusState;
+}
+
+export interface IProps extends IDispatchProps, IStateProps {
+  char: string;
+  gift: number;
+  deselect?: boolean;
+}
+
+interface IGiftProp extends ColProps {
+  owned: boolean;
+}
+
+const Gift = styled(ExcludeProps(Col, ['owned']))<IGiftProp>`
+  order: ${props => (props.owned ? undefined : 1)};
 `;
+
 Gift.displayName = 'Gift';
 
 const StyledButton = styled(Button)`
@@ -43,13 +70,13 @@ const GiftCount = styled(Col)`
 `;
 GiftCount.displayName = 'GiftCount';
 
-export class GiftButton extends Component {
-  constructor(props) {
+export class GiftButton extends Component<IProps> {
+  constructor(props: IProps) {
     super(props);
     this.giftAction = this.giftAction.bind(this);
   }
 
-  render() {
+  public render() {
     const { char, characters, deselect, gift, items, status } = this.props;
     const owned = gift in items && items[gift] > 0;
     return (
@@ -59,11 +86,11 @@ export class GiftButton extends Component {
           color={
             deselect ||
             (characters[char].selected &&
-              characters[char].selected.includes(gift))
+              characters[char].selected.indexOf(gift) > -1)
               ? 'success'
               : 'dark'
           }
-          onClick={e => this.giftAction(e, char, gift, !deselect)}
+          onClick={this.giftAction.bind(this, char, gift, !deselect)}
           className={classNames({
             'flex-nowrap': true,
             'ml-2': true,
@@ -74,7 +101,7 @@ export class GiftButton extends Component {
           <Col xs="1" className="p-0">
             <Icon gift={gift} grayscale={!owned} />
           </Col>
-          <GiftText>{giftsMetaData[gift].displayName}</GiftText>
+          <GiftText>{giftsData[gift].displayName}</GiftText>
           {status.save && (
             <GiftCount xs="3">{owned ? items[gift] : 0}</GiftCount>
           )}
@@ -83,7 +110,7 @@ export class GiftButton extends Component {
     );
   }
 
-  giftAction(event, char, itemID, select) {
+  private giftAction(char: string, itemID: number, select: boolean) {
     if (select) {
       this.props.charactersActions.selectGift({ char, itemID });
     } else {
@@ -92,14 +119,7 @@ export class GiftButton extends Component {
   }
 }
 
-GiftButton.defaultProps = { deselect: false };
-GiftButton.propTypes = {
-  char: PropTypes.string.isRequired,
-  deselect: PropTypes.bool,
-  gift: PropTypes.number.isRequired
-};
-
-function mapStateToProps(state) {
+function mapStateToProps(state: RootState): IStateProps {
   return {
     characters: state.characters,
     items: state.items,
@@ -107,7 +127,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch): IDispatchProps {
   return {
     charactersActions: bindActionCreators(charactersActions, dispatch)
   };

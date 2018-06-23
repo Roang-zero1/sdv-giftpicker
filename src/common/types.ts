@@ -35,6 +35,15 @@ export interface IGiftTastes {
   };
 }
 
+export interface IGiftData {
+  [itemID: number]: {
+    cat: number;
+    displayName: string;
+    name: string;
+    price: number;
+  };
+}
+
 export type CharactersActions = ActionType<typeof charactersActions>;
 export type ItemsActions = ActionType<typeof itemsAction>;
 export type NavigationActions = ActionType<typeof navigationActions>;
