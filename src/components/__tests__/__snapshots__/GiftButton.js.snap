@@ -46,7 +46,6 @@ exports[`components/GiftButton --- Render connected component should be the same
       "Lewis": Object {},
     }
   }
-  deselect={false}
   gift={20}
   items={Object {}}
   status={
