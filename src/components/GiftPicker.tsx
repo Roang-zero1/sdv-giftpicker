@@ -1,14 +1,18 @@
+import * as React from 'react';
+import { Component } from 'react';
 import { Col, Row } from 'reactstrap';
-import React, { Component } from 'react';
 
-import GiftButton from './GiftButton';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import * as classNames from 'classnames';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import tastes from '../data/GiftTastes.json';
+import GiftButton from './GiftButton';
 
+import { IGiftTastes, RootState } from '../common/types';
 import characterIcons from '../data/CharacterIcons';
+import { ICharacter } from '../reducers/charactersReducer';
+
+/* tslint:disable-next-line:no-var-requires */
+const giftTastes: IGiftTastes = require('../data/GiftTastes.json');
 
 const categoriesMap = {
   0: 'Love',
@@ -29,20 +33,30 @@ const HeaderRow = styled(Row)`
 `;
 HeaderRow.displayName = 'HeaderRow';
 
-export class GiftPicker extends Component {
-  constructor(props) {
+export interface IStateProps {
+  character: ICharacter;
+}
+
+export interface IProps {
+  char: string;
+}
+
+export class GiftPicker extends Component<IProps & IStateProps> {
+  constructor(props: IProps & IStateProps) {
     super(props);
     this.renderGiftCategories = this.renderGiftCategories.bind(this);
   }
 
-  render() {
+  public render() {
     const { char } = this.props;
     const character = this.props.character || { selected: [] };
-    let gifts = [];
+    const gifts = [];
     let key = 0;
 
-    for (let gift of character.selected) {
-      gifts.push(<GiftButton gift={gift} char={char} key={key++} deselect />);
+    for (const gift of character.selected) {
+      gifts.push(
+        <GiftButton gift={gift} char={char} key={key++} deselect={true} />
+      );
     }
 
     return (
@@ -72,12 +86,12 @@ export class GiftPicker extends Component {
     );
   }
 
-  renderGiftCategories(category) {
+  public renderGiftCategories(category: number) {
     const { char } = this.props;
-    let characterTastes = tastes[char][category];
-    let gifts = [];
+    const characterTastes = giftTastes[char][category];
+    const gifts = [];
     let key = 0;
-    for (var gift of characterTastes) {
+    for (const gift of characterTastes) {
       gifts.push(<GiftButton gift={gift} char={char} key={key++} />);
     }
     return (
@@ -89,11 +103,7 @@ export class GiftPicker extends Component {
   }
 }
 
-GiftPicker.propTypes = {
-  char: PropTypes.string.isRequired
-};
-
-function mapStateToProps(state, props) {
+function mapStateToProps(state: RootState, props: IProps): IStateProps {
   const { char } = props;
   return {
     character: state.characters[char]
