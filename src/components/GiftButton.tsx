@@ -15,6 +15,7 @@ import {
   RootState,
   StatusState
 } from '../common/types';
+import { ExcludeProps } from '../helpers/styled-component';
 import Icon from './Icon';
 
 /* tslint:disable-next-line:no-var-requires */
@@ -40,7 +41,7 @@ interface IGiftProp extends ColProps {
   owned: boolean;
 }
 
-const Gift = styled(Col)<IGiftProp>`
+const Gift = styled(ExcludeProps(Col, ['owned']))<IGiftProp>`
   order: ${props => (props.owned ? undefined : 1)};
 `;
 
