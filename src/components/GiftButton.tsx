@@ -89,7 +89,7 @@ export class GiftButton extends Component<IProps> {
               ? 'success'
               : 'dark'
           }
-          onClick={this.giftAction.bind(char, gift, !deselect)}
+          onClick={this.giftAction.bind(this, char, gift, !deselect)}
           className={classNames({
             'flex-nowrap': true,
             'ml-2': true,
