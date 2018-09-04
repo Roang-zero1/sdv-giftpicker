@@ -13,17 +13,17 @@ interface IImgProps {
   grayscale?: boolean;
 }
 
-const Img = styled<IImgProps, 'img'>('img')`
+export const Icon = styled<IImgProps, 'img'>('img')`
   filter: ${props => (props.grayscale ? 'grayscale(100%)' : undefined)};
   height: auto;
   max-width: 24px;
 `;
 
-class Icon extends Component<IProps> {
+class GiftIcon extends Component<IProps> {
   public render() {
     const { gift, grayscale } = this.props;
-    return <Img grayscale={grayscale} src={images[gift]} alt="" />;
+    return <Icon grayscale={grayscale} src={images[gift]} alt="" />;
   }
 }
 
-export default Icon;
+export default GiftIcon;

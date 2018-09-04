@@ -16,7 +16,7 @@ import {
   StatusState
 } from '../common/types';
 import { ExcludeProps } from '../helpers/styled-component';
-import Icon from './Icon';
+import GiftIcon from './Icon';
 
 /* tslint:disable-next-line:no-var-requires */
 const giftsData: IGiftData = require('../data/GiftsData.json');
@@ -99,7 +99,7 @@ export class GiftButton extends Component<IProps> {
           })}
         >
           <Col xs="1" className="p-0">
-            <Icon gift={gift} grayscale={!owned} />
+            <GiftIcon gift={gift} grayscale={!owned} />
           </Col>
           <GiftText>{giftsData[gift].displayName}</GiftText>
           {status.save && (

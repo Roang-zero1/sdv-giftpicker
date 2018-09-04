@@ -24,7 +24,7 @@ import { CheckSquare } from 'styled-icons/fa-regular/CheckSquare';
 import { Square } from 'styled-icons/fa-regular/Square';
 import { CharacterState, IGiftTastes, RootState } from '../common/types';
 import characterPortraits from '../data/CharacterPortraits';
-import Icon from './Icon';
+import GiftIcon from './Icon';
 
 /* tslint:disable-next-line:no-var-requires */
 const GiftTastes: IGiftTastes = require('../data/GiftTastes.json');
@@ -87,7 +87,7 @@ class DataDisplay extends Component<IProps> {
                 'mr-1': true
               })}
             >
-              <Icon gift={gift} />
+              <GiftIcon gift={gift} />
             </Button>
           );
           giftCount++;

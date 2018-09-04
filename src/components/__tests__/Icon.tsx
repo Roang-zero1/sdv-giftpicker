@@ -4,7 +4,7 @@ import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 
 import toJson from 'enzyme-to-json';
 import * as React from 'react';
-import Icon, { IProps } from '../Icon';
+import GiftIcon, { IProps } from '../Icon';
 
 const gift = 22;
 
@@ -14,7 +14,7 @@ describe('components/Icon --- Shallow render component', () => {
 
   beforeEach(() => {
     props = { gift };
-    cut = shallow(<Icon {...props} />);
+    cut = shallow(<GiftIcon {...props} />);
   });
 
   it('should render the one component', () => {
@@ -32,7 +32,7 @@ describe('components/Icon --- Render component', () => {
 
   const cut = () => {
     if (!renderedCut) {
-      renderedCut = mount(<Icon {...props} />);
+      renderedCut = mount(<GiftIcon {...props} />);
     }
     return renderedCut;
   };
