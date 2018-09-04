@@ -10,6 +10,7 @@ import { List } from 'styled-icons/fa-solid/List';
 import { CharacterState, IGiftTastes, RootState } from '../common/types';
 
 import characterIcons from '../data/CharacterIcons';
+import { Icon } from './Icon';
 
 /* tslint:disable-next-line:no-var-requires */
 const GiftTastes: IGiftTastes = require('../data/GiftTastes.json');
@@ -36,15 +37,8 @@ const SideNav = styled(Nav)`
   padding-bottom: 2em;
 `;
 
-const StyledList = List.extend`
+const StyledList = styled(Icon.withComponent(List))`
   color: rgba(255, 255, 255, 0.5);
-  max-width: 24px;
-  height: auto;
-`;
-
-const Img = styled.img`
-  max-width: 24px;
-  height: auto;
 `;
 
 export interface IStateProps {
@@ -67,7 +61,7 @@ class Sidebar extends Component<IProps> {
               activeClassName="nav-active"
               to={`/character/${char}`}
             >
-              <Img className="icon" src={characterIcons[char]} alt="" />{' '}
+              <Icon className="icon" src={characterIcons[char]} alt="" />{' '}
               <span
                 className={classNames({
                   'd-md-inline': true,

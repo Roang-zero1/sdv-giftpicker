@@ -20,11 +20,12 @@ import {
 import * as classNames from 'classnames';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
+import styled from 'styled-components';
 import { CheckSquare } from 'styled-icons/fa-regular/CheckSquare';
 import { Square } from 'styled-icons/fa-regular/Square';
 import { CharacterState, IGiftTastes, RootState } from '../common/types';
 import characterPortraits from '../data/CharacterPortraits';
-import GiftIcon from './Icon';
+import GiftIcon, { Icon } from './Icon';
 
 /* tslint:disable-next-line:no-var-requires */
 const GiftTastes: IGiftTastes = require('../data/GiftTastes.json');
@@ -42,18 +43,14 @@ export interface IProps
     IDispatchProps,
     RouteComponentProps<any> {}
 
-const GreenCheckSquare = CheckSquare.extend`
-  color: green;
-  height: auto;
+const GreenCheckSquare = styled(Icon.withComponent(CheckSquare))`
   margin-left: 0.4em;
-  max-width: 24px;
+  color: green;
 `;
 
-const RedSquare = Square.extend`
-  color: darkred;
-  height: auto;
+const RedSquare = styled(Icon.withComponent(Square))`
   margin-left: 0.4em;
-  max-width: 24px;
+  color: darkred;
 `;
 
 class DataDisplay extends Component<IProps> {
