@@ -42,6 +42,7 @@ interface IGiftProp extends ColProps {
 }
 
 const Gift = styled(ExcludeProps(Col, ['owned']))<IGiftProp>`
+  // @ts-ignore Properties are not propagated to ts correctly
   order: ${props => (props.owned ? undefined : 1)};
 `;
 
@@ -80,6 +81,7 @@ export class GiftButton extends Component<IProps> {
     const { char, characters, deselect, gift, items, status } = this.props;
     const owned = gift in items && items[gift] > 0;
     return (
+      // @ts-ignore Properties are not propagated to ts correctly
       <Gift className="mb-1" xs="12" md="6" xl={!deselect && '4'} owned={owned}>
         <StyledButton
           outline={!deselect}
