@@ -122,7 +122,7 @@ exports[`components/GiftButton --- Render connected component should be the same
                   <div
                     className="p-0 col-1"
                   >
-                    <Icon
+                    <GiftIcon
                       gift={20}
                       grayscale={true}
                     >
@@ -137,7 +137,7 @@ exports[`components/GiftButton --- Render connected component should be the same
                           src="Leek.png"
                         />
                       </styled.img>
-                    </Icon>
+                    </GiftIcon>
                   </div>
                 </Col>
                 <GiftText>
@@ -223,7 +223,7 @@ exports[`components/GiftButton --- Shallow render connected component should be 
       }
       xs="1"
     >
-      <Icon
+      <GiftIcon
         gift={20}
         grayscale={true}
       />

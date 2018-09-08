@@ -6,7 +6,7 @@ exports[`components/Icon --- Render component should be the same as the last sna
   max-width: 24px;
 }
 
-<Icon
+<GiftIcon
   gift={22}
 >
   <styled.img
@@ -19,7 +19,7 @@ exports[`components/Icon --- Render component should be the same as the last sna
       src="Dandelion.png"
     />
   </styled.img>
-</Icon>
+</GiftIcon>
 `;
 
 exports[`components/Icon --- Shallow render component should be the same as the last snapshot 1`] = `
