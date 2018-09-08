@@ -43,7 +43,7 @@ describe('components/GiftButton --- Shallow render connected component', () => {
     expect(cut().find('Gift')).toHaveLength(1);
     expect(cut().find('StyledButton')).toHaveLength(1);
     expect(cut().find('GiftText')).toHaveLength(1);
-    expect(cut().find('Icon')).toHaveLength(1);
+    expect(cut().find('GiftIcon')).toHaveLength(1);
   });
 
   it('should render the component with a count', () => {
