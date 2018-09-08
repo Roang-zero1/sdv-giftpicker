@@ -140,7 +140,7 @@ class Upload extends Component<IProps> {
 
   private findGiftCount = (oDOM: Document) => {
     const nodes = oDOM.evaluate(
-      'SaveGame/player/friendships/item',
+      '//player/friendshipData/item',
       oDOM,
       null,
       XPathResult.ANY_TYPE,
@@ -157,7 +157,7 @@ class Upload extends Component<IProps> {
       ).stringValue;
 
       const count = oDOM.evaluate(
-        'value/ArrayOfInt/int[2]',
+        'value/Friendship/GiftsThisWeek',
         result,
         null,
         XPathResult.NUMBER_TYPE,
