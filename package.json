@@ -13,7 +13,7 @@
     "prettier": "^1.13.5",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
-    "react-app-rewire-hot-loader": "^1.0.1",
+    "react-app-rewire-hot-loader": "^2.0.0",
     "react-app-rewire-styled-components": "^3.0.2",
     "react-app-rewired": "^1.5.2",
     "react-dom": "^16.4.1",
