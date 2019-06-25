@@ -14,3 +14,7 @@ Using XNBExtract (https://community.playstarbound.com/threads/beginners-guide-to
 
 Generate the gift list using the parse_gifts.py python file.
 
+## TODO
+
+* Switch to [xnbcli](https://github.com/LeonBlade/xnbcli)
+* Parse json instead of yaml
