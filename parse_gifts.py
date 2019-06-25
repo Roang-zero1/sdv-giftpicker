@@ -30,7 +30,7 @@ def parse_yaml_file(filename):
     try:
         with open(filename, 'r') as input_file:
             try:
-                content = yaml.load(input_file)
+                content = yaml.load(input_file, Loader=yaml.SafeLoader)
                 logger.debug("%s read", filename)
             except yaml.YAMLError as exc:
                 logger.fatal(
@@ -68,7 +68,7 @@ def load_item_data():
             name = display_name.replace(' ', '_').replace(
                 '.', '').replace("'", '')
             name = urllib.parse.quote(name)
-            items[itemid] = {
+            items[int(itemid)] = {
                 'price': int(match.group(2)),
                 'displayName': display_name,
                 'name': name,
@@ -170,24 +170,18 @@ def main():
     gifts_images = {key: f'require("../images/items/{items_data[key]["name"]}.png")' for key in gifts}
 
     items_data = {k: v for k, v in items_data.items() if k in gifts}
-    with open(os.path.join('src', 'data', 'GiftsData.js'), 'w') as outfile:
-        outfile.write("export default ")
-        json.dump(items_data, outfile, sort_keys=True)
-        outfile.write(";\n")
-    with open(os.path.join('src', 'data', 'GiftTastes.js'), 'w') as outfile:
-        outfile.write("export default ")
-        json.dump(itemtastes, outfile, sort_keys=True)
-        outfile.write(";\n")
-    with open(os.path.join('src', 'data', 'GiftImages.js'), 'w') as outfile:
+    with open(os.path.join('src', 'data', 'GiftsData.json'), 'w') as outfile:
+        json.dump(items_data, outfile, sort_keys=True, indent=2)
+    with open(os.path.join('src', 'data', 'GiftTastes.json'), 'w') as outfile:
+        json.dump(itemtastes, outfile, sort_keys=True, indent=2)
+    with open(os.path.join('src', 'data', 'GiftImages.ts'), 'w') as outfile:
         outfile.write("export default ")
         outfile.write("{")
         for key, value in gifts_images.items():
             outfile.write(f'"{key}": {value},')
         outfile.write("};\n")
-    with open(os.path.join('src', 'data', 'Gifts.js'), 'w') as outfile:
-        outfile.write("export default ")
-        json.dump(gifts, outfile, sort_keys=True)
-        outfile.write(";\n")
+    with open(os.path.join('src', 'data', 'Gifts.json'), 'w') as outfile:
+        json.dump(gifts, outfile, sort_keys=True, indent=2)
 
 
 if __name__ == "__main__":
