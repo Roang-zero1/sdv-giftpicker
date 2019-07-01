@@ -82,7 +82,7 @@
     "@types/reactstrap": "^6.0.0",
     "@types/redux-mock-store": "^1.0.0",
     "awesome-typescript-loader": "^5.2.0",
-    "babel-plugin-styled-components": "^1.5.1",
+    "babel-plugin-styled-components": "^1.10.5",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.4.0",
     "enzyme-to-json": "^3.3.4",
