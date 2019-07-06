@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://Roang-zero1.github.io/sdv-giftpicker",
   "dependencies": {
-    "ajv": "^6.5.1",
+    "ajv": "^6.10.1",
     "ajv-keywords": "^3.2.0",
     "bootstrap": "^4.1.1",
     "classnames": "^2.2.6",
