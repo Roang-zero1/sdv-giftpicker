@@ -1,5 +1,7 @@
 # Stardew Valley Gift Chooser
 
+**This repository is archived**
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/Roang-zero1/sdv-giftpicker.svg)](https://greenkeeper.io/)
 
 This is an app that checks a uploaded save file for the game Stardew Valley and reports the gifts that you may give to the other characters.
